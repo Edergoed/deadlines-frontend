@@ -3,10 +3,10 @@ deadlinesApp.config([
         '$urlRouterProvider',
         function($stateProvider, $urlRouterProvider) {
             $stateProvider
-            .state('home', {
+            .state('deadlines', {
                 url: '/',
-                templateUrl: 'app/components/home/homeView.html',
-                controller: 'HomeCtrl',
+                templateUrl: 'app/components/deadlines/deadlinesView.html',
+                controller: 'DeadlinesCtrl',
             })
 
             $urlRouterProvider.otherwise('/');

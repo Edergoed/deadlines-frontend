@@ -1,7 +1,3 @@
 var deadlinesApp = angular.module('Deadlines', [
-    'ui.router',
-    'templates'
+    'ui.router'
     ])
-    .run(function ($rootScope){
-        $rootScope.endPoint = 'http://localhost:8000'
-    })

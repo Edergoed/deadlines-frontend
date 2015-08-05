@@ -8,22 +8,26 @@
 	<!--angular-->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
 
-	<!--angular-router-->	
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+	<!--angular-ui-router-->	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
 
 </head>
-<body data-ng-app>
+<body data-ng-app="Deadlines">
 	<div class="container">
-	<h1>Deadlines</h1>
-		<div data-ui-view>
+		<h1>Deadlines</h1>
+		<div class="content">
 
+
+			<div data-ui-view>
+
+			</div>
 		</div>		
 	</div>
 
 	<!--js-->
 	<script src="app/app.module.js"></script>
 	<script src="app/app.states.js"></script>
-	<script src="app/components/home/homeController.js"></script>
+	<script src="app/components/deadlines/deadlinesController.js"></script>
 
 	<!--vendor-->
 

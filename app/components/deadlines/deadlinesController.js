@@ -9,7 +9,7 @@ angular.module('Deadlines')
 		}
 
 		$scope.getAll = function(){
-			task.getAllDeadlines()
+			deadline.getAllDeadlines()
 			.then(function(res){
 				//success
 				$scope.deadlines = task.deadlineList;
