@@ -1,17 +1,32 @@
 <html>
-	<head>
-		<title>Deadlines</title>
+<head>
+	<title>Deadlines</title>
 
-		<link rel="stylesheet" href="assets/css/style.css">
-		
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+	<!--CSS-->
+	<link rel="stylesheet" href="assets/css/style.css">
 
-	</head>
-	<body data-ng-app>
-		<div class="container">
-			
-		</div>
-	</body>
-	<script src=""></script>
+	<!--angular-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+
+	<!--angular-router-->	
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+
+</head>
+<body data-ng-app>
+	<div class="container">
+	<h1>Deadlines</h1>
+		<div data-ui-view>
+
+		</div>		
+	</div>
+
+	<!--js-->
+	<script src="app/app.module.js"></script>
+	<script src="app/app.states.js"></script>
+	<script src="app/components/home/homeController.js"></script>
+
+	<!--vendor-->
+
+</body>
+
 </html>

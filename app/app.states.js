@@ -5,7 +5,7 @@ deadlinesApp.config([
             $stateProvider
             .state('home', {
                 url: '/',
-                templateUrl: 'home.html',
+                templateUrl: 'app/components/home/homeView.html',
                 controller: 'HomeCtrl',
             })
 
