@@ -3,14 +3,13 @@
 		<div id="menu" class="menuoff">nav here</div>
 	</div>
 	<div id="dynamic_left_content" class="dynamic_left_content">
-		<div class="dock">
-			<div id="hamburger" class="dock_button"><img id="hamburger_img" src="files/hamburger.svg" height="70px" width="32px"></div>
-			<div class="dock_button plus">plus here</div>
-gravatar here
+		<div class="dock" data-ng-include="'app/shares/doc/docView.html'">
 		</div>
 		<div id="list" data-ng-repeat="deadline in deadlineList">
-			<div id="{{deadline.deadline_id}}"class="" >
-				<p>{{deadline.deadline_id}}</p>
+			<div id="{{deadline.deadline_id}}"class="deadline" >
+				<div class="deadline_head">
+					<p>{{deadline.deadline_id}}</p>
+				</div>
 			</div>
 		</div>
 	</div>
