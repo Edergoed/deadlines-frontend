@@ -8,7 +8,10 @@
 			<div class="dock_button plus">plus here</div>
 gravatar here
 		</div>
-		<div id="list">
+		<div id="list" data-ng-repeat="deadline in deadlineList">
+			<div id="{{deadline.deadline_id}}"class="" >
+				<p>{{deadline.deadline_id}}</p>
+			</div>
 		</div>
 	</div>
 </div>

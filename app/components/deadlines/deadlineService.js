@@ -4,19 +4,34 @@ angular.module('Deadlines')
   var deadline = this;
   deadline.deadlineList = {};
 
+  // deadline.getAllDeadlines = function(){
+  // 	var defer = $q.defer();
+
+  // 	$http.get($rootScope.endPoint + '/deadlines')
+  // 	.success(function(res){
+  // 		deadline.deadlineList = res;
+  // 		defer.resolve(res);
+  // 	})
+  // 	.error(function(err, status){
+  // 		defer.reject(err);
+  // 	})
+
+  // 	return defer.promise;
+  // }
+
   deadline.getAllDeadlines = function(){
-  	var defer = $q.defer();
+   var defer = $q.defer();
 
-  	$http.get($rootScope.endPoint + '/deadlines')
-  	.success(function(res){
-  		deadline.deadlineList = res;
-  		defer.resolve(res);
-  	})
-  	.error(function(err, status){
-  		defer.reject(err);
-  	})
+   $http.get('http://deadlines.dev/testdata/deadline.json')
+   .success(function(res){
+     deadline.deadlineList = res;
+     defer.resolve(res);
+   })
+   .error(function(err, status){
+     defer.reject(err);
+   })
 
-  	return defer.promise;
+   return defer.promise;
   }
 
   deadline.createDeadline = function(deadline){

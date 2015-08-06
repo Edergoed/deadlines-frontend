@@ -1,7 +1,7 @@
 angular.module('Deadlines')
 	.controller('DeadlinesCtrl', function($scope, deadline){
 		$scope.init = function(){
-			//$scope.getAllDeadlines();
+			$scope.getAll();
 		}
 
 		$scope.create = function(){
@@ -12,7 +12,7 @@ angular.module('Deadlines')
 			deadline.getAllDeadlines()
 			.then(function(res){
 				//success
-				$scope.deadlines = task.deadlineList;
+				$scope.deadlineList = deadline.deadlineList;
 			}, function(res){
 				//error
 			})
