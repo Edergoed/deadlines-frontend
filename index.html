@@ -14,19 +14,16 @@
 </head>
 <body data-ng-app="Deadlines">
 	<div class="container">
-		<h1>Deadlines</h1>
 		<div class="content">
-
-
-			<div data-ui-view>
-
-			</div>
+			<div data-ui-view></div>
 		</div>		
+		<footer data-ng-include="'/app/shares/footer/footerView.html'" data-ng-controller="FooterCtrl"></footer>
 	</div>
 
 	<!--js-->
 	<script src="app/app.module.js"></script>
 	<script src="app/app.states.js"></script>
+	<script src="app/shares/footer/footerController.js"></script>
 	<script src="app/components/deadlines/deadlinesController.js"></script>
 
 	<!--vendor-->
