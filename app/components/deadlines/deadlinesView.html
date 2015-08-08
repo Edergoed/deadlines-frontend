@@ -1,6 +1,6 @@
 <div id="dynamic_left">
-	<div id="dynamic_left_menu"class="dynamic_left_content">
-		<div id="menu" class="menuoff">nav here</div>
+	<div id="dynamic_left_menu"class="dynamic_left_content" data-ng-controller="DocCtrl">
+		<div id="menu" class="menuoff" ng-class="DocVisible ? 'menuoff' : 'menuon'" ></div>
 	</div>
 	<div id="dynamic_left_content" class="dynamic_left_content">
 		<div class="dock" data-ng-include="'app/shares/doc/docView.html'">
@@ -8,7 +8,13 @@
 		<div id="list" data-ng-repeat="deadline in deadlineList">
 			<div id="{{deadline.deadline_id}}"class="deadline" >
 				<div class="deadline_head">
-					<p>{{deadline.deadline_id}}</p>
+
+					<div class="title">
+						{{ deadline.deadline_title }}<span class="count_down" style="float: right; text-align: right">03</span>
+					</div>
+					<div class="subject">{{ deadline.deadline_subtitle }}
+					<span style="text-transform: uppercase;"></span><span class="count_down_unit" style="float: right; text-align: right"><span>Weeks</span></span>
+					</div>
 				</div>
 			</div>
 		</div>
