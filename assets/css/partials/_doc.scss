@@ -29,7 +29,7 @@
             margin: 0 auto;
             padding: 20px 0 20px 0;
             display: block;
-            //@include transition(all .2s ease);
+            @include transition(all .2s ease);
         }
     }
     #inbox{
@@ -43,7 +43,7 @@
             margin: 0 auto;
             padding: 20px 0 20px 0;
             display: block;
-            //@include transition(all .2s ease);
+            @include transition(all .2s ease);
         }
     }
     .notifications{

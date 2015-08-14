@@ -1,6 +1,6 @@
-<div id="dynamic_left" data-ng-controller="DocCtrl">
+<div id="dynamic_left" data-ng-controller="NavCtrl">
 	<div id="dynamic_left_menu"class="dynamic_left_content" >
-		<div id="menu" class="" ng-class="DocVisible ? 'navoff' : 'navon'"  ></div>
+		<div id="nav" class="" ng-class="DocVisible ? 'navon' : 'navoff'" data-ng-include="'/app/shares/nav/navView.html'"></div>
 	</div>
 	<div id="dynamic_left_content" class="dynamic_left_content">
 		<div class="dock" data-ng-include="'app/shares/doc/docView.html'">

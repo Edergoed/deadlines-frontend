@@ -1,0 +1,24 @@
+@mixin transition($transition) {
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -ms-transition: $transition;
+    transition: $transition;
+}
+@mixin animation-duration($duration) {
+    -webkit-animation-duration: $duration;
+    -moz-animation-duration: $duration;
+    -ms-animation-duration: $duration;
+    animation-duration: $duration;
+}
+@mixin user-select($select) {
+    -webkit-user-select: $select;
+    -moz-user-select: $select;
+    -ms-user-select: $select;
+    user-select: $select;
+}
+@mixin animation-fill-mode($fill) {
+    -webkit-animation-fill-mode: $fill;
+    -moz-animation-fill-mode: $fill;
+    -ms-animation-fill-mode: $fill;
+    animation-fill-mode: $fill;
+}

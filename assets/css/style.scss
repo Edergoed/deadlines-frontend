@@ -1,6 +1,7 @@
 // Modules and Variables
-@import "modules/mixings";
+@import "modules/mixins";
 //partials
+@import "partials/typography";
 @import "partials/layout";
 @import "partials/deadlines";
 @import "partials/doc";
