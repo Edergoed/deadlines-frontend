@@ -1,12 +1,11 @@
 <div id="dynamic_left" data-ng-controller="NavCtrl">
-	<div id="dynamic_left_menu"class="dynamic_left_content" >
-		<div id="nav" class="" ng-class="DocVisible ? 'navon' : 'navoff'" data-ng-include="'/app/shares/nav/navView.html'"></div>
+	<div id="dynamic_left_menu"class="dynamic_left_content" data-ng-include="'/app/shares/nav/navView.html'">
 	</div>
 	<div id="dynamic_left_content" class="dynamic_left_content">
 		<div class="dock" data-ng-include="'app/shares/doc/docView.html'">
 		</div>
 		<div id="list" data-ng-repeat="deadline in deadlineList">
-			<div id="{{deadline.deadline_id}}"class="deadline" >
+			<div id="{{deadline.deadline_id}}"class="deadline" data-ng-click="getDeadline(deadline.deadline_id)">
 				<div class="deadline_head">
 
 					<div class="title">
@@ -22,6 +21,6 @@
 </div>
 <div id="dynamic_right">
 	<div id="dynamic_right_content">
-		content here
+		
 	</div>
 </div>

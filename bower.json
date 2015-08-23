@@ -1,0 +1,19 @@
+{
+  "name": "deadlines",
+  "version": "2.1.0",
+  "homepage": "https://github.com/Edergoed/deadlines-frontend",
+  "authors": [
+    "LiamEderzeel <liamederzeel@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ng-token-auth": "~0.0.28"
+  }
+}

@@ -34,6 +34,21 @@ angular.module('Deadlines')
    return defer.promise;
   }
 
+  deadline.getDeadline = function(id){
+    var defer = $q.defer();
+
+    $http.get($rootScope.endPoint + '/getDeadlines?dealineId=' + id)
+    .success(function(res){
+      deadline.deadline = res;
+      defer.resolve(res);
+    })
+    .error(function(err, status){
+      defer.reject(err);
+    })
+
+    return defer.promise;
+  }
+
   deadline.createDeadline = function(deadline){
   	var defer = $q.defer();
 
@@ -49,18 +64,19 @@ angular.module('Deadlines')
   }
 
   deadline.deleteDeadline = function(id){
-  	var defer = $q.defer();
+    var defer = $q.defer();
 
-  	$http.delete($rootScope.endPoint + '/deleteDeadline?dealineId=' + id)
-  	.success(function(res){
-  		defer.resolve(res);
-  	})
-  	.error(function(err, status){
-  		defer.reject(err);
-  	})
+    $http.delete($rootScope.endPoint + '/deleteDeadline?dealineId=' + id)
+    .success(function(res){
+      defer.resolve(res);
+    })
+    .error(function(err, status){
+      defer.reject(err);
+    })
 
-  	return defer.promise;
+    return defer.promise;
   }
+
 
   return deadline;
 
