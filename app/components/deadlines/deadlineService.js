@@ -1,8 +1,9 @@
 angular.module('Deadlines')
-  .service('deadline', function deadline($http, $q, $rootScope) {
+  .service('deadline', function deadline($http, $q, $rootScope, urls) {
   
   var deadline = this;
   deadline.deadlineList = {};
+  deadline.deadline = {};
 
   // deadline.getAllDeadlines = function(){
   // 	var defer = $q.defer();
@@ -22,7 +23,7 @@ angular.module('Deadlines')
   deadline.getAllDeadlines = function(){
    var defer = $q.defer();
 
-   $http.get('http://deadlines.dev/testdata/deadline.json')
+   $http.get(urls.BASE_API + '/deadlines')
    .success(function(res){
      deadline.deadlineList = res;
      defer.resolve(res);
@@ -37,7 +38,7 @@ angular.module('Deadlines')
   deadline.getDeadline = function(id){
     var defer = $q.defer();
 
-    $http.get($rootScope.endPoint + '/getDeadlines?dealineId=' + id)
+    $http.get(urls.BASE_API + '/deadlines/' + id)
     .success(function(res){
       deadline.deadline = res;
       defer.resolve(res);
@@ -52,7 +53,7 @@ angular.module('Deadlines')
   deadline.createDeadline = function(deadline){
   	var defer = $q.defer();
 
-  	$http.post($rootScope.endPoint + '/newDeadline', deadline)
+  	$http.post(urls.BASE_API + '/Deadlines', deadline)
   	.success(function(res){
   		defer.resolve(res);
   	})
@@ -66,7 +67,7 @@ angular.module('Deadlines')
   deadline.deleteDeadline = function(id){
     var defer = $q.defer();
 
-    $http.delete($rootScope.endPoint + '/deleteDeadline?dealineId=' + id)
+    $http.delete(urls.BASE_API + '/deleteDeadline?dealineId=' + id)
     .success(function(res){
       defer.resolve(res);
     })

@@ -1,0 +1,8 @@
+<div ng-controller="SignupCtrl">
+	<form class="form" name="SignupForm" novalidate ng-submit="signup()" >
+		<input type="email" name="email" placeholder="email" ng-model="user.email" required/>
+		<input type="password" name="password" placeholder="password" ng-model="user.password" required/>
+		<input type="password" name="password_confirmation" placeholder="password confirmation" ng-model="user.password_confirmation" required/>
+		<button type="submit">Log In</button>
+	</form>
+</div>

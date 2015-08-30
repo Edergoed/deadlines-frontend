@@ -24,6 +24,8 @@
 		</div>		
 		<footer data-ng-include="'/app/shares/footer/footerView.html'" data-ng-controller="FooterCtrl"></footer>
 	</div>
+	<li ng-show="!user.id"><a ng-href="/sign_in">Sign in</a></li> 
+<li ng-show="user.id"><a ng-click='signOut()'>Sign out</a></li>
 
 	<!--js-->
 	<script src="app/app.module.js"></script>
@@ -32,7 +34,10 @@
 	<script src="app/shares/nav/navController.js"></script>
 	<script src="app/components/deadlines/deadlinesController.js"></script>
 	<script src="app/components/deadlines/deadlineService.js"></script>
-	<script src="app/components/sessions/createsessionController.js"></script>
+	<script src="app/components/login/loginController.js"></script>
+	<script src="app/components/login/loginService.js"></script>
+	<script src="app/components/signup/signupController.js"></script>
+	<script src="app/components/signup/signupService.js"></script>
 
 	<!--vendor-->
 	
