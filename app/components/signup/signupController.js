@@ -1,6 +1,6 @@
 'use strict';
 
-deadlinesApp
+app
 	.controller('SignupCtrl', function($scope, signup){
 		$scope.signup = function(){
 			if($scope.SignupForm.$valid){

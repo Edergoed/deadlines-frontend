@@ -1,5 +1,7 @@
 angular.module('Deadlines')
-	.controller('DeadlinesCtrl', function($scope, deadline){
+	.controller('DeadlinesCtrl', function($scope, deadline, user){
+		$scope.user = user.current();
+
 		$scope.init = function(){
 			$scope.getAll();
 		}
@@ -36,6 +38,10 @@ angular.module('Deadlines')
 			}, function(res){
 				//error
 			})
+		}
+
+		$scope.showDeadline = function(object){
+			$scope.selectedDeadline = object;
 		}
 
 		//colorCal
@@ -85,7 +91,6 @@ angular.module('Deadlines')
 			}
 
 		}
-
 
 		$scope.remainingCalc = function(difference)
 			{
@@ -159,7 +164,5 @@ angular.module('Deadlines')
 		// function aContainsB (a, b) {
 		//     return a.indexOf(b) >= 0;
 		// }
-
-
 		$scope.init();
 	})

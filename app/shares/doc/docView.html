@@ -1,6 +1,15 @@
 <div id="hamburger" class="dock_button">
-<img id="hamburger_img" data-ng-click="show($event)" src="assets/img/hamburger.svg" height="70px" width="32px">
+	<img id="hamburger_img" data-ng-click="show($event)" src="assets/img/hamburger.svg" height="70px" width="32px">
+	
 </div>
+<div id="hamburger" ng-show="!user.id" class="dock_button">
+<div ><a ng-href="/signin">Sign in</a></div>
+</div>
+<div  id="hamburger" ng-show="user.id" class="dock_button">
+	<div ><a data-ng-click="logout()">Sign out</a></div>
+</div>
+<div id="avatar" ng-show="user.id"><img id="gravatar" src="{{user.gravatar}}"></div>
+
 <div class="dock_button plus"></div>
 
 <div id="avatar"></div>

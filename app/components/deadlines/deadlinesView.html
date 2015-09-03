@@ -4,15 +4,15 @@
 	<div id="dynamic_left_content" class="dynamic_left_content">
 		<div class="dock" data-ng-include="'app/shares/doc/docView.html'">
 		</div>
-		<div id="list" data-ng-repeat="deadline in deadlineList.deadlines">
-			<div id="{{deadline.deadline_id}}"class="deadline" data-ng-click="getDeadline(deadline.id)">
+		<div id="list">
+			<div data-ng-repeat="deadlineListItem in deadlineList.deadlines" id="{{deadlineListItem.id}}" class="deadline" ng-click="showDeadline(deadlineListItem.id)">
 				<div class="deadline_head">
 
 					<div class="title">
-						{{ deadline.title }}<span class="count_down" style="float: right; text-align: right">03</span>
+						{{ deadlineListItem.title }}<span class="count_down" style="float: right; text-align: right">03</span>
 					</div>
-					<div class="subject">{{ deadline.subtitle }}
-					<span style="text-transform: uppercase;"></span><span class="count_down_unit" style="float: right; text-align: right"><span>Weeks</span></span>
+					<div class="subject">{{ deadlineListItem.subtitle }}
+						<span style="text-transform: uppercase;"></span><span class="count_down_unit" style="float: right; text-align: right"><span>Weeks</span></span>
 					</div>
 				</div>
 			</div>
@@ -21,6 +21,6 @@
 </div>
 <div id="dynamic_right">
 	<div id="dynamic_right_content">
-		
+		<div data-ng-include="'app/components/deadlines/deadlineViewContentView.html'"></div>
 	</div>
 </div>

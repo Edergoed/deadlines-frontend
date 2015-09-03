@@ -1,46 +1,48 @@
 <html>
-<head>
-	<title>Deadlines</title>
+	<head>
+		<title>Deadlines</title>
 
-	<!--CSS-->
-	<link rel="stylesheet" href="assets/css/style.css">
+		<!--CSS-->
+		<link rel="stylesheet" href="assets/css/style.css">
 
-	<!--angular-->
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+		<!--angular-->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
 
-	<!--angular-ui-router-->	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+		<!--angular-ui-router-->	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
 
-	<script src="assets/js/angular-cookie/angular-cookie.js"></script>
-	<script src="assets/js/ng-token-auth/dist/ng-token-auth.js"></script>
+		<!--textAngular-->
+		<script scr="http://cdnjs.cloudflare.com/ajax/libs/textAngular/1.4.3/dist/textAngular.min.js"></script>
 
-	<base href="/">
+		<script src="assets/js/angular-cookie/angular-cookie.js"></script>
+		<script src="assets/js/ng-token-auth/dist/ng-token-auth.js"></script>
 
-</head>
-<body data-ng-app="Deadlines">
-	<div class="container">
-		<div class="content">
-			<div data-ui-view></div>
-		</div>		
-		<footer data-ng-include="'/app/shares/footer/footerView.html'" data-ng-controller="FooterCtrl"></footer>
-	</div>
-	<li ng-show="!user.id"><a ng-href="/sign_in">Sign in</a></li> 
-<li ng-show="user.id"><a ng-click='signOut()'>Sign out</a></li>
+		<base href="/">
 
-	<!--js-->
-	<script src="app/app.module.js"></script>
-	<script src="app/app.states.js"></script>
-	<script src="app/shares/footer/footerController.js"></script>
-	<script src="app/shares/nav/navController.js"></script>
-	<script src="app/components/deadlines/deadlinesController.js"></script>
-	<script src="app/components/deadlines/deadlineService.js"></script>
-	<script src="app/components/login/loginController.js"></script>
-	<script src="app/components/login/loginService.js"></script>
-	<script src="app/components/signup/signupController.js"></script>
-	<script src="app/components/signup/signupService.js"></script>
+	</head>
+	<body data-ng-app="Deadlines">
+		<div class="container" ng-controller="MainCtrl">
+			<div class="content">
+				<div data-ui-view></div>
+			</div>		
+			<footer data-ng-include="'/app/shares/footer/footerView.html'" data-ng-controller="FooterCtrl"></footer>
+		</div>
 
-	<!--vendor-->
-	
 
-</body>
+		<!--js-->
+		<script src="app/app.module.js"></script>
+		<script src="app/app.states.js"></script>
+		<script src="app/shares/main/mainController.js"></script>
+		<script src="app/shares/footer/footerController.js"></script>
+		<script src="app/shares/nav/navController.js"></script>
+		<script src="app/components/deadlines/deadlinesController.js"></script>
+		<script src="app/components/deadlines/deadlineService.js"></script>
+		<script src="app/components/login/loginController.js"></script>
+		<script src="app/components/login/loginService.js"></script>
+		<script src="app/components/signup/signupController.js"></script>
+		<script src="app/components/signup/signupService.js"></script>
+
+		<!--vendor-->
+
+	</body>
 </html>

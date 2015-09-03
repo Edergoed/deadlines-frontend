@@ -4,30 +4,30 @@ angular.module('Deadlines.config', [])
     'version': 0.2
 });
 
-var deadlinesApp = angular.module('Deadlines', [
+var app = angular.module('Deadlines', [
     'ui.router',
-    'ng-token-auth',
+    //'ng-token-auth',
     'Deadlines.config'
     ])
 
-deadlinesApp
-.config(function($authProvider) {
-    $authProvider.configure({
-        apiUrl: 'http://api.deadlinesapi.com:88'
-    });
-});
+app
+.constant('urls', {
+   BASE: 'http://deadlines.dev',
+   BASE_API: 'http://api.deadlinesapi.dev:88'
+})
+.constant('API', 'http://api.deadlinesapi.dev:88');
 
-deadlinesApp.run(['$rootScope', '$location', function($rootScope, $location) {
+app.run(['$rootScope', '$location', function($rootScope, $location) {
     $rootScope.$on('auth:login-success', function() {
         $location.path('/');
     });
 }]);
 
-deadlinesApp.run(function($http) {
+app.run(function($http) {
     $http.defaults.headers.common.Accept = 'application/vnd.deadlines.v1'
 });
 
-deadlinesApp.factory('authInterceptor', function (API, auth) {
+app.factory('authInterceptor', function (API, auth) {
     return {
         //automatically attach Authorization header
         request: function(config) {
@@ -41,19 +41,15 @@ deadlinesApp.factory('authInterceptor', function (API, auth) {
 
         //If a token was sent back, save it
         response: function(res) {
-            console.log("response");
-            console.log(res.data);
             if(res.config.url.indexOf(API) === 0 && res.data.token) {
                 auth.saveToken(res.data.token);
-                console.log("toke saved");
             }
 
             return res;
         },
     }
-});
-
-deadlinesApp.config(function($httpProvider) {
+})
+.config(function($httpProvider) {
     $httpProvider.interceptors.push('authInterceptor');
 });
 

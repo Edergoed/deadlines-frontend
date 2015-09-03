@@ -1,4 +1,4 @@
-deadlinesApp
+app
 .config([
     '$stateProvider',
     '$urlRouterProvider',
@@ -26,21 +26,7 @@ deadlinesApp
 
         $locationProvider.html5Mode(true);
         $urlRouterProvider.otherwise("/");
-
-
     }])
-.config(["$locationProvider", function($locationProvider) {
-  $locationProvider.html5Mode(true);
-}])
-
-.run(function ($rootScope){
-    $rootScope.endPoint = ''
-})
-.constant('urls', {
-   BASE: 'http://deadlines.dev',
-   BASE_API: 'http://api.deadlinesapi.dev:88'
-})
-.constant('API', 'http://api.deadlinesapi.dev:88')
 
 
 

@@ -1,5 +1,5 @@
 angular.module('Deadlines')
-	.controller('NavCtrl', function($scope, $rootScope) {
+	.controller('NavCtrl', function($scope, $rootScope, auth) {
 		$scope.DocVisible = false;
 
 		$scope.close = function(e) {
@@ -22,6 +22,14 @@ angular.module('Deadlines')
 	        });
 	        
 	    };
+	    $scope.logout = function(){
+			auth.logout()
+			// .then(function(res){
+			// 	//success
+			// }, function(){
+			// 	//error
+			// })
+		};
 	})
 	.run(function($rootScope) {
         document.addEventListener("keyup", function(e) {
