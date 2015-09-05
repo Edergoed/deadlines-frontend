@@ -33,7 +33,7 @@ angular.module('Deadlines')
 		$scope.getDeadline = function(id){
 			deadline.getDeadline(id)
 			.then(function(res){
-				$scope.deadline = deadline.deadline;
+				$scope.selectedDeadline = deadline.deadline;
 				//succes
 			}, function(res){
 				//error

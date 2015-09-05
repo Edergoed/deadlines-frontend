@@ -1,68 +1,68 @@
 angular.module('Deadlines')
 .service('deadline', function deadline($http, $q, $rootScope, urls) {
 
-	var deadline = this;
-	deadline.deadlineList = {};
-	deadline.deadline = {};
+    var deadline = this;
+    deadline.deadlineList = {};
+    deadline.deadline = {};
 
-	deadline.getAllDeadlines = function(){
-		var defer = $q.defer();
+    deadline.getAllDeadlines = function(){
+        var defer = $q.defer();
 
-		$http.get(urls.BASE_API + '/deadlines')
-		.success(function(res){
-			deadline.deadlineList = res;
-			defer.resolve(res);
-		})
-		.error(function(err, status){
-			defer.reject(err);
-		})
+        $http.get(urls.BASE_API + '/deadlines')
+        .success(function(res){
+            deadline.deadlineList = res;
+            defer.resolve(res);
+        })
+        .error(function(err, status){
+            defer.reject(err);
+        })
 
-		return defer.promise;
-	}
+        return defer.promise;
+    }
 
-	deadline.getDeadline = function(id){
-		var defer = $q.defer();
+    deadline.getDeadline = function(id){
+        var defer = $q.defer();
 
-		$http.get(urls.BASE_API + '/deadlines/' + id)
-		.success(function(res){
-			deadline.deadline = res;
-			defer.resolve(res);
-		})
-		.error(function(err, status){
-			defer.reject(err);
-		})
+        $http.get(urls.BASE_API + '/deadlines/' + id)
+        .success(function(res){
+            deadline.deadline = res;
+            defer.resolve(res);
+        })
+        .error(function(err, status){
+            defer.reject(err);
+        })
 
-		return defer.promise;
-	}
+        return defer.promise;
+    }
 
-	deadline.createDeadline = function(deadline){
-		var defer = $q.defer();
+    deadline.createDeadline = function(deadline){
+        var defer = $q.defer();
 
-		$http.post(urls.BASE_API + '/Deadlines', deadline)
-		.success(function(res){
-			defer.resolve(res);
-		})
-		.error(function(err, status){
-			defer.reject(err);
-		})
+        $http.post(urls.BASE_API + '/Deadlines', deadline)
+        .success(function(res){
+            defer.resolve(res);
+        })
+        .error(function(err, status){
+            defer.reject(err);
+        })
 
-		return defer.promise;
-	}
+        return defer.promise;
+    }
 
-	deadline.deleteDeadline = function(id){
-		var defer = $q.defer();
+    deadline.deleteDeadline = function(id){
+        var defer = $q.defer();
 
-		$http.delete(urls.BASE_API + '/deleteDeadline?dealineId=' + id)
-		.success(function(res){
-			defer.resolve(res);
-		})
-		.error(function(err, status){
-			defer.reject(err);
-		})
+        $http.delete(urls.BASE_API + '/deleteDeadline?dealineId=' + id)
+        .success(function(res){
+            defer.resolve(res);
+        })
+        .error(function(err, status){
+            defer.reject(err);
+        })
 
-		return defer.promise;
-	}
+        return defer.promise;
+    }
 
-	return deadline;
+    return deadline;
 
 });

@@ -5,7 +5,7 @@
 		<div class="dock" data-ng-include="'app/shares/doc/docView.html'">
 		</div>
 		<div id="list">
-			<div data-ng-repeat="deadlineListItem in deadlineList.deadlines" id="{{deadlineListItem.id}}" class="deadline" ng-click="showDeadline(deadlineListItem.id)">
+			<div data-ng-repeat="deadlineListItem in deadlineList.deadlines" id="{{deadlineListItem.id}}" class="deadline" ng-click="getDeadline(deadlineListItem.id)">
 				<div class="deadline_head">
 
 					<div class="title">
