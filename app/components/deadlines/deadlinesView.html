@@ -1,18 +1,20 @@
 <div id="dynamic_left" data-ng-controller="NavCtrl">
-	<div id="dynamic_left_menu"class="dynamic_left_content" data-ng-include="'/app/shares/nav/navView.html'">
-	</div>
+	<!-- <div id="dynamic_left_menu"class="dynamic_left_content" data-ng-include="'/app/shares/nav/navView.html'">
+	</div> -->
 	<div id="dynamic_left_content" class="dynamic_left_content">
-		<div class="dock" data-ng-include="'app/shares/doc/docView.html'">
-		</div>
+		<!-- <div class="dock" data-ng-include="'app/shares/doc/docView.html'">
+		</div> -->
 		<div id="list">
-			<div data-ng-repeat="deadlineListItem in deadlineList.deadlines" id="{{deadlineListItem.id}}" class="deadline" ng-click="showDeadline(deadlineListItem.id)">
-				<div class="deadline_head">
+			<div data-ng-repeat="deadlineListItem in deadlineList.deadlines" class="list_wrapper">
+				<div id="{{deadlineListItem.id}}" class="deadline" ng-click="showDeadline(deadlineListItem.id)" data-distance="{{deadlineListItem.data_distance}}">
+					<div class="deadline_head">
 
-					<div class="title">
-						{{ deadlineListItem.title }}<span class="count_down" style="float: right; text-align: right">03</span>
-					</div>
-					<div class="subject">{{ deadlineListItem.subtitle }}
-						<span style="text-transform: uppercase;"></span><span class="count_down_unit" style="float: right; text-align: right"><span>Weeks</span></span>
+						<div class="title">
+							{{ deadlineListItem.title }}<span class="count_down" style="float: right; text-align: right">03</span>
+						</div>
+						<div class="subject">{{ deadlineListItem.subtitle }}
+							<span style="text-transform: uppercase;"></span><span class="count_down_unit" style="float: right; text-align: right"><span>Weeks</span></span>
+						</div>
 					</div>
 				</div>
 			</div>
