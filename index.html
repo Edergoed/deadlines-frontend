@@ -19,6 +19,7 @@
 
         <base href="/">
 
+<<<<<<< HEAD
     </head>
     <body data-ng-app="Deadlines">
         <div class="container" ng-controller="MainCtrl">
@@ -43,6 +44,51 @@
         <script src="app/components/signup/signupService.js"></script>
 
         <!--vendor-->
+=======
+	</head>
+	<body data-ng-app="Deadlines">
+
+		<div data-ng-include="'/app/shares/nav/navView.html'">
+		</div>
+
+		<div class="container" ng-controller="MainCtrl">
+			<div class="content">
+				<div data-ui-view></div>
+			</div>		
+			<!-- <footer data-ng-include="'/app/shares/footer/footerView.html'" data-ng-controller="FooterCtrl"></footer> -->
+		</div>
+
+
+		<!--js-->
+		<!-- deadline color calculation --><script src="assets/js/color.js"></script>
+		<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+		
+		<script src="app/app.module.js"></script>
+		<script src="app/app.states.js"></script>
+		<script src="app/shares/main/mainController.js"></script>
+		<script src="app/shares/footer/footerController.js"></script>
+		<script src="app/shares/nav/navController.js"></script>
+		<script src="app/components/deadlines/deadlinesController.js"></script>
+		<script src="app/components/deadlines/deadlineService.js"></script>
+		<script src="app/components/login/loginController.js"></script>
+		<script src="app/components/login/loginService.js"></script>
+		<script src="app/components/signup/signupController.js"></script>
+		<script src="app/components/signup/signupService.js"></script>
+
+		<script>
+			$(document).ready(function(){
+				// setTimeout(getTime, 400);
+				setTimeout(function() { Color = setInterval(getCol, 6000); }, 2000);
+				setTimeout(function() { Timer = setInterval(getTime, 4000); }, 2000);
+				// setTimeout(playIntro, 200);
+				getTime();
+				getCol();
+
+			});
+		</script>
+
+		<!--vendor-->
+>>>>>>> 77cf4a98e66c3d98161e3f0cdc8dfe049b6fe92e
 
     </body>
 </html>
