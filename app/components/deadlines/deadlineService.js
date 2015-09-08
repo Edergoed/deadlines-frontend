@@ -12,7 +12,7 @@ angular.module('Deadlines')
         $http.get('testdata/test.json')
         .success(function(res){
             deadline.deadlineList = res;
-            defer.resolve(res);
+            setTimeout(function(){defer.resolve(res)},1000);
         })
         .error(function(err, status){
             defer.reject(err);

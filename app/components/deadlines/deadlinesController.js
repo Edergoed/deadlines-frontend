@@ -18,14 +18,14 @@ angular.module('Deadlines')
         deadline.getAllDeadlines()
         .then(function(res){
             //success
+            setTimeout(function(){
+        $scope.getCol();
+        $scope.setDistance();
+            }, 1);
             $scope.deadlineList = deadline.deadlineList;
         }, function(res){
             //error
-        }).finally(function(){
-        $scope.getCol();
-        $scope.setDistance();
         })
-
     }
 
     $scope.deleteDeadline = function(id){
