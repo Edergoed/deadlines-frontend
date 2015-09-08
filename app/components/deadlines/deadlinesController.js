@@ -8,8 +8,6 @@ angular.module('Deadlines')
 
     $scope.init = function(){
         $scope.getAll();
-        $scope.getCol();
-        $scope.setDistance();
     }
 
     $scope.create = function(){
@@ -21,15 +19,13 @@ angular.module('Deadlines')
         .then(function(res){
             //success
             $scope.deadlineList = deadline.deadlineList;
-            // $scope.getCol();
-            // $scope.setDistance();
-
-            // setTimeout(function() { Color = setInterval($scope.getCol, 4000); }, 4000);
-            // setTimeout(function() { $scope.setDistance(); }, 2000);
-
         }, function(res){
             //error
+        }).finally(function(){
+        $scope.getCol();
+        $scope.setDistance();
         })
+
     }
 
     $scope.deleteDeadline = function(id){
