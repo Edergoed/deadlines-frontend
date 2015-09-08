@@ -8,6 +8,8 @@ angular.module('Deadlines')
 
     $scope.init = function(){
         $scope.getAll();
+        $scope.getCol();
+        $scope.setDistance();
     }
 
     $scope.create = function(){
@@ -19,6 +21,12 @@ angular.module('Deadlines')
         .then(function(res){
             //success
             $scope.deadlineList = deadline.deadlineList;
+            // $scope.getCol();
+            // $scope.setDistance();
+
+            // setTimeout(function() { Color = setInterval($scope.getCol, 4000); }, 4000);
+            // setTimeout(function() { $scope.setDistance(); }, 2000);
+
         }, function(res){
             //error
         })
@@ -61,13 +69,14 @@ angular.module('Deadlines')
     //colorCal
 
     $scope.getCol = function(){
+        console.log("getCol executed");
         var deadline = document.getElementsByClassName('deadline');
         for(i=0; i<deadline.length; i++){
             var data = deadline[i].getAttribute("data-distance");
             var changeData = deadline[i].setAttribute("data-distance", data-60);
 
             // var background = deadline[i].getAttribute("style");
-            var newImage = colCalc(data, deadline, i);
+            var newImage = $scope.colCalc(data, deadline, i);
             var changeData = deadline[i].setAttribute("style", "background-color:"+newImage);
 
 
@@ -77,7 +86,7 @@ angular.module('Deadlines')
                     deadline[i].parentNode.setAttribute("style", "background-color: #FE2746"); 
                     if(data < 0){
                         var deadline_class = deadline[i].className;
-                        if(aContainsB(deadline_class, 'hide_deadline')){
+                        if($scope.aContainsB(deadline_class, 'hide_deadline')){
 
                         }else{
                             deadline[i].className = deadline[i].className + " hide_deadline";
@@ -98,7 +107,7 @@ angular.module('Deadlines')
             for(i=0; i<deadline.length; i++){
                 var data = deadline[i].getAttribute("data-distance");
                 // var background = deadline[i].getAttribute("style");
-                var time = remainingCalc(data);
+                var time = $scope.remainingCalc(data);
                 countdown[i].innerHTML = time[0];
                 unit[i].innerHTML = time[1];
             }
@@ -176,6 +185,7 @@ angular.module('Deadlines')
     }
 
     $scope.setDistance = function(){
+        console.log("setDistance executed");
         var deadline = document.getElementsByClassName('deadline');
         for(i=0; i<deadline.length; i++){
             var data = deadline[i].getAttribute("data-deadline");
@@ -187,7 +197,7 @@ angular.module('Deadlines')
             console.log("set deadline time to " + distance + " of deadline " + deadline[i] );
             console.log(deadline.length + " "+ i + " " + fromTime + " " +toTime);
             // getTime();
-            setInterval(getTime, 4000);
+            setInterval($scope.getTime, 4000);
     }
 }
 
