@@ -20,8 +20,9 @@ angular.module('Deadlines')
             //success
             setTimeout(function(){
         $scope.getCol();
+        setTimeout(function() { Color = setInterval(getCol, 60000); }, 60000);
         $scope.setDistance();
-            }, 1);
+            }, 0);
             $scope.deadlineList = deadline.deadlineList;
         }, function(res){
             //error
@@ -192,8 +193,8 @@ angular.module('Deadlines')
             deadline[i].setAttribute("data-distance", distance);
             console.log("set deadline time to " + distance + " of deadline " + deadline[i] );
             console.log(deadline.length + " "+ i + " " + fromTime + " " +toTime);
-            // getTime();
-            setInterval($scope.getTime, 4000);
+            $scope.getTime();
+            setInterval($scope.getTime, 60000);
     }
 }
 
