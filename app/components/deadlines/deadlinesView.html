@@ -2,7 +2,7 @@
     <div id="dynamic_left_content" class="dynamic_left_content">
         <div id="list">
             <div class="list_wrapper" data-ng-repeat="deadlineListItem in deadlineList.deadlines">
-                <div id="{{deadlineListItem.id}}" class="deadline" data-ng-click="getDeadline(deadlineListItem.id)" data-distance="{{deadlineListItem.data_distance}}">
+                <div id="{{deadlineListItem.id}}" class="deadline" data-ng-click="getDeadline(deadlineListItem.id)" data-distance="{{deadlineListItem.data_distance}}" data-deadline="{{deadlineListItem.deadline}}">
                     <div class="deadline_head">
                         <div class="title">
                             {{ deadlineListItem.title }}

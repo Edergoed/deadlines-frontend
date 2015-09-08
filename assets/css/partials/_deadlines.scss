@@ -18,6 +18,11 @@
     float: left;
 }
 
+.hide_deadline {
+  height: 0px !important; 
+  transition: all .2s;
+}
+
 #dynamic_right
 {
     width: 100%;

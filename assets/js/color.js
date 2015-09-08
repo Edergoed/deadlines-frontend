@@ -1,3 +1,19 @@
+function setDistance(){
+	var deadline = document.getElementsByClassName('deadline');
+	for(i=0; i<deadline.length; i++){
+		var data = deadline[i].getAttribute("data-deadline");
+		var fromTime = new Date();
+		var toTime = new Date(data);
+
+		var distance = toTime.getTime()/1000 - fromTime.getTime()/1000;
+		deadline[i].setAttribute("data-distance", distance);
+		console.log("set deadline time to " + distance + " of deadline " + deadline[i] );
+		console.log(deadline.length + " "+ i + " " + fromTime + " " +toTime);
+		// getTime();
+		setInterval(getTime, 4000);
+	}
+}
+
 function getCol(){
 	var deadline = document.getElementsByClassName('deadline');
 	for(i=0; i<deadline.length; i++){

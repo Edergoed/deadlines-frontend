@@ -25,7 +25,7 @@ body {
   background-color: #1c1d1e; }
 
 .container {
-  height: calc(100% - 32px);
+  height: calc(100% - 60px);
   margin: 0;
   margin-left: 0 auto;
   margin-right: 0 auto;
@@ -87,6 +87,10 @@ footer {
 #dynamic_left::-webkit-scrollbar {
   width: 0px;
   float: left; }
+
+.hide_deadline {
+  height: 0px !important;
+  transition: all .2s; }
 
 #dynamic_right {
   width: 100%;
