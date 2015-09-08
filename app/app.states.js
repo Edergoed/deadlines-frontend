@@ -22,7 +22,13 @@ app
             templateUrl: 'app/components/signup/signupView.html',
             controller: 'SignupCtrl'
 
+        }).state('deadlineShow', {
+            url: '/deadline/:deadlineID',
+            templateUrl: 'app/components/signup/signupView.html',
+            controller: 'DeadlinesCtrl'
         });
+
+
 
         $locationProvider.html5Mode(true);
         $urlRouterProvider.otherwise("/");

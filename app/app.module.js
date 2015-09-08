@@ -6,9 +6,7 @@ angular.module('Deadlines.config', [])
 
 var app = angular.module('Deadlines', [
     'ui.router',
-    //'ng-token-auth',
     'Deadlines.config',
-    'textAngular'
     ])
 
 app

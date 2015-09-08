@@ -1,80 +1,86 @@
 body {
-  color: #fff;
-  font-family: Roboto-Regular;
-  height: 1vh;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #1c1d1e;
+    color: #fff;
+    font-family: Roboto-Regular;
+    height: 1vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #1c1d1e;
 }
 
 .container
 {
-  height: calc(100% - 32px);
-  margin: 0;
-  margin-left: 0 auto;
-  margin-right: 0 auto;
-  width: 100%;
+    height: calc(100% - 32px);
+    margin: 0;
+    margin-left: 0 auto;
+    margin-right: 0 auto;
+    width: 100%;
 
-  position: absolute;
+    position: absolute;
 }
 .content
 {
-  width: 100%;
-  margin: 0 auto;
-  // margin-top: 32px;
-  // height: calc(100% - 64px);
-  height: 100%;
-  display: block;
+    width: 100%;
+    margin: 0 auto;
+    // margin-top: 32px;
+    // height: calc(100% - 64px);
+    height: 100%;
+    display: block;
+}
+
+.gravatar {
+    border-radius: 100%;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
 }
 
 footer
 {
-  height: 64px;
-  text-align: center;
-  span
-  {
-   color: #777777;
-   font-size: 13px;
-   line-height: 64px;
- }
+    height: 64px;
+    text-align: center;
+    span
+    {
+        color: #777777;
+        font-size: 13px;
+        line-height: 64px;
+    }
 }
 
 @media (min-width: 740px) {
-  #dynamic_right
-  {
-    width: 61.80%;
-  }
-  #dynamic_left
-  {
-    width: 38.20%;
-  }
-  .content
-  {
-    width: 90%;//margin-bottom: 64px;
-  }
-  .content
-  {
-    width: 100%;
-  }
+    #dynamic_right
+    {
+        width: 61.80%;
+    }
+    #dynamic_left
+    {
+        width: 38.20%;
+    }
+    .content
+    {
+        width: 90%;//margin-bottom: 64px;
+    }
+    .content
+    {
+        width: 100%;
+    }
 }
 
 @media (min-width: 1120px)
 {
-  .container
-  {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    .container
+    {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
 
-  }
-  .content
-  {
-    width: 1118px;
-  }
+    }
+    .content
+    {
+        width: 1118px;
+    }
 
 
-  .content {
-    width: 1118px;
-  }
+    .content {
+        width: 1118px;
+    }
 }

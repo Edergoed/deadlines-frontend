@@ -38,6 +38,11 @@ body {
   height: 100%;
   display: block; }
 
+.gravatar {
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%; }
+
 footer {
   height: 64px;
   text-align: center; }
