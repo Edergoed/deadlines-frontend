@@ -1,7 +1,6 @@
 angular.module('Deadlines')
 .controller('DeadlinesCtrl', function($scope, deadline, user){
     $scope.user = user.current();
-    $scope.deadlineState = 'view';
 
     $scope.deadlineChangeState = function(state){
         $scope.deadlineState = state;
