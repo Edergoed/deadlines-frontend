@@ -38,6 +38,7 @@ angular.module('Deadlines')
     $scope.getDeadline = function(id){
         deadline.getDeadline(id)
         .then(function(res){
+            $scope.deadlineChangeState('view');
             $scope.selectedDeadline = deadline.deadline;
             //succes
         }, function(res){
