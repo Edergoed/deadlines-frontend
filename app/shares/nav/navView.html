@@ -1,12 +1,7 @@
-<!-- <div id="nav" class="" ng-class="DocVisible ? 'navon' : 'navoff'" >
-	<div class="dock">
-		<div id="back"><img id="hamburger_img" src="assets/img/back.svg" data-ng-click="close($event)" height="70px" width="32px"></div>
-	</div>
-</div> -->
-
 <div id="nav">
-	<div class="nav_item">Add deadline</div>
-	<div class="nav_item">Archive</div>
-	<div class="nav_item">Timetable</div>
-	<div class="nav_item" style="float: right;">Sign in</div>
+    <div class="nav_item">Add deadline</div>
+    <div class="nav_item">Archive</div>
+    <div class="nav_item">Timetable</div>
+    <a class="nav_item" style="float: right;" ng-show="user.id" data-ng-href="/signin">Sign in</a>
+    <a class="nav_item" style="float: right;" ng-show="!user.id" data-ng-click="logout()">Sign out</a>
 </div>
