@@ -28,6 +28,7 @@ app
 	}
 
 	this.logout = function() {
+        console.log("delet token");
 		$window.localStorage.removeItem('jwtToken');
 	}
 })

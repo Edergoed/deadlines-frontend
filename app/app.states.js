@@ -19,7 +19,6 @@ app
 
         }).state('signout', {
             url: '/signout',
-            templateUrl: 'app/components/login/loginView.html',
             controller: 'LoginCtrl'
 
         }).state('signup', {

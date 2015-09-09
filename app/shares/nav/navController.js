@@ -1,44 +1,42 @@
 angular.module('Deadlines')
-	.controller('NavCtrl', function($scope, $rootScope, auth) {
-		$scope.DocVisible = false;
+.controller('NavCtrl', function($scope, $rootScope, auth) {
+    $scope.DocVisible = false;
 
-		$scope.close = function(e) {
-			$scope.DocVisible = false;
-			console.log('close');
-		};
+    $scope.close = function(e) {
+        $scope.DocVisible = false;
+        console.log('close');
+    };
 
-		$scope.show = function(e) {
-			$scope.DocVisible = true;
-			e.stopPropagation();
-			console.log('open');
-		};
+    $scope.show = function(e) {
+        $scope.DocVisible = true;
+        e.stopPropagation();
+        console.log('open');
+    };
 
-		//$rootScope.$on("documentClicked", _close);
-	    //$rootScope.$on("escapePressed", _close);
+    $scope.logout = function(){
+        console.log("test");
+        auth.logout();
+        $scope.$digest();
+    };
 
-	    function _close() {
-	        $scope.$apply(function() {
-	            $scope.close();
-	        });
-	        
-	    };
-	    $scope.logout = function(){
-			auth.logout()
-			// .then(function(res){
-			// 	//success
-			// }, function(){
-			// 	//error
-			// })
-		};
-	})
-	.run(function($rootScope) {
-        document.addEventListener("keyup", function(e) {
-            if (e.keyCode === 27)
-                $rootScope.$broadcast("escapePressed", e.target);
+    //$rootScope.$on("documentClicked", _close);
+    //$rootScope.$on("escapePressed", _close);
+
+    function _close() {
+        $scope.$apply(function() {
+            $scope.close();
         });
 
-        document.addEventListener("click", function(e) {
-            $rootScope.$broadcast("documentClicked", e.target);
-               
-        });
+    };
+})
+.run(function($rootScope) {
+    document.addEventListener("keyup", function(e) {
+        if (e.keyCode === 27)
+            $rootScope.$broadcast("escapePressed", e.target);
     });
+
+    document.addEventListener("click", function(e) {
+        $rootScope.$broadcast("documentClicked", e.target);
+
+    });
+});

@@ -1,7 +1,7 @@
-<div id="nav">
+<div id="nav" data-ng-controller="NavCtrl">
     <div class="nav_item">Add deadline</div>
     <div class="nav_item">Archive</div>
     <div class="nav_item">Timetable</div>
-    <a class="nav_item" style="float: right;" ng-show="user.id" data-ng-href="/signin">Sign in</a>
-    <a class="nav_item" style="float: right;" ng-show="!user.id" data-ng-click="logout()">Sign out</a>
+    <a class="nav_item" style="float: right;" ng-show="!user" data-ng-href="/signin">Sign in</a>
+    <a class="nav_item" style="float: right;" ng-show="user" data-ng-click="logout()">Sign out</a>
 </div>
