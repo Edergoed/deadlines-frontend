@@ -15,7 +15,7 @@ app
         .state('signin', {
             url: '/signin',
             templateUrl: 'app/components/login/loginView.html',
-            controller: 'LoginCtrl'
+            //controller: 'LoginCtrl'
 
         }).state('signout', {
             url: '/signout',

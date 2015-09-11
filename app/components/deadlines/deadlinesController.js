@@ -66,7 +66,7 @@ angular.module('Deadlines')
     //colorCal
 
     $scope.getCol = function(){
-        console.log("getCol executed");
+        //console.log("getCol executed");
         var deadline = document.getElementsByClassName('deadline');
         for(i=0; i<deadline.length; i++){
             var data = deadline[i].getAttribute("data-distance");
@@ -182,7 +182,7 @@ angular.module('Deadlines')
     }
 
     $scope.setDistance = function(){
-        console.log("setDistance executed");
+        //console.log("setDistance executed");
         var deadline = document.getElementsByClassName('deadline');
         for(i=0; i<deadline.length; i++){
             var data = deadline[i].getAttribute("data-deadline");
@@ -191,8 +191,8 @@ angular.module('Deadlines')
 
             var distance = toTime.getTime()/1000 - fromTime.getTime()/1000;
             deadline[i].setAttribute("data-distance", distance);
-            console.log("set deadline time to " + distance + " of deadline " + deadline[i] );
-            console.log(deadline.length + " "+ i + " " + fromTime + " " +toTime);
+            // console.log("set deadline time to " + distance + " of deadline " + deadline[i] );
+            // console.log(deadline.length + " "+ i + " " + fromTime + " " +toTime);
             $scope.getTime();
             setInterval($scope.getTime, 60000);
     }
