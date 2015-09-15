@@ -7,12 +7,16 @@ app
 
         $stateProvider
         .state('deadlines', {
-            url: '/',
+            url: '/deadlines',
             templateUrl: 'app/components/deadlines/deadlinesView.html',
             controller: 'DeadlinesCtrl'
 
-        })
-        .state('signin', {
+        }).state('deadlines.new', {
+            url: '/new',
+            templateUrl: 'app/components/deadlines/deadlineNewView.html',
+            //controller: 'DeadlinesCtrl'
+
+        }).state('signin', {
             url: '/signin',
             templateUrl: 'app/components/login/loginView.html',
             //controller: 'LoginCtrl'
@@ -29,13 +33,14 @@ app
         }).state('deadlineShow', {
             url: '/deadline/:deadlineID',
             templateUrl: 'app/components/signup/signupView.html',
-            controller: 'DeadlinesCtrl'
+            //controller: ''
+
         });
 
 
 
         $locationProvider.html5Mode(true);
-        $urlRouterProvider.otherwise("/");
+        $urlRouterProvider.otherwise("/deadlines");
     }])
 
 

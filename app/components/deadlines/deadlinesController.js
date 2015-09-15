@@ -50,6 +50,10 @@ angular.module('Deadlines')
         })
     }
 
+    $scope.newDeadline = function(){
+            $scope.deadlineChangeState('view');
+    }
+
     $scope.updateDeadline = function(id){
         deadline.updateDeadline(id)
         .then(function(res){
@@ -80,7 +84,7 @@ angular.module('Deadlines')
             var day = 86400;
             if(data < day*28){
                 if(data < day*7){
-                    deadline[i].parentNode.setAttribute("style", "background-color: #FE2746"); 
+                    deadline[i].parentNode.setAttribute("style", "background-color: #FE2746");
                     if(data < 0){
                         var deadline_class = deadline[i].className;
                         if($scope.aContainsB(deadline_class, 'hide_deadline')){
@@ -90,7 +94,7 @@ angular.module('Deadlines')
                         }
                     }
                 }else{
-                    deadline[i].parentNode.setAttribute("style", "background-color: #FFC300"); 
+                    deadline[i].parentNode.setAttribute("style", "background-color: #FFC300");
                 }
             }
         }
@@ -126,7 +130,7 @@ angular.module('Deadlines')
             remaining = weeks_remaining;
             unit = '<span>Weeks</span>';
             if(weeks_remaining == 1){
-                remaining = weeks_remaining; 
+                remaining = weeks_remaining;
                 unit = '<span>Week</span>';
             }
         } else if (days_remaining >= 1){

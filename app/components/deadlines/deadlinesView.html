@@ -22,13 +22,17 @@
         </div>
     </div>
 </div>
-<div id="dynamic_right">
-    <div id="dynamic_right_content" data-ng-switch on="deadlineState">
+<div id="dynamic_right" ui-view>
+    <deadlines-state current="sub"><deadlines-state>
+    <div id="dynamic_right_content" data-ng-switch on="sub">
+        <div data-ng-switch-when="new">
+            <div data-ng-include="'app/components/deadlines/deadlineNewView.html'"></div>
+        </div>
         <div data-ng-switch-when="view">
             <div data-ng-include="'app/components/deadlines/deadlineShowView.html'"></div>
         </div>
         <div data-ng-switch-when="edit" >
-            <div data-ng-include="'app/components/deadlines/deadlineEditView.html'"></di>
+            <div data-ng-include="'app/components/deadlines/deadlineEditView.html'"></div>
         </div>
         <div data-ng-switch-default>
         </div>
