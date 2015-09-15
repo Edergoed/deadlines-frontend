@@ -1,7 +1,6 @@
 angular.module('Deadlines')
-.controller('DeadlinesCtrl', function($scope, deadline, user){
+.controller('DeadlinesCtrl', function($scope, $stateParams, deadline, user){
     //$scope.user = user.current();
-
     $scope.deadlineChangeState = function(state){
         $scope.deadlineState = state;
     }
@@ -42,7 +41,7 @@ angular.module('Deadlines')
     $scope.getDeadline = function(id){
         deadline.getDeadline(id)
         .then(function(res){
-            $scope.deadlineChangeState('view');
+            //$scope.deadlineChangeState('view');
             $scope.selectedDeadline = deadline.deadline;
             //succes
         }, function(res){
@@ -87,11 +86,11 @@ angular.module('Deadlines')
                     deadline[i].parentNode.setAttribute("style", "background-color: #FE2746");
                     if(data < 0){
                         var deadline_class = deadline[i].className;
-                        if($scope.aContainsB(deadline_class, 'hide_deadline')){
+                        //if($scope.aContainsB(deadline_class, 'hide_deadline')){
 
-                        }else{
-                            deadline[i].className = deadline[i].className + " hide_deadline";
-                        }
+                        //}else{
+                        //    deadline[i].className = deadline[i].className + " hide_deadline";
+                        //}
                     }
                 }else{
                     deadline[i].parentNode.setAttribute("style", "background-color: #FFC300");
@@ -206,4 +205,14 @@ angular.module('Deadlines')
     //     return a.indexOf(b) >= 0;
     // }
     $scope.init();
+
+    if($stateParams.showID != null){
+        console.log($stateParams.showID);
+        $scope.getDeadline($stateParams.showID);
+    }
+    if($stateParams.editID != null){
+        console.log($stateParams.editID);
+        $scope.getDeadline($stateParams.editID);
+    }
+
 })

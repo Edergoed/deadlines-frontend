@@ -1,4 +1,4 @@
-<div data-ng-hide="selectedDeadline.deadline == 'undefined'" class="dynamic-post" style="display: block;">
+<div class="dynamic-post" style="display: block;">
     <div class="dynamic-meta">
         <h2>{{selectedDeadline.deadline.title}}</h2>
         <h2 style="float: right; text-align: right">01-01-16</h2>
@@ -13,7 +13,7 @@
     <div class="dynamic-options">
         <img class="gravatar" src="http://www.gravatar.com/avatar/8a3fb7856522fb665615755df8d13f86?s=30">
         <img id="gravatar" class="modifier" style="margin-left: 10px;" src="">
-        <div ng-click="deadlineChangeState('edit');" style="display: inline-block; height: 30px; float: right;">
+        <div ui-sref="deadlines.edit({editID: selectedDeadline.deadline.id})" style="display: inline-block; height: 30px; float: right;">
             <img class="dynamic_button" src="assets/img/options.svg" width="20px" height="30px">
         </div>
     </div>

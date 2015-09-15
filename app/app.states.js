@@ -14,7 +14,17 @@ app
         }).state('deadlines.new', {
             url: '/new',
             templateUrl: 'app/components/deadlines/deadlineNewView.html',
-            //controller: 'DeadlinesCtrl'
+            controller: 'DeadlinesCtrl'
+
+        }).state('deadlines.edit', {
+            url: '/edit/:editID',
+            templateUrl: 'app/components/deadlines/deadlineEditView.html',
+            controller: 'DeadlinesCtrl'
+
+        }).state('deadlines.show', {
+            url: '/show/:showID',
+            templateUrl: 'app/components/deadlines/deadlineShowView.html',
+            controller: 'DeadlinesCtrl'
 
         }).state('signin', {
             url: '/signin',
