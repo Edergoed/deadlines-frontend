@@ -1,6 +1,6 @@
 var app = angular.module('Deadlines', [
-    'froala',
     'ui.router',
+    'textAngular'
 ]);
 
 app

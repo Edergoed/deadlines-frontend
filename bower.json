@@ -22,8 +22,8 @@
   ],
   "dependencies": {
     "jquery": ">=1.11.0",
-    "FroalaWysiwygEditor": "1.2.8",
     "angular": "1.4.6",
-    "textAngular": "1.4.0"
+    "textAngular": "1.4.5",
+    "angular-ui-router": "0.2.15 "
   }
 }
