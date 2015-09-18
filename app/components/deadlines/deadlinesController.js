@@ -214,5 +214,4 @@ angular.module('Deadlines')
         console.log($stateParams.editID);
         $scope.getDeadline($stateParams.editID);
     }
-
 })

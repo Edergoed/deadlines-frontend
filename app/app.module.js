@@ -1,20 +1,13 @@
-angular.module('Deadlines.config', [])
-.constant('myConfig', {
-    'backend': 'http://api.deadlinesapi:88',
-    'version': 0.2
-});
-
 var app = angular.module('Deadlines', [
+    'froala',
     'ui.router',
-    'Deadlines.config',
-    ])
+]);
 
 app
 .constant('urls', {
-   BASE: 'http://deadlines.dev',
-   BASE_API: 'http://api.deadlinesapi.dev:88'
-})
-.constant('API', 'http://api.deadlinesapi.dev:88');
+    BASE: 'http://deadlines.dev',
+    BASE_API: 'http://api.deadlinesapi.dev:88'
+});
 
 app.run(['$rootScope', '$location', function($rootScope, $location) {
     $rootScope.$on('auth:login-success', function() {
@@ -22,16 +15,22 @@ app.run(['$rootScope', '$location', function($rootScope, $location) {
     });
 }]);
 
+app.directive('froala', function () {
+    return {
+        require: 'ngModel'
+    };
+});
+
 app.run(function($http) {
     $http.defaults.headers.common.Accept = 'application/vnd.deadlines.v1'
 });
 
-app.factory('authInterceptor', function (API, auth) {
+app.factory('authInterceptor', function (urls, auth) {
     return {
         //automatically attach Authorization header
         request: function(config) {
             var token = auth.getToken();
-            if(config.url.indexOf(API) === 0 && token) {
+            if(config.url.indexOf(urls.BASE_API) === 0 && token) {
                 config.headers.Authorization = 'Bearer ' + token;
             }
 
@@ -40,7 +39,7 @@ app.factory('authInterceptor', function (API, auth) {
 
         //If a token was sent back, save it
         response: function(res) {
-            if(res.config.url.indexOf(API) === 0 && res.data.token) {
+            if(res.config.url.indexOf(urls.BASE_API) === 0 && res.data.token) {
                 auth.saveToken(res.data.token);
             }
 

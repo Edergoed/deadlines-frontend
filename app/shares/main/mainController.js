@@ -33,4 +33,8 @@ app
         $scope.authenticated = false;
         $location.path('/');
     }
+    $scope.myHtml = "<h1>Hello World</h1>"
+    $scope.froalaOptions = {
+        buttons : ["bold", "italic", "underline", "sep", "align", "insertOrderedList", "insertUnorderedList"]
+    }
 });

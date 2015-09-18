@@ -1,9 +1,16 @@
 {
-  "name": "deadlines",
-  "version": "2.1.0",
+  "name": "Deadlines",
+  "version": "2.0.1",
   "homepage": "https://github.com/Edergoed/deadlines-frontend",
   "authors": [
     "LiamEderzeel <liamederzeel@gmail.com>"
+  ],
+  "description": "Deadlines managment site",
+  "moduleType": [
+      "global"
+  ],
+  "keywords": [
+    "angular"
   ],
   "license": "MIT",
   "ignore": [
@@ -14,6 +21,9 @@
     "tests"
   ],
   "dependencies": {
-    "ng-token-auth": "~0.0.28"
+    "jquery": ">=1.11.0",
+    "FroalaWysiwygEditor": "1.2.8",
+    "angular": "1.4.6",
+    "textAngular": "1.4.0"
   }
 }
