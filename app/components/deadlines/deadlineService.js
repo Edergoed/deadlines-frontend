@@ -51,10 +51,11 @@ angular.module('Deadlines')
         return defer.promise;
     }
 
-    deadline.createDeadline = function(deadline){
+    deadline.createDeadline = function(user, deadline){
         var defer = $q.defer();
 
-        $http.post(urls.BASE_API + '/Deadlines', deadline)
+        console.log(deadline);
+        $http.post(urls.BASE_API + '/users/' + user + '/deadlines', deadline)
         .success(function(res){
             defer.resolve(res);
         })

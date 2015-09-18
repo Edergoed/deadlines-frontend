@@ -11,6 +11,19 @@ angular.module('Deadlines')
 
     $scope.create = function(){
         //show information here
+        console.log("create");
+        console.log($scope.newDeadlineForm);
+        if($scope.deadlineForm.$valid){
+
+            deadline.createDeadline($scope.userCurrent.id, $scope.deadline)
+            .then(function(res){
+                //succes
+                console.log("succes");
+            }, function(res){
+                //error
+                console.log("fail");
+            })
+        }
     }
 
     $scope.getAll = function(){
@@ -47,10 +60,6 @@ angular.module('Deadlines')
         }, function(res){
             //error
         })
-    }
-
-    $scope.newDeadline = function(){
-            $scope.deadlineChangeState('view');
     }
 
     $scope.updateDeadline = function(id){
