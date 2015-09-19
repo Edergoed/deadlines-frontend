@@ -9,7 +9,7 @@ angular.module('Deadlines')
         var defer = $q.defer();
 
         //$http.get(urls.BASE_API + '/deadlines')
-        $http.get('testdata/test.json')
+        $http.get(urls.BASE_API + '/deadlines')
         .success(function(res){
             deadline.deadlineList = res;
             defer.resolve(res);

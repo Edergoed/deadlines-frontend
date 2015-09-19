@@ -31,9 +31,9 @@ angular.module('Deadlines')
         .then(function(res){
             //success
             setTimeout(function(){
-        $scope.getCol();
-        setTimeout(function() { Color = setInterval(getCol, 60000); }, 60000);
-        $scope.setDistance();
+                $scope.getCol();
+                setTimeout(function() { Color = setInterval(getCol, 60000); }, 60000);
+                $scope.setDistance();
             }, 0);
             $scope.deadlineList = deadline.deadlineList;
         }, function(res){
