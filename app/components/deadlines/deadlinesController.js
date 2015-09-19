@@ -196,8 +196,10 @@ angular.module('Deadlines')
     $scope.setDistance = function(){
         //console.log("setDistance executed");
         var deadline = document.getElementsByClassName('deadline');
+        console.log(deadline);
         for(i=0; i<deadline.length; i++){
             var data = deadline[i].getAttribute("data-deadline");
+            console.log(data);
             var fromTime = new Date();
             var toTime = new Date(data);
 
@@ -205,10 +207,10 @@ angular.module('Deadlines')
             deadline[i].setAttribute("data-distance", distance);
             // console.log("set deadline time to " + distance + " of deadline " + deadline[i] );
             // console.log(deadline.length + " "+ i + " " + fromTime + " " +toTime);
+        }
             $scope.getTime();
             setInterval($scope.getTime, 60000);
     }
-}
 
     // function aContainsB (a, b) {
     //     return a.indexOf(b) >= 0;
@@ -216,11 +218,9 @@ angular.module('Deadlines')
     $scope.init();
 
     if($stateParams.showID != null){
-        console.log($stateParams.showID);
         $scope.getDeadline($stateParams.showID);
     }
     if($stateParams.editID != null){
-        console.log($stateParams.editID);
         $scope.getDeadline($stateParams.editID);
     }
 })

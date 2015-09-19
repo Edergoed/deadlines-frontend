@@ -5,7 +5,7 @@ app
     $scope.userCurrent = user.current();
     $scope.authenticated = false;
     $scope.$watch('authenticated', function(newVal, oldVal) {
-            console.log(newVal, oldVal);
+            //console.log(newVal, oldVal);
     });
 
     if($scope.userCurrent != false){
