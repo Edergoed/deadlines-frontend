@@ -1,27 +1,6 @@
-angular.module('Deadlines')
-.controller('DeadlinesCtrl', function($scope, $stateParams, deadline, user){
-    //$scope.user = user.current();
-    $scope.deadlineChangeState = function(state){
-        $scope.deadlineState = state;
-    }
-
+app.controller('DeadlinesCtrl', function($scope, $stateParams, deadline, user){
     $scope.init = function(){
         $scope.getAll();
-    }
-
-    $scope.create = function(){
-        if($scope.deadlineForm.$valid){
-
-            deadline.createDeadline($scope.userCurrent.id, $scope.deadline)
-            .then(function(res){
-                //succes
-                setTimeout(function(){
-                    $scope.getAll();
-                }, 20);
-            }, function(res){
-                //error
-            })
-        }
     }
 
     $scope.getAll = function(){
@@ -43,15 +22,6 @@ angular.module('Deadlines')
             $scope.getAll();
             //success
         }, function(){
-            //error
-        })
-    }
-
-    $scope.updateDeadline = function(id){
-        deadline.updateDeadline(id)
-        .then(function(res){
-            //succes
-        }, function(res){
             //error
         })
     }
