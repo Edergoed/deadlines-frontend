@@ -10,18 +10,16 @@ angular.module('Deadlines')
     }
 
     $scope.create = function(){
-        //show information here
-        console.log("create");
-        console.log($scope.newDeadlineForm);
         if($scope.deadlineForm.$valid){
 
             deadline.createDeadline($scope.userCurrent.id, $scope.deadline)
             .then(function(res){
                 //succes
-                console.log("succes");
+                setTimeout(function(){
+                    $scope.getAll();
+                }, 20);
             }, function(res){
                 //error
-                console.log("fail");
             })
         }
     }
@@ -49,17 +47,6 @@ angular.module('Deadlines')
         })
     }
 
-    $scope.getDeadline = function(id){
-        deadline.getDeadline(id)
-        .then(function(res){
-            //$scope.deadlineChangeState('view');
-            $scope.selectedDeadline = deadline.deadline;
-            //succes
-        }, function(res){
-            //error
-        })
-    }
-
     $scope.updateDeadline = function(id){
         deadline.updateDeadline(id)
         .then(function(res){
@@ -67,10 +54,6 @@ angular.module('Deadlines')
         }, function(res){
             //error
         })
-    }
-
-    $scope.showDeadline = function(object){
-        $scope.selectedDeadline = object;
     }
 
     //colorCal
@@ -214,13 +197,7 @@ angular.module('Deadlines')
     // }
     $scope.init();
 
-    if($stateParams.showID != null){
-        $scope.getDeadline($stateParams.showID);
-    }
-    if($stateParams.editID != null){
-        $scope.getDeadline($stateParams.editID);
-    }
     setTimeout(function() {
         Color = setInterval(getCol, 60000);
     }, 60000);
-})
+});

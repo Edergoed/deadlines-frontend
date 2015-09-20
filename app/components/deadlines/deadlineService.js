@@ -54,7 +54,6 @@ angular.module('Deadlines')
     deadline.createDeadline = function(user, deadline){
         var defer = $q.defer();
 
-        console.log(deadline);
         $http.post(urls.BASE_API + '/users/' + user + '/deadlines', deadline)
         .success(function(res){
             defer.resolve(res);
