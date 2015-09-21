@@ -2,14 +2,14 @@ app.controller('DeadlineNewCtrl', function($scope, deadline){
 
     $scope.createDeadline = function(){
         if($scope.deadlineForm.$valid){
-            day = $scope.deadline.deadline.day
-            month = $scope.deadline.deadline.month
-            year = $scope.deadline.deadline.year
-            hour = $scope.deadline.deadline.time.split(':')[0];
-            minut = $scope.deadline.deadline.time.split(':')[1];
+            day = $scope.deadline.day
+            month = $scope.deadline.month
+            year = $scope.deadline.year
+            hour = $scope.deadline.time.split(':')[0];
+            minut = $scope.deadline.time.split(':'[1];
 
-            $scope.deadline.deadline.deadlineDateTime = year + '-' +month + '-' + day + ' ' + hour + ':' + minut + ':' + '00';
-            console.log($scope.deadline);
+            $scope.deadline.deadline = year + '-' + month + '-' + day + ' ' + time + ':00';
+            $scope.deadline.deadline = new Date(year, month, days, hour, minut);
             deadline.createDeadline($scope.userCurrent.id, $scope.deadline)
             .then(function(res){
                 //succes

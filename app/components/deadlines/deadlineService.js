@@ -36,10 +36,11 @@ angular.module('Deadlines')
         return defer.promise;
     }
 
-    deadline.updateDeadline = function(id){
+    deadline.updateDeadline = function(user, deadline){
         var defer = $q.defer();
 
-        $http.patch(urls.BASE_API + 'user/' + iduser + '/deadlines/' + id)
+        console.log(deadline);
+        $http.patch(urls.BASE_API + '/users/' + user + '/deadlines/' + deadline.id, deadline)
         .success(function(res){
             deadline.deadline = res;
             defer.resolve(res);

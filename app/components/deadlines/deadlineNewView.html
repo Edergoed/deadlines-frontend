@@ -1,8 +1,8 @@
 <div>
     <div>
-        <form name="deadlineForm" ng-submit="create()" novalidate>
-            <input type="title" placeholder="Title" data-ng-model="deadline.title" requird>
-            <select id="" name="day" data-ng-model="deadline.day" required>
+        <form name="deadlineForm" ng-submit="createDeadline()" novalidate>
+            <input type="title" placeholder="Title" data-ng-model="deadline.deadline.title" requird>
+            <select id="" name="day" data-ng-model="deadline.deadline.day" required>
                 <option value="01">01</option>
                 <option value="02">02</option>
                 <option value="03">03</option>
@@ -35,7 +35,7 @@
                 <option value="30">30</option>
                 <option value="31">31</option>
             </select>
-            <select id="" name="month" data-ng-model="deadline.month" required>
+            <select id="" name="month" data-ng-model="deadline.deadline.month" required>
                 <option value="1">January</option>
                 <option value="2">February</option>
                 <option value="3">March</option>
@@ -47,7 +47,7 @@
                 <option value="9" selected="">September</option>
                 <option value="10">October</option>
                 <option value="11">November</option><option value="12">December</option></select>
-            <select id="" name="year" data-ng-model="deadline.year" required>
+            <select id="" name="year" data-ng-model="deadline.deadline.year" required>
                 <option value="2015">2015</option>
                 <option value="2016">2016</option>
                 <option value="2017">2017</option>
@@ -60,10 +60,10 @@
                 <option value="2024">2024</option>
                 <option value="2025">2025</option>
             </select>
-            <input type="subject" placeholder="Subject" data-ng-model="deadline.subject" required>
-            <input type="text" placeholder="12:00" data-ng-model="deadline.time" required>
+            <input type="subject" placeholder="Subject" data-ng-model="deadline.deadline.subject" required>
+            <input type="text" placeholder="12:00" data-ng-model="deadline.deadline.time" required>
             <select id="" name=""></select>
-            <div text-angular ng-model="deadline.content"></div>
+            <div text-angular ng-model="deadline.deadline.content"></div>
             <button type="submit">Save</button>
         </form>
     </div>

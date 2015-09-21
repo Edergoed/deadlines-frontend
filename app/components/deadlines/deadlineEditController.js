@@ -11,14 +11,20 @@ app.controller('DeadlineEditCtrl', function($scope, $stateParams, deadline){
         })
     }
 
-    $scope.updateDeadline = function(id){
-        deadline.updateDeadline(id)
-        .then(function(res){
-            //succes
-        }, function(res){
-            //error
-        })
+    $scope.updateDeadline = function(){
+        if($scope.deadlineForm.$valid){
+            deadline.updateDeadline($scope.userCurrent.id, $scope.selectedDeadline.deadline)
+            .then(function(res){
+                //succes
+                setTimeout(function(){
+                    $scope.getAll();
+                }, 20);
+            }, function(res){
+                //error
+            })
+        }
     }
+
 
     if($stateParams.editID != null){
         $scope.getDeadline($stateParams.editID);
