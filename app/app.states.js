@@ -6,6 +6,7 @@ app
     function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
         $stateProvider
+        // Deadlines
         .state('deadlines', {
             url: '/deadlines',
             templateUrl: 'app/components/deadlines/deadlinesView.html',
@@ -26,7 +27,26 @@ app
             templateUrl: 'app/components/deadlines/deadlineShowView.html',
             controller: 'DeadlineShowCtrl'
 
-        }).state('signin', {
+        })
+        // Archive
+        .state('archive', {
+            url: '/archive',
+            templateUrl: 'app/components/archive/archiveView.html',
+            controller: 'ArchiveCtrl'
+
+        }).state('archive.edit', {
+            url: '/edit/:editID',
+            templateUrl: 'app/components/archive/deadlineEditView.html',
+            controller: 'DeadlineEditCtrl'
+
+        }).state('archive.show', {
+            url: '/show/:showID',
+            templateUrl: 'app/components/archive/deadlineShowView.html',
+            controller: 'DeadlineShowCtrl'
+
+        })
+        // Signin
+        .state('signin', {
             url: '/signin',
             templateUrl: 'app/components/login/loginView.html',
             //controller: 'LoginCtrl'
@@ -39,12 +59,6 @@ app
             url: '/signup',
             templateUrl: 'app/components/signup/signupView.html',
             controller: 'SignupCtrl'
-
-        }).state('deadlineShow', {
-            url: '/deadline/:deadlineID',
-            templateUrl: 'app/components/signup/signupView.html',
-            //controller: ''
-
         });
 
 

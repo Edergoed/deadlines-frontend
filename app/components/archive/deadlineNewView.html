@@ -1,0 +1,29 @@
+<div>
+    <div>
+        <form name="deadlineForm" ng-submit="createDeadline()" novalidate>
+            <div class="dynamic-meta">
+                <input type="title" placeholder="Title" data-ng-model="deadline.deadline.title" requird>
+                <select id="" name="day" data-ng-options="day for day in days" data-ng-model="deadline.deadline.day" required>
+                </select>
+                <select id="" name="month" data-ng-options="month.id as month.name for month in months" data-ng-model="deadline.deadline.month" required>
+                </select>
+                <select id="" name="year" data-ng-options="year for year in years" data-ng-model="deadline.deadline.year" required>
+                </select>
+                <input type="text" placeholder="12:00" data-ng-model="deadline.deadline.time" required>
+            </div>
+            <div class="dynamic-sub-meta">
+                <input type="subject" placeholder="Subject" data-ng-model="deadline.deadline.subject" required>
+                <select id="" name=""></select>
+            </div>
+            <div class="dynamic-content">
+                <div text-angular ng-model="deadline.deadline.content"></div>
+                <button type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+    <div>
+    </div>
+    <div>
+        comments
+    </div>
+</div>

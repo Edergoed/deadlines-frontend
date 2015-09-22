@@ -1,0 +1,31 @@
+<div class="dynamic-post" style="display: block;">
+    <form name="deadlineForm" ng-submit="updateDeadline()" novalidate>
+        <div class="dynamic-meta">
+            <input type="title" placeholder="Title" data-ng-model="selectedDeadline.deadline.title" requird>
+            <select id="" name="day" data-ng-options="day for day in days" data-ng-model="selectedDeadline.deadline.day">
+            </select>
+            <select id="" name="month" data-ng-options="month.id as month.name for month in months" data-ng-model="selectedDeadline.deadline.month">
+            </select>
+            <select id="" name="year" data-ng-options="year for year in years" data-ng-model="selectedDeadline.deadline.year">
+            </select>
+            <input type="text" placeholder="12:00" data-ng-model="selectedDeadline.deadline.time">
+        </div>
+        <div class="dynamic-sub-meta">
+            <input type="subject" placeholder="Subject" data-ng-model="selectedDeadline.deadline.subject">
+            <select id="" name=""></select>
+        </div>
+        <div class="dynamic-content">
+            <div text-angular ng-model="selectedDeadline.deadline.content"></div>
+        </div>
+        <div class="dynamic-options">
+            <img class="gravatar" src="http://www.gravatar.com/avatar/8a3fb7856522fb665615755df8d13f86?s=30">
+            <img class="gravatar" class="modifier" style="margin-left: 10px;" src="">
+            <div style="display: inline-block; height: 30px; float: right;">
+                <button type="submit">Save</button>
+            </div>
+            <div style="display: inline-block; height: 30px; float: right;">
+                <button type="">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>
