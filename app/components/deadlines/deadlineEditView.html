@@ -2,63 +2,11 @@
     <form name="deadlineForm" ng-submit="updateDeadline()" novalidate>
         <div class="dynamic-meta">
             <input type="title" placeholder="Title" data-ng-model="selectedDeadline.deadline.title" requird>
-            <select id="" name="day" data-ng-model="selectedDeadline.deadline.day">
-                <option value="01">01</option>
-                <option value="02">02</option>
-                <option value="03">03</option>
-                <option value="04">04</option>
-                <option value="05">05</option>
-                <option value="06">06</option>
-                <option value="07">07</option>
-                <option value="08">08</option>
-                <option value="09">09</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18" selected="">18</option>
-                <option value="19">19</option>
-                <option value="20">20</option>
-                <option value="21">21</option>
-                <option value="22">22</option>
-                <option value="23">23</option>
-                <option value="24">24</option>
-                <option value="25">25</option>
-                <option value="26">26</option>
-                <option value="27">27</option>
-                <option value="28">28</option>
-                <option value="29">29</option>
-                <option value="30">30</option>
-                <option value="31">31</option>
+            <select id="" name="day" data-ng-options="day for day in days" data-ng-model="selectedDeadline.deadline.day">
             </select>
-            <select id="" name="month" data-ng-model="selectedDeadline.deadline.month">
-                <option value="1">January</option>
-                <option value="2">February</option>
-                <option value="3">March</option>
-                <option value="4">April</option>
-                <option value="5">May</option>
-                <option value="6">June</option>
-                <option value="7">July</option>
-                <option value="8">August</option>
-                <option value="9" selected="">September</option>
-                <option value="10">October</option>
-                <option value="11">November</option><option value="12">December</option></select>
-            <select id="" name="year" data-ng-model="selectedDeadline.deadline.year">
-                <option value="2015">2015</option>
-                <option value="2016">2016</option>
-                <option value="2017">2017</option>
-                <option value="2018">2018</option>
-                <option value="2019">2019</option>
-                <option value="2020">2020</option>
-                <option value="2021">2021</option>
-                <option value="2022">2022</option>
-                <option value="2023">2023</option>
-                <option value="2024">2024</option>
-                <option value="2025">2025</option>
+            <select id="" name="month" data-ng-options="month.id as month.name for month in months" data-ng-model="selectedDeadline.deadline.month">
+            </select>
+            <select id="" name="year" data-ng-options="year for year in years" data-ng-model="selectedDeadline.deadline.year">
             </select>
         </div>
         <div class="dynamic-sub-meta">

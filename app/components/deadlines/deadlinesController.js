@@ -162,6 +162,54 @@ app.controller('DeadlinesCtrl', function($scope, $stateParams, deadline, user){
             setInterval($scope.getTime, 60000);
     }
 
+    $scope.getDeadline = function(id){
+        deadline.getDeadline(id)
+        .then(function(res){
+            //$scope.deadlineChangeState('view');
+            $scope.selectedDeadline = deadline.deadline;
+            //succes
+        }, function(res){
+            //error
+        })
+    }
+
+    $scope.getDays = function(year, month){
+        $scope.days = [];
+        days = new Date(year, month, 0).getDate();
+        console.log(month + ' is ' + days + ' long');
+        for(i = 0; i < days; i++){
+            $scope.days[i] = i+1;
+        }
+        $scope.$digest;
+    }
+
+    $scope.getMonths = function(){
+
+        $scope.months = [
+            {'id': 1, 'name': 'January'},
+            {'id': 2, 'name': 'February'},
+            {'id': 3, 'name': 'March'},
+            {'id': 4, 'name': 'April'},
+            {'id': 5, 'name': 'May'},
+            {'id': 6, 'name': 'June'},
+            {'id': 7, 'name': 'July'},
+            {'id': 8, 'name': 'August'},
+            {'id': 9, 'name': 'September'},
+            {'id': 10, 'name': 'October'},
+            {'id': 11, 'name': 'November'},
+            {'id': 12, 'name': 'December'},
+        ];
+
+    }
+
+    $scope.getYears = function(){
+        $scope.years =[
+            new Date().getFullYear(),
+            new Date().getFullYear()+1,
+            new Date().getFullYear()+2
+        ]
+    }
+
     // function aContainsB (a, b) {
     //     return a.indexOf(b) >= 0;
     // }
