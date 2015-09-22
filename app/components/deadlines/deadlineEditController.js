@@ -47,8 +47,13 @@ app.controller('DeadlineEditCtrl', function($scope, $stateParams, deadline){
         $scope.selectedDeadline.deadline.day = date.getUTCDate();
         $scope.selectedDeadline.deadline.month = date.getUTCMonth()+1;
         $scope.selectedDeadline.deadline.year = date.getUTCFullYear();
-        $scope.selectedDeadline.deadline.time = date.getUTCHours() + ':' + date.getUTCMinutes();
+        if(date.getUTCMinutes().toString().length < 2){
+            $scope.selectedDeadline.deadline.time = date.getUTCHours() + ':' + date.getUTCMinutes() + 0 ;
+        } else {
+            $scope.selectedDeadline.deadline.time = date.getUTCHours() + ':' + date.getUTCMinutes();
+        }
     }
+
 
     if($stateParams.editID != null){
         $scope.getDeadline($stateParams.editID);
