@@ -6,7 +6,7 @@ var app = angular.module('Deadlines', [
 app
 .constant('urls', {
     BASE: 'http://deadlines.dev',
-    BASE_API: 'http://api.deadlinesapi.dev:88'
+    BASE_API: 'http://188.226.192.169/'
 });
 
 app.run(['$rootScope', '$location', function($rootScope, $location) {
