@@ -9,6 +9,7 @@ app.controller('DeadlineNewCtrl', function($scope, deadline){
         $scope.deadline.deadline.year = new Date().getFullYear();
         $scope.deadline.deadline.month = new Date().getMonth()+1;
         $scope.deadline.deadline.day = new Date().getDate();
+        $scope.deadline.deadline.time = new Date().getHours() + ':' + new Date().getMinutes();
         console.log($scope.deadline.deadline.month);
         $scope.$watch("deadline.deadline.month", function(newValue, oldValur){
             console.log("change");
