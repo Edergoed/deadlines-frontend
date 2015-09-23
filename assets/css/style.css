@@ -177,7 +177,7 @@ footer {
   height: 0px;
   z-index: 500; }
 
-.deadline {
+.deadline, .archivedDeadline {
   width: 100%;
   height: 70px;
   clear: both;
@@ -185,35 +185,35 @@ footer {
   overflow: hidden;
   animation-timing-function: cubic-bezier(0, 0, 0, 1);
   -webkit-animation-timing-function: cubic-bezier(0, 0, 0, 1); }
-  .deadline .deadline_head {
+  .deadline .deadline_head, .archivedDeadline .deadline_head {
     height: 100%;
     box-sizing: border-box;
     color: #fff;
     padding: 15px 20px 15px 20px;
     display: block;
     cursor: pointer; }
-    .deadline .deadline_head a {
+    .deadline .deadline_head a, .archivedDeadline .deadline_head a {
       display: block;
       color: #fff; }
-    .deadline .deadline_head:hover {
+    .deadline .deadline_head:hover, .archivedDeadline .deadline_head:hover {
       background-color: rgba(255, 255, 255, 0.1); }
-  .deadline .title {
+  .deadline .title, .archivedDeadline .title {
     font-size: 20px;
     font-family: Roboto-Regular; }
-  .deadline .subject {
+  .deadline .subject, .archivedDeadline .subject {
     font-size: 14px;
     font-family: Roboto-Light; }
-  .deadline .count_down {
+  .deadline .count_down, .archivedDeadline .count_down {
     font-size: 20px;
     float: right;
     text-align: right; }
-  .deadline .remaining {
+  .deadline .remaining, .archivedDeadline .remaining {
     font-size: 14px;
     font-family: Roboto-Light; }
-  .deadline .counter {
+  .deadline .counter, .archivedDeadline .counter {
     font-size: 30px;
     font-family: Roboto-Regular; }
-  .deadline .digit {
+  .deadline .digit, .archivedDeadline .digit {
     font-family: Roboto-Regular;
     font-size: 40px;
     line-height: 35px;
@@ -222,7 +222,7 @@ footer {
     height: 35px;
     display: block;
     float: left; }
-  .deadline .digit_divider {
+  .deadline .digit_divider, .archivedDeadline .digit_divider {
     font-family: Roboto-Regular;
     font-size: 25px;
     line-height: 35px;
@@ -231,11 +231,11 @@ footer {
     height: 35px;
     display: block;
     float: left; }
-  .deadline .description_container {
+  .deadline .description_container, .archivedDeadline .description_container {
     clear: both; }
-  .deadline .title_container {
+  .deadline .title_container, .archivedDeadline .title_container {
     float: left; }
-  .deadline .description {
+  .deadline .description, .archivedDeadline .description {
     font-family: Roboto-Regular;
     text-align: center;
     margin-right: 10px;
@@ -243,9 +243,9 @@ footer {
     width: 50px;
     display: block;
     float: left; }
-    .deadline .description:nth-of-type(3) {
+    .deadline .description:nth-of-type(3), .archivedDeadline .description:nth-of-type(3) {
       margin: 0; }
-  .deadline a {
+  .deadline a, .archivedDeadline a {
     display: block; }
 
 @media (min-width: 740px) {

@@ -1,6 +1,6 @@
 <div id="nav" data-ng-controller="MainCtrl">
     <div ui-sref="deadlines.new" class="nav_item">Add deadline</div>
-    <div class="nav_item">Archive</div>
+    <div ui-sref="archive" class="nav_item">Archive</div>
     <div class="nav_item">Timetable</div>
     <a class="nav_item" style="float: right;" ng-show="!authenticated" data-ng-href="/signin">Sign in</a>
     <a class="nav_item" style="float: right;" ng-show="authenticated" data-ng-click="logout()">Sign out</a>

@@ -21,6 +21,21 @@ angular.module('Deadlines')
         return defer.promise;
     }
 
+    deadline.getArchiveDeadlines = function(){
+        var defer = $q.defer();
+
+        //$http.get(urls.BASE_API + '/deadlines')
+        $http.get(urls.BASE_API + '/archive')
+        .success(function(res){
+            deadline.deadlineList = res;
+            defer.resolve(res);
+        })
+        .error(function(err, status){
+            defer.reject(err);
+        })
+
+        return defer.promise;
+    }
     deadline.getDeadline = function(id){
         var defer = $q.defer();
 
