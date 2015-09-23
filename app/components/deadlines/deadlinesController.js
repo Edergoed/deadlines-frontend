@@ -1,4 +1,4 @@
-app.controller('DeadlinesCtrl', function($scope, $stateParams, deadline, user){
+app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline, user){
     $scope.init = function(){
         $scope.getAll();
     }
@@ -11,6 +11,10 @@ app.controller('DeadlinesCtrl', function($scope, $stateParams, deadline, user){
                 $scope.setDistance();
             }, 0);
             $scope.deadlineList = deadline.deadlineList;
+
+            if($state.current.name == 'deadlines'){
+                $state.go('deadlines.show', { showID: $scope.deadlineList.deadlines[0].id });
+            }
         }, function(res){
             //error
         })

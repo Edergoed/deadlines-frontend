@@ -12,7 +12,9 @@ app.controller('ArchiveCtrl', function($scope, $state, $stateParams, deadline, u
                 $scope.setDistance();
             }, 0);
             $scope.deadlineList = deadline.deadlineList;
-            $state.go('archive.show', { showID: $scope.deadlineList.deadlines[0].id });
+            if($state.current.name == 'archive'){
+                $state.go('archive.show', { showID: $scope.deadlineList.deadlines[0].id });
+            }
         }, function(res){
             //error
         })

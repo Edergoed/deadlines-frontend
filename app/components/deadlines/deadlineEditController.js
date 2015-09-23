@@ -1,6 +1,7 @@
-app.controller('DeadlineEditCtrl', function($scope, $stateParams, deadline){
+app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadline){
 
     $scope.updateDeadline = function(){
+        console.log('kanekr dope');
         if($scope.deadlineForm.$valid){
             day = $scope.selectedDeadline.deadline.day
             month = $scope.selectedDeadline.deadline.month
@@ -9,12 +10,12 @@ app.controller('DeadlineEditCtrl', function($scope, $stateParams, deadline){
             minut = $scope.selectedDeadline.deadline.time.split(':')[1];
 
             $scope.selectedDeadline.deadline.deadlineDateTime = year + '-' +month + '-' + day + ' ' + hour + ':' + minut + ':' + '00';
-            j
             deadline.updateDeadline($scope.userCurrent.id, $scope.selectedDeadline.deadline)
             .then(function(res){
                 //succes
                 setTimeout(function(){
                     $scope.getAll();
+                    $state.go('deadlines.show', { showID: $scope.selectedDeadline.deadline.id });
                 }, 20);
             }, function(res){
                 //error
