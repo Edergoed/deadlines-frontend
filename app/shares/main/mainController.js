@@ -1,14 +1,21 @@
 'use strict';
 
-app.controller('MainCtrl', function($scope, $location, auth, user){
+app.controller('MainCtrl', function($scope, $location, $state, auth, user){
     $scope.userCurrent = user.current();
-    $scope.authenticated = false;
     $scope.$watch('authenticated', function(newVal, oldVal) {
-            //console.log(newVal, oldVal);
+            console.log(newVal, oldVal);
     });
+
+    if($scope.authenticated == false){
+        //$state.go('signin', { });
+    }
 
     if($scope.userCurrent != false){
         $scope.authenticated = true;
+    }
+
+    $scope.init = function(){
+        $scope.authenticated = false;
     }
 
     $scope.login = function(){
@@ -32,4 +39,6 @@ app.controller('MainCtrl', function($scope, $location, auth, user){
         $scope.authenticated = false;
         $location.path('/');
     }
+
+    $scope.init();
 });

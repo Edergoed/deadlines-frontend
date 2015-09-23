@@ -13,7 +13,6 @@ app.controller('DeadlineShowCtrl', function($scope, $stateParams, deadline){
 
     $scope.getDate = function(date){
         date = new Date( Date.parse(date));
-        console.log(date.toUTCString());
         $scope.selectedDeadline.deadline.day = date.getUTCDate();
         $scope.selectedDeadline.deadline.month = date.getUTCMonth()+1;
         $scope.selectedDeadline.deadline.year = date.getUTCFullYear();

@@ -64,7 +64,6 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
     }
 
     $scope.getTime = function(difference){
-        console.log($(".count_down").lenght);
         if($( ".count_down" ).length){
             var countdown = document.getElementsByClassName('count_down');
             var unit = document.getElementsByClassName('count_down_unit');
