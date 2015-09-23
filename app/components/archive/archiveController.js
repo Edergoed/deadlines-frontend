@@ -1,4 +1,4 @@
-app.controller('ArchiveCtrl', function($scope, $stateParams, deadline, user){
+app.controller('ArchiveCtrl', function($scope, $state, $stateParams, deadline, user){
 
     $scope.init = function(){
         $scope.getAll();
@@ -12,6 +12,7 @@ app.controller('ArchiveCtrl', function($scope, $stateParams, deadline, user){
                 $scope.setDistance();
             }, 0);
             $scope.deadlineList = deadline.deadlineList;
+            $state.go('archive.show', { showID: $scope.deadlineList.deadlines[0].id });
         }, function(res){
             //error
         })
@@ -46,31 +47,31 @@ app.controller('ArchiveCtrl', function($scope, $stateParams, deadline, user){
 
         if(weeks_remaining >= 1){
             remaining = weeks_remaining;
-            unit = '<span>Weeks</span>';
+            unit = '<span>Weeks ago</span>';
             if(weeks_remaining == 1){
                 remaining = weeks_remaining;
-                unit = '<span>Week</span>';
+                unit = '<span>Week ago</span>';
             }
         } else if (days_remaining >= 1){
             remaining = days_remaining;
-            unit = '<span>Days</span>';
+            unit = '<span>Days ago</span>';
             if(days_remaining == 1){
                 remaining = days_remaining;
-                unit = '<span>Day</span>';
+                unit = '<span>Day ago</span>';
             }
         } else if (hours_remaining >= 1){
             remaining = hours_remaining;
-            unit = '<span>Hours</span>';
+            unit = '<span>Hours ago</span>';
             if(hours_remaining == 1){
                 remaining = hours_remaining ;
-                unit = '<span>Hour</span>';
+                unit = '<span>Hour ago</span>';
             }
         } else if (minutes_remaining >= 1){
             remaining = minutes_remaining;
-            unit = '<span>Minutes</span>';
+            unit = '<span>Minutes ago</span>';
             if(minutes_remaining == 1){
                 remaining = minutes_remaining;
-                unit = '<span>Minutes</span>';
+                unit = '<span>Minutes ago</span>';
             }
         } else {
             remaining = 0;
@@ -95,7 +96,6 @@ app.controller('ArchiveCtrl', function($scope, $stateParams, deadline, user){
                 unit[i].innerHTML = time[1];
             }
         }
-
     }
 
     $scope.init();

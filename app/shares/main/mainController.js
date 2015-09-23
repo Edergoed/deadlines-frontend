@@ -1,7 +1,6 @@
 'use strict';
 
-app
-.controller('MainCtrl', function($scope, $location, auth, user){
+app.controller('MainCtrl', function($scope, $location, auth, user){
     $scope.userCurrent = user.current();
     $scope.authenticated = false;
     $scope.$watch('authenticated', function(newVal, oldVal) {
@@ -32,9 +31,5 @@ app
         auth.logout();
         $scope.authenticated = false;
         $location.path('/');
-    }
-    $scope.myHtml = "<h1>Hello World</h1>"
-    $scope.froalaOptions = {
-        buttons : ["bold", "italic", "underline", "sep", "align", "insertOrderedList", "insertUnorderedList"]
     }
 });

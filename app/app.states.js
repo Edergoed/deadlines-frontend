@@ -23,7 +23,7 @@ app
             controller: 'DeadlineEditCtrl'
 
         }).state('deadlines.show', {
-            url: '/show/:showID',
+            url: '/:showID',
             templateUrl: 'app/components/deadlines/deadlineShowView.html',
             controller: 'DeadlineShowCtrl'
 
@@ -40,7 +40,7 @@ app
             controller: 'DeadlineEditCtrl'
 
         }).state('archive.show', {
-            url: '/show/:showID',
+            url: '/:showID',
             templateUrl: 'app/components/archive/deadlineShowView.html',
             controller: 'DeadlineShowCtrl'
 
@@ -61,12 +61,7 @@ app
             controller: 'SignupCtrl'
         });
 
-
-
         $locationProvider.html5Mode(true);
         $urlRouterProvider.otherwise("/deadlines");
-    }])
-
-
-
+    }]);
 
