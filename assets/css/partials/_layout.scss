@@ -1,11 +1,17 @@
 body {
     color: #fff;
     font-family: Roboto-Regular;
-    height: 1vh;
+    height: 100%;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: #1c1d1e;
+}
+
+#wrapper
+{
+    height: 100%;
+    display: block;
 }
 
 .container
