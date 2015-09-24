@@ -6,40 +6,47 @@ app
     function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
         $stateProvider
+        // Main
+        .state('main', {
+            url: '',
+            templateUrl: 'app/shares/main/mainView.html',
+            controller: 'MainCtrl'
+        })
+
         // Deadlines
-        .state('deadlines', {
+        .state('main.deadlines', {
             url: '/deadlines',
             templateUrl: 'app/components/deadlines/deadlinesView.html',
             controller: 'DeadlinesCtrl'
 
-        }).state('deadlines.new', {
+        }).state('main.deadlines.new', {
             url: '/new',
             templateUrl: 'app/components/deadlines/deadlineNewView.html',
             controller: 'DeadlineNewCtrl'
 
-        }).state('deadlines.edit', {
+        }).state('main.deadlines.edit', {
             url: '/edit/:editID',
             templateUrl: 'app/components/deadlines/deadlineEditView.html',
             controller: 'DeadlineEditCtrl'
 
-        }).state('deadlines.show', {
+        }).state('main.deadlines.show', {
             url: '/:showID',
             templateUrl: 'app/components/deadlines/deadlineShowView.html',
             controller: 'DeadlineShowCtrl'
 
         })
         // Archive
-        .state('archive', {
+        .state('main.archive', {
             url: '/archive',
             templateUrl: 'app/components/archive/archiveView.html',
             controller: 'ArchiveCtrl'
 
-        }).state('archive.edit', {
+        }).state('main.archive.edit', {
             url: '/edit/:editID',
             templateUrl: 'app/components/archive/deadlineEditView.html',
             controller: 'DeadlineEditCtrl'
 
-        }).state('archive.show', {
+        }).state('main.archive.show', {
             url: '/:showID',
             templateUrl: 'app/components/archive/deadlineShowView.html',
             controller: 'DeadlineShowCtrl'
