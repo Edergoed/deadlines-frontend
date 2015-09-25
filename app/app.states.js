@@ -52,11 +52,12 @@ app
             controller: 'DeadlineShowCtrl'
 
         })
+
         // Signin
         .state('signin', {
             url: '/signin',
-            templateUrl: 'app/components/login/loginView.html',
-            //controller: 'LoginCtrl'
+            templateUrl: 'app/components/signin/signinView.html',
+            controller: 'LoginCtrl'
 
         }).state('signout', {
             url: '/signout',

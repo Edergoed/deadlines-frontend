@@ -18,21 +18,6 @@ app.controller('MainCtrl', function($scope, $location, $state, auth, user){
         $scope.authenticated = false;
     }
 
-    $scope.login = function(){
-        if($scope.loginForm.$valid){
-            user.login($scope.user)
-            .then(function(res){
-                //succes
-                //$scope.$apply(function() {
-                //});
-                console.log(res);
-                $scope.authenticated = true;
-                $location.path('/');
-            }, function(res){
-                //error
-            });
-        }
-    }
 
     $scope.logout = function(){
         auth.logout();

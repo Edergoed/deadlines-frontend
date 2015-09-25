@@ -3,7 +3,7 @@
         <div id="list">
             <div class="list_wrapper" data-ng-repeat="deadlineListItem in deadlineList.deadlines">
                 <div id="{{deadlineListItem.id}}" class="deadline"
-                    ui-sref="deadlines.show({showID: deadlineListItem.id})" data-distance="{{deadlineListItem.data_distance}}" data-deadline="{{deadlineListItem.deadlineDateTime}}">
+                    ui-sref="main.deadlines.show({showID: deadlineListItem.id})" data-distance="{{deadlineListItem.data_distance}}" data-deadline="{{deadlineListItem.deadlineDateTime}}">
                     <div class="deadline_head">
                         <div class="title">
                             {{ deadlineListItem.title }}

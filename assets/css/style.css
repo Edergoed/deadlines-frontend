@@ -15,14 +15,30 @@
 @font-face {
   font-family: Roboto-light;
   src: url(../fonts/RobotoLight.ttf); }
+.signin {
+  top: 50%;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  display: block;
+  transform: translateY(-50%); }
+  .signin input[type="email"], .signin input[type="password"], .signin button {
+    width: 100%;
+    clear: both; }
+
 body {
   color: #fff;
   font-family: Roboto-Regular;
-  height: 1vh;
+  height: 100%;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: #1c1d1e; }
+
+#wrapper {
+  height: 100%;
+  display: block; }
 
 .container {
   height: calc(100% - 60px);

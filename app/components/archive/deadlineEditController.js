@@ -15,7 +15,7 @@ app.controller('DeadlineEditCtrl', function($scope, $stateParams, deadline){
                 //succes
                 setTimeout(function(){
                     $scope.getAll();
-                    $state.go('deadlines.show', { showID: $scope.selectedDeadline.deadline.id });
+                    $state.go('main.deadlines.show', { showID: $scope.selectedDeadline.deadline.id });
                 }, 20);
             }, function(res){
                 //error
