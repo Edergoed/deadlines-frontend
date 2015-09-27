@@ -11,7 +11,7 @@
     <div class="dynamic-content" ng-bind-html="selectedDeadline.deadline.content">
     </div>
     <div class="dynamic-options">
-        <img class="gravatar" src="http://www.gravatar.com/avatar/8a3fb7856522fb665615755df8d13f86?s=30">
+        <img class="gravatar" src="{{userCurrent.gravatar}}">
         <img id="gravatar" class="modifier" style="margin-left: 10px;" src="">
         <div ui-sref="main.deadlines.edit({editID: selectedDeadline.deadline.id})" style="display: inline-block; height: 30px; float: right;">
             <img class="dynamic_button" src="assets/img/options.svg" width="20px" height="30px">

@@ -1,4 +1,4 @@
-app.controller('DeadlineNewCtrl', function($scope, deadline){
+app.controller('DeadlineNewCtrl', function($scope, deadline, $state){
 
     $scope.init = function(){
         $scope.dayCurrent = new Date().getDate();
@@ -36,6 +36,7 @@ app.controller('DeadlineNewCtrl', function($scope, deadline){
                 //succes
                 setTimeout(function(){
                     $scope.getAll();
+                    $state.go('main.deadlines.show', { showID: $scope.deadlineList.deadlines[0].id });
                 }, 20);
             }, function(res){
                 //error
