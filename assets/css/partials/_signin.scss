@@ -2,7 +2,7 @@
     top: 50%;
     position: relative;
     width: 300px;
-    height: 25s0px;
+    height: auto;
     margin: auto;
     display: block;
     /*background-color: #FFF;*/
@@ -35,13 +35,15 @@
     }
     button{
         padding: 10px;
-        margin-top: 20px;
+        margin: 20px auto 0px;
+        display: block;
         background-color: #FE2746;
 
         border: 0px;
         border-color: #FE2746;
         border-style: solid;
         color: #FFF;
+        width: 50%;
     }
     a{
         text-decoration: none;
@@ -52,7 +54,15 @@
     }
 }
 
+#form{
+    background-color: #FFF;
+    height: 200px;
+    padding-top: 50px;
+}
+
 .signin_button{
-    display: inline-block;
+    display: block;
     padding: 20px;
+    margin: 0 auto;
+    text-align: center;
 }
