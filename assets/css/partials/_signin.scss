@@ -1,7 +1,12 @@
+input:-webkit-autofill
+{
+    -webkit-box-shadow: 0 0 0px 1000px #FFD4DA inset;
+}
+
 .signin {
     top: 50%;
     position: relative;
-    width: 300px;
+    width: 200px;
     height: auto;
     margin: auto;
     display: block;
@@ -25,9 +30,10 @@
     input{
         border-style: none;
         padding: 10px;
-        background-color: #EEE;
+        
+        background-color: #FFF;
         &:focus{
-            background-color: #FFF;
+            background-color: #EEE;
             border-style: none;
             border: 0px;
             outline: none;
@@ -58,6 +64,7 @@
     background-color: #FFF;
     height: 200px;
     padding-top: 50px;
+    box-sizing: border-box;
 }
 
 .signin_button{

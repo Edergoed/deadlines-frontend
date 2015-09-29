@@ -15,10 +15,13 @@
 @font-face {
   font-family: Roboto-light;
   src: url(../fonts/RobotoLight.ttf); }
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #FFD4DA inset; }
+
 .signin {
   top: 50%;
   position: relative;
-  width: 300px;
+  width: 200px;
   height: auto;
   margin: auto;
   display: block;
@@ -35,9 +38,9 @@
   .signin input {
     border-style: none;
     padding: 10px;
-    background-color: #EEE; }
+    background-color: #FFF; }
     .signin input:focus {
-      background-color: #FFF;
+      background-color: #EEE;
       border-style: none;
       border: 0px;
       outline: none; }
@@ -60,7 +63,8 @@
 #form {
   background-color: #FFF;
   height: 200px;
-  padding-top: 50px; }
+  padding-top: 50px;
+  box-sizing: border-box; }
 
 .signin_button {
   display: block;
@@ -118,8 +122,8 @@ footer {
   .content {
     width: 90%; }
 
-  .content {
-    width: 100%; } }
+  #nav {
+    width: 90%; } }
 @media (min-width: 1120px) {
   .container {
     -webkit-box-sizing: border-box;
@@ -129,7 +133,7 @@ footer {
   .content {
     width: 1118px; }
 
-  .content {
+  #nav {
     width: 1118px; } }
 #dynamic_left {
   width: 100%;
@@ -361,7 +365,6 @@ footer {
 
 #nav {
   height: 60px;
-  width: 1118px;
   margin: 0 auto; }
 
 .nav_item {
