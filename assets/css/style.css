@@ -50,6 +50,16 @@ input:-webkit-autofill {
       border-style: none;
       border: 0px;
       outline: none; }
+  .signin button {
+    padding: 10px;
+    margin: 20px auto 0px;
+    display: block;
+    background-color: #FE2746;
+    border: 0px;
+    border-color: #FE2746;
+    border-style: solid;
+    color: #FFF;
+    width: 50%; }
 
 #form {
   background-color: #FFF;
