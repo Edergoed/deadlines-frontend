@@ -1,6 +1,57 @@
 .profile{
 	width: 80%;
 	background-color: #fff;
+	color: #000;
 	height: 100%;
 	margin: 0 auto;
+	// box-sizing: border-box;
+	a{
+		text-decoration: none;
+		color: #FE2746;
+		&:hover{
+			color: #FFC300;
+		}
+	}
+
+}
+
+.profile-username{
+	width: 100%;
+	font-size: 36px;
+	text-align: center;
+	display: block;
+}
+
+.profile-wrapper{
+	padding: 20px;
+}
+
+.profile-picture{
+	width: 120px;
+	height: 120px;
+	background-color: #DDD;
+	margin: 20px auto;
+	display: block;
+}
+
+.profile-menu{
+	width: 60%;
+	margin: 0 auto;
+}
+
+.profile-items{
+	width: 50%;
+	display: inline-block;
+	float: left;
+}
+
+.profile-values{
+	float: right;
+	width: 50%;
+	display: inline-block;
+	text-align: right;
+}
+
+.profile-footer{
+	text-align: center;
 }
