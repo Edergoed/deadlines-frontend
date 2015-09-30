@@ -18,6 +18,9 @@ app.controller('MainCtrl', function($scope, $location, $state, auth, user){
         $scope.authenticated = false;
     }
 
+    $scope.gravatar = function(hash, size){
+        return user.gravatar(hash, size);
+    }
 
     $scope.logout = function(){
         auth.logout();

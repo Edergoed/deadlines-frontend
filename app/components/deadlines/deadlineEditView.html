@@ -18,7 +18,8 @@
             <div text-angular ng-model="selectedDeadline.deadline.content"></div>
         </div>
         <div class="dynamic-options">
-            <img class="gravatar" src="{{userCurrent.gravatar}}">
+        <img class="gravatar" src="{{gravatar(selectedDeadline.deadline.creator.gravatarHash, 30)}}">
+        <img class="gravatar" src="{{gravatar(selectedDeadline.deadline.editor.gravatarHash, 30)}}">
             <img class="gravatar" class="modifier" style="margin-left: 10px;" src="">
             <div style="display: inline-block; height: 30px; float: right;">
                 <button type="submit">Save</button>

@@ -42,8 +42,6 @@ app
 		var token = auth.getToken();
 		if(token) {
 			self.user = auth.parseJwt(auth.getToken());
-            console.log(self.user.gravatar);
-			self.user['gravatar'] = self.gravatar(self.user.gravatar)
 			return self.user
 		} else {
 			return false;
