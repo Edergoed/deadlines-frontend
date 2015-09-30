@@ -1,16 +1,18 @@
 <div class="signin">
-    <h1 style="color: #fff;">Deadlines</h1>
-    <form class="form" name="SignupForm" novalidate ng-submit="signup()" >
-        <input type="email" name="email" placeholder="email" ng-model="user.email" required/>
-        <input type="password" name="password" placeholder="password" ng-model="user.password" required/>
-        <input type="password" name="password_confirmation" placeholder="password confirmation" ng-model="user.password_confirmation" required/>
-        <select id="" name="klass" data-ng-options="klass.id as klass.name for klass in klassList.klasses" data-ng-model="user.klass"
-            placeholder="Class">
-             <option value="" disabled selected>Select your class</option>
-        </select>
+    <!-- <h1 style="color: #fff;">Deadlines</h1> -->
 
-
-        <button type="submit">Signup</button>
-    </form>
-    <a data-ui-sref="signin" style="color: #fff;">Signin</a>
+    <div id="form"><form class="form" name="SignupForm" novalidate ng-submit="signup()" >
+            <input type="email" name="email" placeholder="email" ng-model="user.email" required/>
+            <input type="password" name="password" placeholder="password" ng-model="user.password" required/>
+            <input type="password" name="password_confirmation" placeholder="password confirmation" ng-model="user.password_confirmation" required/>
+            <select id="" name="klass" data-ng-options="klass.id as klass.name for klass in klassList.klasses" data-ng-model="user.klass"
+                placeholder="Class">
+                 <option value="" disabled selected>Select your class</option>
+            </select>
+    
+    
+            <button type="submit">Signup</button>
+        </form>
+        </div>
+        <div class="signin_button"><a data-ui-sref="signin">Signin</a></div>
 </div>

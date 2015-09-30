@@ -1,6 +1,6 @@
 input:-webkit-autofill
 {
-    -webkit-box-shadow: 0 0 0px 1000px #FFD4DA inset;
+    -webkit-box-shadow: 0 0 0px 1000px #FFEDB2 inset;
 }
 
 .signin {
@@ -13,10 +13,17 @@ input:-webkit-autofill
     /*background-color: #FFF;*/
     color: #fff;
     transform: translateY(-50%);
+    a{
+        text-decoration: none;
+        color: #FE2746;
+        &:hover{
+            color: #FFC300;
+        }
+    }
     form
     {
     }
-    input[type="email"], input[type="password"], button
+    select, input[type="email"], input[type="password"], button
     {
         width: 100%;
         clear: both;
@@ -27,7 +34,8 @@ input:-webkit-autofill
 
         /*text-align: center;*/
     }
-    input{
+    input, select{
+        font-family: Roboto-Regular;
         border-style: none;
         padding: 10px;
         
@@ -51,20 +59,14 @@ input:-webkit-autofill
         color: #FFF;
         width: 50%;
     }
-    a{
-        text-decoration: none;
-        color: #BBB;
-        &:hover{
-            color: #555;
-        }
-    }
+
 }
 
 #form{
     background-color: #FFF;
-    height: 200px;
-    padding-top: 50px;
-    box-sizing: border-box;
+    // height: 200px;
+    padding: 20px 0px;
+    // box-sizing: border-box;
 }
 
 .signin_button{

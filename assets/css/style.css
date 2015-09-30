@@ -16,7 +16,7 @@
   font-family: Roboto-light;
   src: url(../fonts/RobotoLight.ttf); }
 input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px #FFD4DA inset; }
+  -webkit-box-shadow: 0 0 0px 1000px #FFEDB2 inset; }
 
 .signin {
   top: 50%;
@@ -28,18 +28,24 @@ input:-webkit-autofill {
   /*background-color: #FFF;*/
   color: #fff;
   transform: translateY(-50%); }
-  .signin input[type="email"], .signin input[type="password"], .signin button {
+  .signin a {
+    text-decoration: none;
+    color: #FE2746; }
+    .signin a:hover {
+      color: #FFC300; }
+  .signin select, .signin input[type="email"], .signin input[type="password"], .signin button {
     width: 100%;
     clear: both; }
   .signin h1 {
     padding: 10px;
     font-family: "Roboto-Light";
     /*text-align: center;*/ }
-  .signin input {
+  .signin input, .signin select {
+    font-family: Roboto-Regular;
     border-style: none;
     padding: 10px;
     background-color: #FFF; }
-    .signin input:focus {
+    .signin input:focus, .signin select:focus {
       background-color: #EEE;
       border-style: none;
       border: 0px;
@@ -54,17 +60,10 @@ input:-webkit-autofill {
     border-style: solid;
     color: #FFF;
     width: 50%; }
-  .signin a {
-    text-decoration: none;
-    color: #BBB; }
-    .signin a:hover {
-      color: #555; }
 
 #form {
   background-color: #FFF;
-  height: 200px;
-  padding-top: 50px;
-  box-sizing: border-box; }
+  padding: 20px 0px; }
 
 .signin_button {
   display: block;
