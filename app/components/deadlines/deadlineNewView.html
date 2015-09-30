@@ -9,15 +9,16 @@
                 </select>
                 <select id="" name="year" data-ng-options="year for year in years" data-ng-model="deadline.deadline.year" required>
                 </select>
-                <input type="text" placeholder="12:00" data-ng-model="deadline.deadline.time" required>
+
             </div>
             <div class="dynamic-sub-meta">
                 <input type="subject" placeholder="Subject" data-ng-model="deadline.deadline.subject" required>
-                <select id="" name=""></select>
+                <input type="text" placeholder="12:00" data-ng-model="deadline.deadline.time" required>
+                <!-- <select id="" name=""></select> -->
             </div>
             <div class="dynamic-content">
                 <div text-angular ng-model="deadline.deadline.content"></div>
-                <button type="submit">Save</button>
+                <button class="btn_save" type="submit">Post deadline</button>
             </div>
         </form>
     </div>

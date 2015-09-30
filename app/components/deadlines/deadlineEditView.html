@@ -8,11 +8,12 @@
             </select>
             <select id="" name="year" data-ng-options="year for year in years" data-ng-model="selectedDeadline.deadline.year">
             </select>
-            <input type="text" placeholder="12:00" data-ng-model="selectedDeadline.deadline.time">
+            
         </div>
         <div class="dynamic-sub-meta">
             <input type="subject" placeholder="Subject" data-ng-model="selectedDeadline.deadline.subject">
-            <select id="" name=""></select>
+            <input type="text" style="float: right;" placeholder="12:00" data-ng-model="selectedDeadline.deadline.time">
+            <!-- <select id="" name=""></select> -->
         </div>
         <div class="dynamic-content">
             <div text-angular ng-model="selectedDeadline.deadline.content"></div>
@@ -20,12 +21,8 @@
         <div class="dynamic-options">
             <img class="gravatar" src="{{userCurrent.gravatar}}">
             <img class="gravatar" class="modifier" style="margin-left: 10px;" src="">
-            <div style="display: inline-block; height: 30px; float: right;">
-                <button type="submit">Save</button>
-            </div>
-            <div style="display: inline-block; height: 30px; float: right;">
-                <button type="">Cancel</button>
-            </div>
+                <button class="btn_save" style="display: inline-block; float: right;" type="submit">Save</button>
+                <button class="btn_save" style="display: inline-block; float: right;" type="">Cancel</button>
         </div>
     </form>
 </div>
