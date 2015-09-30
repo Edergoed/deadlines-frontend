@@ -277,12 +277,40 @@ footer {
       border: none; }
   #dynamic_right_content .hide {
     max-height: 0px; }
+  #dynamic_right_content input, #dynamic_right_content select {
+    font-family: Roboto-Regular;
+    border-style: none;
+    background-color: #FFF; }
+    #dynamic_right_content input:focus, #dynamic_right_content select:focus {
+      background-color: #EEE;
+      border-style: none;
+      border: 0px;
+      outline: none; }
+  #dynamic_right_content .btn-group {
+    display: inline-block; }
 
 .dynamic_left_content {
   width: 100%;
   top: 0;
   height: 0px;
   z-index: 500; }
+
+.btn_save {
+  padding: 10px;
+  margin: 20px auto 0px;
+  display: block;
+  background-color: #FE2746;
+  border: 0px;
+  border-color: #FE2746;
+  border-style: solid;
+  color: #FFF; }
+
+.dynamic-meta input, .dynamic-meta select {
+  font-size: 20px;
+  padding: 0px;
+  margin: 0px; }
+.dynamic-meta select {
+  float: right; }
 
 .deadline, .archivedDeadline {
   width: 100%;
