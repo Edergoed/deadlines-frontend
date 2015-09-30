@@ -1,7 +1,7 @@
 'use strict';
 
 app
-.controller('LoginCtrl', function($scope, $location, auth, user){
+.controller('LoginCtrl', function($scope, $state, $location, auth, user){
     $scope.signin = function(){
         if($scope.signinForm.$valid){
             user.signin($scope.user)
@@ -11,7 +11,8 @@ app
                 //});
                 console.log(res);
                 $scope.authenticated = true;
-                $location.path('/');
+                //$location.path('/');
+                $state.go('main.deadlines', {});
             }, function(res){
                 //error
             });

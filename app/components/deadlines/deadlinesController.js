@@ -12,8 +12,8 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
             }, 0);
             $scope.deadlineList = deadline.deadlineList;
 
-            if($state.current.name == 'deadlines'){
-                $state.go('deadlines.show', { showID: $scope.deadlineList.deadlines[0].id });
+            if($state.current.name == 'main.deadlines'){
+                $state.go('main.deadlines.show', { showID: $scope.deadlineList.deadlines[0].id });
             }
         }, function(res){
             //error

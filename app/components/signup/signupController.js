@@ -1,14 +1,19 @@
 'use strict';
 
 app
-.controller('SignupCtrl', function($scope, signup, klass){
+.controller('SignupCtrl', function($scope, $state, signup, klass){
     $scope.init = function(){
         $scope.getKlasses();
     }
 
     $scope.signup = function(){
         if($scope.SignupForm.$valid){
-            signup.signup($scope.user);
+            signup.signup($scope.user)
+            .then(function(res){
+                $state.go('main.deadlines', {});
+            }, function(res){
+            //error
+            })
         }
     };
 
