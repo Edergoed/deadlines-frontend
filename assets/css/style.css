@@ -84,38 +84,38 @@ input:-webkit-autofill {
     .profile a:hover {
       color: #FFC300; }
 
-.profile-username {
+.profile_username {
   width: 100%;
   font-size: 36px;
   text-align: center;
   display: block; }
 
-.profile-wrapper {
+.profile_wrapper {
   padding: 20px; }
 
-.profile-picture {
+.profile_picture {
   width: 120px;
   height: 120px;
   background-color: #DDD;
   margin: 20px auto;
   display: block; }
 
-.profile-menu {
+.profile_menu {
   width: 60%;
   margin: 0 auto; }
 
-.profile-items {
+.profile_items {
   width: 50%;
   display: inline-block;
   float: left; }
 
-.profile-values {
+.profile_values {
   float: right;
   width: 50%;
   display: inline-block;
   text-align: right; }
 
-.profile-footer {
+.profile_footer {
   text-align: center; }
 
 body {
@@ -421,5 +421,10 @@ footer {
   user-select: none; }
   .nav_item:hover {
     color: #FFF; }
+
+.nav_gravatar {
+  float: right;
+  display: inline-block;
+  margin: 15px 0px 15px 0px; }
 
 /*# sourceMappingURL=style.css.map */
