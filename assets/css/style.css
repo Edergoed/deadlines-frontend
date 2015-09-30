@@ -72,6 +72,12 @@ input:-webkit-autofill {
   margin: 0 auto;
   text-align: center; }
 
+.profile {
+  width: 80%;
+  background-color: #fff;
+  height: 100%;
+  margin: 0 auto; }
+
 body {
   color: #fff;
   font-family: Roboto-Regular;

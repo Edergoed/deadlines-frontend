@@ -67,6 +67,14 @@ app
             url: '/signup',
             templateUrl: 'app/components/signup/signupView.html',
             controller: 'SignupCtrl'
+        })
+
+        // Profile
+        .state('main.profile', {
+            url: '/profile',
+            templateUrl: 'app/components/profile/profileView.html',
+            controller: 'ProfileCtrl'
+
         });
 
         $locationProvider.html5Mode(true);
