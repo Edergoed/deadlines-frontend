@@ -6,6 +6,7 @@ body {
     padding: 0;
     overflow: hidden;
     background-color: #1c1d1e;
+    -webkit-font-smoothing: antialiased;
 }
 
 #wrapper
@@ -86,7 +87,7 @@ footer
     }
 
 
-    #nav 
+    #nav
     {
         width: 1118px;
     }
