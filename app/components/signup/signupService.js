@@ -1,7 +1,7 @@
 app
-.service('signup', function($http){
+.service('signup', function($http, urls){
     this.signup = function(user){
-        return $http.post('http://api.deadlinesapi.dev:88/users', {user: {email: user.email, password: user.password, password_confirmation: user.password_confirmation, klass: user.klass} });
+        return $http.post(urls.BASE_API + '/users', {user: {email: user.email, password: user.password, password_confirmation: user.password_confirmation, klass: user.klass} });
     }
 
     this.getAllKlasses = function(){
