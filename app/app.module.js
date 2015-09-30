@@ -51,4 +51,15 @@ app.factory('authInterceptor', function (urls, auth) {
 .config(function($httpProvider) {
     $httpProvider.interceptors.push('authInterceptor');
 });
+app.config(function($provide){
+    $provide.decorator('taOptions', ['$delegate', function(taOptions){
 
+        taOptions.toolbar = [
+            [],
+            ['bold', 'italics', 'underline', 'ul', 'ol', 'redo', 'undo', 'clear'],
+            [],
+            ['insertImage', 'insertLink']
+        ];
+        return taOptions; // whatever you return will be the taOptions
+    }]);
+});
