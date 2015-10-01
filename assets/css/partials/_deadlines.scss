@@ -169,6 +169,13 @@
     select{
         float: right;
     }
+    overflow: hidden;
+}
+
+.dynamic-sub-meta{
+    input{
+        font-size: 14px;
+    }
 }
 
 .deadline, .archivedDeadline {

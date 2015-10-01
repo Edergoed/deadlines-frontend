@@ -39,7 +39,6 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
         var deadline = document.getElementsByClassName('deadline');
         // alert(bg_bottom);
         for(i=0; i<deadline.length; i++){
-            console.log(deadline.length + " " + i);
             var data = deadline[i].getAttribute("data-distance");
             var changeData = deadline[i].setAttribute("data-distance", data-60);
 

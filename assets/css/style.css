@@ -311,12 +311,17 @@ footer {
   border-style: solid;
   color: #FFF; }
 
-.dynamic-meta input, .dynamic-meta select {
-  font-size: 20px;
-  padding: 0px;
-  margin: 0px; }
-.dynamic-meta select {
-  float: right; }
+.dynamic-meta {
+  overflow: hidden; }
+  .dynamic-meta input, .dynamic-meta select {
+    font-size: 20px;
+    padding: 0px;
+    margin: 0px; }
+  .dynamic-meta select {
+    float: right; }
+
+.dynamic-sub-meta input {
+  font-size: 14px; }
 
 .deadline, .archivedDeadline {
   width: 100%;
