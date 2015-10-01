@@ -35,7 +35,8 @@ input:-webkit-autofill {
       color: #FFC300; }
   .signin select, .signin input[type="email"], .signin input[type="password"], .signin button {
     width: 100%;
-    clear: both; }
+    clear: both;
+    font-size: 12px; }
   .signin h1 {
     padding: 10px;
     font-family: "Roboto-Light";
@@ -64,6 +65,8 @@ input:-webkit-autofill {
 #form {
   background-color: #FFF;
   padding: 20px 0px; }
+  #form button, #form input {
+    font-size: 12px; }
 
 .signin_button {
   display: block;
