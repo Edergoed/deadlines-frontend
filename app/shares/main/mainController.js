@@ -6,8 +6,9 @@ app.controller('MainCtrl', function($scope, $location, $state, auth, user){
             console.log(newVal, oldVal);
     });
 
-    if($scope.authenticated == false){
-        //$state.go('signin', { });
+    if($scope.userCurrent == false){
+        console.log('yay' + $scope.userCurrent);
+        $state.go('signin', {});
     }
 
     if($scope.userCurrent != false){
