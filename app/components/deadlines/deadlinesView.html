@@ -1,21 +1,23 @@
 <div id="dynamic_left">
-    <div id="dynamic_left_content" class="dynamic_left_content">
-        <div id="list">
-            <div class="list_wrapper" data-ng-repeat="deadlineListItem in deadlineList.deadlines">
-                <div id="{{deadlineListItem.id}}" class="deadline"
-                    ui-sref="main.deadlines.show({showID: deadlineListItem.id})" data-distance="{{deadlineListItem.data_distance}}" data-deadline="{{deadlineListItem.deadlineDateTime}}">
-                    <div class="deadline_head">
-                        <div class="title">
-                            {{ deadlineListItem.title }}
-                            <span class="count_down" style="float: right; text-align: right">03</span>
-                        </div>
-                        <div class="subject">
-                            {{ deadlineListItem.subject }}
-                            <span style="text-transform: uppercase;">
-                            </span>
-                            <span class="count_down_unit" style="float: right; text-align: right">
-                                <span>Weeks</span>
-                            </span>
+    <div id="dynamic_left_wrapper">
+        <div id="dynamic_left_content" class="dynamic_left_content">
+            <div id="list">
+                <div class="list_wrapper" data-ng-repeat="deadlineListItem in deadlineList.deadlines">
+                    <div id="{{deadlineListItem.id}}" class="deadline"
+                        ui-sref="main.deadlines.show({showID: deadlineListItem.id})" data-distance="{{deadlineListItem.data_distance}}" data-deadline="{{deadlineListItem.deadlineDateTime}}">
+                        <div class="deadline_head">
+                            <div class="title">
+                                {{ deadlineListItem.title }}
+                                <span class="count_down" style="float: right; text-align: right">03</span>
+                            </div>
+                            <div class="subject">
+                                {{ deadlineListItem.subject }}
+                                <span style="text-transform: uppercase;">
+                                </span>
+                                <span class="count_down_unit" style="float: right; text-align: right">
+                                    <span>Weeks</span>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>

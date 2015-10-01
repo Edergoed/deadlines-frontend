@@ -12,6 +12,11 @@
     position: relative;
 }
 
+#dynamic_left_wrapper{
+    height: 100%;
+    width: 100%;
+}
+
 #dynamic_left::-webkit-scrollbar
 {
     width: 0px;

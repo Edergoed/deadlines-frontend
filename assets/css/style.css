@@ -115,7 +115,9 @@ input:-webkit-autofill {
   text-align: right; }
 
 .profile_footer {
-  text-align: center; }
+  text-align: center;
+  width: 100%;
+  float: right; }
 
 body {
   color: #fff;
@@ -190,6 +192,10 @@ footer {
   background-color: #00bbd3;
   display: inline-block;
   position: relative; }
+
+#dynamic_left_wrapper {
+  height: 100%;
+  width: 100%; }
 
 #dynamic_left::-webkit-scrollbar {
   width: 0px;
