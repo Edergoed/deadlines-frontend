@@ -34,7 +34,10 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
 
     $scope.getCol = function(){
         //console.log("getCol executed");
+        var bg = document.getElementById('dynamic_left');
+        var bg_bottom = document.getElementById('dynamic_left_wrapper');
         var deadline = document.getElementsByClassName('deadline');
+        // alert(bg_bottom);
         for(i=0; i<deadline.length; i++){
             var data = deadline[i].getAttribute("data-distance");
             var changeData = deadline[i].setAttribute("data-distance", data-60);
@@ -42,12 +45,18 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
             // var background = deadline[i].getAttribute("style");
             var newImage = $scope.colCalc(data, deadline, i);
             var changeData = deadline[i].setAttribute("style", "background-color:"+newImage);
+            if(i+1 == deadline.length){
+                bg_bottom.setAttribute("style", "background-color:"+newImage);
+            }
 
 
             var day = 86400;
             if(data < day*28){
                 if(data < day*7){
                     deadline[i].parentNode.setAttribute("style", "background-color: #FE2746");
+                    if(i+1 == deadline.length){
+                        bg.setAttribute("style", "background-color: #FE2746"); 
+                    }
                     if(data < 0){
                         var deadline_class = deadline[i].className;
                         //if($scope.aContainsB(deadline_class, 'hide_deadline')){
@@ -58,6 +67,9 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
                     }
                 }else{
                     deadline[i].parentNode.setAttribute("style", "background-color: #FFC300");
+                    if(i+1 == deadline.length){
+                        bg.setAttribute("style", "background-color: #FFC300"); 
+                    }
                 }
             }
         }

@@ -26,6 +26,7 @@ input:-webkit-autofill
     {
         width: 100%;
         clear: both;
+        font-size: 12px;
     }
     h1{
         padding: 10px;
@@ -66,6 +67,9 @@ input:-webkit-autofill
     // height: 200px;
     padding: 20px 0px;
     // box-sizing: border-box;
+    button, input{
+        font-size: 12px; 
+    }
 }
 
 .signin_button{

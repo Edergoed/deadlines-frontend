@@ -35,7 +35,8 @@ input:-webkit-autofill {
       color: #FFC300; }
   .signin select, .signin input[type="email"], .signin input[type="password"], .signin button {
     width: 100%;
-    clear: both; }
+    clear: both;
+    font-size: 12px; }
   .signin h1 {
     padding: 10px;
     font-family: "Roboto-Light";
@@ -64,6 +65,8 @@ input:-webkit-autofill {
 #form {
   background-color: #FFF;
   padding: 20px 0px; }
+  #form button, #form input {
+    font-size: 12px; }
 
 .signin_button {
   display: block;
@@ -115,7 +118,9 @@ input:-webkit-autofill {
   text-align: right; }
 
 .profile_footer {
-  text-align: center; }
+  text-align: center;
+  width: 100%;
+  float: right; }
 
 body {
   color: #fff;
@@ -190,6 +195,10 @@ footer {
   background-color: #00bbd3;
   display: inline-block;
   position: relative; }
+
+#dynamic_left_wrapper {
+  height: 100%;
+  width: 100%; }
 
 #dynamic_left::-webkit-scrollbar {
   width: 0px;
@@ -305,12 +314,17 @@ footer {
   border-style: solid;
   color: #FFF; }
 
-.dynamic-meta input, .dynamic-meta select {
-  font-size: 20px;
-  padding: 0px;
-  margin: 0px; }
-.dynamic-meta select {
-  float: right; }
+.dynamic-meta {
+  overflow: hidden; }
+  .dynamic-meta input, .dynamic-meta select {
+    font-size: 20px;
+    padding: 0px;
+    margin: 0px; }
+  .dynamic-meta select {
+    float: right; }
+
+.dynamic-sub-meta input {
+  font-size: 14px; }
 
 .deadline, .archivedDeadline {
   width: 100%;
