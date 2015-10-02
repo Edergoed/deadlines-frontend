@@ -1,11 +1,11 @@
-app
-.config([
+app.config([
     '$stateProvider',
     '$urlRouterProvider',
     '$locationProvider',
     function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
         $stateProvider
+
         // Main
         .state('main', {
             url: '',
@@ -35,6 +35,7 @@ app
             controller: 'DeadlineShowCtrl'
 
         })
+
         // Archive
         .state('main.archive', {
             url: '/archive',
@@ -79,5 +80,35 @@ app
 
         $locationProvider.html5Mode(true);
         $urlRouterProvider.otherwise("/deadlines");
-    }]);
+    }])
+    .run(function ($rootScope, $stateParams  ) {
+
+        console.log("app run")
+        $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+            console.log("start");
+        });
+
+        $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+            console.log("end");
+        });
+    })
+.directive('routeLoadingIndicator', function($rootScope) {
+    return {
+        restrict: 'E',
+        template: '<div data-ng-show="isRouteLoading" style="width: 100%; height: 100%;"><div class="loading"></div></div>',
+        link: function(scope, elem, attrs) {
+            scope.isRouteLoading = false;
+
+            $rootScope.$on('$stateChangeStart', function() {
+                scope.isRouteLoading = true;
+                console.log('change');
+            });
+
+            $rootScope.$on('$stateChangeSuccess', function() {
+                scope.isRouteLoading = false;
+                console.log('succes');
+            });
+        }
+    };
+});
 

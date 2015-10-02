@@ -1,13 +1,17 @@
 app.controller('DeadlineShowCtrl', function($scope, $stateParams, deadline){
+    $scope.Loading = false;
 
     $scope.getDeadline = function(id){
+        $scope.Loading = true;
         deadline.getDeadline(id)
         .then(function(res){
             $scope.selectedDeadline = deadline.deadline;
             $scope.getDate($scope.selectedDeadline.deadline.deadlineDateTime);
             //succes
+            $scope.Loading = false;
         }, function(res){
             //error
+            $scope.Loading = false;
         })
     }
 

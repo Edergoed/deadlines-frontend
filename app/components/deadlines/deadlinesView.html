@@ -26,7 +26,8 @@
     </div>
 </div>
 <div id="dynamic_right">
-    <deadlines-state current="sub"><deadlines-state>
-    <div id="dynamic_right_content" data-ng-switch on="sub" ui-view>
+    <route-loading-indicator></route-loading-indicator>
+    <div datat-ng-if="Loading"></div>
+    <div id="dynamic_right_content" ng-if="!isRouteLoading" data-ng-switch on="sub" ui-view>
     </div>
 </div>

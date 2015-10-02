@@ -16,12 +16,6 @@ app.run(['$rootScope', '$location', function($rootScope, $location) {
     });
 }]);
 
-app.directive('froala', function () {
-    return {
-        require: 'ngModel'
-    };
-});
-
 app.run(function($http) {
     $http.defaults.headers.common.Accept = 'application/vnd.deadlines.v1'
 });
@@ -51,6 +45,7 @@ app.factory('authInterceptor', function (urls, auth) {
 .config(function($httpProvider) {
     $httpProvider.interceptors.push('authInterceptor');
 });
+
 app.config(function($provide){
     $provide.decorator('taOptions', ['$delegate', function(taOptions){
 
@@ -63,3 +58,4 @@ app.config(function($provide){
         return taOptions; // whatever you return will be the taOptions
     }]);
 });
+

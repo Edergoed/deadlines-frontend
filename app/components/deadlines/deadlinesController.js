@@ -1,9 +1,11 @@
 app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline, user){
+
     $scope.init = function(){
         $scope.getAll();
     }
 
     $scope.getAll = function(){
+        $scope.Loading = true;
         deadline.getAllDeadlines()
         .then(function(res){
             //success
@@ -15,6 +17,7 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
             if($state.current.name == 'main.deadlines'){
                 $state.go('main.deadlines.show', { showID: $scope.deadlineList.deadlines[0].id });
             }
+
         }, function(res){
             //error
         })
@@ -55,7 +58,7 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
                 if(data < day*7){
                     deadline[i].parentNode.setAttribute("style", "background-color: #FE2746");
                     if(i+1 == deadline.length){
-                        bg.setAttribute("style", "background-color: #FE2746"); 
+                        bg.setAttribute("style", "background-color: #FE2746");
                     }
                     if(data < 0){
                         var deadline_class = deadline[i].className;
@@ -68,7 +71,7 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
                 }else{
                     deadline[i].parentNode.setAttribute("style", "background-color: #FFC300");
                     if(i+1 == deadline.length){
-                        bg.setAttribute("style", "background-color: #FFC300"); 
+                        bg.setAttribute("style", "background-color: #FFC300");
                     }
                 }
             }

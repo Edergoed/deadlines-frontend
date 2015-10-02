@@ -9,6 +9,28 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+.loading
+{
+    height: 80px;
+    width: 80px;
+    border-bottom: 6px solid rgba(0, 0, 0, .1);
+    border-left: 6px solid rgba(0, 0, 0, .1);
+    border-right: 6px solid rgba(0, 0, 0, .1);
+    border-top: 6px solid rgba(0, 0, 0, .4);
+    border-radius: 100%;
+    -webkit-animation: rot .6s infinite linear;
+
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin: -40px 0 0 -40px;
+}
+@-webkit-keyframes rot
+{
+    0% {-webkit-transform: rotate(0deg);}
+    100% {-webkit-transform: rotate(359deg);}
+}
+
 #wrapper
 {
     height: 100%;
