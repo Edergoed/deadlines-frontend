@@ -125,7 +125,7 @@
         font-family: Roboto-Regular;
         border-style: none;
         // padding: 10px;
-        
+
         background-color: #FFF;
         &:focus{
             background-color: #EEE;
@@ -143,7 +143,7 @@
 .dynamic_left_content {
     width: 100%;
     top: 0;
-    height: 0px;
+    //height: 0px;
     z-index: 500;
 }
 

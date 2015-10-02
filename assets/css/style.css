@@ -320,7 +320,6 @@ footer {
 .dynamic_left_content {
   width: 100%;
   top: 0;
-  height: 0px;
   z-index: 500; }
 
 .btn_save {

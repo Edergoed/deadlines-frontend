@@ -1,5 +1,6 @@
 app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline, user){
 
+        $scope.Loading = false;
     $scope.init = function(){
         $scope.getAll();
     }
@@ -18,8 +19,10 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
                 $state.go('main.deadlines.show', { showID: $scope.deadlineList.deadlines[0].id });
             }
 
+            $scope.Loading = false;
         }, function(res){
             //error
+            $scope.Loading = false;
         })
     }
 
