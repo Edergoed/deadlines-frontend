@@ -5,6 +5,7 @@ app.controller('ArchiveCtrl', function($scope, $state, $stateParams, deadline, u
     }
 
     $scope.getAll = function(){
+        $scope.Loading = true;
         deadline.getArchiveDeadlines()
         .then(function(res){
             //success
@@ -12,11 +13,15 @@ app.controller('ArchiveCtrl', function($scope, $state, $stateParams, deadline, u
                 $scope.setDistance();
             }, 0);
             $scope.deadlineList = deadline.deadlineList;
+
             if($state.current.name == 'archive'){
                 $state.go('archive.show', { showID: $scope.deadlineList.deadlines[0].id });
             }
+
+            $scope.Loading = false;
         }, function(res){
             //error
+            $scope.Loading = false;
         })
     }
 

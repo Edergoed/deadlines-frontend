@@ -167,6 +167,12 @@ body {
   -webkit-animation: fadein .161s;
   animation: fadein .161s; }
 
+.content_wrapper {
+  -webkit-transition: width 0.2s ease;
+  -moz-transition: width 0.2s ease;
+  -ms-transition: width 0.2s ease;
+  transition: width 0.2s ease; }
+
 .gravatar {
   border-radius: 100%;
   -moz-border-radius: 100%;
@@ -240,7 +246,6 @@ footer {
   width: 100%;
   overflow-x: hidden;
   overflow-y: auto;
-  line-height: 1.2em;
   padding: 15px 20px;
   background-color: #fff;
   color: #000;

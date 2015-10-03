@@ -51,9 +51,12 @@ body {
     // height: calc(100% - 64px);
     height: 100%;
     display: block;
-    // @include transition(all .2s ease);
     -webkit-animation: fadein .161s;
     animation: fadein .161s;
+}
+
+.content_wrapper{
+    @include transition(width .2s ease);
 }
 
 .gravatar {
