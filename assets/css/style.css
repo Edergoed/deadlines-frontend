@@ -141,16 +141,12 @@ body {
   border-top: 6px solid rgba(0, 0, 0, 0.4);
   border-radius: 100%;
   -webkit-animation: rot .6s infinite linear;
+  -webkit-animation: fadein 2s;
   position: relative;
   top: 50%;
   left: 50%;
   margin: -40px 0 0 -40px; }
 
-@-webkit-keyframes rot {
-  0% {
-    -webkit-transform: rotate(0deg); }
-  100% {
-    -webkit-transform: rotate(359deg); } }
 #wrapper {
   height: 100%;
   display: block; }
@@ -167,7 +163,9 @@ body {
   width: 100%;
   margin: 0 auto;
   height: 100%;
-  display: block; }
+  display: block;
+  -webkit-animation: fadein .161s;
+  animation: fadein .161s; }
 
 .gravatar {
   border-radius: 100%;
@@ -214,6 +212,10 @@ footer {
   background-color: #00bbd3;
   display: inline-block;
   position: relative; }
+
+.dynamic-post {
+  -webkit-animation: fadein .161s;
+  animation: fadein .161s; }
 
 #dynamic_left_wrapper {
   height: 100%;
@@ -333,7 +335,8 @@ footer {
   color: #FFF; }
 
 .dynamic-meta {
-  overflow: hidden; }
+  overflow: hidden;
+  height: 24px; }
   .dynamic-meta input, .dynamic-meta select {
     font-size: 20px;
     padding: 0px;
@@ -486,5 +489,16 @@ footer {
   float: right;
   display: inline-block;
   margin: 15px 0px 15px 0px; }
+
+@-webkit-keyframes rot {
+  0% {
+    -webkit-transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(359deg); } }
+@-webkit-keyframes fadein {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 
 /*# sourceMappingURL=style.css.map */

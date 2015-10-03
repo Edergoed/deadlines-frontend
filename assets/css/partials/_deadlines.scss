@@ -12,9 +12,15 @@
     position: relative;
 }
 
+.dynamic-post{
+    -webkit-animation: fadein .161s;
+    animation: fadein .161s;
+}
+
 #dynamic_left_wrapper{
     height: 100%;
     width: 100%;
+    // @include transition(all .161s ease);
 }
 
 #dynamic_left::-webkit-scrollbar
@@ -35,6 +41,7 @@
     float: right;
     display: inline-block;
 }
+
 #dynamic_right_content {
     height: 100%;
     width: 100%;
@@ -170,6 +177,7 @@
         float: right;
     }
     overflow: hidden;
+    height: 24px;
 }
 
 .dynamic-sub-meta{

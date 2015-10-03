@@ -19,16 +19,12 @@ body {
     border-top: 6px solid rgba(0, 0, 0, .4);
     border-radius: 100%;
     -webkit-animation: rot .6s infinite linear;
+    -webkit-animation: fadein 2s;
 
     position: relative;
     top: 50%;
     left: 50%;
     margin: -40px 0 0 -40px;
-}
-@-webkit-keyframes rot
-{
-    0% {-webkit-transform: rotate(0deg);}
-    100% {-webkit-transform: rotate(359deg);}
 }
 
 #wrapper
@@ -55,6 +51,9 @@ body {
     // height: calc(100% - 64px);
     height: 100%;
     display: block;
+    // @include transition(all .2s ease);
+    -webkit-animation: fadein .161s;
+    animation: fadein .161s;
 }
 
 .gravatar {
