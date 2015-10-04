@@ -241,6 +241,6 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
     $scope.init();
 
     setTimeout(function() {
-        Color = setInterval(getCol, 60000);
+        Color = setInterval($scope.getCol, 60000);
     }, 60000);
 });
