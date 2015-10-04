@@ -103,6 +103,16 @@
         font-size: 13px;
 
     }
+    p{
+        font-size: 13px;
+    }
+    a{
+        text-decoration: none;
+        color: #FE2746 !important;
+        &:hover{
+            color: #FFC300 !important;
+        }
+    }
     .cancel{
         font-family: 'Roboto-Regular';
         padding: 8px;

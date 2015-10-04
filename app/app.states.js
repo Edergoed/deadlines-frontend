@@ -76,6 +76,14 @@ app.config([
             templateUrl: 'app/components/profile/profileView.html',
             controller: 'ProfileCtrl'
 
+        })
+
+        // Timetable
+        .state('main.timetable', {
+            url: '/timetable',
+            templateUrl: 'app/components/profile/timetableView.html',
+            controller: 'TimetableCtrl'
+
         });
 
         $locationProvider.html5Mode(true);
