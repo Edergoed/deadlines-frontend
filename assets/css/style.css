@@ -338,13 +338,18 @@ footer {
 
 .btn_save {
   padding: 10px;
-  margin: 20px auto 0px;
   display: block;
   background-color: #FE2746;
   border: 0px;
   border-color: #FE2746;
   border-style: solid;
   color: #FFF; }
+  .btn_save:hover {
+    background-color: #FE3D59; }
+  .btn_save:focus {
+    border: 0px;
+    border-color: #FE2746;
+    border-style: solid; }
 
 .dynamic-meta {
   overflow: hidden;
