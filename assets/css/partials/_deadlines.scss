@@ -157,12 +157,14 @@
         font-family: Roboto-Regular;
         border-style: none;
         // padding: 10px;
+        // border-bottom: 1px solid rgba(153, 153, 153, 0.4);
 
         background-color: #FFF;
         &:focus{
             background-color: #EEE;
-            border-style: none;
-            border: 0px;
+            // border-bottom: 1px solid rgba(153, 153, 153, 0.4);
+            // border-style: none;
+            // border: 0px;
             outline: none;
         }
     }

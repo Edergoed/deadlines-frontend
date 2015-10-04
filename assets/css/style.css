@@ -334,8 +334,6 @@ footer {
     background-color: #FFF; }
     #dynamic_right_content input:focus, #dynamic_right_content select:focus {
       background-color: #EEE;
-      border-style: none;
-      border: 0px;
       outline: none; }
   #dynamic_right_content .btn-group {
     display: inline-block;
