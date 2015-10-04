@@ -3,6 +3,7 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
         $scope.Loading = false;
     $scope.init = function(){
         $scope.getAll();
+        $scope.currState = $state
     }
 
     $scope.getAll = function(){
@@ -15,9 +16,11 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
             }, 0);
             $scope.deadlineList = deadline.deadlineList;
 
-            if($state.current.name == 'main.deadlines'){
-                $state.go('main.deadlines.show', { showID: $scope.deadlineList.deadlines[0].id });
-            }
+            $scope.$watch('currState.current.name', function(){
+                if($state.current.name == 'main.deadlines'){
+                    $state.go('main.deadlines.show', { showID: $scope.deadlineList.deadlines[0].id });
+                }
+            });
 
             $scope.Loading = false;
         }, function(res){
