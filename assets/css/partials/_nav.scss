@@ -2,6 +2,8 @@
   height: 60px;
   // width: 1118px;
   margin: 0 auto;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .nav_item{
@@ -10,9 +12,17 @@
   color: #BBB;
   cursor: pointer;
   user-select: none;
+  float: left;
   &:hover{
     color: #FFF;
   }
+}
+
+.nav_home{
+  // background: url("../img/home.svg");
+  width: 30px !important;
+  height: 30px !important;
+  padding: 15px 15px 15px 0px;
 }
 
 .nav_gravatar{
