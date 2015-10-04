@@ -308,9 +308,6 @@ footer {
     color: #FE2746 !important; }
     #dynamic_right_content a:hover {
       color: #FFC300 !important; }
-  #dynamic_right_content select {
-    -webkit-appearance: none;
-    appearance: none; }
   #dynamic_right_content .cancel {
     font-family: 'Roboto-Regular';
     padding: 8px;
@@ -341,7 +338,8 @@ footer {
       border: 0px;
       outline: none; }
   #dynamic_right_content .btn-group {
-    display: inline-block; }
+    display: inline-block;
+    height: 24px; }
 
 .dynamic_left_content {
   width: 100%;
@@ -373,8 +371,10 @@ footer {
   .dynamic-meta select {
     float: right; }
 
-.dynamic-sub-meta input {
-  font-size: 14px; }
+.dynamic-sub-meta {
+  margin-bottom: 14px; }
+  .dynamic-sub-meta input {
+    font-size: 14px; }
 
 .deadline, .archivedDeadline {
   width: 100%;
@@ -537,5 +537,41 @@ footer {
     opacity: 0; }
   100% {
     opacity: 1; } }
+.btn-group {
+  margin: 0px 15px; }
+  .btn-group:first-child {
+    margin: 0px 15px 0px 0px; }
+  .btn-group button {
+    width: 32px;
+    height: 32px;
+    -webkit-appearance: none;
+    outline: 0;
+    background: none;
+    border: 0; }
+    .btn-group button:hover {
+      background-color: #EEE; }
+    .btn-group button[name="bold"] {
+      background-image: url(../img/toolbar/Toolbar_Bold.svg); }
+    .btn-group button[name="italics"] {
+      background-image: url(../img/toolbar/Toolbar_Italics.svg); }
+    .btn-group button[name="underline"] {
+      background-image: url(../img/toolbar/Toolbar_Underline.svg); }
+    .btn-group button[name="ul"] {
+      background-image: url(../img/toolbar/Toolbar_Unordered.svg); }
+    .btn-group button[name="ol"] {
+      background-image: url(../img/toolbar/Toolbar_Ordered.svg); }
+    .btn-group button[name="indent"] {
+      background-image: url(../img/toolbar/Toolbar_Indent.svg); }
+    .btn-group button[name="outdent"] {
+      background-image: url(../img/toolbar/Toolbar_Outdent.svg); }
+    .btn-group button[name="insertImage"] {
+      background-image: url(../img/toolbar/Toolbar_Image.svg); }
+    .btn-group button[name="insertLink"] {
+      background-image: url(../img/toolbar/Toolbar_Link.svg); }
+    .btn-group button[name="insertVideo"] {
+      background-image: url(../img/toolbar/Toolbar_Video.svg); }
+
+.active {
+  background-color: #DDD !important; }
 
 /*# sourceMappingURL=style.css.map */

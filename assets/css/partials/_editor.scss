@@ -1,0 +1,61 @@
+.btn-editor{
+	
+}
+
+.icon-bold{
+	
+}
+
+.btn-group{
+	margin: 0px 15px;
+	&:first-child{
+		margin: 0px 15px 0px 0px;
+	}
+	button{
+		width: 32px;
+		height: 32px;
+		-webkit-appearance: none;
+		outline: 0;
+		background: none;
+		border: 0;
+
+		&:hover{
+			background-color: #EEE;
+		}
+
+		&[name="bold"]{
+			background-image: url(../img/toolbar/Toolbar_Bold.svg);
+		}
+		&[name="italics"]{
+			background-image: url(../img/toolbar/Toolbar_Italics.svg);
+		}
+		&[name="underline"]{
+			background-image: url(../img/toolbar/Toolbar_Underline.svg);
+		}
+		&[name="ul"]{
+			background-image: url(../img/toolbar/Toolbar_Unordered.svg);
+		}
+		&[name="ol"]{
+			background-image: url(../img/toolbar/Toolbar_Ordered.svg);
+		}
+		&[name="indent"]{
+			background-image: url(../img/toolbar/Toolbar_Indent.svg);
+		}
+		&[name="outdent"]{
+			background-image: url(../img/toolbar/Toolbar_Outdent.svg);
+		}
+		&[name="insertImage"]{
+			background-image: url(../img/toolbar/Toolbar_Image.svg);
+		}
+		&[name="insertLink"]{
+			background-image: url(../img/toolbar/Toolbar_Link.svg);
+		}
+		&[name="insertVideo"]{
+			background-image: url(../img/toolbar/Toolbar_Video.svg);
+		}
+	}
+}
+
+.active{
+	background-color: #DDD !important;
+}
