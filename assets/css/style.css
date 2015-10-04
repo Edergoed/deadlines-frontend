@@ -79,7 +79,8 @@ input:-webkit-autofill {
   background-color: #fff;
   color: #000;
   height: 100%;
-  margin: 0 auto; }
+  margin: 0 auto;
+  -webkit-animation: fadein .644s; }
   .profile a {
     text-decoration: none;
     color: #FE2746; }
@@ -166,8 +167,7 @@ body {
   margin: 0 auto;
   height: 100%;
   display: block;
-  -webkit-animation: fadein .161s;
-  animation: fadein .161s; }
+  -webkit-animation: fadein .644s; }
 
 .content_wrapper {
   -webkit-transition: width 0.2s ease;
@@ -218,7 +218,9 @@ footer {
   overflow-x: hidden;
   overflow-y: auto;
   display: inline-block;
-  position: relative; }
+  position: relative;
+  -webkit-animation: fadein .644s;
+  background-color: #FFF; }
 
 .dynamic-post {
   -webkit-animation: fadein .322s;
@@ -241,7 +243,8 @@ footer {
   height: 100%;
   float: right;
   display: inline-block;
-  background-color: #FFF; }
+  background-color: #FFF;
+  -webkit-animation: fadein .644s; }
 
 #dynamic_right_content {
   height: 100%;
