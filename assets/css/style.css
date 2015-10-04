@@ -141,11 +141,13 @@ body {
   border-top: 6px solid rgba(0, 0, 0, 0.4);
   border-radius: 100%;
   -webkit-animation: rot .6s infinite linear;
-  -webkit-animation: fadein 2s;
   position: relative;
   top: 50%;
   left: 50%;
   margin: -40px 0 0 -40px; }
+
+.loading_wrapper {
+  -webkit-animation: fadein 2s; }
 
 #wrapper {
   height: 100%;
@@ -509,7 +511,7 @@ footer {
 .nav_home {
   width: 30px !important;
   height: 30px !important;
-  padding: 15px 15px 15px 0px; }
+  padding: 15px 20px 15px 0px; }
 
 .nav_gravatar {
   float: right;
