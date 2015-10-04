@@ -20,6 +20,11 @@
     animation: fadein .322s;
 }
 
+.list_wrapper{
+    -webkit-user-select: none;
+    user-select: none;
+}
+
 #dynamic_left_wrapper{
     height: 100%;
     width: 100%;
@@ -118,6 +123,10 @@
         &:hover{
             color: #FFC300 !important;
         }
+    }
+    select{
+        -webkit-appearance: none;
+        appearance: none;
     }
     .cancel{
         font-family: 'Roboto-Regular';

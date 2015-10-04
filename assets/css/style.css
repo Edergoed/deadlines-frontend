@@ -226,6 +226,10 @@ footer {
   -webkit-animation: fadein .322s;
   animation: fadein .322s; }
 
+.list_wrapper {
+  -webkit-user-select: none;
+  user-select: none; }
+
 #dynamic_left_wrapper {
   height: 100%;
   width: 100%; }
@@ -304,6 +308,9 @@ footer {
     color: #FE2746 !important; }
     #dynamic_right_content a:hover {
       color: #FFC300 !important; }
+  #dynamic_right_content select {
+    -webkit-appearance: none;
+    appearance: none; }
   #dynamic_right_content .cancel {
     font-family: 'Roboto-Regular';
     padding: 8px;

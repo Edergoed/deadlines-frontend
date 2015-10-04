@@ -51,9 +51,9 @@ app.config(function($provide){
 
         taOptions.toolbar = [
             [],
-            ['bold', 'italics', 'underline', 'ul', 'ol', 'redo', 'undo', 'clear'],
+            ['bold', 'italics', 'underline', 'ul', 'ol', 'indent', 'outdent'],
             [],
-            ['insertImage', 'insertLink']
+            ['insertImage', 'insertLink', 'insertVideo']
         ];
         return taOptions; // whatever you return will be the taOptions
     }]);
