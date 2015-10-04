@@ -80,16 +80,4 @@ app.config([
 
         $locationProvider.html5Mode(true);
         $urlRouterProvider.otherwise("/deadlines");
-    }])
-    .run(function ($rootScope, $stateParams  ) {
-
-        console.log("app run")
-        $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
-            console.log("start");
-        });
-
-        $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
-            console.log("end");
-        });
-    })
-
+    }]);

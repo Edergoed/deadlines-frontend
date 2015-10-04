@@ -10,8 +10,10 @@ app
         if($scope.SignupForm.$valid){
             signup.signup($scope.user)
             .then(function(res){
-                $state.go('main.deadlines', {});
+                console.log("succes");
+                //$state.go('main.deadlines', {});
             }, function(res){
+                console.log("error");
             //error
             })
         }
