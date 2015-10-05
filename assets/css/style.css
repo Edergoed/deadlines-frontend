@@ -304,10 +304,17 @@ footer {
   #dynamic_right_content p {
     font-size: 13px; }
   #dynamic_right_content a {
+    font-size: 13px;
     text-decoration: none;
     color: #FE2746 !important; }
     #dynamic_right_content a:hover {
       color: #FFC300 !important; }
+  #dynamic_right_content span {
+    font-size: 13px;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px; }
   #dynamic_right_content .cancel {
     font-family: 'Roboto-Regular';
     padding: 8px;
@@ -339,6 +346,9 @@ footer {
     display: inline-block;
     height: 24px; }
 
+.dynamic-content div > span {
+  display: flex; }
+
 .dynamic_left_content {
   width: 100%;
   top: 0;
@@ -366,8 +376,6 @@ footer {
     font-size: 20px;
     padding: 0px;
     margin: 0px; }
-  .dynamic-meta select {
-    float: right; }
 
 .dynamic-sub-meta {
   margin-bottom: 14px; }
