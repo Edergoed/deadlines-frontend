@@ -5,13 +5,14 @@
     <form name="deadlineForm" ng-submit="updateDeadline()" novalidate>
         <div class="dynamic-meta">
             <input type="title" placeholder="Title" data-ng-model="selectedDeadline.deadline.title" requird>
-            <select id="" name="day" data-ng-options="day for day in days" data-ng-model="selectedDeadline.deadline.day">
-            </select>
-            <select id="" name="month" data-ng-options="month.id as month.name for month in months" data-ng-model="selectedDeadline.deadline.month">
-            </select>
-            <select id="" name="year" data-ng-options="year for year in years" data-ng-model="selectedDeadline.deadline.year">
-            </select>
-
+            <div style="float: right;">
+                <select id="" name="day" data-ng-options="day for day in days" data-ng-model="selectedDeadline.deadline.day">
+                </select>
+                <select id="" name="month" data-ng-options="month.id as month.name for month in months" data-ng-model="selectedDeadline.deadline.month">
+                </select>
+                <select id="" name="year" data-ng-options="year for year in years" data-ng-model="selectedDeadline.deadline.year">
+                </select>
+            </div>
         </div>
         <div class="dynamic-sub-meta">
             <input type="subject" placeholder="Subject" data-ng-model="selectedDeadline.deadline.subject">
