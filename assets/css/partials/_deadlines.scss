@@ -185,9 +185,9 @@
 }
 
 .dynamic-content{
-    // div{
-    //     display: flex;
-    // }
+    div > span{
+        display: flex;
+    }
 }
 
 .dynamic_left_content {
