@@ -79,7 +79,8 @@ input:-webkit-autofill {
   background-color: #fff;
   color: #000;
   height: 100%;
-  margin: 0 auto; }
+  margin: 0 auto;
+  -webkit-animation: fadein .644s; }
   .profile a {
     text-decoration: none;
     color: #FE2746; }
@@ -166,8 +167,7 @@ body {
   margin: 0 auto;
   height: 100%;
   display: block;
-  -webkit-animation: fadein .161s;
-  animation: fadein .161s; }
+  -webkit-animation: fadein .644s; }
 
 .content_wrapper {
   -webkit-transition: width 0.2s ease;
@@ -218,11 +218,17 @@ footer {
   overflow-x: hidden;
   overflow-y: auto;
   display: inline-block;
-  position: relative; }
+  position: relative;
+  -webkit-animation: fadein .644s;
+  background-color: #FFF; }
 
 .dynamic-post {
   -webkit-animation: fadein .322s;
   animation: fadein .322s; }
+
+.list_wrapper {
+  -webkit-user-select: none;
+  user-select: none; }
 
 #dynamic_left_wrapper {
   height: 100%;
@@ -241,7 +247,8 @@ footer {
   height: 100%;
   float: right;
   display: inline-block;
-  background-color: #FFF; }
+  background-color: #FFF;
+  -webkit-animation: fadein .644s; }
 
 #dynamic_right_content {
   height: 100%;
@@ -327,11 +334,10 @@ footer {
     background-color: #FFF; }
     #dynamic_right_content input:focus, #dynamic_right_content select:focus {
       background-color: #EEE;
-      border-style: none;
-      border: 0px;
       outline: none; }
   #dynamic_right_content .btn-group {
-    display: inline-block; }
+    display: inline-block;
+    height: 24px; }
 
 .dynamic_left_content {
   width: 100%;
@@ -363,8 +369,10 @@ footer {
   .dynamic-meta select {
     float: right; }
 
-.dynamic-sub-meta input {
-  font-size: 14px; }
+.dynamic-sub-meta {
+  margin-bottom: 14px; }
+  .dynamic-sub-meta input {
+    font-size: 14px; }
 
 .deadline, .archivedDeadline {
   width: 100%;
@@ -527,5 +535,41 @@ footer {
     opacity: 0; }
   100% {
     opacity: 1; } }
+.btn-group {
+  margin: 0px 15px; }
+  .btn-group:first-child {
+    margin: 0px 15px 0px 0px; }
+  .btn-group button {
+    width: 32px;
+    height: 32px;
+    -webkit-appearance: none;
+    outline: 0;
+    background: none;
+    border: 0; }
+    .btn-group button:hover {
+      background-color: #EEE; }
+    .btn-group button[name="bold"] {
+      background-image: url(../img/toolbar/Toolbar_Bold.svg); }
+    .btn-group button[name="italics"] {
+      background-image: url(../img/toolbar/Toolbar_Italics.svg); }
+    .btn-group button[name="underline"] {
+      background-image: url(../img/toolbar/Toolbar_Underline.svg); }
+    .btn-group button[name="ul"] {
+      background-image: url(../img/toolbar/Toolbar_Unordered.svg); }
+    .btn-group button[name="ol"] {
+      background-image: url(../img/toolbar/Toolbar_Ordered.svg); }
+    .btn-group button[name="indent"] {
+      background-image: url(../img/toolbar/Toolbar_Indent.svg); }
+    .btn-group button[name="outdent"] {
+      background-image: url(../img/toolbar/Toolbar_Outdent.svg); }
+    .btn-group button[name="insertImage"] {
+      background-image: url(../img/toolbar/Toolbar_Image.svg); }
+    .btn-group button[name="insertLink"] {
+      background-image: url(../img/toolbar/Toolbar_Link.svg); }
+    .btn-group button[name="insertVideo"] {
+      background-image: url(../img/toolbar/Toolbar_Video.svg); }
+
+.active {
+  background-color: #DDD !important; }
 
 /*# sourceMappingURL=style.css.map */

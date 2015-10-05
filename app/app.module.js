@@ -50,12 +50,28 @@ app.config(function($provide){
     $provide.decorator('taOptions', ['$delegate', function(taOptions){
 
         taOptions.toolbar = [
-            [],
-            ['bold', 'italics', 'underline', 'ul', 'ol', 'redo', 'undo', 'clear'],
-            [],
-            ['insertImage', 'insertLink']
+            ['bold', 'italics', 'underline'],
+            ['ul', 'ol', 'indent', 'outdent'],
+            ['insertImage', 'insertLink', 'insertVideo']
         ];
         return taOptions; // whatever you return will be the taOptions
+    }]);
+
+    $provide.decorator('taTools', ['$delegate', function(taTools){
+        taTools.bold.iconclass = 'icon-bold';
+        taTools.italics.iconclass = 'icon-italic';
+        taTools.underline.iconclass = 'icon-underline';
+        taTools.ul.iconclass = 'icon-ul';
+        taTools.ol.iconclass = 'icon-ol';
+        taTools.indent.iconclass = 'icon-indent';
+        taTools.outdent.iconclass = 'icon-outdent';
+        taTools.insertLink.iconclass = 'icon-link';
+        taTools.insertImage.iconclass = 'icon-picture';
+        taTools.insertVideo.iconclass = 'icon-video';
+        // there is no quote icon in old font-awesome so we change to text as follows
+        delete taTools.quote.iconclass;
+        taTools.quote.buttontext = 'quote';
+        return taTools;
     }]);
 });
 
