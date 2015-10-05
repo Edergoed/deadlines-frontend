@@ -24,6 +24,7 @@ app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadli
     }
 
     $scope.getDeadline = function(id){
+        $scope.Loading = true;
         deadline.getDeadline(id)
         .then(function(res){
             //$scope.deadlineChangeState('view');
@@ -36,8 +37,10 @@ app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadli
                 $scope.getDays($scope.selectedDeadline.deadline.year, $scope.selectedDeadline.deadline.month);
                 console.log($scope.selectedDeadline.deadline.year + ' ' + $scope.selectedDeadline.deadline.month);
             });
+            $scope.Loading = false;
             //succes
         }, function(res){
+            $scope.Loading = false;
             //error
         })
     }
