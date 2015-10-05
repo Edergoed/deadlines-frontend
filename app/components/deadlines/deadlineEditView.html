@@ -22,8 +22,8 @@
             <div text-angular ng-model="selectedDeadline.deadline.content"></div>
         </div>
         <div class="dynamic-options">
-        <img class="gravatar" src="{{gravatar(selectedDeadline.deadline.creator.gravatarHash, 30)}}">
-        <img class="gravatar" src="{{gravatar(selectedDeadline.deadline.editor.gravatarHash, 30)}}">
+        <img class="gravatar" data-ng-hide=" selectedDeadline.deadline.creator.id == null" src="{{gravatar(selectedDeadline.deadline.creator.gravatarHash, 30)}}">
+        <img class="gravatar" data-ng-hide=" selectedDeadline.deadline.creator.id == selectedDeadline.deadline.editor.id" src="{{gravatar(selectedDeadline.deadline.editor.gravatarHash, 30)}}">
             <img class="gravatar" class="modifier" style="margin-left: 10px;" src="">
                 <button class="btn_save" style="display: inline-block; float: right;" type="submit">Save</button>
                 <button class="btn_save" style="display: inline-block; float: right;" type="">Cancel</button>
