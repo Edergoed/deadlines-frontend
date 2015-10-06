@@ -16,8 +16,10 @@ input:-webkit-autofill
     a{
         text-decoration: none;
         color: #FE2746;
+
         &:hover{
             color: #FFC300;
+
         }
     }
     form{
@@ -58,6 +60,10 @@ input:-webkit-autofill
         border-style: solid;
         color: #FFF;
         width: 50%;
+        @include transition(all .161s ease);
+        &:hover{
+            background-color: #FFC300;
+        }
     }
 
 }

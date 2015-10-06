@@ -60,7 +60,13 @@ input:-webkit-autofill {
     border-color: #FE2746;
     border-style: solid;
     color: #FFF;
-    width: 50%; }
+    width: 50%;
+    -webkit-transition: all 0.161s ease;
+    -moz-transition: all 0.161s ease;
+    -ms-transition: all 0.161s ease;
+    transition: all 0.161s ease; }
+    .signin button:hover {
+      background-color: #FFC300; }
 
 #form {
   background-color: #FFF;
