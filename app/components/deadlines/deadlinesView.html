@@ -11,14 +11,15 @@
                         <div class="deadline_head">
                             <div class="title">
                                 {{ deadlineListItem.title }}
-                                <span class="count_down" style="float: right; text-align: right">03</span>
+                                <span class="count_down" style="float: right; text-align: right">{{ deadlineListItem.countdown }}</span>
                             </div>
                             <div class="subject">
                                 {{ deadlineListItem.subject }}
                                 <span style="text-transform: uppercase;">
                                 </span>
                                 <span class="count_down_unit" style="float: right; text-align: right">
-                                    <span>Weeks</span>
+                                    <span>{{ deadlineListItem.unit }}</span>
+
                                 </span>
                             </div>
                         </div>

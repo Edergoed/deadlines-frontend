@@ -86,15 +86,17 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
 
     $scope.getTime = function(difference){
         if($( ".count_down" ).length){
-            var countdown = document.getElementsByClassName('count_down');
-            var unit = document.getElementsByClassName('count_down_unit');
-            var deadline = document.getElementsByClassName('deadline');
+            //var countdown = document.getElementsByClassName('count_down');
+            //var unit = document.getElementsByClassName('count_down_unit');
+            //var deadline = document.getElementsByClassName('deadline');
+            var deadline = $scope.deadlineList.deadlines;
             for(i=0; i<deadline.length; i++){
-                var data = deadline[i].getAttribute("data-distance");
+                //var data = deadline[i].getAttribute("data-distance");
+                var data = deadline[i].DeadlineDistance;
                 // var background = deadline[i].getAttribute("style");
                 var time = $scope.remainingCalc(data);
-                countdown[i].innerHTML = time[0];
-                unit[i].innerHTML = time[1];
+                deadline[i].countdown = time[0];
+                deadline[i].unit = time[1];
             }
         }
 
@@ -112,35 +114,35 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
 
         if(weeks_remaining >= 1){
             remaining = weeks_remaining;
-            unit = '<span>Weeks</span>';
+            unit = 'Weeks';
             if(weeks_remaining == 1){
                 remaining = weeks_remaining;
-                unit = '<span>Week</span>';
+                unit = 'Week';
             }
         } else if (days_remaining >= 1){
             remaining = days_remaining;
-            unit = '<span>Days</span>';
+            unit = 'Days';
             if(days_remaining == 1){
                 remaining = days_remaining;
-                unit = '<span>Day</span>';
+                unit = 'Day';
             }
         } else if (hours_remaining >= 1){
             remaining = hours_remaining;
-            unit = '<span>Hours</span>';
+            unit = 'Hours';
             if(hours_remaining == 1){
                 remaining = hours_remaining ;
-                unit = '<span>Hour</span>';
+                unit = 'Hour';
             }
         } else if (minutes_remaining >= 1){
             remaining = minutes_remaining;
-            unit = '<span>Minutes</span>';
+            unit = 'Minutes';
             if(minutes_remaining == 1){
                 remaining = minutes_remaining;
-                unit = '<span>Minutes</span>';
+                unit = 'Minutes';
             }
         } else {
             remaining = 0;
-            unit = '<span></span>';
+            unit = '';
         }
 
         remaining = ("0" + remaining).slice(-2);
@@ -171,14 +173,17 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
 
     $scope.setDistance = function(){
         //console.log("setDistance executed");
-        var deadline = document.getElementsByClassName('deadline');
+        //var deadline = document.getElementsByClassName('deadline');
+        var deadline = $scope.deadlineList.deadlines;
         for(i=0; i<deadline.length; i++){
-            var data = deadline[i].getAttribute("data-deadline");
+            //var data = deadline[i].getAttribute("data-deadline");
+            var data = deadline[i].deadlineDateTime;
             var fromTime = new Date();
             var toTime = new Date(data);
 
             var distance = toTime.getTime()/1000 - fromTime.getTime()/1000;
-            deadline[i].setAttribute("data-distance", distance);
+            //deadline[i].setAttribute("data-distance", distance);
+            deadline[i].DeadlineDistance = distance;
             // console.log("set deadline time to " + distance + " of deadline " + deadline[i] );
             // console.log(deadline.length + " "+ i + " " + fromTime + " " +toTime);
         }
