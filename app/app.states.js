@@ -68,6 +68,11 @@ app.config([
             url: '/signup',
             templateUrl: 'app/components/signup/signupView.html',
             controller: 'SignupCtrl'
+
+        }).state('activate', {
+            url: '/activate/:activationToken',
+            templateUrl: 'app/components/signup/activateView.html',
+            controller: 'SignupCtrl'
         })
 
         // Profile
