@@ -12,7 +12,6 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
         .then(function(res){
             //success
             $scope.deadlineList = deadline.deadlineList;
-                $scope.setDistance();
 
             $scope.$watch('currState.current.name', function(){
                 if($state.current.name == 'main.deadlines'){
@@ -20,10 +19,25 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
                 }
             });
 
+            setTimeout(function(){
+                $scope.setDistance();
+                $scope.$apply();
+            }, 0);
             $scope.Loading = false;
         }, function(res){
             //error
             $scope.Loading = false;
+        })
+    }
+
+    $scope.getDeadline = function(id){
+        deadline.getDeadline(id)
+        .then(function(res){
+            //$scope.deadlineChangeState('view');
+            $scope.selectedDeadline = deadline.deadline;
+            //succes
+        }, function(res){
+            //error
         })
     }
 
@@ -41,16 +55,16 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
 
     $scope.getCol = function(){
         //console.log("getCol executed");
-        var bg = document.getElementById('dynamic_left');
-        var bg_bottom = document.getElementById('dynamic_left_wrapper');
-        var deadline = document.getElementsByClassName('deadline');
+        //var bg = document.getElementById('dynamic_left');
+        //var bg_bottom = document.getElementById('dynamic_left_wrapper');
+        //var deadline = document.getElementsByClassName('deadline');
         var deadline = $scope.deadlineList.deadlines;
         // alert(bg_bottom);
         for(i=0; i<deadline.length; i++){
             //var data = deadline[i].getAttribute("data-distance");
             var data = deadline[i].DeadlineDistance;
             //var changeData = deadline[i].setAttribute("data-distance", data-60);
-            var changeData = deadline[i].DeadlineDistance = data;
+            var changeData = deadline[i].DeadlineDistance = data-60;
 
             // var background = deadline[i].getAttribute("style");
             var newImage = $scope.colCalc(data, deadline, i);
@@ -190,20 +204,9 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
             // console.log("set deadline time to " + distance + " of deadline " + deadline[i] );
             // console.log(deadline.length + " "+ i + " " + fromTime + " " +toTime);
         }
-            $scope.getTime();
-            $scope.getCol();
-            setInterval($scope.getTime, 60000);
-    }
-
-    $scope.getDeadline = function(id){
-        deadline.getDeadline(id)
-        .then(function(res){
-            //$scope.deadlineChangeState('view');
-            $scope.selectedDeadline = deadline.deadline;
-            //succes
-        }, function(res){
-            //error
-        })
+        $scope.getCol();
+        $scope.getTime();
+        setInterval($scope.getTime, 60000);
     }
 
     $scope.getDays = function(year, month){
