@@ -17,6 +17,7 @@ app.controller('DeadlineShowCtrl', function($scope, $stateParams, deadline){
 
     $scope.getDate = function(date){
         date = new Date( Date.parse(date));
+        $scope.selectedDeadline.deadline.day = $scope.weekday[date.getDay()] + ' ';
         $scope.selectedDeadline.deadline.date = date.getUTCDate() + '-' + (date.getUTCMonth()+1) + '-' + date.getUTCFullYear();
         if(date.getUTCMinutes().toString().length < 2){
             $scope.selectedDeadline.deadline.time = date.getUTCHours() + ':' + date.getUTCMinutes() + 0 ;

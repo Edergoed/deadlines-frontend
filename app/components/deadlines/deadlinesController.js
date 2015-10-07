@@ -11,10 +11,8 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
         deadline.getAllDeadlines()
         .then(function(res){
             //success
-            setTimeout(function(){
-                $scope.setDistance();
-            }, 0);
             $scope.deadlineList = deadline.deadlineList;
+                $scope.setDistance();
 
             $scope.$watch('currState.current.name', function(){
                 if($state.current.name == 'main.deadlines'){
@@ -46,25 +44,29 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
         var bg = document.getElementById('dynamic_left');
         var bg_bottom = document.getElementById('dynamic_left_wrapper');
         var deadline = document.getElementsByClassName('deadline');
+        var deadline = $scope.deadlineList.deadlines;
         // alert(bg_bottom);
         for(i=0; i<deadline.length; i++){
-            var data = deadline[i].getAttribute("data-distance");
-            var changeData = deadline[i].setAttribute("data-distance", data-60);
+            //var data = deadline[i].getAttribute("data-distance");
+            var data = deadline[i].DeadlineDistance;
+            //var changeData = deadline[i].setAttribute("data-distance", data-60);
+            var changeData = deadline[i].DeadlineDistance = data;
 
             // var background = deadline[i].getAttribute("style");
             var newImage = $scope.colCalc(data, deadline, i);
-            var changeData = deadline[i].setAttribute("style", "background-color:"+newImage);
+            //var changeData = deadline[i].setAttribute("style", "background-color:"+newImage);
+            var changeData = deadline[i].color = newImage;
             if(i+1 == deadline.length){
-                bg_bottom.setAttribute("style", "background-color:"+newImage);
+                //bg_bottom.setAttribute("style", "background-color:"+newImage);
+                $scope.lastBackgroundColor = newImage;
             }
-
 
             var day = 86400;
             if(data < day*28){
                 if(data < day*7){
-                    deadline[i].parentNode.setAttribute("style", "background-color: #FE2746");
+                    deadline[i].parendNode = '#FE2746';
                     if(i+1 == deadline.length){
-                        bg.setAttribute("style", "background-color: #FE2746");
+                        //bg.setAttribute("style", "background-color: #FE2746");
                     }
                     if(data < 0){
                         var deadline_class = deadline[i].className;
@@ -75,13 +77,35 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
                         //}
                     }
                 }else{
-                    deadline[i].parentNode.setAttribute("style", "background-color: #FFC300");
+                    deadline[i].parendNode = '#FFC300';
                     if(i+1 == deadline.length){
-                        bg.setAttribute("style", "background-color: #FFC300");
+                        //bg.setAttribute("style", "background-color: #FFC300");
+                        $scope.bg  = '#FFC300';
                     }
                 }
             }
         }
+    }
+
+    $scope.colCalc = function(difference, deadline, i){
+        var day = 86400;
+        var color = "";
+
+        var progress = difference;
+        var percentage;
+
+        if(difference < day*28){
+            percentage = ((difference-day*7) / ((day*28)-day*7));
+            // percentage = (difference / (day*7));
+            color = "rgba(0, 187, 211, "+ percentage +");"; //blue to yellow
+            if(difference < day*7){
+                percentage = (difference / (day*7));
+                color = "rgba(255, 195, 0, "+ percentage +");"; //yellow to red
+            }
+        }else{
+            color = "rgba(0, 187, 211, 1);"; //blue static
+        }
+        return color;
     }
 
     $scope.getTime = function(difference){
@@ -148,27 +172,6 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
         remaining = ("0" + remaining).slice(-2);
 
         return [remaining, unit];
-    }
-
-    $scope.colCalc = function(difference, deadline, i){
-        var day = 86400;
-        var color = "";
-
-        var progress = difference;
-        var percentage;
-
-        if(difference < day*28){
-            percentage = ((difference-day*7) / ((day*28)-day*7));
-            // percentage = (difference / (day*7));
-            color = "rgba(0, 187, 211, "+ percentage +");"; //blue to yellow
-            if(difference < day*7){
-                percentage = (difference / (day*7));
-                color = "rgba(255, 195, 0, "+ percentage +");"; //yellow to red
-            }
-        }else{
-            color = "rgba(0, 187, 211, 1);"; //blue static
-        }
-        return color;
     }
 
     $scope.setDistance = function(){
@@ -240,6 +243,7 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
         ]
     }
 
+    $scope.weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
     // function aContainsB (a, b) {
     //     return a.indexOf(b) >= 0;
     // }

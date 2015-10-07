@@ -105,5 +105,7 @@ app.controller('ArchiveCtrl', function($scope, $state, $stateParams, deadline, u
         }
     }
 
+    $scope.weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+
     $scope.init();
 });
