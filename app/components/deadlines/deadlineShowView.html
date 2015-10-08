@@ -4,10 +4,11 @@
 <div data-ng-show="!Loading" class="dynamic-post" style="display: block;">
     <div class="dynamic-meta">
         <h2>{{selectedDeadline.deadline.title}}</h2>
-        <h2 style="float: right; text-align:
-            right">{{selectedDeadline.deadline.date}}</h2>
-        <h2 style="float: right; text-align:
-            right">{{selectedDeadline.deadline.day }}</h2>
+        <div style="float: right; text-align:
+            right">
+            <h2>{{selectedDeadline.deadline.day }}</h2>
+            <h2>{{selectedDeadline.deadline.date}}</h2>
+        </div>
     </div>
     <div class="dynamic-sub-meta">
         <h3>{{selectedDeadline.deadline.subject}}</h3>
