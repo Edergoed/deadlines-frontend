@@ -41,6 +41,7 @@ app
             //error
         })
     }
+
     if($stateParams.activationToken != null){
         $scope.activateUser($stateParams.activationToken);
     console.log($stateParams);

@@ -9,7 +9,7 @@ app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadli
             hour = $scope.selectedDeadline.deadline.time.split(':')[0];
             minut = $scope.selectedDeadline.deadline.time.split(':')[1];
 
-            $scope.selectedDeadline.deadline.deadlineDateTime = year + '-' +month + '-' + day + ' ' + hour + ':' + minut + ':' + '00';
+            $scope.selectedDeadline.deadline.deadlineDateTime = new Date(year, month, day, hour, minut);
             deadline.updateDeadline($scope.userCurrent.id, $scope.selectedDeadline.deadline)
             .then(function(res){
                 //succes
@@ -48,13 +48,13 @@ app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadli
     $scope.getDate = function(date){
         date = new Date( Date.parse(date));
         console.log(date.toUTCString());
-        $scope.selectedDeadline.deadline.day = date.getUTCDate();
-        $scope.selectedDeadline.deadline.month = date.getUTCMonth()+1;
-        $scope.selectedDeadline.deadline.year = date.getUTCFullYear();
+        $scope.selectedDeadline.deadline.day = date.getDate();
+        $scope.selectedDeadline.deadline.month = date.getMonth();
+        $scope.selectedDeadline.deadline.year = date.getFullYear();
         if(date.getUTCMinutes().toString().length < 2){
-            $scope.selectedDeadline.deadline.time = date.getUTCHours() + ':' + date.getUTCMinutes() + 0 ;
+            $scope.selectedDeadline.deadline.time = date.getHours() + ':' + date.getMinutes() + 0 ;
         } else {
-            $scope.selectedDeadline.deadline.time = date.getUTCHours() + ':' + date.getUTCMinutes();
+            $scope.selectedDeadline.deadline.time = date.getHours() + ':' + date.getMinutes();
         }
     }
 
