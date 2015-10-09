@@ -3,13 +3,6 @@ var app = angular.module('Deadlines', [
     'textAngular'
 ]);
 
-app
-.constant('urls', {
-    BASE: 'http://deadlines.dev',
-    //BASE_API: 'http://188.226.192.169'
-    BASE_API: 'http://deadlinesapi.dev:88'
-});
-
 app.run(['$rootScope', '$location', function($rootScope, $location) {
     $rootScope.$on('auth:login-success', function() {
         $location.path('/');
