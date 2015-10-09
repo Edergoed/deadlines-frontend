@@ -14,6 +14,7 @@ app
                 //$location.path('/');
                 $state.go('main.deadlines', {});
             }, function(res){
+                $scope.error = res.data.errors;
                 //error
             });
         }
