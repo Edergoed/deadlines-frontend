@@ -1,13 +1,16 @@
 <div class="profile">
     <div class="profile_wrapper">
         <img class="gravatar profile_picture" src="{{gravatar(userCurrent.gravatar, 120)}}">
-        <span class="profile_username">Username</span>
+        <span class="profile_username">{{ userCurrent.firstname + ' ' + userCurrent.lastname }}</span>
+        <div>
+            <span>Deadlines Created 1</span>
+            <span>Deadlines Edited 1</span>
+
+        </div>
         <div class="profile_menu">
             <div class="profile_items">
                 <p>Class:</p>
                 <p>Password:</p>
-                <p>Full name:</p>
-                <p>E-mail:</p>
                 <p>User since:</p>
             </div>
             <div class="profile_values">
@@ -16,8 +19,6 @@
                  <option value="" disabled selected>Select your class</option>
             </select>
                 <p><a href="#">Click here to change</a></p>
-                <p>Bobbie Goede</p>
-                <p>{{ userCurrent.email }}</p>
                 <p>21-12-2014</p>
             </div>
             <div class="profile_footer">
