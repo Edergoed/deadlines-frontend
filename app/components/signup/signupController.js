@@ -4,6 +4,7 @@ app
 .controller('SignupCtrl', function($scope, $state, $stateParams, signup, klass){
     $scope.init = function(){
         $scope.getKlasses();
+        $scope.signupStep = 0;
     }
 
     $scope.signup = function(){
