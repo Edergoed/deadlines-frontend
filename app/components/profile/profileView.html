@@ -2,10 +2,13 @@
     <div class="profile_wrapper">
         <img class="gravatar profile_picture" src="{{gravatar(userCurrent.gravatar, 120)}}">
         <span class="profile_username">{{ userCurrent.firstname + ' ' + userCurrent.lastname }}</span>
-        <div>
-            <span>Deadlines Created 1</span>
-            <span>Deadlines Edited 1</span>
-
+        <div class="profile_stats">
+            <div class="profile_stats_upper">
+                <div>28</div><div>56</div>
+            </div>
+            <div class="profile_stats_lower">
+                <div>Deadlines created</div><div> Deadlines edited</div>
+            </div>
         </div>
         <div class="profile_menu">
             <div class="profile_items">
