@@ -2,29 +2,47 @@
 <div style="width:100%; height:100%;">
     <div class="signin">
         <div id="form">
-            <form class="form" name="SignupForm" novalidate ng-submit="signup()" >
-                <div data-ng-show="signupStep == 0">
+            <form class="form" name="SignupForm" novalidate ng-submit="signup()" style="color:#000;">
+                <div data-ng-show="step == 0">
                     <input type="email" name="email" placeholder="email" ng-model="user.email" required/>
-                    <button ng-click="signupStep = 1">Next</button>
+                    <button ng-click="nextStep()">Next</button>
+                    <div class="help-block" ng-messages="SignupForm.email.$error" ng-if="SignupForm.email.$touched">
+                        <p ng-message="required">Your Email is required</p>
+                        <p ng-message="email">This needs to be a valid email</p>
+                    </div>
                 </div>
-                <div data-ng-show="signupStep == 1">
+                <div data-ng-show="step == 1">
                     <input type="text" name="firstname" placeholder="First name" ng-model="user.firstname" required/>
-                    <input type="text" name="prefix" placeholder="Prefix" ng-model="user.prefix" required/>
+                    <input type="text" name="prefix" placeholder="Prefix" ng-model="user.prefix"/>
                     <input type="text" name="lastname" placeholder="Last name" ng-model="user.lastname" required/>
-                    <button ng-click="signupStep = 2">Next</button>
+                    <div class="help-block" ng-messages="SignupForm.firstname.$error" ng-if="SignupForm.firstname.$touched">
+                        <p ng-message="required">First name is required</p>
+                    </div>
+                    <div class="help-block" ng-messages="SignupForm.lastname.$error" ng-if="SignupForm.lastname.$touched">
+                        <p ng-message="required">Last name is required</p>
+                    </div>
+                    <button ng-click="nextStep()">Next</button>
                 </div>
-                <div data-ng-show="signupStep == 2">
+                <div data-ng-show="step == 2">
                     <input type="password" name="password" placeholder="password" ng-model="user.password" required/>
-                    <input type="password" name="password_confirmation" placeholder="password confirmation" ng-model="user.password_confirmation" required/>
-                    <button ng-click="signupStep = 3">next</button>
+                    <input type="password" name="confirm_password" placeholder="password confirmation" ng-model="user.password_verify"
+                    data-password-verify="user.password" required/>
+                    <div class="help-block" ng-messages="SignupForm.confirm_password.$error" ng-if="SignupForm.confirm_password.$touched">
+                        <p ng-message="passwordVerify">Passwords are not the same</p>
+                    </div>
+                    <button ng-click="nextStep()">Next</button>
                 </div>
-                <div data-ng-show="signupStep == 3">
-                    <select id="" name="klass" data-ng-options="klass.id as klass.name for klass in klasslist.klasses" data-ng-model="user.klass" placeholder="class">
+                <div data-ng-show="step == 3">
+                    <select id="" name="klass" data-ng-options="klass.id as klass.name for klass in klassList.klasses" data-ng-model="user.klass" placeholder="class"
+                        required>
                         <option value="" disabled selected>select your class</option>
                     </select>
-                    <button ng-click="signupStep = 4">Sign up</button>
+                    <div class="help-block" ng-messages="SignupForm.klass.$error" ng-if="SignupForm.klass.$dirty">
+                        <p ng-message="required">No class selected</p>
+                    </div>
+                    <button type="ssubmit" ng-click="nextStep()">Sign up</button>
                 </div>
-                <div data-ng-show="signupStep == 4">
+                <div data-ng-show="step == 4">
                     <p style="color:#000;">Welcome to Deadlines, you only have to activate your acount with the mail we just send you!</p>
                 </div>
             </form>
@@ -33,14 +51,14 @@
     </div>
 </div>
 
-<div data-ng-show="signupStep == 4" style="width:100%; height:100%;">
+<div data-ng-show="step == 4" style="width:100%; height:100%;">
     <div class="signin">
         <h1 style="color: #fff;">step 5</h1>
         <div id="form">
             <form class="form" name="signupform" novalidate ng-submit="signup()" >
                 <input type="password" name="password" placeholder="password" ng-model="user.password" required/>
                 <input type="password" name="password_confirmation" placeholder="password confirmation" ng-model="user.password_confirmation" required/>
-                <select id="" name="klass" data-ng-options="klass.id as klass.name for klass in klasslist.klasses" data-ng-model="user.klass" placeholder="class">
+                <select id="" name="klass" data-ng-options="klass.id as klass.name for klass in klassList.klasses" data-ng-model="user.klass" placeholder="class">
                     <option value="" disabled selected>select your class</option>
                 </select>
                 <button type="submit">signup</button>

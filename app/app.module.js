@@ -1,6 +1,7 @@
 var app = angular.module('Deadlines', [
     'ui.router',
-    'textAngular'
+    'textAngular',
+    'ngMessages'
 ]);
 
 app.run(['$rootScope', '$location', function($rootScope, $location) {
