@@ -93,6 +93,18 @@ input:-webkit-autofill {
     .profile a:hover {
       color: #FFC300; }
 
+.profile_stats > div {
+  text-align: center; }
+  .profile_stats > div > div {
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+    margin: 0px auto;
+    padding: 0px; }
+
+.profile_stats_lower {
+  font-size: 16px; }
+
 .profile_username {
   width: 100%;
   font-size: 36px;
@@ -123,6 +135,8 @@ input:-webkit-autofill {
   width: 50%;
   display: inline-block;
   text-align: right; }
+  .profile_values select {
+    margin-top: 16px; }
 
 .profile_footer {
   text-align: center;
