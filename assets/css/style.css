@@ -33,7 +33,7 @@ input:-webkit-autofill {
     color: #FE2746; }
     .signin a:hover {
       color: #FFC300; }
-  .signin select, .signin input[type="email"], .signin input[type="password"], .signin button {
+  .signin select, .signin input[type="email"], .signin input[type="password"] {
     width: 100%;
     clear: both;
     font-size: 12px; }
@@ -45,6 +45,7 @@ input:-webkit-autofill {
     font-family: Roboto-Regular;
     border-style: none;
     padding: 10px;
+    width: 100%;
     background-color: #FFF; }
     .signin input:focus, .signin select:focus {
       background-color: #EEE;
@@ -67,12 +68,32 @@ input:-webkit-autofill {
     transition: all 0.161s ease; }
     .signin button:hover {
       background-color: #FFC300; }
+  .signin p {
+    margin: 0 20px;
+    text-align: center; }
 
 #form {
+  -webkit-transition: all 0.161s ease;
+  -moz-transition: all 0.161s ease;
+  -ms-transition: all 0.161s ease;
+  transition: all 0.161s ease;
   background-color: #FFF;
+  max-height: 1000px;
   padding: 20px 0px; }
-  #form button, #form input {
+  #form input {
     font-size: 12px; }
+
+.signup_step {
+  -webkit-transition: all 0.161s ease;
+  -moz-transition: all 0.161s ease;
+  -ms-transition: all 0.161s ease;
+  transition: all 0.161s ease; }
+
+.signup_button {
+  background-color: #FFF;
+  padding: 0 0 20px 0; }
+  .signup_button button {
+    margin: 0 auto; }
 
 .signin_button {
   display: block;

@@ -23,8 +23,9 @@ input:-webkit-autofill
         }
     }
     form{
+
     }
-    select, input[type="email"], input[type="password"], button
+    select, input[type="email"], input[type="password"]
     {
         width: 100%;
         clear: both;
@@ -40,7 +41,7 @@ input:-webkit-autofill
         font-family: Roboto-Regular;
         border-style: none;
         padding: 10px;
-        
+        width: 100%;
         background-color: #FFF;
         &:focus{
             background-color: #EEE;
@@ -65,16 +66,34 @@ input:-webkit-autofill
             background-color: #FFC300;
         }
     }
+    p{
+        margin: 0 20px;
+        text-align: center;
+    }
 
 }
 
 #form{
+    @include transition(all .161s ease);
     background-color: #FFF;
-    // height: 200px;
+    max-height: 1000px;
     padding: 20px 0px;
     // box-sizing: border-box;
-    button, input{
+    input{
         font-size: 12px;
+    }
+}
+
+.signup_step{
+    @include transition(all .161s ease);
+}
+
+.signup_button{
+    background-color: #FFF;
+    padding: 0 0 20px 0;
+    button{
+        margin: 0 auto;
+        // font-size: 12px;
     }
 }
 
