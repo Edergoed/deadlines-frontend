@@ -86,7 +86,7 @@ app.config([
         // Timetable
         .state('main.timetable', {
             url: '/timetable',
-            templateUrl: 'app/components/profile/timetableView.html',
+            templateUrl: 'app/components/timetable/timetableView.html',
             controller: 'TimetableCtrl'
 
         });

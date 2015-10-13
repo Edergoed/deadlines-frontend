@@ -621,4 +621,20 @@ footer {
 .active {
   background-color: #DDD !important; }
 
+.timetable {
+  color: #000;
+  text-align: center;
+  height: 100%; }
+  .timetable a {
+    text-decoration: none;
+    color: #FE2746; }
+    .timetable a:hover {
+      color: #FFC300; }
+  .timetable div {
+    width: 80%;
+    background-color: #FFF;
+    padding: 20px 0px;
+    margin: 0 auto;
+    height: 100%; }
+
 /*# sourceMappingURL=style.css.map */

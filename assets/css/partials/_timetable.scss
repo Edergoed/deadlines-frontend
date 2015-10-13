@@ -1,0 +1,20 @@
+.timetable{
+	color: #000;
+	text-align: center;
+	height: 100%;
+	a{
+    text-decoration: none;
+    color: #FE2746;
+        &:hover{
+            color: #FFC300;
+
+        }
+    }
+    div{
+    	width: 80%;
+    	background-color: #FFF;
+    	padding: 20px 0px;
+    	margin: 0 auto;
+    	height: 100%;
+    }
+}
