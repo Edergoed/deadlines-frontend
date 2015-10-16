@@ -165,7 +165,6 @@ input:-webkit-autofill {
   float: right; }
 
 body {
-  color: #fff;
   font-family: Roboto-Regular;
   height: 100%;
   margin: 0;
@@ -199,6 +198,7 @@ body {
   background-color: #1c1d1e; }
 
 #wrapper {
+  color: #fff;
   height: 100%;
   display: block;
   -webkit-animation: reveal .3s forwards 1s ease-in-out;
@@ -495,6 +495,17 @@ footer {
       margin: 0; }
   .deadline a, .archivedDeadline a {
     display: block; }
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #fff;
+  margin-top: calc(35px - 10px);
+  float: right;
+  position: relative;
+  display: box; }
 
 @media (min-width: 740px) {
   #dynamic_right {

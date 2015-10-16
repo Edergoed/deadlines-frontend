@@ -5,6 +5,16 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
         $scope.getAll();
         $scope.currState = $state
     }
+    $scope.arrow = function(id){
+        for(i = 0; i < $scope.deadlineList.deadlines.length; i++){
+            console.log($scope.deadlineList.deadlines[i].id + ' ' + id);
+            if($scope.deadlineList.deadlines[i].id == id){
+                $scope.deadlineList.deadlines[i].selected = true;
+            } else {
+                $scope.deadlineList.deadlines[i].selected = false;
+            }
+        }
+    }
 
     $scope.getAll = function(){
         $scope.Loading = true;
@@ -12,7 +22,6 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
         .then(function(res){
             //success
             $scope.deadlineList = deadline.deadlineList;
-
             $scope.$watch('currState.current.name', function(){
                 if($state.current.name == 'main.deadlines'){
                     $state.go('main.deadlines.show', { showID: $scope.deadlineList.deadlines[0].id });
@@ -23,6 +32,7 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
                 $scope.setDistance();
                 $scope.$apply();
             }, 0);
+                    $scope.arrow($scope.deadlineList.deadlines[0].id);
             $scope.Loading = false;
         }, function(res){
             //error
@@ -212,7 +222,6 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
     $scope.getDays = function(year, month){
         $scope.days = [];
         days = new Date(year, month, 0).getDate();
-        console.log(month + ' is ' + days + ' long');
         for(i = 0; i < days; i++){
             $scope.days[i] = i+1;
         }
