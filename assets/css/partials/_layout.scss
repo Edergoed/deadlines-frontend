@@ -29,11 +29,21 @@ body {
 .loading_wrapper{
     -webkit-animation: fadein 2s;
 }
+#splash
+{
+    float:left;
+    -webkit-animation: splash .3s forwards 1s ease-in-out;
+    position:fixed;
+    z-index:1;
+    background-color:#1c1d1e;
+}
 
 #wrapper
 {
     height: 100%;
     display: block;
+    -webkit-animation: reveal .3s forwards 1s ease-in-out;
+    -webkit-transform: translateY(100%);
 }
 
 .container
@@ -56,11 +66,11 @@ body {
     display: block;
     // -webkit-animation: fadein .161s;
     // animation: fadein .161s;
-    -webkit-animation: fadein .644s;
+    //-webkit-animation: fadein .644s;
 }
 
 .content_wrapper{
-    @include transition(width .2s ease);
+    //@include transition(width .2s ease);
 }
 
 .gravatar {
