@@ -4,7 +4,7 @@
     <a data-ui-sref="signup">Signup</a>
     </div> -->
     <div id="form">
-        <div data-ng-show="error != null"> {{ error }} </div>
+        <div style="color:#000;" data-ng-show="error != null"> {{ error }} </div>
 		<form class="form" name="signinForm" novalidate ng-submit="signin()" >
 	            <input type="email" name="email" placeholder="Email" ng-model="user.email" required autofocus/>
 	            <input type="password" name="password" placeholder="Password" ng-model="user.password" required/>

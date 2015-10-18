@@ -23,7 +23,8 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
             //success
             $scope.deadlineList = deadline.deadlineList;
             $scope.$watch('currState.current.name', function(){
-                if($state.current.name == 'main.deadlines'){
+                console.log($scope.deadlineList.deadlines);
+                if($state.current.name == 'main.deadlines' && $scope.deadlineList.deadlines[0] != null){
                     $state.go('main.deadlines.show', { showID: $scope.deadlineList.deadlines[0].id });
                 }
             });
@@ -32,7 +33,11 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
                 $scope.setDistance();
                 $scope.$apply();
             }, 0);
-                    $scope.arrow($scope.deadlineList.deadlines[0].id);
+
+            if($scope.deadlineList.deadlines[0] != null){
+            .arrow($scope.deadlineList.deadlines[0].id);
+            }
+
             $scope.Loading = false;
         }, function(res){
             //error

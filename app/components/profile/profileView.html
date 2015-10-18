@@ -1,10 +1,13 @@
-<div class="profile">
+<div data-ng-show="Loading" class="loading_wrapper" style="width: 100%; height: 100%;">
+    <div class="loading"></div>
+</div>
+<div class="profile" data-ng-show="!Loading" class="dynamic-post" style="display: block;">
     <div class="profile_wrapper">
         <img class="gravatar profile_picture" src="{{gravatar(userCurrent.gravatar, 120)}}">
         <span class="profile_username">{{ userCurrent.firstname + ' ' + userCurrent.lastname }}</span>
         <div class="profile_stats">
             <div class="profile_stats_upper">
-                <div>28</div><div>56</div>
+                <div>{{ selectedUser.created_deadline_ids.length }}</div><div>{{ selectedUser.edited_deadline_ids.length }}</div>
             </div>
             <div class="profile_stats_lower">
                 <div>Deadlines created</div><div> Deadlines edited</div>
@@ -17,12 +20,12 @@
                 <p>User since:</p>
             </div>
             <div class="profile_values">
-            <select id="" name="klass" data-ng-options="klass.id as klass.name for klass in klassList.klasses" data-ng-model="user.klass"
-                placeholder="Class">
-                 <option value="" disabled selected>Select your class</option>
-            </select>
+                <select id="" name="klass" data-ng-change="updateKlass()" data-ng-options="klass.id as klass.name for klass in klassList.klasses" data-ng-model="selectedUser.klass"
+                                                                                                                                                  placeholder="Class">
+                    <option value="" disabled selected>Select your class</option>
+                </select>
                 <p><a href="#">Click here to change</a></p>
-                <p>21-12-2014</p>
+                <p>{{ selectedUser.created_at | date:'fullDate' }}</p>
             </div>
             <div class="profile_footer">
                 <p>Change your avatar using <a href="#">Gravatar</a> with your e-mail address.</p>

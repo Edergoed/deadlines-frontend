@@ -1,7 +1,7 @@
 'use strict';
 
 app
-.controller('SignupCtrl', function($scope, $state, $stateParams, signup, klass){
+.controller('SignupCtrl', function($scope, $state, $stateParams, user, signup, klass){
 	var self = this;
 
     $scope.init = function(){
