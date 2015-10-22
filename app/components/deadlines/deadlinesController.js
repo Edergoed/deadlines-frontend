@@ -35,7 +35,7 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
             }, 0);
 
             if($scope.deadlineList.deadlines[0] != null){
-            .arrow($scope.deadlineList.deadlines[0].id);
+            $scope.arrow($scope.deadlineList.deadlines[0].id);
             }
 
             $scope.Loading = false;
