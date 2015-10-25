@@ -1,7 +1,7 @@
 app
 .constant('urls', {
     BASE: 'http://deadlines.dev',
-    //BASE_API: 'http://188.226.192.169'
-    BASE_API: 'http://deadlinesapi.dev:88'
+    BASE_API: 'https://deadlinesapp.io:12443'
+    //BASE_API: 'http://deadlinesapi.dev:88'
 });
 

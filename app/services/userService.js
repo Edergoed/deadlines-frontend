@@ -20,7 +20,7 @@ app.service('user', function($http, $q, urls, auth){
 
         var size = size || 30;
 
-        return 'http://www.gravatar.com/avatar/' + hash + '.jpg?s=' + size;
+        return 'https://www.gravatar.com/avatar/' + hash + '.jpg?s=' + size;
     }
 
     self.signin = function(user){
