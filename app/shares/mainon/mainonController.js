@@ -1,15 +1,15 @@
 'use strict';
 
-app.controller('MainCtrl', function($scope, $location, $state, auth, user){
+app.controller('MainonCtrl', function($scope, $location, $state, auth, user){
 
     $scope.userCurrent = user.current();
     $scope.$watch('authenticated', function(newVal, oldVal) {
-            console.log(newVal, oldVal);
+//            console.log(newVal, oldVal);
     });
 
     if($scope.userCurrent == false){
-        console.log('yay' + $scope.userCurrent);
-        $state.go('signin', {});
+ //       console.log('yay' + $scope.userCurrent);
+        //$state.go('welcome', {});
     }
 
     if($scope.userCurrent != false){

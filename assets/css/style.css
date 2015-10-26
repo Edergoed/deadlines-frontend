@@ -77,17 +77,13 @@ input:-webkit-autofill {
   -moz-transition: all 0.161s ease;
   -ms-transition: all 0.161s ease;
   transition: all 0.161s ease;
-  background-color: #FFF;
   max-height: 1000px;
   padding: 20px 0px; }
   #form input {
     font-size: 12px; }
 
 .signup_step {
-  -webkit-transition: all 0.161s ease;
-  -moz-transition: all 0.161s ease;
-  -ms-transition: all 0.161s ease;
-  transition: all 0.161s ease; }
+  animation: fadeinfromright .611s; }
 
 .signup_button {
   background-color: #FFF;
@@ -100,6 +96,10 @@ input:-webkit-autofill {
   padding: 20px;
   margin: 0 auto;
   text-align: center; }
+
+.help_block {
+  animation: fadein .611s;
+  color: #FFF; }
 
 .profile {
   width: 80%;
@@ -206,10 +206,13 @@ body {
 
 #splash {
   float: left;
-  -webkit-animation: splash .3s forwards 1s ease-in-out;
+  -webkit-animation: splash .3s forwards .611s ease-in-out;
   position: fixed;
   z-index: 1;
   background-color: #1c1d1e; }
+  #splash h1 {
+    font-weight: normal;
+    font-family: "Roboto-Light"; }
 
 #wrapper {
   color: #fff;
@@ -587,7 +590,8 @@ footer {
   color: #BBB;
   cursor: pointer;
   user-select: none;
-  float: left; }
+  float: left;
+  text-decoration: none; }
   .nav_item:hover {
     color: #FFF; }
 
@@ -613,14 +617,23 @@ footer {
     opacity: 1; } }
 @-webkit-keyframes splash {
   0% {
-    -webkit-transform: translateY(0%); }
+    -webkit-transform: translateY(0%);
+    opacity: 1; }
   100% {
-    -webkit-transform: translateY(-100%); } }
+    -webkit-transform: translateY(-100%);
+    opacity: 0; } }
 @-webkit-keyframes reveal {
   0% {
     -webkit-transform: translateY(100%); }
   100% {
     -webkit-transform: translateY(0%); } }
+@-webkit-keyframes fadeinfromright {
+  0% {
+    -webkit-transform: translateX(100%);
+    opacity: 0; }
+  100% {
+    -webkit-transform: translateX(0%);
+    opacity: 1; } }
 .btn-group {
   margin: 0px 15px; }
   .btn-group:first-child {
@@ -657,5 +670,83 @@ footer {
 
 .active {
   background-color: #DDD !important; }
+
+@-webkit-keyframes fadeInDown {
+  1% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0); } }
+@-webkit-keyframes fadeInDown2 {
+  1% {
+    opacity: 0;
+    -webkit-transform: translateY(168px);
+    transform: translateY(168px); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0); } }
+.welcome_content {
+  height: calc(100% - 60px);
+  width: 1118px;
+  margin: 0 auto; }
+
+.welcome_info {
+  color: #FFF;
+  text-align: center; }
+  .welcome_info h1 {
+    font-size: 36px;
+    font-weight: normal;
+    font-family: 'Roboto-Light'; }
+
+.welcome_mockup {
+  margin: 0 auto;
+  text-align: center;
+  position: fixed;
+  width: 1118px;
+  bottom: 0px; }
+  .welcome_mockup img {
+    max-width: 100%;
+    height: 60%; }
+
+.welcome_menu {
+  user-select: none;
+  text-align: center; }
+  .welcome_menu button {
+    font-size: 14px;
+    padding: 10px 20px;
+    margin: 20px;
+    background-color: #FE2746;
+    border: 0px;
+    border-color: #FE2746;
+    border-style: solid;
+    color: #FFF;
+    -webkit-transition: all 0.161s ease;
+    -moz-transition: all 0.161s ease;
+    -ms-transition: all 0.161s ease;
+    transition: all 0.161s ease; }
+    .welcome_menu button:hover {
+      background-color: #FFC300; }
+  .welcome_menu a {
+    -webkit-transition: all 0.161s ease;
+    -moz-transition: all 0.161s ease;
+    -ms-transition: all 0.161s ease;
+    transition: all 0.161s ease;
+    text-decoration: none;
+    color: #FE2746; }
+    .welcome_menu a:hover {
+      color: #FFC300; }
+
+.welcome_gradient {
+  background: -webkit-linear-gradient(top, rgba(28, 29, 30, 0) 0%, #1c1d1e 100%);
+  /* Chrome10+,Safari5.1+ */
+  width: 1118px;
+  height: 300px;
+  position: fixed;
+  bottom: 0px;
+  z-index: 10; }
 
 /*# sourceMappingURL=style.css.map */

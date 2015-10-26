@@ -1,15 +1,17 @@
-<div class="signin">
-    <!-- <h1>Deadlines</h1> -->
-    <!-- <div class="signin_button" style="float: right;">
-    <a data-ui-sref="signup">Signup</a>
-    </div> -->
-    <div id="form">
-        <div style="color:#000;" data-ng-show="error != null"> {{ error }} </div>
-		<form class="form" name="signinForm" novalidate ng-submit="signin()" >
-	            <input type="email" name="email" placeholder="Email" ng-model="user.email" required autofocus/>
-	            <input type="password" name="password" placeholder="Password" ng-model="user.password" required/>
-			<button type="submit">Sign in</button>
-		</form>
+<div style="width:100%; height:100%;">
+    <div class="signin">
+        <!-- <h1>Deadlines</h1> -->
+        <!-- <div class="signin_button" style="float: right;">
+        <a data-ui-sref="signup">Signup</a>
+        </div> -->
+        <div id="form" class="signup_step">
+            <div style="color:#000;" data-ng-show="error != null"> {{ error }} </div>
+    		<form class="form" name="signinForm" novalidate ng-submit="signin()" >
+    	            <input type="email" name="email" placeholder="Email" ng-model="user.email" required autofocus/>
+    	            <input type="password" name="password" placeholder="Password" ng-model="user.password" required/>
+    			<button type="submit">Sign in</button>
+    		</form>
+        </div>
+        <div class="signin_button"><a data-ui-sref="mainoff.signup">Reset password</a></div>
     </div>
-    <div class="signin_button"><a data-ui-sref="signup">Reset password</a></div>
 </div>

@@ -75,7 +75,7 @@ input:-webkit-autofill
 
 #form{
     @include transition(all .161s ease);
-    background-color: #FFF;
+    // background-color: #FFF;
     max-height: 1000px;
     padding: 20px 0px;
     // box-sizing: border-box;
@@ -85,7 +85,8 @@ input:-webkit-autofill
 }
 
 .signup_step{
-    @include transition(all .161s ease);
+    // @include transition(all .161s ease);
+    animation: fadeinfromright .611s;
 }
 
 .signup_button{
@@ -102,4 +103,9 @@ input:-webkit-autofill
     padding: 20px;
     margin: 0 auto;
     text-align: center;
+}
+
+.help_block{
+    animation: fadein .611s;
+    color: #FFF;
 }
