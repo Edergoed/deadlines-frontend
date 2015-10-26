@@ -11,7 +11,7 @@ app
 
     $scope.signout = function(){
         auth.signout();
-        $state.go('signin', {});
+        $state.go('mainoff.signin', {});
     }
 
     $scope.getKlasses = function(id){

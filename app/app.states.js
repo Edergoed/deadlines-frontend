@@ -67,7 +67,7 @@ app.config([
             templateUrl: 'app/components/signin/signinView.html',
             controller: 'LoginCtrl'
 
-        }).state('mainoff.signout', {
+        }).state('signout', {
             url: '/signout',
             controller: 'LoginCtrl'
 
@@ -76,7 +76,7 @@ app.config([
             templateUrl: 'app/components/signup/signupView.html',
             controller: 'SignupCtrl'
 
-        }).state('mainoff.activate', {
+        }).state('activate', {
             url: '/activate/:activationToken',
             templateUrl: 'app/components/signup/activateView.html',
             controller: 'SignupCtrl'
@@ -114,5 +114,5 @@ app.config([
         });
 
         $locationProvider.html5Mode(true);
-        $urlRouterProvider.otherwise("/deadlines");
+        $urlRouterProvider.otherwise("/welcome");
     }]);

@@ -9,7 +9,7 @@ app.controller('MainonCtrl', function($scope, $location, $state, auth, user){
 
     if($scope.userCurrent == false){
         console.log('yay' + $scope.userCurrent);
-        $state.go('signin', {});
+        $state.go('welcome', {});
     }
 
     if($scope.userCurrent != false){

@@ -8,8 +8,8 @@ app.controller('MainoffCtrl', function($scope, $location, $state, auth, user){
     });
 
     if($scope.userCurrent == false){
-        console.log('yay' + $scope.userCurrent);
-        $state.go('signin', {});
+        // console.log('yay' + $scope.userCurrent);
+        // $state.go('signin', {});
     }
 
     if($scope.userCurrent != false){
