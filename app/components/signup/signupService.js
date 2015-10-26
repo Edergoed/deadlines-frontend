@@ -7,7 +7,6 @@ app
     this.getAllKlasses = function(){
         var defer = $q.defer();
 
-        //$http.get(urls.BASE_API + '/deadlines')
         $http.get(urls.BASE_API + '/klasses')
         .success(function(res){
             //klass.klasses = res;
@@ -23,7 +22,6 @@ app
     this.activate = function(activationToken){
         var defer = $q.defer();
 
-        //$http.get(urls.BASE_API + '/deadlines')
         $http.post(urls.BASE_API + '/activate', {activationToken: activationToken})
         .success(function(res){
             defer.resolve(res);

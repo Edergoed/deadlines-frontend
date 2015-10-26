@@ -7,7 +7,7 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
     }
     $scope.arrow = function(id){
         for(i = 0; i < $scope.deadlineList.deadlines.length; i++){
-            console.log($scope.deadlineList.deadlines[i].id + ' ' + id);
+            //console.log($scope.deadlineList.deadlines[i].id + ' ' + id);
             if($scope.deadlineList.deadlines[i].id == id){
                 $scope.deadlineList.deadlines[i].selected = true;
             } else {
@@ -23,7 +23,7 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
             //success
             $scope.deadlineList = deadline.deadlineList;
             $scope.$watch('currState.current.name', function(){
-                console.log($scope.deadlineList.deadlines);
+                //console.log($scope.deadlineList.deadlines);
                 if($state.current.name == 'mainon.deadlines' && $scope.deadlineList.deadlines[0] != null){
                     $state.go('mainon.deadlines.show', { showID: $scope.deadlineList.deadlines[0].id });
                 }

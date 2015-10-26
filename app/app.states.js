@@ -21,6 +21,9 @@ app.config([
             url: '',
             templateUrl: 'app/shares/mainoff/mainoffView.html',
             controller: 'MainoffCtrl'
+            data: {
+                authenticate: false
+            }
         })
 
         // Deadlines

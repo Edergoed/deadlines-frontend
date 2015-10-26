@@ -3,8 +3,8 @@ app.controller('DeadlineNewCtrl', function($scope, deadline, $state){
     $scope.init = function(){
 
         testdate = new Date();
-            console.log(testdate);
-            console.log(Date.UTC(testdate))
+            //console.log(testdate);
+            //console.log(Date.UTC(testdate))
 
         $scope.dayCurrent = new Date().getDate();
         $scope.deadline = {};
@@ -31,7 +31,7 @@ app.controller('DeadlineNewCtrl', function($scope, deadline, $state){
             minut = $scope.deadline.deadline.time.split(':')[1];
 
             $scope.deadline.deadline.deadlineDateTime = new Date(year, month, day, hour, minut);
-            console.log($scope.deadline.deadline.deadlineDateTime);
+            //console.log($scope.deadline.deadline.deadlineDateTime);
             deadline.createDeadline($scope.userCurrent.id, $scope.deadline)
             .then(function(res){
                 //succes
