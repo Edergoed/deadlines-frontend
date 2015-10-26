@@ -117,8 +117,8 @@ app.config([
         });
 
         $locationProvider.html5Mode(true);
-        //$urlRouterProvider.otherwise("/deadlines");
-        $urlRouterProvider.otherwise("/welcome");
+        $urlRouterProvider.otherwise("/deadlines");
+        //$urlRouterProvider.otherwise("/welcome");
     }])
     .run(function($rootScope, $location, auth){
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams){

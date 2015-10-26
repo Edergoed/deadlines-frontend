@@ -424,7 +424,8 @@ footer {
   z-index: 500; }
 
 .btn_save {
-  padding: 10px;
+  padding: 10px 20px;
+  margin: 0px 5px;
   display: block;
   background-color: #FE2746;
   border: 0px;
