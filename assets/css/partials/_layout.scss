@@ -47,6 +47,24 @@ body {
 .loading_wrapper{
     -webkit-animation: fadein 2s;
 }
+
+.error_block{
+    text-align: center;
+    p{
+        background-color: #FE2746;
+        padding: 10px 20px;
+        width: 250px;
+        margin: 20px auto;
+        animation: fadein .311s;
+        color: #FFF;
+    }
+}
+
+.error_wrapper{
+    margin: 0 auto;
+
+}
+
 #splash
 {
     float:left;

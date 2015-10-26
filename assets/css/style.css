@@ -19,15 +19,13 @@ input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px #FFEDB2 inset; }
 
 .signin {
-  top: 50%;
-  position: relative;
+  padding: 200px 0px 0px 0px;
   width: 200px;
   height: auto;
   margin: auto;
   display: block;
   /*background-color: #FFF;*/
-  color: #fff;
-  transform: translateY(-50%); }
+  color: #fff; }
   .signin a {
     text-decoration: none;
     color: #FE2746; }
@@ -77,8 +75,7 @@ input:-webkit-autofill {
   -moz-transition: all 0.161s ease;
   -ms-transition: all 0.161s ease;
   transition: all 0.161s ease;
-  max-height: 1000px;
-  padding: 20px 0px; }
+  max-height: 1000px; }
   #form input {
     font-size: 12px; }
 
@@ -93,7 +90,6 @@ input:-webkit-autofill {
 
 .signin_button {
   display: block;
-  padding: 20px;
   margin: 0 auto;
   text-align: center; }
 
@@ -203,6 +199,19 @@ body {
 
 .loading_wrapper {
   -webkit-animation: fadein 2s; }
+
+.error_block {
+  text-align: center; }
+  .error_block p {
+    background-color: #FE2746;
+    padding: 10px 20px;
+    width: 250px;
+    margin: 20px auto;
+    animation: fadein .311s;
+    color: #FFF; }
+
+.error_wrapper {
+  margin: 0 auto; }
 
 #splash {
   float: left;
