@@ -689,33 +689,33 @@ footer {
     opacity: 1;
     -webkit-transform: translateY(0);
     transform: translateY(0); } }
-.home_content {
+.welcome_content {
   height: calc(100% - 60px);
   width: 1118px;
   margin: 0 auto; }
 
-.home_info {
+.welcome_info {
   color: #FFF;
   text-align: center; }
-  .home_info h1 {
+  .welcome_info h1 {
     font-size: 36px;
     font-weight: normal;
     font-family: 'Roboto-Light'; }
 
-.home_mockup {
+.welcome_mockup {
   margin: 0 auto;
   text-align: center;
   position: fixed;
   width: 1118px;
   bottom: 0px; }
-  .home_mockup img {
+  .welcome_mockup img {
     max-width: 100%;
     height: 60%; }
 
-.home_menu {
+.welcome_menu {
   user-select: none;
   text-align: center; }
-  .home_menu button {
+  .welcome_menu button {
     font-size: 14px;
     padding: 10px 20px;
     margin: 20px;
@@ -723,14 +723,24 @@ footer {
     border: 0px;
     border-color: #FE2746;
     border-style: solid;
-    color: #FFF; }
-  .home_menu a {
+    color: #FFF;
+    -webkit-transition: all 0.161s ease;
+    -moz-transition: all 0.161s ease;
+    -ms-transition: all 0.161s ease;
+    transition: all 0.161s ease; }
+    .welcome_menu button:hover {
+      background-color: #FFC300; }
+  .welcome_menu a {
+    -webkit-transition: all 0.161s ease;
+    -moz-transition: all 0.161s ease;
+    -ms-transition: all 0.161s ease;
+    transition: all 0.161s ease;
     text-decoration: none;
     color: #FE2746; }
-    .home_menu a:hover {
+    .welcome_menu a:hover {
       color: #FFC300; }
 
-.home_gradient {
+.welcome_gradient {
   background: -webkit-linear-gradient(top, rgba(28, 29, 30, 0) 0%, #1c1d1e 100%);
   /* Chrome10+,Safari5.1+ */
   width: 1118px;
