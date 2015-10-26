@@ -16,6 +16,7 @@ app
             .then(function(res){
                 console.log("succes");
                 //$state.go('mainon.deadlines', {});
+                console.log($scope.user);
             }, function(res){
                 console.log("error");
             //error
