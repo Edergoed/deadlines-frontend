@@ -55,16 +55,16 @@ app.config([
         })
 
         // Signin
-        .state('main.signin', {
+        .state('signin', {
             url: '/signin',
             templateUrl: 'app/components/signin/signinView.html',
             controller: 'LoginCtrl'
 
-        }).state('main.signout', {
+        }).state('signout', {
             url: '/signout',
             controller: 'LoginCtrl'
 
-        }).state('main.signup', {
+        }).state('signup', {
             url: '/signup',
             templateUrl: 'app/components/signup/signupView.html',
             controller: 'SignupCtrl'
