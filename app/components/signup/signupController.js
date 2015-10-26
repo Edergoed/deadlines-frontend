@@ -15,6 +15,7 @@ app
             signup.signup($scope.user)
             .then(function(res){
                 console.log("succes");
+                console.log($scope.user);
                 //$state.go('main.deadlines', {});
             }, function(res){
                 console.log("error");

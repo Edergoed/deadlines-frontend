@@ -36,7 +36,7 @@ app.service('user', function($http, $q, urls, auth){
 
     self.signup = function(user){
         var defer = $q.defer();
-        return $http.post('http://api.deadlinesapi.dev:88/users', {user: {email: user.email, password: user.password, password_confirmation: user.password_confirmation} })
+        return $http.post('http://api.deadlinesapi.dev:88/users', {user: {email: user.email, password: user.password, password_confirmation: user.password_confirmation, firstname: user.firstname, lastname: user.lastname, prefix: user.prefix} })
         .success(function(res){
             defer.resolve(res);
         })
