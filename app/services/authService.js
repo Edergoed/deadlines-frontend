@@ -18,8 +18,9 @@ app.service('auth', function($window){
 	self.isAuthed = function() {
 		var token = self.getToken();
 		if(token) {
-			var params = self.parseJwt(token);
-			return Math.round(new Date().getTime() / 1000) <= params.exp;
+			//var params = self.parseJwt(token);
+			//return Math.round(new Date().getTime() / 1000) <= params.exp;
+            return true;
 		} else {
 			return false;
 		}

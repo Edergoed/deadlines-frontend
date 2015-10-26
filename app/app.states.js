@@ -10,7 +10,10 @@ app.config([
         .state('mainon', {
             url: '',
             templateUrl: 'app/shares/mainon/mainonView.html',
-            controller: 'MainonCtrl'
+            controller: 'MainonCtrl',
+            data: {
+                authenticate: true
+            }
         })
 
         // mainoff
@@ -114,5 +117,14 @@ app.config([
         });
 
         $locationProvider.html5Mode(true);
+        //$urlRouterProvider.otherwise("/deadlines");
         $urlRouterProvider.otherwise("/welcome");
-    }]);
+    }])
+    .run(function($rootScope, $location, auth){
+        $rootScope.$on('$stateChangeStart', function (event, toState, toParams){
+            if(!auth.isAuthed() && toState.data.authenticate){
+                //$state.go('mainoff', {});
+                $location.path('/welcome');
+            }
+        })
+    });
