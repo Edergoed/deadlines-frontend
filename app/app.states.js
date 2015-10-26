@@ -20,7 +20,7 @@ app.config([
         .state('mainoff', {
             url: '',
             templateUrl: 'app/shares/mainoff/mainoffView.html',
-            controller: 'MainoffCtrl'
+            controller: 'MainoffCtrl',
             data: {
                 authenticate: false
             }
