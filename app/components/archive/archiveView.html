@@ -2,7 +2,7 @@
     <div id="dynamic_left_content" class="dynamic_left_content">
         <div id="list">
             <div class="list_wrapper" data-ng-repeat="deadlineListItem in deadlineList.deadlines">
-                <div id="{{deadlineListItem.id}}" class="archivedDeadline" ui-sref="main.archive.show({showID: deadlineListItem.id})" data-distance="{{deadlineListItem.data_distance}}" data-deadline="{{deadlineListItem.deadlineDateTime}}">
+                <div id="{{deadlineListItem.id}}" class="archivedDeadline" ui-sref="mainon.archive.show({showID: deadlineListItem.id})" data-distance="{{deadlineListItem.data_distance}}" data-deadline="{{deadlineListItem.deadlineDateTime}}">
                     <div class="deadline_head">
                         <div class="title">
                             {{ deadlineListItem.title }}
