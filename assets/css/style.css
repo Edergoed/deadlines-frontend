@@ -709,8 +709,8 @@ footer {
   width: 1118px;
   bottom: 0px; }
   .home_mockup img {
-    width: auto;
-    height: auto; }
+    max-width: 100%;
+    height: 60%; }
 
 .home_menu {
   user-select: none;

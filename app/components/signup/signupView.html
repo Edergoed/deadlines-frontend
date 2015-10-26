@@ -3,7 +3,7 @@
     <div class="signin">
         <div id="form">
             <form class="form" name="SignupForm" novalidate ng-submit="signup()" style="color:#000;">
-                                <div class="help_block" ng-messages="SignupForm.email.$error" ng-if="SignupForm.email.$touched">
+                        <div class="help_block" ng-messages="SignupForm.email.$error" ng-if="SignupForm.email.$touched">
                         <p ng-message="required">Your Email is required</p>
                         <p ng-message="email">This needs to be a valid email</p>
                     </div>

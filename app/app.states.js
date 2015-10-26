@@ -55,16 +55,16 @@ app.config([
         })
 
         // Signin
-        .state('signin', {
+        .state('main.signin', {
             url: '/signin',
             templateUrl: 'app/components/signin/signinView.html',
             controller: 'LoginCtrl'
 
-        }).state('signout', {
+        }).state('main.signout', {
             url: '/signout',
             controller: 'LoginCtrl'
 
-        }).state('signup', {
+        }).state('main.signup', {
             url: '/signup',
             templateUrl: 'app/components/signup/signupView.html',
             controller: 'SignupCtrl'
@@ -95,6 +95,13 @@ app.config([
         .state('main.home', {
             url: '/home',
             templateUrl: 'app/components/home/homeView.html',
+            controller: 'HomeCtrl'
+
+        })
+
+        .state('main.construction', {
+            url: '/construction',
+            templateUrl: 'app/components/construction/constructionView.html',
             controller: 'HomeCtrl'
 
         });
