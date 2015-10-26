@@ -5,10 +5,11 @@ input:-webkit-autofill
 
 .signin {
     padding: 200px 0px 0px 0px;
-    width: 200px;
+    width: 400px;
     height: auto;
     margin: auto;
     display: block;
+
     /*background-color: #FFF;*/
     color: #fff;
     a{
@@ -39,7 +40,9 @@ input:-webkit-autofill
         font-family: Roboto-Regular;
         border-style: none;
         padding: 10px;
-        width: 100%;
+        width: 200px;
+        display: block;
+        margin: 0 auto;
         background-color: #FFF;
         &:focus{
             background-color: #EEE;
@@ -79,6 +82,12 @@ input:-webkit-autofill
     // box-sizing: border-box;
     input{
         font-size: 12px;
+        width: 200px;
+        display: block;
+        margin: 0 auto;
+    }
+    p{
+        color: #FFF;
     }
 }
 
