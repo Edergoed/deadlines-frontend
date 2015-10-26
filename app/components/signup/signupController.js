@@ -15,7 +15,7 @@ app
             signup.signup($scope.user)
             .then(function(res){
                 console.log("succes");
-                //$state.go('main.deadlines', {});
+                //$state.go('mainon.deadlines', {});
             }, function(res){
                 console.log("error");
             //error
@@ -29,7 +29,7 @@ app
         signup.activate(activationToken)
         .then(function(res){
             console.log("succes");
-            $state.go('main.deadlines', {});
+            $state.go('mainon.deadlines', {});
         }, function(res){
             console.log("error");
             //error

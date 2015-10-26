@@ -12,7 +12,7 @@ app
                 console.log(res);
                 $scope.authenticated = true;
                 //$location.path('/');
-                $state.go('main.deadlines', {});
+                $state.go('mainon.deadlines', {});
             }, function(res){
                 $scope.error = res.data.errors;
                 //error

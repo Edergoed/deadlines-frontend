@@ -37,7 +37,7 @@ app.controller('DeadlineNewCtrl', function($scope, deadline, $state){
                 //succes
                 setTimeout(function(){
                     $scope.getAll();
-                    $state.go('main.deadlines.show', { showID: $scope.deadlineList.deadlines[0].id });
+                    $state.go('mainon.deadlines.show', { showID: $scope.deadlineList.deadlines[0].id });
                 }, 20);
             }, function(res){
                 //error

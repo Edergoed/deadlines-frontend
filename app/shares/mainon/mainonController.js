@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('MainCtrl', function($scope, $location, $state, auth, user){
+app.controller('MainonCtrl', function($scope, $location, $state, auth, user){
 
     $scope.userCurrent = user.current();
     $scope.$watch('authenticated', function(newVal, oldVal) {

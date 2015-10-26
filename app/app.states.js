@@ -6,30 +6,37 @@ app.config([
 
         $stateProvider
 
-        // Main
-        .state('main', {
+        // mainon
+        .state('mainon', {
             url: '',
-            templateUrl: 'app/shares/main/mainView.html',
-            controller: 'MainCtrl'
+            templateUrl: 'app/shares/mainon/mainonView.html',
+            controller: 'MainonCtrl'
+        })
+
+        // mainoff
+        .state('mainoff', {
+            url: '',
+            templateUrl: 'app/shares/mainoff/mainoffView.html',
+            controller: 'MainoffCtrl'
         })
 
         // Deadlines
-        .state('main.deadlines', {
+        .state('mainon.deadlines', {
             url: '/deadlines',
             templateUrl: 'app/components/deadlines/deadlinesView.html',
             controller: 'DeadlinesCtrl'
 
-        }).state('main.deadlines.new', {
+        }).state('mainon.deadlines.new', {
             url: '/new',
             templateUrl: 'app/components/deadlines/deadlineNewView.html',
             controller: 'DeadlineNewCtrl'
 
-        }).state('main.deadlines.edit', {
+        }).state('mainon.deadlines.edit', {
             url: '/edit/:editID',
             templateUrl: 'app/components/deadlines/deadlineEditView.html',
             controller: 'DeadlineEditCtrl'
 
-        }).state('main.deadlines.show', {
+        }).state('mainon.deadlines.show', {
             url: '/:showID',
             templateUrl: 'app/components/deadlines/deadlineShowView.html',
             controller: 'DeadlineShowCtrl'
@@ -37,17 +44,17 @@ app.config([
         })
 
         // Archive
-        .state('main.archive', {
+        .state('mainon.archive', {
             url: '/archive',
             templateUrl: 'app/components/archive/archiveView.html',
             controller: 'ArchiveCtrl'
 
-        }).state('main.archive.edit', {
+        }).state('mainon.archive.edit', {
             url: '/edit/:editID',
             templateUrl: 'app/components/archive/deadlineEditView.html',
             controller: 'DeadlineEditCtrl'
 
-        }).state('main.archive.show', {
+        }).state('mainon.archive.show', {
             url: '/:showID',
             templateUrl: 'app/components/archive/deadlineShowView.html',
             controller: 'DeadlineShowCtrl'
@@ -55,28 +62,28 @@ app.config([
         })
 
         // Signin
-        .state('signin', {
+        .state('mainoff.signin', {
             url: '/signin',
             templateUrl: 'app/components/signin/signinView.html',
             controller: 'LoginCtrl'
 
-        }).state('signout', {
+        }).state('mainoff.signout', {
             url: '/signout',
             controller: 'LoginCtrl'
 
-        }).state('signup', {
+        }).state('mainoff.signup', {
             url: '/signup',
             templateUrl: 'app/components/signup/signupView.html',
             controller: 'SignupCtrl'
 
-        }).state('activate', {
+        }).state('mainoff.activate', {
             url: '/activate/:activationToken',
             templateUrl: 'app/components/signup/activateView.html',
             controller: 'SignupCtrl'
         })
 
         // Profile
-        .state('main.profile', {
+        .state('mainon.profile', {
             url: '/profile',
             templateUrl: 'app/components/profile/profileView.html',
             controller: 'ProfileCtrl'
@@ -84,7 +91,7 @@ app.config([
         })
 
         // Timetable
-        .state('main.timetable', {
+        .state('mainon.timetable', {
             url: '/timetable',
             templateUrl: 'app/components/profile/timetableView.html',
             controller: 'TimetableCtrl'
@@ -92,17 +99,17 @@ app.config([
         })
 
         // Home
-        .state('main.home', {
-            url: '/home',
-            templateUrl: 'app/components/home/homeView.html',
-            controller: 'HomeCtrl'
+        .state('mainoff.welcome', {
+            url: '/welcome',
+            templateUrl: 'app/components/welcome/welcomeView.html',
+            controller: 'WelcomeCtrl'
 
         })
 
-        .state('main.construction', {
+        .state('mainoff.construction', {
             url: '/construction',
             templateUrl: 'app/components/construction/constructionView.html',
-            controller: 'HomeCtrl'
+            controller: 'ConstructionCtrl'
 
         });
 
