@@ -93,4 +93,10 @@ app.config([
 
         $locationProvider.html5Mode(true);
         $urlRouterProvider.otherwise("/deadlines");
-    }]);
+    }])
+    .run(function($rootScope, $location, Auth){
+
+        $rootScope.$on('$stateChangeState', function (event, toState, toParams){
+            if(Auth.isAuthed && toState.authenticate){
+            }
+    });
