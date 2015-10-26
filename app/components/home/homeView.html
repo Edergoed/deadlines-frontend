@@ -1,3 +1,17 @@
-<h1>The Home View!</h1>
-<p>{{ message }}</p>
-lol
+<div data-ng-show="Loading" class="loading_wrapper" style="width: 100%; height: 100%;">
+    <div class="loading"></div>
+</div>
+<div class="home" data-ng-show="!Loading" class="dynamic-post" style="display: block;">
+	<div class="home_content">
+		<div class="home_info">
+			<h1 style="animation: fadeInDown .644s ease .9s;">Now in beta for Games &amp; Interaction HKU</h1>
+		</div>
+		<div class="home_menu">
+			<button>Get started today</button><a href="#">or sign in</a>
+		</div>
+		<div class="home_mockup">
+			<img src="../assets/img/mockup.png" style="margin: 0 auto; animation: fadeInDown2 1.68s ease .9s;">
+		</div>
+		<div class="home_gradient"></div>
+	</div>
+</div>

@@ -50,10 +50,14 @@ body {
 #splash
 {
     float:left;
-    -webkit-animation: splash .3s forwards 1s ease-in-out;
+    -webkit-animation: splash .3s forwards .611s ease-in-out;
     position:fixed;
     z-index:1;
     background-color:#1c1d1e;
+    h1{
+        font-weight: normal;
+        font-family: "Roboto-Light";
+    }
 }
 
 #wrapper
