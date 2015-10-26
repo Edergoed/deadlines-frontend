@@ -6,6 +6,6 @@
 
     <div ui-sref="mainon.archive" class="nav_item">Archive</div>
     <!-- <div ui-sref="mainon.deadlines" class="nav_item">Timetable</div> -->
-    <img class="gravatar nav_gravatar" src="{{gravatar(userCurrent.gravatar, 30)}}">
+    <a ui-sref="mainon.profile"><img class="gravatar nav_gravatar" src="{{gravatar(userCurrent.gravatar, 30)}}"></a>
     <a class="nav_item" style="float: right;" ui-sref="mainon.profile">{{ userCurrent.firstname }} </a>
 </div>
