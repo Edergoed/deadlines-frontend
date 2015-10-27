@@ -1,31 +1,3 @@
-@-webkit-keyframes fadeInDown {
-  1% {
-    opacity: 0;
-    -webkit-transform: translateY(-20px);
-    transform: translateY(-20px);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-
-@-webkit-keyframes fadeInDown2 {
-  1% {
-    opacity: 0;
-    -webkit-transform: translateY(+168px);
-    transform: translateY(+168px);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-
 .welcome_content{
   height: calc(100% - 60px);
   width: 1118px;
@@ -39,6 +11,9 @@
     font-size: 36px;
     font-weight: normal;
     font-family: 'Roboto-Light';
+    @include animation('fadeInDown 0.644s');
+    @include animation-fill-mode(forwards);
+    opacity: 0;
   }
 }
 
@@ -48,10 +23,15 @@
   position: fixed;
   width: 1118px;
   bottom: 0px;
-  img{
-    max-width: 100%;
-    height: 60%;
-  }
+  height: 60%;
+}
+
+.welcome_mockup_img{
+  margin: 0 auto; 
+  @include animation('fadeInDown2 1.68s');
+  @include animation-fill-mode(forwards);
+  opacity: 0;
+  height: 100%;
 }
 
 .welcome_menu{
@@ -66,19 +46,13 @@
     border-color: #FE2746;
     border-style: solid;
     color: #FFF;
-    -webkit-transition: all 0.161s ease;
-    -moz-transition: all 0.161s ease;
-    -ms-transition: all 0.161s ease;
-    transition: all 0.161s ease;
+    @include transition(all 0.161s ease);
     &:hover{
       background-color: #FFC300;
     }
   }
   a{
-    -webkit-transition: all 0.161s ease;
-    -moz-transition: all 0.161s ease;
-    -ms-transition: all 0.161s ease;
-    transition: all 0.161s ease;
+    @include transition(all 0.161s ease);
     text-decoration: none;
     color: #FE2746;
     &:hover{

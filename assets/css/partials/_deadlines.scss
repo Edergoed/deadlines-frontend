@@ -11,17 +11,19 @@
     display: inline-block;
     position: relative;
     // -webkit-animation: fadein .644s;
-    -webkit-animation: fadein .644s;
+    @include animation('fadein 0.644s');
     background-color: #FFF;
 }
 
 .dynamic-post{
-    -webkit-animation: fadein .322s;
-    animation: fadein .322s;
+    @include animation('fadein 0.322s');
 }
 
 .list_wrapper{
     -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
     user-select: none;
 }
 
@@ -39,7 +41,7 @@
 
 .hide_deadline {
   height: 0px !important;
-  transition: all .2s;
+  @include transition(all .2s);
 }
 
 #dynamic_right
@@ -49,7 +51,7 @@
     float: right;
     display: inline-block;
     background-color: #FFF;
-    -webkit-animation: fadein .644s;
+    @include animation('fadein 0.644s');
     // -webkit-animation: fadein .644s;
 }
 
@@ -64,8 +66,10 @@
     color: #000;
     //@include transition(all 4s ease);
     word-wrap: break-word;
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
     box-sizing: border-box;
     .display {
         color: #000;
@@ -248,8 +252,12 @@
     // background-color: #422e39;
     overflow: hidden;
     //@include transition(all .1s ease);
-    animation-timing-function: cubic-bezier(0,0,0,1);
     -webkit-animation-timing-function: cubic-bezier(0,0,0,1);
+    -moz-animation-timing-function: cubic-bezier(0,0,0,1);
+    -ms-animation-timing-function: cubic-bezier(0,0,0,1);
+    -o-animation-timing-function: cubic-bezier(0,0,0,1);
+    animation-timing-function: cubic-bezier(0,0,0,1);
+
     .deadline_head
     {
         height: 100%;

@@ -1,6 +1,7 @@
 // Modules and Variables
 @import "modules/mixins";
 //partials
+@import "partials/animations";
 @import "partials/typography";
 @import "partials/signin";
 @import "partials/profile";
@@ -8,6 +9,5 @@
 @import "partials/deadlines";
 @import "partials/doc";
 @import "partials/nav";
-@import "partials/animations";
 @import "partials/editor";
 @import "partials/welcome";

@@ -63,7 +63,7 @@ input:-webkit-autofill
         outline: none;
         color: #FFF;
         width: 50%;
-        @include transition(all .161s ease);
+        @include transition(all 0.161s ease);
         &:hover{
             background-color: #FFC300;
         }
@@ -76,7 +76,7 @@ input:-webkit-autofill
 }
 
 #form{
-    @include transition(all .161s ease);
+    @include transition(all 0.161s ease);
     // background-color: #FFF;
     max-height: 1000px;
     // padding: 20px 0px;
@@ -94,7 +94,7 @@ input:-webkit-autofill
 
 .signup_step{
     // @include transition(all .161s ease);
-    animation: fadeinfromright .611s;
+    @include animation('fadeinfromright 0.611s');
 }
 
 .signup_button{
@@ -114,6 +114,6 @@ input:-webkit-autofill
 }
 
 .help_block{
-    animation: fadein .611s;
+    @include animation('fadein 0.611s');
     color: #FFF;
 }
