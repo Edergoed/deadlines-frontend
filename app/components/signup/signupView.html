@@ -4,13 +4,13 @@
         <div id="form">
             <form class="form" name="SignupForm" novalidate ng-submit="signup()" style="color:#000;">
                 <div data-ng-show="step == 0" class="signup_step">
-                    <input type="email" name="email" placeholder="E-mail" ng-model="user.email" required/>
+                    <input type="email" name="email" placeholder="E-mail" ng-model="user.email" maxlength="255" required/>
                     <button ng-click="nextStep()">Next</button>
                 </div>
                 <div data-ng-show="step == 1" class="signup_step">
-                    <input type="text" name="firstname" placeholder="First name" ng-model="user.firstname" required/>
-                    <input type="text" name="prefix" placeholder="Prefix" ng-model="user.prefix"/>
-                    <input type="text" name="lastname" placeholder="Last name" ng-model="user.lastname" required/>
+                    <input type="text" name="firstname" placeholder="First name" ng-model="user.firstname" maxlength="11" required/>
+                    <input type="text" name="prefix" placeholder="Prefix" ng-model="user.prefix" maxlength="11"/>
+                    <input type="text" name="lastname" placeholder="Last name" ng-model="user.lastname" maxlength="11" required/>
                     <button ng-click="nextStep()">Next</button>
                 </div>
                 <div data-ng-show="step == 2" class="signup_step">
