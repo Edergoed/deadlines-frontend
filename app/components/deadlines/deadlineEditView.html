@@ -27,8 +27,8 @@
         <img class="gravatar" data-ng-hide=" selectedDeadline.deadline.creator.id == selectedDeadline.deadline.editor.id ||
         selectedDeadline.deadline.editor.id == null" src="{{gravatar(selectedDeadline.deadline.editor.gravatarHash, 30)}}">
             <img class="gravatar" class="modifier" style="margin-left: 10px;" src="">
-                <button class="btn_save" style="display: inline-block; float: right;" type="submit">Save</button>
-                <a class="btn_save" style="color: #fff;  display: inline-block; float: right;" ui-sref="mainon.deadlines.show({showID:
+                <button class="btn_save" style="display: inline-block; float: right; font-size: 12px;" type="submit">Save</button>
+                <a class="btn_save" style="color: #fff !important;  display: inline-block; float: right;" ui-sref="mainon.deadlines.show({showID:
                     selectedDeadline.deadline.id})"type="">Cancel</a>
         </div>
     </form>
