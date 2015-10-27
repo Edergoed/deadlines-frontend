@@ -49,10 +49,19 @@ app
         })
     }
 
+                $scope.hku = true;
     $scope.nextStep = function(){
         console.log("nextstep");
         if ($scope.step == 0){
-            if (!$scope.SignupForm.email.$error.email && $scope.user.email != null){
+            var str = $scope.user.email.split("@")[1];
+
+            if(str === "student.hku.nl"){
+                $scope.hku = true;
+            } else {
+                $scope.hku = false;
+            }
+            console.log(str);
+            if (!$scope.SignupForm.email.$error.email && $scope.user.email != null && str === "student.hku.nl"){
                 self.genName();
                 ++ $scope.step;
             }

@@ -41,6 +41,9 @@
         <p ng-message="required">Your Email is required</p>
         <p ng-message="email">This needs to be a valid email</p>
     </div>
+    <div class="error_block"  ng-hide="hku" >
+        <p>Use HKU email address</p>
+    </div>
     <div class="error_block" ng-messages="SignupForm.firstname.$error" ng-if="SignupForm.firstname.$touched">
         <p ng-message="required">First name is required</p>
     </div>
