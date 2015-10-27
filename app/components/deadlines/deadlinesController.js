@@ -93,7 +93,7 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
             var day = 86400;
             if(data < day*28){
                 if(data < day*7){
-                    deadline[i].parendNode = '#FE2746';
+                    deadline[i].parentNode = '#FE2746';
                     if(i+1 == deadline.length){
                         //bg.setAttribute("style", "background-color: #FE2746");
                     }
@@ -106,12 +106,13 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
                         //}
                     }
                 }else{
-                    deadline[i].parendNode = '#FFC300';
+                    deadline[i].parentNode = '#FFC300';
                     if(i+1 == deadline.length){
                         //bg.setAttribute("style", "background-color: #FFC300");
                         $scope.bg  = '#FFC300';
                     }
                 }
+                
             }
         }
     }
