@@ -679,7 +679,6 @@ input:-webkit-autofill {
   height: auto;
   margin: auto;
   display: block;
-  /*background-color: #FFF;*/
   color: #fff; }
   .signin a {
     text-decoration: none;
@@ -692,8 +691,7 @@ input:-webkit-autofill {
     font-size: 12px; }
   .signin h1 {
     padding: 10px;
-    font-family: "Roboto-Light";
-    /*text-align: center;*/ }
+    font-family: "Roboto-Light"; }
   .signin input, .signin select {
     font-family: Roboto-Regular;
     border-style: none;
@@ -840,11 +838,9 @@ input:-webkit-autofill {
 ::-webkit-scrollbar {
   width: 6px; }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background-color: rgba(127, 127, 127, 0.25); }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: rgba(127, 127, 127, 0.8); }
 
@@ -1464,15 +1460,10 @@ footer {
 
 .welcome_gradient {
   background: -webkit-linear-gradient(top, rgba(28, 29, 30, 0) 0%, #1c1d1e 100%);
-  /* Chrome10+,Safari5.1+ */
   background: -moz-linear-gradient(top, rgba(28, 29, 30, 0) 0%, #1c1d1e 100%);
-  /* Chrome10+,Safari5.1+ */
   background: -ms-linear-gradient(top, rgba(28, 29, 30, 0) 0%, #1c1d1e 100%);
-  /* Chrome10+,Safari5.1+ */
   background: -o-linear-gradient(top, rgba(28, 29, 30, 0) 0%, #1c1d1e 100%);
-  /* Chrome10+,Safari5.1+ */
   background: linear-gradient(top, rgba(28, 29, 30, 0) 0%, #1c1d1e 100%);
-  /* Chrome10+,Safari5.1+ */
   width: 1118px;
   height: 300px;
   position: fixed;

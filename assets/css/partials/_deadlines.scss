@@ -5,12 +5,8 @@
     float: left;
     overflow-x: hidden;
     overflow-y: auto;
-    // background-image: url("../img/deadlines_bg.png");
-    // background-color: rgba(0, 187, 211, 1);
-    //@include user-select(none);
     display: inline-block;
     position: relative;
-    // -webkit-animation: fadein .644s;
     @include animation('fadein 0.644s');
     background-color: #FFF;
 }
@@ -30,7 +26,6 @@
 #dynamic_left_wrapper{
     height: 100%;
     width: 100%;
-    // @include transition(all .161s ease);
 }
 
 #dynamic_left::-webkit-scrollbar
@@ -52,7 +47,6 @@
     display: inline-block;
     background-color: #FFF;
     @include animation('fadein 0.644s');
-    // -webkit-animation: fadein .644s;
 }
 
 #dynamic_right_content {
@@ -60,11 +54,9 @@
     width: 100%;
     overflow-x: hidden;
     overflow-y: auto;
-    // line-height: 1.2em;
     padding: 15px 20px;
     background-color: #fff;
     color: #000;
-    //@include transition(all 4s ease);
     word-wrap: break-word;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -136,10 +128,6 @@
         -webkit-margin-start: 0px;
         -webkit-margin-end: 0px;
     }
-    select{
-        // -webkit-appearance: none;
-        // appearance: none;
-    }
     .cancel{
         font-family: 'Roboto-Regular';
         padding: 8px;
@@ -151,7 +139,6 @@
         cursor: pointer;
         font-size: 14px;
         text-transform: uppercase;
-        //@include transition(all .2s ease);
         &:hover {
             color: #000;
             background-color: hsla(0, 0%, 60%, 0.2);
@@ -168,15 +155,9 @@
     input, select{
         font-family: Roboto-Regular;
         border-style: none;
-        // padding: 10px;
-        // border-bottom: 1px solid rgba(153, 153, 153, 0.4);
-
         background-color: #FFF;
         &:focus{
             background-color: #EEE;
-            // border-bottom: 1px solid rgba(153, 153, 153, 0.4);
-            // border-style: none;
-            // border: 0px;
             outline: none;
         }
     }
@@ -197,7 +178,6 @@
 .dynamic_left_content {
     width: 100%;
     top: 0;
-    //height: 0px;
     z-index: 500;
 }
 
@@ -213,7 +193,6 @@
         color: #FFF;
 
         &:hover{
-            // background-color: rgba(255,255,255,0.10);
             background-color: #FE3D59;
         }
 
@@ -230,9 +209,6 @@
        padding: 0px;
        margin: 0px;
     }
-    // select{
-    //     float: right;
-    // }
     overflow: hidden;
     height: 24px;
 }
@@ -249,9 +225,7 @@
     height: 70px;
     clear: both;
     display: block;
-    // background-color: #422e39;
     overflow: hidden;
-    //@include transition(all .1s ease);
     -webkit-animation-timing-function: cubic-bezier(0,0,0,1);
     -moz-animation-timing-function: cubic-bezier(0,0,0,1);
     -ms-animation-timing-function: cubic-bezier(0,0,0,1);
@@ -274,7 +248,6 @@
         &:hover
         {
             background-color: rgba(255,255,255,0.10);
-            //@include transition(all .2s ease);
         }
     }
     .title
