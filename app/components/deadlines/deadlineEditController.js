@@ -1,7 +1,7 @@
 app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadline){
 
     $scope.updateDeadline = function(){
-        console.log('kanekr dope');
+        //console.log('kanekr dope');
         if($scope.deadlineForm.$valid){
             day = $scope.selectedDeadline.deadline.day
             month = $scope.selectedDeadline.deadline.month
