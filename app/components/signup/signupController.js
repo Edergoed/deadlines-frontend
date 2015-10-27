@@ -19,6 +19,7 @@ app
                 console.log($scope.user);
             }, function(res){
                 console.log("error");
+                $scope.error = true;
             //error
             })
         } else {

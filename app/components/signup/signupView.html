@@ -30,6 +30,10 @@
             </div>
             <div data-ng-show="step == 4" class="signup_step">
                 <p>Welcome to the Deadlines Beta, all you have to do now is activate your account with the e-mail we just sent you!</p>
+
+                <div class="error_block" ng-if="error">
+                    <p>Signup failed, please refresh the page and try again.</p>
+                </div>
             </div>
         </form>
     </div>
