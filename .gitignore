@@ -1,4 +1,4 @@
 .DS-Store
 assets/css/.sass-cache
 assets/css/.sass-cache/*
-app/app.config.js
+/app/app.config.js
