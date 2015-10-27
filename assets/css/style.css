@@ -60,6 +60,7 @@ input:-webkit-autofill {
     border: 0px;
     border-color: #FE2746;
     border-style: solid;
+    outline: none;
     color: #FFF;
     width: 50%;
     -webkit-transition: all 0.161s ease;
