@@ -1003,6 +1003,31 @@ footer {
   -o-animation: fadein 0.322s;
   animation: fadein 0.322s; }
 
+.dynamic-username {
+  position: relative;
+  width: 30px;
+  height: 30px; }
+  .dynamic-username img {
+    position: absolute; }
+  .dynamic-username p {
+    display: none;
+    z-index: 10;
+    float: left;
+    position: absolute;
+    padding: 8px 12px;
+    background-color: #000;
+    color: #FFF;
+    margin-left: -10px;
+    white-space: nowrap; }
+  .dynamic-username:hover p {
+    display: block;
+    margin-top: 40px;
+    -webkit-animation: fadeInDown 0.322s;
+    -moz-animation: fadeInDown 0.322s;
+    -ms-animation: fadeInDown 0.322s;
+    -o-animation: fadeInDown 0.322s;
+    animation: fadeInDown 0.322s; }
+
 .list_wrapper {
   -webkit-user-select: none;
   -moz-user-select: none;

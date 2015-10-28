@@ -17,9 +17,15 @@
     <div class="dynamic-content" ng-bind-html="selectedDeadline.deadline.content">
     </div>
     <div class="dynamic-options">
-        <img class="gravatar" data-ng-hide=" selectedDeadline.deadline.creator.id == null" src="{{gravatar(selectedDeadline.deadline.creator.gravatarHash, 30)}}">
-        <img class="gravatar" data-ng-hide=" selectedDeadline.deadline.creator.id == selectedDeadline.deadline.editor.id ||
-        selectedDeadline.deadline.editor.id == null" src="{{gravatar(selectedDeadline.deadline.editor.gravatarHash, 30)}}">
+    <div class="dynamic-username" style="display: inline-block;" data-ng-hide=" selectedDeadline.deadline.creator.id == null" >
+        <img class="gravatar" src="{{gravatar(selectedDeadline.deadline.creator.gravatarHash, 30)}}">
+        <p>{{selectedDeadline.deadline.creator.firstname}}</p>
+    </div>
+    <div class="dynamic-username" style="display: inline-block;" data-ng-hide=" selectedDeadline.deadline.creator.id == selectedDeadline.deadline.editor.id ||
+        selectedDeadline.deadline.editor.id == null" >
+        <img class="gravatar" src="{{gravatar(selectedDeadline.deadline.editor.gravatarHash, 30)}}">
+        <p>{{selectedDeadline.deadline.editor.firstname}}</p>
+    </div>
         <div ui-sref="mainon.deadlines.edit({editID: selectedDeadline.deadline.id})" style="display: inline-block; height: 30px; float: right;">
             <img class="dynamic_button" src="assets/img/options.svg" width="20px" height="30px">
         </div>

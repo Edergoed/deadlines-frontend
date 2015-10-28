@@ -15,6 +15,33 @@
     @include animation('fadein 0.322s');
 }
 
+.dynamic-username{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    img{
+        position: absolute;
+    }
+    p{
+        display: none;
+        z-index: 10;
+        float: left;
+        position: absolute;
+        padding: 8px 12px;
+        background-color: #000;
+        color: #FFF;
+        margin-left: -10px;
+        white-space: nowrap;
+    }
+    &:hover{
+        p{
+            display: block;
+            margin-top: 40px;
+            @include animation('fadeInDown 0.322s');
+        }
+    }
+}
+
 .list_wrapper{
     -webkit-user-select: none;
     -moz-user-select: none;

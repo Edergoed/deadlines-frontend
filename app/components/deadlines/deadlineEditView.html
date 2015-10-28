@@ -23,9 +23,15 @@
             <div text-angular ng-model="selectedDeadline.deadline.content"></div>
         </div>
         <div class="dynamic-options">
-        <img class="gravatar" data-ng-hide=" selectedDeadline.deadline.creator.id == null" src="{{gravatar(selectedDeadline.deadline.creator.gravatarHash, 30)}}">
-        <img class="gravatar" data-ng-hide=" selectedDeadline.deadline.creator.id == selectedDeadline.deadline.editor.id ||
-        selectedDeadline.deadline.editor.id == null" src="{{gravatar(selectedDeadline.deadline.editor.gravatarHash, 30)}}">
+        <div class="dynamic-username" style="display: inline-block;" data-ng-hide="selectedDeadline.deadline.creator.id == null">
+            <img class="gravatar" src="{{gravatar(selectedDeadline.deadline.creator.gravatarHash, 30)}}">
+            <p>{{selectedDeadline.deadline.creator.firstname}} {{selectedDeadline.deadline.creator.prefix}} {{selectedDeadline.deadline.creator.lastname}}</p>
+        </div>
+        <div class="dynamic-username" style="display: inline-block;" data-ng-hide=" selectedDeadline.deadline.creator.id == selectedDeadline.deadline.editor.id ||
+            selectedDeadline.deadline.editor.id == null">
+            <img class="gravatar" src="{{gravatar(selectedDeadline.deadline.editor.gravatarHash, 30)}}">
+            <p>{{selectedDeadline.deadline.editor.firstname}} {{selectedDeadline.deadline.editor.prefix}} {{selectedDeadline.deadline.editor.lastname}}</p>
+        </div>
             <img class="gravatar" class="modifier" style="margin-left: 10px;" src="">
                 <button class="btn_save" style="display: inline-block; float: right; font-size: 12px;" type="submit">Save</button>
                 <a class="btn_save" style="color: #fff !important;  display: inline-block; float: right;" ui-sref="mainon.deadlines.show({showID:
