@@ -1001,7 +1001,8 @@ footer {
   -moz-animation: fadein 0.322s;
   -ms-animation: fadein 0.322s;
   -o-animation: fadein 0.322s;
-  animation: fadein 0.322s; }
+  animation: fadein 0.322s;
+  padding-bottom: 40px; }
 
 .dynamic-username {
   position: relative;

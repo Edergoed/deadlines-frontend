@@ -13,6 +13,7 @@
 
 .dynamic-post{
     @include animation('fadein 0.322s');
+    padding-bottom: 40px;
 }
 
 .dynamic-username{
