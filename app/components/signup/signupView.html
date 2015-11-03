@@ -14,10 +14,8 @@
                     <button ng-click="nextStep()">Next</button>
                 </div>
                 <div data-ng-show="step == 2" class="signup_step">
-                    <input type="password" name="password" placeholder="Password" ng-model="user.password" required/>
-                    <input type="password" name="confirm_password" placeholder="Password confirmation" ng-model="user.password_verify"
-                    data-password-verify="user.password" required/>
-
+                    <input type="password" name="password" placeholder="Password" ng-model="user.password" ng-minlength="8" required/>
+                    <input type="password" name="confirm_password" placeholder="Password confirmation" ng-model="user.password_verify" data-password-verify="user.password" required/>
                     <button ng-click="nextStep()">Next</button>
                 </div>
                 <div data-ng-show="step == 3" class="signup_step">
@@ -53,6 +51,9 @@
     </div>
     <div class="error_block" ng-messages="SignupForm.lastname.$error" ng-if="SignupForm.lastname.$touched">
         <p ng-message="required">Last name is required</p>
+    </div>
+    <div class="error_block" ng-messages="SignupForm.password.$error" ng-if="SignupForm.password.$touched">
+        <p ng-message="minlength">Password should at least contain 8 character long.</p>
     </div>
     <div class="error_block" ng-messages="SignupForm.confirm_password.$error" ng-if="SignupForm.confirm_password.$touched">
         <p ng-message="passwordVerify">Passwords are not the same</p>

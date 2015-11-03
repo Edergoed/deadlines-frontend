@@ -94,7 +94,5 @@ angular.module('Deadlines')
 
         return defer.promise;
     }
-
     return deadline;
-
 });
