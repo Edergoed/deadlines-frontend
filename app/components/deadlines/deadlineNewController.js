@@ -23,7 +23,9 @@ app.controller('DeadlineNewCtrl', function($scope, deadline, $state){
 
 
     $scope.createDeadline = function(){
-        if($scope.deadlineForm.$valid){
+        $scope.error = false;
+        $scope.submitted = true;
+        if($scope.deadlineForm.$valid && ($scope.deadline.deadline.content != 'undefined' && $scope.deadline.deadline.content != '' && $scope.deadline.deadline.content != null)){
             day = $scope.deadline.deadline.day;
             month = $scope.deadline.deadline.month;
             year = $scope.deadline.deadline.year;
@@ -39,8 +41,12 @@ app.controller('DeadlineNewCtrl', function($scope, deadline, $state){
                     $scope.getAll();
                     $state.go('mainon.deadlines.show', { showID: $scope.deadlineList.deadlines[0].id });
                 }, 20);
+
+                $scope.submitted = false;
             }, function(res){
                 //error
+                $scope.error = true;
+                $scope.submitted = false;
             })
         }
     }

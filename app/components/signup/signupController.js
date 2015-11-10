@@ -11,6 +11,7 @@ app
 
     $scope.signup = function(){
         console.log("signup");
+        $scope.error = false;
         if($scope.SignupForm.$valid){
             signup.signup($scope.user)
             .then(function(res){
