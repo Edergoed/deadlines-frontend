@@ -14,7 +14,7 @@
             </div>
             <div class="dynamic-sub-meta">
                 <input type="text" name="subject" placeholder="Subject" data-ng-model="deadline.deadline.subject" required>
-                <input type="text" placeholder="12:00" data-ng-model="deadline.deadline.time" style="float: right; text-align: right;" required>
+                <input type="text" name="time" placeholder="12:00" data-ng-model="deadline.deadline.time" style="float: right; text-align: right;" required>
                 <!-- <select id="" name=""></select> -->
             </div>
             <div class="dynamic-content">
@@ -26,6 +26,9 @@
             </div>
             <div class="error_block" ng-messages="deadlineForm.subject.$error" ng-if="deadlineForm.subject.$touched || submitted">
                 <p ng-message="required">Subject is required</p>
+            </div>
+            <div class="error_block" ng-messages="deadlineForm.time.$error" ng-if="deadlineForm.time.$touched || submitted">
+                <p ng-message="required">Time is required</p>
             </div>
             <div class="error_block"  ng-if="(deadline.deadline.content == null && submitted) || (deadline.deadline.content == '' && submitted)">
                 <p>Content is required</p>
