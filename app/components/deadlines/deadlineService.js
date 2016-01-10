@@ -5,19 +5,31 @@ angular.module('Deadlines')
     deadline.deadlineList = {};
     deadline.deadline = {};
 
-    deadline.getAllDeadlines = function(){
+    deadline.getAllDeadlines = function(archive){
         var defer = $q.defer();
 
-        //$http.get(urls.BASE_API + '/deadlines')
-        $http.get(urls.BASE_API + '/deadlines')
-        .success(function(res){
-            deadline.deadlineList = res;
-            defer.resolve(res);
-        })
-        .error(function(err, status){
-            defer.reject(err);
-        })
+        if(archive == true){
 
+            $http.get(urls.BASE_API + '/archive')
+            .success(function(res){
+                deadline.deadlineList = res;
+                defer.resolve(res);
+            })
+            .error(function(err, status){
+                defer.reject(err);
+            })
+        } else {
+
+            //$http.get(urls.BASE_API + '/deadlines')
+            $http.get(urls.BASE_API + '/deadlines')
+            .success(function(res){
+                deadline.deadlineList = res;
+                defer.resolve(res);
+            })
+            .error(function(err, status){
+                defer.reject(err);
+            })
+        }
         return defer.promise;
     }
 
@@ -25,14 +37,6 @@ angular.module('Deadlines')
         var defer = $q.defer();
 
         //$http.get(urls.BASE_API + '/deadlines')
-        $http.get(urls.BASE_API + '/archive')
-        .success(function(res){
-            deadline.deadlineList = res;
-            defer.resolve(res);
-        })
-        .error(function(err, status){
-            defer.reject(err);
-        })
 
         return defer.promise;
     }

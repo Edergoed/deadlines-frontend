@@ -2,23 +2,40 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
 
         $scope.Loading = false;
     $scope.init = function(){
+        if($stateParams.mode === "archive"){
+            $scope.archive = true;
+        } else {
+            $scope.archive = false;
+        }
         $scope.getAll();
         $scope.currState = $state
     }
     $scope.arrow = function(id){
-        for(i = 0; i < $scope.deadlineList.deadlines.length; i++){
-            //console.log($scope.deadlineList.deadlines[i].id + ' ' + id);
-            if($scope.deadlineList.deadlines[i].id == id){
-                $scope.deadlineList.deadlines[i].selected = true;
-            } else {
-                $scope.deadlineList.deadlines[i].selected = false;
+        console.log($stateParams.showID);
+        if($stateParams.showID != null){
+            for(i = 0; i < $scope.deadlineList.deadlines.length; i++){
+                //console.log($scope.deadlineList.deadlines[i].id + ' ' + id);
+                if($scope.deadlineList.deadlines[i].id == $stateParams.showID){
+                    $scope.deadlineList.deadlines[i].selected = true;
+                } else {
+                    $scope.deadlineList.deadlines[i].selected = false;
+                }
+            }
+        } else {
+            for(i = 0; i < $scope.deadlineList.deadlines.length; i++){
+                //console.log($scope.deadlineList.deadlines[i].id + ' ' + id);
+                if($scope.deadlineList.deadlines[i].id == id){
+                    $scope.deadlineList.deadlines[i].selected = true;
+                } else {
+                    $scope.deadlineList.deadlines[i].selected = false;
+                }
             }
         }
     }
 
     $scope.getAll = function(){
         $scope.Loading = true;
-        deadline.getAllDeadlines()
+        deadline.getAllDeadlines($scope.archive)
         .then(function(res){
             //success
             $scope.deadlineList = deadline.deadlineList;
@@ -43,6 +60,7 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
             //error
             $scope.Loading = false;
         })
+        console.log($stateParams);
     }
 
     $scope.getDeadline = function(id){

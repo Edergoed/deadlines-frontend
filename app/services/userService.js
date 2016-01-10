@@ -44,6 +44,7 @@ app.service('user', function($http, $q, urls, auth){
             defer.reject(err);
         })
     }
+
     self.getUser = function(id){
         var defer = $q.defer();
         return $http.get(urls.BASE_API + '/users/' + id)
@@ -54,9 +55,20 @@ app.service('user', function($http, $q, urls, auth){
             defer.resolve(res);
         })
     }
+
     self.updateUser = function(user){
         var defer = $q.defer();
         return $http.patch(urls.BASE_API + '/users/' + user.id, {user: {klass: user.klass}})
+        .success(function(res){
+            defer.resolve(res);
+        })
+        .error(function(res){
+            defer.resolve(res);
+        })
+    }
+    self.resetPassword = function(user){
+        var defer = $q.defer();
+        return $http.patch(urls.BASE_API + '/users/' + user.id + '/reset_password', {user: {password: user.klass, password_confirmation: user.password_confirmation}})
         .success(function(res){
             defer.resolve(res);
         })

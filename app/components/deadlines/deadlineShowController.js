@@ -1,4 +1,4 @@
-app.controller('DeadlineShowCtrl', function($scope, $stateParams, deadline){
+app.controller('DeadlineShowCtrl', function($scope, $state, $stateParams, deadline){
     $scope.Loading = false;
 
     $scope.getDeadline = function(id){

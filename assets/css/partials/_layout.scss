@@ -82,10 +82,10 @@ body {
     display: block;
     @include animation('reveal 0.3s forwards 1s ease-in-out');
     -webkit-transform: translateY(100%);
-    -moz-transform: translateY(100%);  
-    -ms-transform: translateY(100%);  
-    -o-transform: translateY(100%);  
-    transform: translateY(100%); 
+    -moz-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    -o-transform: translateY(100%);
+    transform: translateY(100%);
 }
 
 .container

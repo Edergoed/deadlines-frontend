@@ -10,6 +10,7 @@ app.config([
         .state('mainon', {
             url: '',
             templateUrl: 'app/shares/mainon/mainonView.html',
+            //template: "<ui-view />"
             controller: 'MainonCtrl',
             data: {
                 authenticate: true
@@ -28,9 +29,15 @@ app.config([
 
         // Deadlines
         .state('mainon.deadlines', {
-            url: '/deadlines',
+            url: '/:mode/deadlines',
             templateUrl: 'app/components/deadlines/deadlinesView.html',
-            controller: 'DeadlinesCtrl'
+            controller: 'DeadlinesCtrl',
+            params: {
+                mode: {
+                    value: null,
+                    squash: true
+                }
+            }
 
         }).state('mainon.deadlines.new', {
             url: '/new',
