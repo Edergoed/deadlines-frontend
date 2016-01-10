@@ -9,9 +9,11 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
         }
         $scope.getAll();
         $scope.currState = $state
+        //$scope.$on('arrow', function(event, id){$scope.arrow(id);});
     }
+
     $scope.arrow = function(id){
-        console.log($stateParams.showID);
+        console.log(id);
         if($stateParams.showID != null){
             for(i = 0; i < $scope.deadlineList.deadlines.length; i++){
                 //console.log($scope.deadlineList.deadlines[i].id + ' ' + id);
@@ -51,8 +53,9 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
                 $scope.$apply();
             }, 0);
 
-            if($scope.deadlineList.deadlines[0] != null){
-            $scope.arrow($scope.deadlineList.deadlines[0].id);
+            if($scope.deadlineList.deadlines[0] != null && $scope.selectedDeadline == null && $stateParams.showID == null){
+                console.log($stateParams.showID);
+                $scope.arrow($scope.deadlineList.deadlines[0].id);
             }
 
             $scope.Loading = false;
@@ -60,7 +63,6 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
             //error
             $scope.Loading = false;
         })
-        console.log($stateParams);
     }
 
     $scope.getDeadline = function(id){
@@ -68,6 +70,7 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
         .then(function(res){
             //$scope.deadlineChangeState('view');
             $scope.selectedDeadline = deadline.deadline;
+            //$scope.arrow($scope.selectedDeadline.deadline.id)
             //succes
         }, function(res){
             //error
