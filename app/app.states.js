@@ -56,24 +56,6 @@ app.config([
 
         })
 
-        // Archive
-        .state('mainon.archive', {
-            url: '/archive',
-            templateUrl: 'app/components/archive/archiveView.html',
-            controller: 'ArchiveCtrl'
-
-        }).state('mainon.archive.edit', {
-            url: '/edit/:editID',
-            templateUrl: 'app/components/archive/deadlineEditView.html',
-            controller: 'DeadlineEditCtrl'
-
-        }).state('mainon.archive.show', {
-            url: '/:showID',
-            templateUrl: 'app/components/archive/deadlineShowView.html',
-            controller: 'DeadlineShowCtrl'
-
-        })
-
         // Signin
         .state('mainoff.signin', {
             url: '/signin',

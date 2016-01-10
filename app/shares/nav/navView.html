@@ -1,10 +1,10 @@
 <div id="nav" data-ng-controller="MainonCtrl">
-	<div ui-sref="mainon.deadlines" class="nav_item nav_home">
+	<div ui-sref="mainon.deadlines({mode: null})" class="nav_item nav_home">
 		<img src="/assets/img/home.svg">
 	</div>
-    <div ui-sref="mainon.deadlines.new" class="nav_item">Add deadline</div>
+    <div ui-sref="mainon.deadlines.new({mode: null})" class="nav_item">Add deadline</div>
 
-    <div ui-sref="mainon.archive" class="nav_item">Archive</div>
+    <div ui-sref="mainon.deadlines({mode: 'archive'})" class="nav_item">Archive</div>
     <!-- <div ui-sref="mainon.deadlines" class="nav_item">Timetable</div> -->
     <a ui-sref="mainon.profile"><img class="gravatar nav_gravatar" src="{{gravatar(userCurrent.gravatar, 30)}}"></a>
     <a class="nav_item" style="float: right;" ui-sref="mainon.profile">{{ userCurrent.firstname }} </a>
