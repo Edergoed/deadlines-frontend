@@ -1,4 +1,4 @@
-app.controller('DeadlineShowCtrl', function($scope, $state, $stateParams, deadline){
+app.controller('DeadlineShowCtrl', function($scope, $state, $stateParams, deadline, deadlineTime){
     $scope.Loading = false;
 
     $scope.getDeadline = function(id){
@@ -18,6 +18,7 @@ app.controller('DeadlineShowCtrl', function($scope, $state, $stateParams, deadli
 
     $scope.getDate = function(date){
         date = new Date( Date.parse(date));
+        $scope.weekday = deadlineTime.getWeekdays();
         $scope.selectedDeadline.deadline.day = $scope.weekday[date.getDay()] + ' ';
         $scope.selectedDeadline.deadline.date = date.getDate() + '-' + (date.getMonth()+1) + '-' + date.getFullYear();
         if(date.getUTCMinutes().toString().length < 2){

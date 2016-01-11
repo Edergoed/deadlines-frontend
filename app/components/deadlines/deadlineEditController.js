@@ -1,4 +1,4 @@
-app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadline){
+app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadline, deadlineTime){
 
     $scope.updateDeadline = function(){
         //console.log('kanekr dope');
@@ -30,11 +30,13 @@ app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadli
             //$scope.deadlineChangeState('view');
             $scope.selectedDeadline = deadline.deadline;
             $scope.getDate($scope.selectedDeadline.deadline.deadlineDateTime);
-            $scope.getYears();
-            $scope.getMonths();
-            $scope.$watch("deadline.deadline.month", function(newValue, oldValur){
+            $scope.weekday = deadlineTime.getWeekdays();
+            $scope.years = deadlineTime.getYears($scope.selectedDeadline.deadline.year);
+            $scope.months = deadlineTime.getMonths();
+            $scope.$watch("selectedDeadline.deadline.month", function(newValue, oldValur){
                 console.log("change");
-                $scope.getDays($scope.selectedDeadline.deadline.year, $scope.selectedDeadline.deadline.month);
+                $scope.days = deadlineTime.getDays($scope.selectedDeadline.deadline.year, $scope.selectedDeadline.deadline.month);
+        //$scope.$digest;
                 console.log($scope.selectedDeadline.deadline.year + ' ' + $scope.selectedDeadline.deadline.month);
             });
             $scope.Loading = false;

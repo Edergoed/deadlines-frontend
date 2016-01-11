@@ -1,10 +1,10 @@
-app.controller('DeadlineNewCtrl', function($scope, deadline, $state){
+app.controller('DeadlineNewCtrl', function($scope, deadline, $state, deadlineTime){
 
     $scope.init = function(){
 
         testdate = new Date();
-            //console.log(testdate);
-            //console.log(Date.UTC(testdate))
+        //console.log(testdate);
+        //console.log(Date.UTC(testdate))
 
         $scope.dayCurrent = new Date().getDate();
         $scope.deadline = {};
@@ -15,10 +15,12 @@ app.controller('DeadlineNewCtrl', function($scope, deadline, $state){
         // $scope.deadline.deadline.time = new Date().getHours() + ':' + new Date().getMinutes();
         $scope.deadline.deadline.time = "23:59";
         $scope.$watch("deadline.deadline.month", function(newValue, oldValur){
-            $scope.getDays($scope.deadline.deadline.year, $scope.deadline.deadline.month);
+            $scope.days = deadlineTime.getDays($scope.deadline.deadline.year, $scope.deadline.deadline.month);
         });
-            $scope.getMonths();
-            $scope.getYears();
+
+        $scope.months = deadlineTime.getMonths();
+        $scope.years = deadlineTime.getYears();
+        $scope.weekday = deadlineTime.getWeekdays();
     }
 
 

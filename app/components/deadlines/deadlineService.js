@@ -1,5 +1,5 @@
 angular.module('Deadlines')
-.service('deadline', function deadline($http, $q, $rootScope, urls) {
+.service('deadline', function deadline($http, $q, $rootScope, urls, deadlineDistance) {
 
     var deadline = this;
     deadline.deadlineList = {};
@@ -12,7 +12,8 @@ angular.module('Deadlines')
 
             $http.get(urls.BASE_API + '/archive')
             .success(function(res){
-                deadline.deadlineList = res;
+                deadline.deadlineList = deadlineDistance.getDistance(res);
+                //deadline.deadlineList = res;
                 defer.resolve(res);
             })
             .error(function(err, status){
@@ -23,7 +24,8 @@ angular.module('Deadlines')
             //$http.get(urls.BASE_API + '/deadlines')
             $http.get(urls.BASE_API + '/deadlines')
             .success(function(res){
-                deadline.deadlineList = res;
+                deadline.deadlineList = deadlineDistance.getDistance(res);
+                //deadline.deadlineList = res;
                 defer.resolve(res);
             })
             .error(function(err, status){
@@ -33,13 +35,6 @@ angular.module('Deadlines')
         return defer.promise;
     }
 
-    deadline.getArchiveDeadlines = function(){
-        var defer = $q.defer();
-
-        //$http.get(urls.BASE_API + '/deadlines')
-
-        return defer.promise;
-    }
     deadline.getDeadline = function(id){
         var defer = $q.defer();
 
