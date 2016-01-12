@@ -9,12 +9,12 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
         }
         $scope.getAll();
         $scope.currState = $state
-        //$scope.$on('arrow', function(event, id){$scope.arrow(id);});
+        $scope.$on('arrow', function(event, id){$scope.selectedDeadlineId = id;});
     }
 
     $scope.arrow = function(id){
-        console.log(id);
         if($stateParams.showID != null){
+            console.log(id);
             for(i = 0; i < $scope.deadlineList.deadlines.length; i++){
                 //console.log($scope.deadlineList.deadlines[i].id + ' ' + id);
                 if($scope.deadlineList.deadlines[i].id == $stateParams.showID){
@@ -48,18 +48,13 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
                 }
             });
 
-            setTimeout(function(){
-                //$scope.setDistance();
-                //p
-                //deadlineDistance.getDistance(deadline.deadlinesList);
-                //deadlineDistance.setDistance();
-                $scope.$apply();
-            }, 0);
-
-            if($scope.deadlineList.deadlines[0] != null && $scope.selectedDeadline == null && $stateParams.showID == null){
-                console.log($stateParams.showID);
+            if($scope.deadlineList.deadlines[0] != null && $scope.selectedDeadlineId == null ){
                 $scope.arrow($scope.deadlineList.deadlines[0].id);
+            } else {
+                console.log($scope.selectedDeadlineId);
+                $scope.arrow($scope.selectedDeadlineId);
             }
+
 
             $scope.Loading = false;
         }, function(res){

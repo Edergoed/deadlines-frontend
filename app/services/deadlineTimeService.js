@@ -101,8 +101,6 @@ angular.module('Deadlines')
         //        new Date().getFullYear()+2
         //    ]
         //} else {
-            console.log("prefilled date")
-            console.log(date)
             var years =[
                 new Date(date, 1, 0, 0,0,0,0).getFullYear(),
                 new Date(date, 1, 0, 0,0,0,0).getFullYear()+1,

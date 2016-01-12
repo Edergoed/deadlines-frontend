@@ -9,6 +9,7 @@ app.controller('DeadlineShowCtrl', function($scope, $state, $stateParams, deadli
             $scope.getDate($scope.selectedDeadline.deadline.deadlineDateTime);
             //succes
             $scope.Loading = false;
+            console.log($scope.selectedDeadline.deadline.id);
             $scope.$emit('arrow', $scope.selectedDeadline.deadline.id);
         }, function(res){
             //error
