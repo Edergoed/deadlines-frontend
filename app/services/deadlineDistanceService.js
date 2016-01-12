@@ -4,6 +4,7 @@ angular.module('Deadlines')
     var deadlineDistance = this;
     //deadline.deadlineList = {};
     //deadline.deadline = {};
+    deadlineDistance.backgroundColor = {};
 
     deadlineDistance.getDistance = function(deadlineList){
 
@@ -23,6 +24,7 @@ angular.module('Deadlines')
 
         deadlineColor.getColor(deadlineList);
         deadlineTime.getTime(deadlineList);
+        deadlineDistance.backgroundColor = deadlineColor.backgroundColor;
 
         return deadlineList;
         //return deadlinesList;

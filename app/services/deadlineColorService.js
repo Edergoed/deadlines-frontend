@@ -2,6 +2,7 @@ angular.module('Deadlines')
 .service('deadlineColor', function deadlineColor($q) {
 
     var deadlineColor = this;
+    deadlineColor.backgroundColor = {};
 
 
     deadlineColor.getColor = function(deadlineList){
@@ -14,6 +15,7 @@ angular.module('Deadlines')
             var changeData = deadline[i].color = newImage;
             if(i+1 == deadline.length){
                 //$scope.lastBackgroundColor = newImage;
+                        deadlineColor.backgroundColor.lastBackgroundColor = newImage;
             }
 
             var day = 86400;
@@ -21,7 +23,7 @@ angular.module('Deadlines')
                 if(data < day*7){
                     deadline[i].parendNode = '#FE2746';
                     if(i+1 == deadline.length){
-                        //$scope.bottomBackgroundColor = '#FE2746';
+                        deadlineColor.backgroundColor.bottomBackgroundColor = '#FE2746';
                     }
                     if(data < 0){
                         var deadline_class = deadline[i].className;
@@ -30,6 +32,7 @@ angular.module('Deadlines')
                     deadline[i].parendNode = '#FFC300';
                     if(i+1 == deadline.length){
                         //$scope.bottomBackgroundColor = '#FFC300';
+                        deadlineColor.backgroundColor.bottomBackgroundColor = '#FFC300';
                     }
                 }
 
@@ -56,5 +59,6 @@ angular.module('Deadlines')
         }
         return color;
     }
+
     return deadlineColor;
 });

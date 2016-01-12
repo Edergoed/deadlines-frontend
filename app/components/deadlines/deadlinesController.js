@@ -55,13 +55,16 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
                 $scope.arrow($scope.selectedDeadlineId);
             }
 
-
+            console.log(deadline.backgroundColor);
+            $scope.lastBackgroundColor = deadline.backgroundColor.lastBackgroundColor;
+            $scope.bottomBackgroundColor = deadline.backgroundColor.bottomBackgroundColor;
             $scope.Loading = false;
         }, function(res){
             //error
             $scope.Loading = false;
         })
     }
+
 
     $scope.getDeadline = function(id){
         deadline.getDeadline(id)
@@ -87,7 +90,7 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
 
     $scope.init();
 
-    setTimeout(function() {
-        Color = setInterval(deadlineColor.getCol, 60000);
-    }, 60000);
+    //setTimeout(function() {
+    //    Color = setInterval(deadlineColor.getCol, 60000);
+    //}, 60000);
 });

@@ -4,6 +4,7 @@ angular.module('Deadlines')
     var deadline = this;
     deadline.deadlineList = {};
     deadline.deadline = {};
+    deadline.backgroundColor = {};
 
     deadline.getAllDeadlines = function(archive){
         var defer = $q.defer();
@@ -13,6 +14,9 @@ angular.module('Deadlines')
             $http.get(urls.BASE_API + '/archive')
             .success(function(res){
                 deadline.deadlineList = deadlineDistance.getDistance(res);
+                console.log(deadlineDistance.backgroundColor);
+                console.log("yaya");
+                deadline.backgroundColor = deadlineDistance.backgroundColor;
                 //deadline.deadlineList = res;
                 defer.resolve(res);
             })
@@ -26,6 +30,9 @@ angular.module('Deadlines')
             .success(function(res){
                 deadline.deadlineList = deadlineDistance.getDistance(res);
                 //deadline.deadlineList = res;
+                console.log(deadlineDistance.backgroundColor);
+                console.log("yaya");
+                deadline.backgroundColor = deadlineDistance.backgroundColor;
                 defer.resolve(res);
             })
             .error(function(err, status){
