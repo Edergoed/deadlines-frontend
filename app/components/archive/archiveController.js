@@ -26,7 +26,6 @@ app.controller('ArchiveCtrl', function($scope, $state, $stateParams, deadline, u
     }
 
     $scope.setDistance = function(){
-        //console.log("setDistance executed");
         var deadline = document.getElementsByClassName('archivedDeadline');
         for(i=0; i<deadline.length; i++){
             var data = deadline[i].getAttribute("data-deadline");
@@ -35,8 +34,6 @@ app.controller('ArchiveCtrl', function($scope, $state, $stateParams, deadline, u
 
             var distance = toTime.getTime()/1000 - fromTime.getTime()/1000;
             deadline[i].setAttribute("data-distance", distance);
-            // console.log("set deadline time to " + distance + " of deadline " + deadline[i] );
-            // console.log(deadline.length + " "+ i + " " + fromTime + " " +toTime);
         }
             $scope.getTime();
             setInterval($scope.getTime, 60000);
@@ -97,7 +94,6 @@ app.controller('ArchiveCtrl', function($scope, $state, $stateParams, deadline, u
             var deadline = document.getElementsByClassName('archivedDeadline');
             for(i=0; i<deadline.length; i++){
                 var data = deadline[i].getAttribute("data-distance");
-                // var background = deadline[i].getAttribute("style");
                 var time = $scope.remainingCalc(data);
                 countdown[i].innerHTML = time[0];
                 unit[i].innerHTML = time[1];

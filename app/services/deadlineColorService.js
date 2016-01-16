@@ -4,7 +4,6 @@ angular.module('Deadlines')
     var deadlineColor = this;
     deadlineColor.backgroundColor = {};
 
-
     deadlineColor.getColor = function(deadlineList){
         var deadline = deadlineList.deadlines;
         for(i=0; i<deadline.length; i++){
@@ -14,8 +13,7 @@ angular.module('Deadlines')
             var newImage = deadlineColor.colCalc(data, deadline, i);
             var changeData = deadline[i].color = newImage;
             if(i+1 == deadline.length){
-                //$scope.lastBackgroundColor = newImage;
-                        deadlineColor.backgroundColor.lastBackgroundColor = newImage;
+                deadlineColor.backgroundColor.lastBackgroundColor = newImage;
             }
 
             var day = 86400;
@@ -31,7 +29,6 @@ angular.module('Deadlines')
                 }else{
                     deadline[i].parendNode = '#FFC300';
                     if(i+1 == deadline.length){
-                        //$scope.bottomBackgroundColor = '#FFC300';
                         deadlineColor.backgroundColor.bottomBackgroundColor = '#FFC300';
                     }
                 }

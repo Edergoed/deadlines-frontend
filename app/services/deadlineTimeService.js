@@ -53,6 +53,36 @@ angular.module('Deadlines')
                 remaining = minutes_remaining;
                 unit = 'Minutes';
             }
+
+            //jaja
+        } else if(weeks_remaining <= -1){
+            remaining = Math.abs(weeks_remaining);
+            unit = 'Weeks ago';
+            if(weeks_remaining == -1){
+                remaining = Math.abs(weeks_remaining);
+                unit = 'Week ago';
+            }
+        } else if (days_remaining <= -1){
+            remaining = Math.abs(days_remaining);
+            unit = 'Days ago';
+            if(days_remaining == -1){
+                remaining = Math.abs(days_remaining);
+                unit = 'Day ago';
+            }
+        } else if (hours_remaining <= -1){
+            remaining = Math.abs(hours_remaining);
+            unit = 'Hours ago';
+            if(hours_remaining == -1){
+                remaining = Math.abs(hours_remaining );
+                unit = 'Hour ago';
+            }
+        } else if (minutes_remaining <= -1){
+            remaining = Math.abs(minutes_remaining);
+            unit = 'Minutes ago';
+            if(minutes_remaining == -1){
+                remaining = Math.abs(minutes_remaining);
+                unit = 'Minutes ago';
+            }
         } else {
             remaining = 0;
             unit = '';
