@@ -33,6 +33,7 @@ app.controller('DeadlineEditCtrl', function($scope, $stateParams, deadline){
             $scope.getMonths();
             $scope.$watch("deadline.deadline.month", function(newValue, oldValur){
                 console.log("change");
+                //console.log(new Date().getFullYear());
                 $scope.getDays($scope.selectedDeadline.deadline.year, $scope.selectedDeadline.deadline.month);
                 console.log($scope.selectedDeadline.deadline.year + ' ' + $scope.selectedDeadline.deadline.month);
             });

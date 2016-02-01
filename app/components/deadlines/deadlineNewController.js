@@ -19,7 +19,8 @@ app.controller('DeadlineNewCtrl', function($scope, deadline, $state, deadlineTim
         });
 
         $scope.months = deadlineTime.getMonths();
-        $scope.years = deadlineTime.getYears();
+        console.log(new Date().getFullYear());
+        $scope.years = deadlineTime.getYears(new Date().getFullYear());
         $scope.weekday = deadlineTime.getWeekdays();
     }
 
