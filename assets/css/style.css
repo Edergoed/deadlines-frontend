@@ -1288,6 +1288,14 @@ footer {
 
   #dynamic_left {
     width: 38.20%; } }
+.timetable {
+  width: 100% !important;
+  position: absolute;
+  left: 0;
+  overflow: scroll !important;
+  overflow-y: scroll !important;
+  height: 100%; }
+
 .dock_button {
   height: 70px;
   width: 32px;

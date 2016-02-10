@@ -26,6 +26,15 @@ app.config([
             }
         })
 
+        .state('timetablenav', {
+            url: '',
+            templateUrl: 'app/shares/timetablenav/timetablenavView.html',
+            controller: 'TimetablenavCtrl',
+            data: {
+                authenticate: false
+            }
+        })
+
         // Deadlines
         .state('mainon.deadlines', {
             url: '/deadlines',
@@ -97,7 +106,7 @@ app.config([
         })
 
         // Timetable
-        .state('mainoff.timetable', {
+        .state('timetablenav.timetable', {
             url: '/timetable',
             templateUrl: 'app/views/timetableView.html',
             controller: 'TimetableCtrl'

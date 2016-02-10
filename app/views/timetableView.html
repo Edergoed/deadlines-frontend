@@ -1,1 +1,56 @@
-<div data-ng-bind-html="Timetable.rooster"></div>
+<div data-ng-bind-html="Timetable.rooster" class="timetable"></div>
+<div data-ng-bind-html="Timetable.docent" class="timetable school-docent" style="visibility: hidden;"></div>
+<div data-ng-bind-html="Timetable.student" class="timetable school" style="visibility: hidden;"></div>
+<script type="text/javascript">
+		console.log("hello");
+		var linknames = [];
+		var linkdestinations = [];
+		var links = $('.school a');
+		var listlinks = '';
+		var classes = ["G&I1A", "G&I1B", "G&I1C", "G&I1D", "GAR2-A", "GAR2-B", "GAR2-C", "GAR2-D", "GDD2-A", "GDD2-B", "IAD2-A", "IAD2-B", "UU-Minor1", "UU-Minor2", "Jaar 3 G&I", "Jaar 4 G&I"];
+		
+		for(var i=0; i<links.length; i++) {
+			    linkdestinations.push(links[i].href.substr(links[i].href.lastIndexOf('/') + 1));
+			    linknames.push(links[i].textContent);
+			    if(classes.indexOf(linknames[i]) != -1){
+
+				    listlinks += "<a href='#' onclick=\"loadContent('"+linkdestinations[i]+"','"+linknames[i]+"')\">"+linknames[i]+"</a>";
+				    console.log("this works");
+				}
+		}
+		$('#links').html(''+listlinks+'');
+
+		var linknames_d = [];
+		var linkdestinations_d = [];
+		var links_d = $('.school-docent a');
+		var listlinks_d = '';
+		var overzicht = "Overzichtspagina";
+		
+		for(var i=0; i<links_d.length; i++) {
+			    linkdestinations_d.push(links_d[i].href.substr(links_d[i].href.lastIndexOf('/') + 1));
+			    linknames_d.push(links_d[i].textContent);
+			    if(overzicht.indexOf(linknames_d[i]) != 1){
+				    listlinks_d += "<a href='#' onclick=\"loadContent_d('"+linkdestinations_d[i]+"','"+linknames_d[i]+"')\">"+linknames_d[i]+"</a>";
+				    console.log("this works too");
+				}
+		}
+		$('#links-docent').html(''+listlinks_d+'');
+
+		// function checkCookie() {
+		//     var hku_class = getCookie("hku_class");
+		//     var hku_class_link = linknames.indexOf(hku_class);
+		//     var hku_teacher_link = linknames_d.indexOf(hku_class);
+		//     if (hku_class != "" || hku_class == "undefined") {
+		//         if(hku_class_link != -1){
+		// 	  		$(".content").load("rooster.php?url=/student/"+linkdestinations[hku_class_link]);
+		// 	  		getDate();
+		// 	  		menu();
+
+		//   		}else if(hku_class_link != 1){
+		//   			$(".content").load("rooster.php?url=/docent/"+linkdestinations_d[hku_teacher_link]);
+		//   			getDate();
+		// 	  		menu();
+		//   		}
+		//     }
+		// }
+</script>

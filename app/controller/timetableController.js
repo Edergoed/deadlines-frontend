@@ -8,7 +8,7 @@ app.controller('TimetableCtrl', function($scope, $state, $stateParams, timetable
 
     $scope.getTimetable = function(){
         $scope.Loading = true;
-        timetable.getTimetable("student", "7P00035")
+        timetable.getTimetable("student", "7P00031")
         .then(function(res){
             //success
             $scope.Timetable = res;
