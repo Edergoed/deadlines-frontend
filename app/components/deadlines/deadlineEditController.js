@@ -1,4 +1,4 @@
-app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadline, deadlineTime){
+app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadline, deadlineTime, klass){
 
     $scope.updateDeadline = function(){
         //console.log('kanekr dope');
@@ -60,8 +60,23 @@ app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadli
         }
     }
 
+    $scope.getKlasses = function(id){
+        $scope.Loading = true;
+        klass.getAllKlasses(id)
+        .then(function(res){
+            //$scope.deadlineChangeState('view');
+            $scope.klassList = klass.klassList;
+            console.log($scope.klassList);
+            $scope.Loading = false;
+            //succes
+        }, function(res){
+            $scope.Loading = false;
+            //error
+        })
+    }
 
     if($stateParams.editID != null){
         $scope.getDeadline($stateParams.editID);
+        $scope.getKlasses();
     }
 });
