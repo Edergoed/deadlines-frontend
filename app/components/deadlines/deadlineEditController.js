@@ -75,6 +75,18 @@ app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadli
         })
     }
 
+    $scope.addAssignment = function(
+    $scope.removeAssignment = function($event, klass_id){
+        for(i = 0; i < $scope.selectedDeadline.deadline.klass_ids.length ;i++){
+            if($scope.selectedDeadline.deadline.klass_ids[i] == klass_id){
+                //remove klopt niet moet juiste versoe zoeken
+                $scope.selectedDeadline.deadline.klass_ids.splice(i,1);
+            }
+        }
+        angular.element($event.currentTarget).parent().remove();
+
+    }
+
     if($stateParams.editID != null){
         $scope.getDeadline($stateParams.editID);
         $scope.getKlasses();
