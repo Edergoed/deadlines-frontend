@@ -75,7 +75,12 @@ app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadli
         })
     }
 
-    $scope.addAssignment = function(
+    $scope.addAssignment = function(){
+        console.log("jaja");
+        newAssignment = null;
+        $scope.selectedDeadline.deadline.klass_ids.push(newAssignment);
+    }
+
     $scope.removeAssignment = function($event, klass_id){
         for(i = 0; i < $scope.selectedDeadline.deadline.klass_ids.length ;i++){
             if($scope.selectedDeadline.deadline.klass_ids[i] == klass_id){
