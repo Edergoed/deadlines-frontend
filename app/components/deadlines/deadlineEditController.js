@@ -89,7 +89,6 @@ app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadli
             }
         }
         angular.element($event.currentTarget).parent().remove();
-
     }
 
     if($stateParams.editID != null){
