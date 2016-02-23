@@ -11,6 +11,7 @@ app.controller('TimetableCtrl', function($scope, $state, $stateParams, timetable
         timetable.getTimetable("student", "7P00031")
         .then(function(res){
             //success
+            
             $scope.Timetable = res;
             $scope.Loading = false;
         }, function(res){

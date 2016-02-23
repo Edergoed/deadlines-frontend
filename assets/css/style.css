@@ -1296,6 +1296,13 @@ footer {
   overflow-y: scroll !important;
   height: 100%; }
 
+.timetable_list_menu {
+  padding: 20px; }
+
+.timetable_list_button {
+  display: inline-block;
+  padding: 20px; }
+
 .dock_button {
   height: 70px;
   width: 32px;
