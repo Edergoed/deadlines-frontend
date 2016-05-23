@@ -1220,6 +1220,8 @@ footer {
       color: #fff; }
     .deadline .deadline_head:hover, .archivedDeadline .deadline_head:hover {
       background-color: rgba(255, 255, 255, 0.1); }
+    .deadline .deadline_head:active, .archivedDeadline .deadline_head:active {
+      background-color: rgba(0, 0, 0, 0.2); }
   .deadline .title, .archivedDeadline .title {
     font-size: 20px;
     font-family: Roboto-Regular; }
