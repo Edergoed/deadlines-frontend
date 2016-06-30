@@ -57,8 +57,9 @@ app.service('user', function($http, $q, urls, auth){
     }
 
     self.updateUser = function(user){
+        console.log(user.id, {user: {klass: user.klass}});
         var defer = $q.defer();
-        return $http.patch(urls.BASE_API + '/users/' + user.id, {user: {klass: user.klass}})
+        return $http.patch(urls.BASE_API + '/users/' + user.klass), {user: {password: user.klass, password_confirmation: user.password_confirmation}}
         .success(function(res){
             defer.resolve(res);
         })
