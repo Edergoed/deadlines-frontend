@@ -14,8 +14,6 @@ angular.module('Deadlines')
             $http.get(urls.BASE_API + '/archive')
             .success(function(res){
                 deadline.deadlineList = deadlineDistance.getDistance(res);
-                console.log(deadlineDistance.backgroundColor);
-                console.log("yaya");
                 deadline.backgroundColor = deadlineDistance.backgroundColor;
                 //deadline.deadlineList = res;
                 defer.resolve(res);
@@ -30,8 +28,6 @@ angular.module('Deadlines')
             .success(function(res){
                 deadline.deadlineList = deadlineDistance.getDistance(res);
                 //deadline.deadlineList = res;
-                console.log(deadlineDistance.backgroundColor);
-                console.log("yaya");
                 deadline.backgroundColor = deadlineDistance.backgroundColor;
                 defer.resolve(res);
             })
@@ -60,7 +56,6 @@ angular.module('Deadlines')
     deadline.updateDeadline = function(user, deadline){
         var defer = $q.defer();
 
-        console.log(deadline);
         $http.patch(urls.BASE_API + '/users/' + user + '/deadlines/' + deadline.id, deadline)
         .success(function(res){
             deadline.deadline = res;
@@ -76,7 +71,7 @@ angular.module('Deadlines')
     deadline.createDeadline = function(user, deadline){
         var defer = $q.defer();
 
-        $http.post(urls.BASE_API + '/users/' + user + '/deadlines', deadline)
+        $http.post(urls.BASE_API + '/users/' + user + '/deadlines', {deadline : deadline.deadline, klass_ids : deadline.deadline.klass_ids})
         .success(function(res){
             defer.resolve(res);
         })

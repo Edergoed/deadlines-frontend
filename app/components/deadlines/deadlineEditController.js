@@ -23,6 +23,35 @@ app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadli
         }
     }
 
+    $scope.checkAvailableKlasses = function(choice) {
+        for(k = 0;k < $scope.choices.length; k++){
+            array = [];
+            for(i = 0;i < $scope.klasses.length; i++){
+                add = true;
+                for(j = 0;j < $scope.choices.length; j++)
+                    if($scope.klasses[i].id == $scope.choices[j].value)
+                        if($scope.choices[j].value != $scope.choices[k].value)
+                            add = false;
+                if(add)
+                    array.push($scope.klasses[i]);
+            }
+            $scope.availableKlasses[k] = array
+            console.log($scope.availableKlasses);
+        }
+    };
+
+    $scope.addNewChoice = function() {
+        var newItemNo = $scope.choices.length+1;
+        $scope.choices.push({'id' : 'klass'+newItemNo});
+        $scope.checkAvailableKlasses();
+    };
+
+    $scope.removeChoice = function(index) {
+        var lastItem = $scope.choices.length-1;
+        $scope.choices.splice(index,1);
+        $scope.checkAvailableKlasses();
+    };
+
     $scope.getDeadline = function(id){
         $scope.Loading = true;
         deadline.getDeadline(id)

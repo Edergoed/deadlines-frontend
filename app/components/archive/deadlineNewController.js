@@ -16,8 +16,8 @@ app.controller('DeadlineNewCtrl', function($scope, deadline){
             $scope.getDays($scope.deadline.deadline.year, $scope.deadline.deadline.month);
             console.log($scope.deadline.deadline.year + ' ' + $scope.deadline.deadline.month);
         });
-            $scope.getMonths();
-            $scope.getYears();
+        $scope.getMonths();
+        $scope.getYears();
     }
 
 

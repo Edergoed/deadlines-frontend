@@ -59,7 +59,7 @@ app.service('user', function($http, $q, urls, auth){
     self.updateUser = function(user){
         console.log(user.id, {user: {klass: user.klass}});
         var defer = $q.defer();
-        return $http.patch(urls.BASE_API + '/users/' + user.klass), {user: {password: user.klass, password_confirmation: user.password_confirmation}}
+        return $http.patch(urls.BASE_API + '/users/' + user.id), {user: {password: user.klass, password_confirmation: user.password_confirmation}}
         .success(function(res){
             defer.resolve(res);
         })
@@ -67,6 +67,19 @@ app.service('user', function($http, $q, urls, auth){
             defer.resolve(res);
         })
     }
+
+    self.updateUserKlass = function(user){
+        console.log(user.id, {user: {klass: user.klass}});
+        var defer = $q.defer();
+        return $http.patch(urls.BASE_API + '/users/' + user.id, {user: {klass: user.klass}})
+        .success(function(res){
+            defer.resolve(res);
+        })
+        .error(function(res){
+            defer.resolve(res);
+        })
+    }
+
     self.resetPassword = function(user){
         var defer = $q.defer();
         return $http.patch(urls.BASE_API + '/users/' + user.id + '/reset_password', {user: {password: user.klass, password_confirmation: user.password_confirmation}})
