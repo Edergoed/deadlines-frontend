@@ -1,4 +1,13 @@
-app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadline, deadlineTime){
+app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadline, deadlineTime, klass){
+
+    $scope.availableKlasses = [];
+    $scope.choices = [];
+    $scope.init = function(){
+        $scope.getKlasses();
+        if($stateParams.editID != null){
+            $scope.getDeadline($stateParams.editID);
+        }
+    }
 
     $scope.updateDeadline = function(){
         //console.log('kanekr dope');
@@ -10,6 +19,11 @@ app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadli
             minut = $scope.selectedDeadline.deadline.time.split(':')[1];
 
             $scope.selectedDeadline.deadline.deadlineDateTime = new Date(year, month, day, hour, minut);
+            $scope.selectedDeadline.deadline.klass_ids = [];
+            for(i = 0;i < $scope.choices.length; i++){
+                console.log($scope.choices[i].value);
+                $scope.selectedDeadline.deadline.klass_ids.push($scope.choices[i].value);
+            }
             deadline.updateDeadline($scope.userCurrent.id, $scope.selectedDeadline.deadline)
             .then(function(res){
                 //succes
@@ -52,6 +66,22 @@ app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadli
         $scope.checkAvailableKlasses();
     };
 
+    $scope.getKlasses = function(){
+        $scope.Loading = true;
+        klass.getAllKlasses()
+        .then(function(res){
+            //$scope.deadlineChangeState('view');
+            $scope.Loading = false;
+            $scope.klasses = res.klasses;
+            $scope.availableKlasses[0]= res.klasses;
+            console.log($scope.klasses);
+            //succes
+        }, function(res){
+            $scope.Loading = false;
+            //error
+        })
+    }
+
     $scope.getDeadline = function(id){
         $scope.Loading = true;
         deadline.getDeadline(id)
@@ -63,11 +93,14 @@ app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadli
             $scope.years = deadlineTime.getYears($scope.selectedDeadline.deadline.year);
             $scope.months = deadlineTime.getMonths();
             $scope.$watch("selectedDeadline.deadline.month", function(newValue, oldValur){
-                console.log("change");
                 $scope.days = deadlineTime.getDays($scope.selectedDeadline.deadline.year, $scope.selectedDeadline.deadline.month);
-        //$scope.$digest;
-                console.log($scope.selectedDeadline.deadline.year + ' ' + $scope.selectedDeadline.deadline.month);
             });
+            for(i = 0;i < $scope.selectedDeadline.deadline.klass_ids.length; i++){
+                var newItemNo = $scope.choices.length+1;
+                $scope.choices.push({'id' : 'klass'+newItemNo, 'value' : $scope.selectedDeadline.deadline.klass_ids[i]});
+            }
+            $scope.checkAvailableKlasses();
+
             $scope.Loading = false;
             //succes
         }, function(res){
@@ -89,8 +122,6 @@ app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadli
         }
     }
 
+    $scope.init();
 
-    if($stateParams.editID != null){
-        $scope.getDeadline($stateParams.editID);
-    }
 });

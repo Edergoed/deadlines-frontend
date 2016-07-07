@@ -18,16 +18,16 @@
                 <!-- <select id="" name=""></select> -->
             </div>
             <div class="dynamic-content">
-                    <div text-angular ng-model="deadline.deadline.content"  ta-toolbar-button-class="btn-editor"></div>
+                <div text-angular ng-model="deadline.deadline.content"  ta-toolbar-button-class="btn-editor"></div>
                 <div data-ng-repeat="choice in choices">
                     <select id="" name="klass" data-ng-change="checkAvailableKlasses($index)"  data-ng-options="klass.id as klass.name for klass in
-                        availableKlasses[$index]" data-ng-model="choice.value" placeholder="Class" required>
+                    availableKlasses[$index]" data-ng-model="choice.value" placeholder="Class" required>
                         <option value="" disabled selected>Select your class</option>
                     </select>
                     <button class="remove" ng-show="!$first" ng-click="removeChoice($index)">X</button>
                 </div>
-                    <a id="addNewChoice" ng-click="addNewChoice()">More</a>
-                    <button class="btn_save" type="submit" style="margin: 0 auto;">Post deadline</button>
+                <a id="addNewChoice" ng-click="addNewChoice()">More</a>
+                <button class="btn_save" type="submit" style="margin: 0 auto;">Post deadline</button>
             </div>
             <div class="error_block" ng-messages="deadlineForm.title.$error" ng-if="deadlineForm.title.$touched || submitted">
                 <p ng-message="required">Title is required</p>
