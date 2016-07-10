@@ -2,7 +2,7 @@ app.config([
     '$stateProvider',
     '$urlRouterProvider',
     '$locationProvider',
-    function ($stateProvider, $urlRouterProvider, $locationProvider) {
+    function ($stateProvider, $urlRouterProvider, $locationProvider, klass) {
 
         $stateProvider
 
@@ -47,7 +47,12 @@ app.config([
         }).state('mainon.deadlines.edit', {
             url: '/edit/:editID',
             templateUrl: 'app/components/deadlines/deadlineEditView.html',
-            controller: 'DeadlineEditCtrl'
+            controller: 'DeadlineEditCtrl',
+            resolve: {
+                klasses: function(klass) {
+                    return klass.getAllKlasses();
+                }
+            }
 
         }).state('mainon.deadlines.show', {
             url: '/:showID',

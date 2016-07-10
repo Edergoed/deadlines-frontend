@@ -1,6 +1,6 @@
 app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline, user, deadlineDistance, deadlineColor){
 
-        $scope.Loading = false;
+    $scope.Loading = false;
     $scope.init = function(){
         if($stateParams.mode === "archive"){
             $scope.archive = true;
@@ -14,7 +14,6 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
 
     $scope.arrow = function(id){
         if($stateParams.showID != null){
-            console.log(id);
             for(i = 0; i < $scope.deadlineList.deadlines.length; i++){
                 //console.log($scope.deadlineList.deadlines[i].id + ' ' + id);
                 if($scope.deadlineList.deadlines[i].id == $stateParams.showID){

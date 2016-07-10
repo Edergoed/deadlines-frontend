@@ -1,9 +1,10 @@
-app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadline, deadlineTime, klass){
+app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadline, deadlineTime, klass, klasses){
 
-    $scope.availableKlasses = [];
-    $scope.choices = [];
     $scope.init = function(){
-        $scope.getKlasses();
+    $scope.availableKlasses = [];
+    $scope.klasses = klasses.klasses;
+    $scope.choices = [];
+        // $scope.getKlasses();
         if($stateParams.editID != null){
             $scope.getDeadline($stateParams.editID);
         }
@@ -37,20 +38,19 @@ app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadli
         }
     }
 
-    $scope.checkAvailableKlasses = function(choice) {
-        for(k = 0;k < $scope.choices.length; k++){
+    $scope.checkAvailableKlasses = function(choices) {
+        for(k = 0;k < choices.length; k++){
             array = [];
             for(i = 0;i < $scope.klasses.length; i++){
                 add = true;
-                for(j = 0;j < $scope.choices.length; j++)
-                    if($scope.klasses[i].id == $scope.choices[j].value)
-                        if($scope.choices[j].value != $scope.choices[k].value)
+                for(j = 0;j < choices.length; j++)
+                    if($scope.klasses[i].id == choices[j].value)
+                        if(choices[j].value != choices[k].value)
                             add = false;
                 if(add)
                     array.push($scope.klasses[i]);
             }
             $scope.availableKlasses[k] = array
-            console.log($scope.availableKlasses);
         }
     };
 
@@ -74,7 +74,6 @@ app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadli
             $scope.Loading = false;
             $scope.klasses = res.klasses;
             $scope.availableKlasses[0]= res.klasses;
-            console.log($scope.klasses);
             //succes
         }, function(res){
             $scope.Loading = false;
@@ -99,8 +98,8 @@ app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadli
                 var newItemNo = $scope.choices.length+1;
                 $scope.choices.push({'id' : 'klass'+newItemNo, 'value' : $scope.selectedDeadline.deadline.klass_ids[i]});
             }
-            $scope.checkAvailableKlasses();
 
+            $scope.checkAvailableKlasses($scope.choices);
             $scope.Loading = false;
             //succes
         }, function(res){
@@ -111,7 +110,6 @@ app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadli
 
     $scope.getDate = function(date){
         date = new Date( Date.parse(date));
-        console.log(date.toUTCString());
         $scope.selectedDeadline.deadline.day = date.getDate();
         $scope.selectedDeadline.deadline.month = date.getMonth();
         $scope.selectedDeadline.deadline.year = date.getFullYear();
