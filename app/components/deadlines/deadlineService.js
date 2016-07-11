@@ -2,7 +2,7 @@ angular.module('Deadlines')
 .service('deadline', function deadline($http, $q, $rootScope, urls, deadlineDistance) {
 
     var deadline = this;
-    deadline.deadlineList = {};
+    deadline.deadlines = {};
     deadline.deadline = {};
     deadline.backgroundColor = {};
 
@@ -13,9 +13,9 @@ angular.module('Deadlines')
 
             $http.get(urls.BASE_API + '/archive')
             .success(function(res){
-                deadline.deadlineList = deadlineDistance.getDistance(res);
+                deadline.deadlines = deadlineDistance.getDistance(res);
                 deadline.backgroundColor = deadlineDistance.backgroundColor;
-                //deadline.deadlineList = res;
+                //deadline.deadlines = res;
                 defer.resolve(res);
             })
             .error(function(err, status){
@@ -26,8 +26,8 @@ angular.module('Deadlines')
             //$http.get(urls.BASE_API + '/deadlines')
             $http.get(urls.BASE_API + '/deadlines')
             .success(function(res){
-                deadline.deadlineList = deadlineDistance.getDistance(res);
-                //deadline.deadlineList = res;
+                deadline.deadlines = deadlineDistance.getDistance(res);
+                //deadline.deadlines = res;
                 deadline.backgroundColor = deadlineDistance.backgroundColor;
                 defer.resolve(res);
             })

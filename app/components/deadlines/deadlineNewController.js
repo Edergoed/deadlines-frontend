@@ -91,17 +91,14 @@ app.controller('DeadlineNewCtrl', function($scope, deadline, $state, deadlineTim
 
             $scope.deadline.deadline.deadlineDateTime = new Date(year, month, day, hour, minut);
             for(i = 0;i < $scope.choices.length; i++){
-                console.log($scope.choices[i].value);
                 $scope.deadline.deadline.klass_ids.push($scope.choices[i].value);
             }
             //console.log($scope.deadline.deadline.deadlineDateTime);
             deadline.createDeadline($scope.userCurrent.id, $scope.deadline)
             .then(function(res){
                 //succes
-                setTimeout(function(){
-                    $scope.getAll();
-                    $state.go('mainon.deadlines.show', { showID: $scope.deadlineList.deadlines[0].id });
-                }, 20);
+                $scope.$emit('updatedDeadline');
+                $state.go('mainon.deadlines.show', { showID: $scope.deadlineList.deadlines[0].id });
 
                 $scope.submitted = false;
             }, function(res){

@@ -32,6 +32,7 @@ app.config([
             url: '/:mode/deadlines',
             templateUrl: 'app/components/deadlines/deadlinesView.html',
             controller: 'DeadlinesCtrl',
+            controllerAs: 'deadlines',
             params: {
                 mode: {
                     value: null,
@@ -48,6 +49,7 @@ app.config([
             url: '/edit/:editID',
             templateUrl: 'app/components/deadlines/deadlineEditView.html',
             controller: 'DeadlineEditCtrl',
+            controllerAs: 'deadlineEdit',
             resolve: {
                 klasses: function(klass) {
                     return klass.getAllKlasses();
@@ -57,8 +59,13 @@ app.config([
         }).state('mainon.deadlines.show', {
             url: '/:showID',
             templateUrl: 'app/components/deadlines/deadlineShowView.html',
-            controller: 'DeadlineShowCtrl'
-
+            controller: 'DeadlineShowCtrl',
+            controllerAs: 'deadlineShow',
+            resolve: {
+                klasses: function(klass) {
+                    return klass.getAllKlasses();
+                }
+            }
         })
 
         // Signin

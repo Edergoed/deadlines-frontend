@@ -1,11 +1,11 @@
-<div id="dynamic_left" style="background-color:{{ bottomBackgroundColor }};" >
-    <div id="dynamic_left_wrapper" style="background-color:{{ lastBackgroundColor }};">
+<div id="dynamic_left" style="background-color:{{ deadlines.bottomBackgroundColor }};" >
+    <div id="dynamic_left_wrapper" style="background-color:{{ deadlines.lastBackgroundColor }};">
         <div id="dynamic_left_content" class="dynamic_left_content" >
-            <div data-ng-show="Loading" class="loading_wrapper" style="width: 100%; height: 100%;">
+            <div data-ng-show="deadlines.loading" class="loading_wrapper" style="width: 100%; height: 100%;">
                 <div class="loading"></div>
             </div>
-            <div id="list" data-ng-show="!Loading" >
-                <div class="list_wrapper" data-ng-repeat="deadlineListItem in deadlineList.deadlines" style="background-color:{{
+            <div id="list" data-ng-show="!deadlines.loading" >
+                <div class="list_wrapper" data-ng-repeat="deadlineListItem in deadlines.deadlines" style="background-color:{{
                     deadlineListItem.parendNode}};">
                     <div id="{{deadlineListItem.id}}" class="deadline" style="background-color:{{ deadlineListItem.color}};"
                     data-ng-click="arrow(deadlineListItem.id)"

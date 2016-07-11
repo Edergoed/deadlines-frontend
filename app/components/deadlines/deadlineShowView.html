@@ -16,6 +16,21 @@
     </div>
     <div class="dynamic-content" ng-bind-html="selectedDeadline.deadline.content">
     </div>
+
+
+    <div data-ng-repeat="choice in choices">
+        <div>
+            {{ deadlineShow.klasses[choice.value-1].name }}
+        </div>
+        <!-- <select id="" name="klass" data&#45;ng&#45;change="checkAvailableKlasses($index)"  data&#45;ng&#45;options="klass.id as klass.name for klass in -->
+        <!-- availableKlasses[$index]" data&#45;ng&#45;model="choice.value" placeholder="Class" required> -->
+        <!--     <option value="" disabled selected>Select your class</option> -->
+        <!-- </select> -->
+        <!-- <button class="remove" ng&#45;show="!$first" ng&#45;click="removeChoice($index)">X</button> -->
+    </div>
+
+
+
     <div class="dynamic-options">
     <div class="dynamic-username" style="display: inline-block;" data-ng-hide=" selectedDeadline.deadline.creator.id == null" >
         <img class="gravatar" src="{{gravatar(selectedDeadline.deadline.creator.gravatarHash, 30)}}">
