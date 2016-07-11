@@ -1,4 +1,6 @@
 app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline, user, deadlineDistance, deadlineColor){
+    var vm = this;
+
 
     $scope.Loading = false;
     $scope.init = function(){

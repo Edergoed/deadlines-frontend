@@ -57,13 +57,13 @@ app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadli
     $scope.addNewChoice = function() {
         var newItemNo = $scope.choices.length+1;
         $scope.choices.push({'id' : 'klass'+newItemNo});
-        $scope.checkAvailableKlasses();
+        $scope.checkAvailableKlasses($scope.choices);
     };
 
     $scope.removeChoice = function(index) {
         var lastItem = $scope.choices.length-1;
         $scope.choices.splice(index,1);
-        $scope.checkAvailableKlasses();
+        $scope.checkAvailableKlasses($scope.choices);
     };
 
     $scope.getKlasses = function(){
