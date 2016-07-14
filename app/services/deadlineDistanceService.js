@@ -1,4 +1,5 @@
-angular.module('Deadlines')
+angular
+.module('Deadlines')
 .service('deadlineDistance', function deadlineDistance($q, deadlineColor, deadlineTime) {
 
     var deadlineDistance = this;

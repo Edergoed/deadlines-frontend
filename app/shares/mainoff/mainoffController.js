@@ -1,6 +1,8 @@
 'use strict';
 
-app.controller('MainoffCtrl', function($scope, $location, $state, auth, user){
+angular
+.module('Deadlines')
+.controller('MainoffCtrl', function($scope, $location, $state, auth, user){
 
     $scope.userCurrent = user.current();
     $scope.$watch('authenticated', function(newVal, oldVal) {

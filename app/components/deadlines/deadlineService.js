@@ -1,4 +1,5 @@
-angular.module('Deadlines')
+angular
+.module('Deadlines')
 .service('deadline', function deadline($http, $q, $rootScope, urls, deadlineDistance) {
 
     var deadline = this;

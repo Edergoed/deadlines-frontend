@@ -1,4 +1,6 @@
-app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline, user, deadlineDistance, deadlineColor){
+angular
+.module('Deadlines')
+.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline, user, deadlineDistance, deadlineColor){
 
     var vm = this;
     vm.loading = false;
@@ -35,8 +37,7 @@ app.controller('DeadlinesCtrl', function($scope, $state, $stateParams, deadline,
         }
     }
 
-     function getAll(){
-         console.log("JAJA");
+    function getAll(){
         vm.loading = true;
         deadline.getAllDeadlines(vm.archive)
         .then(function(res){

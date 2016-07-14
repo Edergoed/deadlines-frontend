@@ -1,6 +1,7 @@
 'use strict';
 
-app
+angular
+.module('Deadlines')
 .controller('LoginCtrl', function($scope, $state, $location, auth, user){
     $scope.signin = function(){
         if($scope.signinForm.$valid){

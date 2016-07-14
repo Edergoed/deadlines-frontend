@@ -6,11 +6,11 @@
         <div class="dynamic-meta">
             <input type="title" placeholder="Title" data-ng-model="deadlineEdit.deadline.deadline.title" requird>
             <div style="float: right;">
-                <select id="" name="day" data-ng-options="day for day in days" data-ng-model="deadlineEdit.deadline.deadline.day">
+                <select id="" name="day" data-ng-options="day for day in deadlineEdit.days" data-ng-model="deadlineEdit.deadline.deadline.day">
                 </select>
-                <select id="" name="month" data-ng-options="month.id as month.name for month in months" data-ng-model="deadlineEdit.deadline.deadline.month">
+                <select id="" name="month" data-ng-options="month.id as month.name for month in deadlineEdit.months" data-ng-model="deadlineEdit.deadline.deadline.month">
                 </select>
-                <select id="" name="year" data-ng-options="year for year in years" data-ng-model="deadlineEdit.deadline.deadline.year">
+                <select id="" name="year" data-ng-options="year for year in deadlineEdit.years" data-ng-model="deadlineEdit.deadline.deadline.year">
                 </select>
             </div>
         </div>
@@ -26,7 +26,7 @@
                     deadlineEdit.availableKlasses[$index]" data-ng-model="choice.value" placeholder="Class" required>
                         <option value="" disabled selected>Select your class</option>
                     </select>
-                    <button class="remove" ng-show="!$first" ng-click="removeChoice($index)">X</button>
+                    <button class="remove" ng-show="!$first" ng-click="deadlineEdit.removeChoice($index)">X</button>
                 </div>
                 <a id="addNewChoice" ng-click="deadlineEdit.addNewChoice()">More</a>
         </div>

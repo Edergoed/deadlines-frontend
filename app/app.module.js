@@ -1,4 +1,4 @@
-var app = angular.module('Deadlines', [
+app = angular.module('Deadlines', [
     'ui.router',
     'textAngular',
     'ngMessages'
@@ -8,13 +8,13 @@ app.run(['$rootScope', '$location', function($rootScope, $location) {
     $rootScope.$on('auth:login-success', function() {
         $location.path('/');
     });
-}]);
+}])
 
-app.run(function($http) {
+.run(function($http) {
     $http.defaults.headers.common.Accept = 'application/vnd.deadlines.v1'
-});
+})
 
-app.factory('authInterceptor', function (urls, auth) {
+.factory('authInterceptor', function (urls, auth) {
     return {
         //automatically attach Authorization header
         request: function(config) {
@@ -36,11 +36,12 @@ app.factory('authInterceptor', function (urls, auth) {
         },
     }
 })
+
 .config(function($httpProvider) {
     $httpProvider.interceptors.push('authInterceptor');
-});
+})
 
-app.config(function($provide){
+.config(function($provide){
     $provide.decorator('taOptions', ['$delegate', function(taOptions){
 
         taOptions.toolbar = [

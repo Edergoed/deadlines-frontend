@@ -1,4 +1,6 @@
-app.config([
+angular
+.module('Deadlines')
+.config([
     '$stateProvider',
     '$urlRouterProvider',
     '$locationProvider',

@@ -1,4 +1,7 @@
-app.controller('SettingsCtrl', function($scope, $state, $stateParams, deadline, user){
+angular
+.module('Deadlines')
+.controller('SettingsCtrl', function($scope, $state, $stateParams, deadline, user){
+
     $scope.init = function(){
         $scope.getUserCurrent();
     }

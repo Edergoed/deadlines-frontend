@@ -1,6 +1,9 @@
-app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadline, deadlineTime, klass, klasses){
+angular
+.module('Deadlines')
+.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadline, deadlineTime, klass, klasses){
+
     var vm = this;
-    vm.init = init;
+
     vm.klasses = klasses.klasses;
     vm.availableKlasses = [];
     vm.checkAvailableKlasses = checkAvailableKlasses;
@@ -10,9 +13,9 @@ app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadli
     vm.getDate = getDate;
 
     function init(){
-    vm.choices = [];
+        vm.choices = [];
         if($stateParams.editID != null){
-            $scope.getDeadline($stateParams.editID);
+            getDeadline($stateParams.editID);
         }
     }
 
@@ -42,7 +45,7 @@ app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadli
         }
     }
 
-   function checkAvailableKlasses() {
+    function checkAvailableKlasses() {
         for(k = 0;k < vm.choices.length; k++){
             array = [];
             for(i = 0;i < vm.klasses.length; i++){
@@ -68,20 +71,21 @@ app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadli
         var lastItem = vm.choices.length-1;
         vm.choices.splice(index,1);
         vm.checkAvailableKlasses();
+        console.log("remove deadline");
     };
 
-    $scope.getDeadline = function(id){
+    function getDeadline(id){
         vm.loading = true;
         deadline.getDeadline(id)
         .then(function(res){
             //succes
             vm.deadline = deadline.deadline;
             vm.getDate(vm.deadline.deadline.deadlineDateTime);
-            $scope.weekday = deadlineTime.getWeekdays();
-            $scope.years = deadlineTime.getYears(vm.deadline.deadline.year);
-            $scope.months = deadlineTime.getMonths();
-            $scope.$watch("selectedDeadline.deadline.month", function(newValue, oldValur){
-                $scope.days = deadlineTime.getDays(vm.deadline.deadline.year, vm.deadline.deadline.month);
+            vm.weekday = deadlineTime.getWeekdays();
+            vm.years = deadlineTime.getYears(vm.deadline.deadline.year);
+            vm.months = deadlineTime.getMonths();
+            $scope.$watch("deadlineEdit.deadline.deadline.month", function(newValue, oldValur){
+                vm.days = deadlineTime.getDays(vm.deadline.deadline.year, vm.deadline.deadline.month);
             });
             for(i = 0;i < vm.deadline.deadline.klass_ids.length; i++){
                 var newItemNo = vm.choices.length+1;
@@ -108,6 +112,5 @@ app.controller('DeadlineEditCtrl', function($scope, $state, $stateParams, deadli
         }
     }
 
-    vm.init();
-
+    init();
 });
