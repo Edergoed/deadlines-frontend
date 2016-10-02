@@ -34,11 +34,8 @@
 
 @include keyframes(splash) {
     0% {
-	    -webkit-transform: translateY(0%);  
-        -moz-transform: translateY(0%);  
-        -ms-transform: translateY(0%);  
-        -o-transform: translateY(0%);  
-        transform: translateY(0%);  
+
+
 
         -webkit-opacity: 1;
         -moz-opacity: 1;
@@ -46,36 +43,46 @@
         -o-opacity: 1;
         opacity: 1;
 	}
-    100% {
-    	-webkit-transform: translateY(-100%);
+    99% {
+        -webkit-opacity: 0;
+        -moz-opacity: 0;
+        -ms-opacity: 0;
+        -o-opacity: 0; 
+        opacity: 0; 
+
+        -webkit-transform: ranslateY(0%);  
+        -moz-transform: translateY(0%);  
+        -ms-transform: translateY(0%);  
+        -o-transform: translateY(0%);  
+        transform: translateY(0%);  
+    }
+    100%{
+        -webkit-transform: translateY(-100%);
         -moz-transform: translateY(-100%);  
         -ms-transform: translateY(-100%);  
         -o-transform: translateY(-100%);  
         transform: translateY(-100%); 
-
-        -webkit-opacity: 0;
-        -moz-opacity: 0;
-        -ms-opacity: 0;
-        -o-opacity: 0;
-        opacity: 0; 
     }
 }
 
 @include keyframes(reveal) {
     0% {
-        -webkit-transform: translateY(100%);
-        -moz-transform: translateY(100%);  
-        -ms-transform: translateY(100%);  
-        -o-transform: translateY(100%);  
-        transform: translateY(100%); 
+        // -webkit-transform: translateY(100%);
+        // -moz-transform: translateY(100%);  
+        // -ms-transform: translateY(100%);  
+        // -o-transform: translateY(100%);  
+        // transform: translateY(100%); 
+
+        filter: blur(10px);
   
     }
     100% {
-        -webkit-transform: translateY(0%);  
-        -moz-transform: translateY(0%);  
-        -ms-transform: translateY(0%);  
-        -o-transform: translateY(0%);  
-        transform: translateY(0%);   
+        // -webkit-transform: translateY(0%);  
+        // -moz-transform: translateY(0%);  
+        // -ms-transform: translateY(0%);  
+        // -o-transform: translateY(0%);  
+        // transform: translateY(0%);   
+        filter: blur(0px);
     }
 }
 

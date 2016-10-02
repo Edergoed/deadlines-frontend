@@ -1,17 +1,39 @@
 <div data-ng-show="Loading" class="loading_wrapper" style="width: 100%; height: 100%;">
     <div class="loading"></div>
 </div>
-<div class="welcome" data-ng-show="!Loading" class="dynamic-post" style="display: block;">
+<div class="welcome" data-ng-show="!Loading" class="dynamic-post" style="display: block; overflow-y: scroll;">
 	<div class="welcome_content">
 		<div class="welcome_info">
-			<h1>Now in beta for Games &amp; Interaction HKU</h1>
+			<h1>DEADLINES</h1>
+			<h3>Keep track of all your assignments and projects using Deadlines.</h3>
+			<div class="welcome_menu">
+				<button ui-sref="mainoff.signup">Get started today</button><button ui-sref="mainoff.signin" class="welcome_signin">Sign in</button>
+			</div>
 		</div>
-		<div class="welcome_menu">
-			<button ui-sref="mainoff.signup">Get started today</button><a href="#" ui-sref="mainoff.signin">or sign in</a>
+		<div class="welcome_preview" style="text-align: right; float: right; height: 100%;">
+				
 		</div>
-		<div class="welcome_mockup">
+
+<!-- 		<div class="welcome_mockup">
 			<img class="welcome_mockup_img" src="../assets/img/mockup.png">
+		</div> -->
+<!-- 		<div class="welcome_gradient"></div> -->
+	</div>
+	<div class="about_content">
+		<!-- <img src="/assets/img/Deadlines-preview.png" style="max-height: 80%; width: auto; transform: translateY(-100%);">	 -->
+		<div class="about_profile">
+			<img src="/assets/img/liam.png">
+			<h2>LIAM EDERZEEL</h2>
+			<h3>PROGRAMMING</h3>
+			<p>@LiamEderzeel</p>
+			<p>Liamederzeel@gmail.com</p>
 		</div>
-		<div class="welcome_gradient"></div>
+		<div class="about_profile">
+			<img src="/assets/img/bobbie.png">
+			<h2>BOBBIE GOEDE</h2>
+			<h3>DESIGN</h3>
+			<p>@BobbieGoede</p>
+			<p>Bobbiegoede@gmail.com</p>
+		</div>
 	</div>
 </div>
