@@ -108,7 +108,7 @@ angular
         })
 
         // Home
-        .state('mainoff.welcome', {
+        .state('welcome', {
             url: '/welcome',
             templateUrl: 'app/components/welcome/welcomeView.html',
             controller: 'WelcomeCtrl'
