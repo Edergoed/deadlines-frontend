@@ -6,7 +6,9 @@
   height: calc(100vh - 120px);
   width: 1118px;
   margin: 0 auto;
-  text-align: left; 
+  text-align: left;
+  z-index: 100;
+  position: relative; 
 }
 
 .welcome_info{
@@ -85,6 +87,20 @@
   }
 }
 
+.welcome_preview{
+  top: 60%;
+  right: 0px;
+  position: relative;
+  transform: translateY(-50%);
+  height: 95%;
+  width: 38.20%;
+
+  background-image: url("/assets/img/Deadlines-preview.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
 .welcome_signin{
   border-color: #FE2746;
   background-color: rgba(0,0,0,0) !important;
@@ -95,6 +111,8 @@
 }
 
 .about_content{
+  position: relative;
+  z-index: 10;
   width: 100%;
   position: relative;
   height: calc(100% + 120px);
@@ -113,10 +131,25 @@
   transform: translateY(-50%);
   position: relative;
   h2{
-    margin: 20px 0px 10px;
+    font-size: 24px;
+    font-weight: 300;
+    margin: 20px 0px 0px;
   }
   h3{
-    margin: 0;
+    font-size: 20px;
+    margin: 6px 0px 16px;
+    font-weight: normal;
+    color: rgba(256,256,256,0.6);
+  }
+  p{
+    margin: 10px 0px;
+  }
+  a{
+    color: #FE2746;
+    text-decoration: none;
+    &:hover{
+      color: #FFC300;
+    }
   }
 }
 

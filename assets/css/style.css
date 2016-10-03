@@ -135,7 +135,7 @@
     -ms-opacity: 1;
     -o-opacity: 1;
     opacity: 1; }
-  99% {
+  99.9% {
     -webkit-opacity: 0;
     -moz-opacity: 0;
     -ms-opacity: 0;
@@ -159,7 +159,7 @@
     -ms-opacity: 1;
     -o-opacity: 1;
     opacity: 1; }
-  99% {
+  99.9% {
     -webkit-opacity: 0;
     -moz-opacity: 0;
     -ms-opacity: 0;
@@ -183,7 +183,7 @@
     -ms-opacity: 1;
     -o-opacity: 1;
     opacity: 1; }
-  99% {
+  99.9% {
     -webkit-opacity: 0;
     -moz-opacity: 0;
     -ms-opacity: 0;
@@ -207,7 +207,7 @@
     -ms-opacity: 1;
     -o-opacity: 1;
     opacity: 1; }
-  99% {
+  99.9% {
     -webkit-opacity: 0;
     -moz-opacity: 0;
     -ms-opacity: 0;
@@ -231,7 +231,7 @@
     -ms-opacity: 1;
     -o-opacity: 1;
     opacity: 1; }
-  99% {
+  99.9% {
     -webkit-opacity: 0;
     -moz-opacity: 0;
     -ms-opacity: 0;
@@ -1377,7 +1377,9 @@ footer {
   height: calc(100vh - 120px);
   width: 1118px;
   margin: 0 auto;
-  text-align: left; }
+  text-align: left;
+  z-index: 100;
+  position: relative; }
 
 .welcome_info {
   color: #FFF;
@@ -1454,6 +1456,18 @@ footer {
     .welcome_menu a:hover {
       color: #FFC300; }
 
+.welcome_preview {
+  top: 60%;
+  right: 0px;
+  position: relative;
+  transform: translateY(-50%);
+  height: 95%;
+  width: 38.20%;
+  background-image: url("/assets/img/Deadlines-preview.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right top; }
+
 .welcome_signin {
   border-color: #FE2746;
   background-color: transparent !important;
@@ -1462,6 +1476,8 @@ footer {
     color: #FFC300 !important; }
 
 .about_content {
+  position: relative;
+  z-index: 10;
   width: 100%;
   position: relative;
   height: calc(100% + 120px);
@@ -1478,9 +1494,21 @@ footer {
   transform: translateY(-50%);
   position: relative; }
   .about_profile h2 {
-    margin: 20px 0px 10px; }
+    font-size: 24px;
+    font-weight: 300;
+    margin: 20px 0px 0px; }
   .about_profile h3 {
-    margin: 0; }
+    font-size: 20px;
+    margin: 6px 0px 16px;
+    font-weight: normal;
+    color: rgba(255, 255, 255, 0.6); }
+  .about_profile p {
+    margin: 10px 0px; }
+  .about_profile a {
+    color: #FE2746;
+    text-decoration: none; }
+    .about_profile a:hover {
+      color: #FFC300; }
 
 .welcome_gradient {
   background: -webkit-linear-gradient(top, rgba(28, 29, 30, 0) 0%, #1c1d1e 100%);
