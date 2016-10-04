@@ -636,7 +636,7 @@
   font-family: Roboto-light;
   src: url(../fonts/RobotoLight.ttf); }
 input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px #FFEDB2 inset; }
+  -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.3) inset !important; }
 
 .signin {
   padding: 200px 0px 0px 0px;
@@ -671,14 +671,17 @@ input:-webkit-autofill {
       border: 0px;
       outline: none; }
   .signin button {
-    padding: 10px;
-    margin: 20px auto 0px;
+    outline: none;
+    font-size: 14px;
+    padding: 10px 35px 12px;
     display: block;
+    line-height: 10px;
+    margin: 20px auto 0px;
     background-color: #FE2746;
-    border: 0px;
+    border: 2px;
     border-color: #FE2746;
     border-style: solid;
-    outline: none;
+    border-radius: 100px;
     color: #FFF;
     width: 50%;
     -webkit-transition: all 0.161s ease;
@@ -687,6 +690,7 @@ input:-webkit-autofill {
     -o-transition: all 0.161s ease;
     transition: all 0.161s ease; }
     .signin button:hover {
+      border-color: #FFC300;
       background-color: #FFC300; }
   .signin p {
     margin: 0 20px;
@@ -702,8 +706,12 @@ input:-webkit-autofill {
   #form input {
     font-size: 12px;
     width: 200px;
-    display: block;
-    margin: 0 auto; }
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-bottom: 10px;
+    color: #FFF;
+    display: block; }
+    #form input:focus {
+      background-color: rgba(255, 255, 255, 0.05); }
   #form p {
     color: #FFF; }
 
@@ -1374,7 +1382,7 @@ footer {
   height: 200%; }
 
 .welcome_content {
-  height: calc(100vh - 120px);
+  height: calc(100vh - 10%);
   width: 1118px;
   margin: 0 auto;
   text-align: left;
@@ -1436,7 +1444,9 @@ footer {
     border-color: #FE2746;
     border-style: solid;
     border-radius: 100px;
+    outline: none;
     color: #FFF;
+    min-width: 35%;
     -webkit-transition: all 0.161s ease;
     -moz-transition: all 0.161s ease;
     -ms-transition: all 0.161s ease;
