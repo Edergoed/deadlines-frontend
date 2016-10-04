@@ -1,6 +1,6 @@
 input:-webkit-autofill
 {
-    -webkit-box-shadow: 0 0 0px 1000px #FFEDB2 inset;
+    -webkit-box-shadow: 0 0 0px 1000px rgba(256,256,256, 0.3) inset !important;
 }
 
 .signin {
@@ -49,19 +49,37 @@ input:-webkit-autofill
         }
     }
     button{
-        padding: 10px;
-        margin: 20px auto 0px;
-        display: block;
-        background-color: #FE2746;
+        // padding: 10px;
+        // margin: 20px auto 0px;
+        // display: block;
+        // background-color: #FE2746;
+        // border-radius: 100px;
 
-        border: 0px;
+        // border: 0px;
+        // border-color: #FE2746;
+        // border-style: solid;
+        outline: none;
+        // color: #FFF;
+        // width: 50%;
+
+        font-size: 14px;
+        padding: 10px 35px 12px;
+        display: block;
+        // position: relative;
+        line-height: 10px;
+        margin: 20px auto 0px;
+        background-color: #FE2746;
+        border: 2px;
         border-color: #FE2746;
         border-style: solid;
-        outline: none;
+        border-radius: 100px;
         color: #FFF;
         width: 50%;
+
+
         @include transition(all 0.161s ease);
         &:hover{
+            border-color: #FFC300;
             background-color: #FFC300;
         }
     }
@@ -78,8 +96,15 @@ input:-webkit-autofill
     input{
         font-size: 12px;
         width: 200px;
+        background-color: rgba(256,256,256,0.1);
+        margin-bottom:10px;
+        // border-bottom: 1px solid #FFF;
+        color: #FFF;
         display: block;
-        margin: 0 auto;
+        // margin: 0 auto;
+        &:focus{
+            background-color: rgba(256,256,256,0.05);
+        }
     }
     p{
         color: #FFF;
