@@ -9,6 +9,7 @@ angular
     vm.init = init;
 
     function init(){
+        console.log('test');
         if($stateParams.mode === "archive"){
             vm.archive = true;
         } else {
