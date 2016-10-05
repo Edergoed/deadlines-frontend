@@ -112,5 +112,43 @@ angular
         }
     }
 
+<<<<<<< HEAD
     init();
+=======
+    $scope.getKlasses = function(id){
+        $scope.Loading = true;
+        klass.getAllKlasses(id)
+        .then(function(res){
+            //$scope.deadlineChangeState('view');
+            $scope.klassList = klass.klassList;
+            console.log($scope.klassList);
+            $scope.Loading = false;
+            //succes
+        }, function(res){
+            $scope.Loading = false;
+            //error
+        })
+    }
+
+    $scope.addAssignment = function(){
+        console.log("jaja");
+        newAssignment = null;
+        $scope.selectedDeadline.deadline.klass_ids.push(newAssignment);
+    }
+
+    $scope.removeAssignment = function($event, klass_id){
+        for(i = 0; i < $scope.selectedDeadline.deadline.klass_ids.length ;i++){
+            if($scope.selectedDeadline.deadline.klass_ids[i] == klass_id){
+                //remove klopt niet moet juiste versoe zoeken
+                $scope.selectedDeadline.deadline.klass_ids.splice(i,1);
+            }
+        }
+        angular.element($event.currentTarget).parent().remove();
+    }
+
+    if($stateParams.editID != null){
+        $scope.getDeadline($stateParams.editID);
+        $scope.getKlasses();
+    }
+>>>>>>> fe1dbfe9ed9ce2c01a1572d07fc82005412b533d
 });
