@@ -1,4 +1,56 @@
 <div class="dynamic-post">
+    <div class="calendar-selection">
+        <div class="calendar-top-bar">
+            <a href="#" style="float: left; ">Cancel</a>
+            <a href="#" class="calendar-previous" style="float: left;
+            padding: 20px 20px;
+            background-image: url('assets/img/arrow_left.svg');
+            transform: translateY(-6px);
+            background-size: cover;
+            background-color: white;"></a>
+            <div>
+                <div id="current_year" style="font-size: 10px;">2015</div>
+                <div id="current_month">September</div>
+            </div>
+
+            <a href="#" style="float: right;"" class="calendar-today">Today</a>
+            <a href="#" class="calendar-next" style="    float: right;
+            padding: 20px 20px;
+            background-image: url('assets/img/arrow_right.svg');
+            transform: translateY(-6px);
+            background-size: cover;
+            background-color: white;"></a>
+
+        </div>
+
+        <div class="weekdays">
+            <div>
+                <div class="day">Sun</div>
+            </div>
+            <div>
+                <div class="day">Mon</div>
+            </div>
+            <div>
+                <div class="day">Tue</div>
+            </div>
+            <div>
+                <div class="day">Wed</div>
+            </div>
+            <div>
+                <div class="day">Thu</div>
+            </div>
+            <div>
+                <div class="day">Fri</div>
+            </div>
+            <div>
+                <div class="day">Sat</div>
+            </div>
+        </div>
+    </div>
+
+
+
+
     <div>
         <p style="text-align: center; font-size: 14px; margin: 6px 0px;">New Deadline</p>
         <form name="deadlineForm" ng-submit="deadlineNew.createDeadline()" novalidate>

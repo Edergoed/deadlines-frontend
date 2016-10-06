@@ -130,5 +130,101 @@ angular
         }
     }
 
+    var month = 0;
+    var base = $('.weekdays').html();
+
+    $('.calendar-previous').click(function () {
+        month--;
+        GetDays();
+    });
+
+    $('.calendar-next').click(function () {
+        month++;
+        GetDays();
+    });
+
+    $('.calendar-today').click(function () {
+        month = 0;
+        GetDays();
+    });
+
+    function daysInMonth(month,year) {
+        return new Date(year, month, 0).getDate();
+    }
+
+    function GetDays() {
+        $('.weekdays').html(base);
+
+        var date = new Date();
+        var firstDay = new Date(date.getFullYear(), date.getMonth() + month, 1);
+        var lastDay = new Date(date.getFullYear(), date.getMonth() + (month + 1), 0);
+        var monthLength = daysInMonth(date.getMonth(),date.getFullYear());
+        var weekdays = ["sun","mon","tue","wed","thu","fri","sat"];
+        var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+        $('#current_year').html(date.getFullYear());
+        if((date.getMonth() + month) >= 12){
+            var smartMonth = (date.getMonth() + month) % 12;
+            var smartYear = Math.floor((date.getMonth() + month)/12);
+
+            $('#current_month').html(monthNames[smartMonth]);
+            $('#current_year').html(date.getFullYear() + smartYear);
+
+        }else{
+            $('#current_month').html(monthNames[date.getMonth() + month]);
+        }
+        
+
+
+        var firstWeekday = firstDay.getDay();
+        var children = $('.weekdays').children('.weekdays > div');
+        var startDay = firstWeekday;
+
+        for (var i = 0; i < firstWeekday; i++) {
+            var curHtml = children.eq(i).html();
+            children.eq(i).html(curHtml + "<div class='calendar-number'></div>");
+        }
+
+        for (var i = 1; i <= monthLength; i++) {
+            var curHtml = children.eq(firstWeekday).html();
+
+    //         if(month == 0 && date.getDay() == i){
+                // children.eq(firstWeekday).html(curHtml + "<div class='calendar-number'><div class='option' onclick='ChooseDate()'>9:15</div><div class='option' onclick='ChooseDate()'>13:00</div><div class='option' onclick='ChooseDate()'>23:59</div><div class='calendar-number-graphic calendar-currentday'><p>"+ i +"</p></div></div>");
+    //         }else{
+                children.eq(firstWeekday).html(curHtml + "<div class='calendar-number'><div class='option' onclick='ChooseDate()'>9:15</div><div class='option' onclick='ChooseDate()'>13:00</div><div class='option' onclick='ChooseDate()'>23:59</div><div class='calendar-number-graphic'><p>"+ i +"</p></div></div>");
+            // }
+            if(firstWeekday < 6){
+                firstWeekday++;
+            }else{
+                firstWeekday = 0;
+            }
+        }
+        var maxChildren = 0;
+        var bigDay = 0;
+        for (var i = 0; i <= 6; i++) {
+            if(children.eq(i).children().length >= maxChildren){
+                maxChildren = children.eq(i).children().length;
+                bigDay = i;
+            }
+        }
+
+        for (var i = bigDay+1; i <= 6; i++) {
+            var curHtml = children.eq(i).html();
+            children.eq(i).html(curHtml + "<div class='calendar-number'><div class='option'>9:15</div><div class='option'>13:00</div><div class='option'>23:59</div><div class='calendar-number-graphic calendar-faded'><p>"+ (i - bigDay) +"</p></div></div>");
+        }
+    }
+
+    function ChooseDate(){
+        var chosenTime = $(this).html();
+        console.log(chosenTime);
+    }
+
+    $( document ).ready(function() {
+        GetDays();
+    });
+
+
+
+
     init();
 });
