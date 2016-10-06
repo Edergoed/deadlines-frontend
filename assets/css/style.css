@@ -977,7 +977,8 @@ footer {
 
 .dynamic-options {
   height: 30px;
-  width: 100%; }
+  width: 100%;
+  margin-top: 20px; }
 
 .dynamic-username {
   position: relative;
@@ -1167,7 +1168,7 @@ footer {
 
 .dynamic-meta {
   overflow: hidden;
-  height: 24px; }
+  height: auto; }
   .dynamic-meta input, .dynamic-meta select {
     font-size: 14px;
     padding: 0px;
@@ -1181,11 +1182,18 @@ footer {
 .edit-meta {
   overflow: hidden;
   padding: 6px 0px;
-  border-bottom: solid 1px #000; }
+  border-bottom: solid 1px #000;
+  height: 36px;
+  position: relative;
+  box-sizing: border-box; }
   .edit-meta input, .edit-meta select {
     font-size: 14px;
     padding: 0px;
     margin: 0px; }
+  .edit-meta input, .edit-meta div {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); }
 
 .edit-sub-meta {
   margin-bottom: 14px;
@@ -1204,6 +1212,21 @@ footer {
   position: relative;
   top: 50%;
   transform: translateY(-50%); }
+
+.dynamic-classesedit {
+  display: inline-block;
+  border-radius: 100px;
+  font-size: 14px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%); }
+  .dynamic-classesedit select {
+    padding: 4px 12px;
+    margin: 0px 6px 0px 0px;
+    font-size: 14px; }
+  .dynamic-classesedit select option {
+    -webkit-appearance: none;
+    background-color: #EEE; }
 
 .dynamic-addclass {
   outline: none;
@@ -1240,9 +1263,15 @@ footer {
     .deadline_done:hover div {
       opacity: 1; }
 
+.head_left {
+  display: inline-block;
+  position: relative;
+  width: 75%;
+  height: 100%; }
+
 .deadline, .archivedDeadline {
   width: 100%;
-  height: 70px;
+  height: 60px;
   clear: both;
   display: block;
   overflow: hidden;
@@ -1356,13 +1385,14 @@ footer {
 .arrow {
   width: 0;
   height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-right: 10px solid #fff;
-  margin-top: calc(35px - 10px);
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-right: 6px solid #fff;
   float: right;
   position: relative;
-  display: box; }
+  display: box;
+  top: 50%;
+  transform: translateY(-50%); }
 
 @media (min-width: 740px) {
   #dynamic_right {
