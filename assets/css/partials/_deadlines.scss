@@ -400,9 +400,17 @@
     }
     .count_down
     {
-        font-size: 20px;
-        float: right;
-        text-align: right;
+        font-size: 16px;
+        font-family: Roboto-Regular;
+        top: 50%;
+        // width: 50%;
+        // display: inline-block;
+        transform: translateY(-50%);
+        position: absolute;
+        @include transition(transform 0.161s ease);
+        &::first-letter{
+            text-transform: capitalize;
+        }
     }
     .remaining
     {
