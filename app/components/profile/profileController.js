@@ -40,7 +40,7 @@ app
     }
 
     $scope.updateKlass = function(){
-        user.updateUser($scope.selectedUser)
+        user.updateUserKlass($scope.selectedUser)
         .then(function(res){
             //succes
         }, function(res){

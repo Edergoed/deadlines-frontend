@@ -1,8 +1,9 @@
-angular.module('Deadlines')
+angular
+.module('Deadlines')
 .service('deadline', function deadline($http, $q, $rootScope, urls, deadlineDistance) {
 
     var deadline = this;
-    deadline.deadlineList = {};
+    deadline.deadlines = {};
     deadline.deadline = {};
     deadline.backgroundColor = {};
 
@@ -13,11 +14,9 @@ angular.module('Deadlines')
 
             $http.get(urls.BASE_API + '/archive')
             .success(function(res){
-                deadline.deadlineList = deadlineDistance.getDistance(res);
-                console.log(deadlineDistance.backgroundColor);
-                console.log("yaya");
+                deadline.deadlines = deadlineDistance.getDistance(res);
                 deadline.backgroundColor = deadlineDistance.backgroundColor;
-                //deadline.deadlineList = res;
+                //deadline.deadlines = res;
                 defer.resolve(res);
             })
             .error(function(err, status){
@@ -28,10 +27,8 @@ angular.module('Deadlines')
             //$http.get(urls.BASE_API + '/deadlines')
             $http.get(urls.BASE_API + '/deadlines')
             .success(function(res){
-                deadline.deadlineList = deadlineDistance.getDistance(res);
-                //deadline.deadlineList = res;
-                console.log(deadlineDistance.backgroundColor);
-                console.log("yaya");
+                deadline.deadlines = deadlineDistance.getDistance(res);
+                //deadline.deadlines = res;
                 deadline.backgroundColor = deadlineDistance.backgroundColor;
                 defer.resolve(res);
             })
@@ -60,8 +57,7 @@ angular.module('Deadlines')
     deadline.updateDeadline = function(user, deadline){
         var defer = $q.defer();
 
-        console.log(deadline);
-        $http.patch(urls.BASE_API + '/users/' + user + '/deadlines/' + deadline.id, deadline)
+        $http.patch(urls.BASE_API + '/users/' + user + '/deadlines/' + deadline.id, {deadline : deadline, klass_ids : deadline.klass_ids})
         .success(function(res){
             deadline.deadline = res;
             defer.resolve(res);
@@ -76,7 +72,7 @@ angular.module('Deadlines')
     deadline.createDeadline = function(user, deadline){
         var defer = $q.defer();
 
-        $http.post(urls.BASE_API + '/users/' + user + '/deadlines', deadline)
+        $http.post(urls.BASE_API + '/users/' + user + '/deadlines', {deadline : deadline.deadline, klass_ids : deadline.deadline.klass_ids})
         .success(function(res){
             defer.resolve(res);
         })

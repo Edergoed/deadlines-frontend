@@ -1,3 +1,4 @@
-angular.module('Deadlines')
+angular
+.module('Deadlines')
 .controller('NavCtrl', function($scope, user, auth) {
 });

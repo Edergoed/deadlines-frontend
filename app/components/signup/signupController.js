@@ -1,6 +1,7 @@
 'use strict';
 
-app
+angular
+.module('Deadlines')
 .controller('SignupCtrl', function($scope, $state, $stateParams, user, signup, klass){
 	var self = this;
 

@@ -1,4 +1,6 @@
-app.controller('TimetableCtrl', function($scope, $state, $stateParams, timetable, user){
+angular
+.module('Deadlines')
+.controller('TimetableCtrl', function($scope, $state, $stateParams, timetable, user){
 
     $scope.Loading = false;
     $scope.init = function(){
