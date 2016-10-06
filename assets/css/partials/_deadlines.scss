@@ -368,7 +368,7 @@
 .head_left{
     display: inline-block; 
     position: relative; 
-    width: 75%; 
+    width: 70%; 
     height: 100%;
 }
 
@@ -383,9 +383,10 @@
     -ms-animation-timing-function: cubic-bezier(0,0,0,1);
     -o-animation-timing-function: cubic-bezier(0,0,0,1);
     animation-timing-function: cubic-bezier(0,0,0,1);
-
+    -webkit-transform: translateZ(0);
     .deadline_head
     {
+        -webkit-transform: translateZ(0);
         height: 100%;
         box-sizing: border-box;
         color: #fff;
@@ -400,7 +401,6 @@
         }
         &:hover
         {
-            // background-color: rgba(255,255,255,0.10);
             .title{
                 transform: translateY(-100%);
             }
