@@ -300,21 +300,30 @@
 .dynamic-addclass{
     outline: none;
     font-size: 14px;
-    // padding: 10px 10px 10px;
     display: inline-block;
-    // line-height: 10px;
     margin: 20px auto 0px;
-    // background-color: #FE2746;
-    // border: 2px;
-    // border-color: #FE2746;
-    // border-style: solid;
     border-radius: 100px;
-    // color: #FFF;
     font-family: 'Roboto-Light';
     @include transition(all 0.161s ease);
     &:hover{
         border-color: #FFC300;
         background-color: #FFC300;
+    }
+}
+
+.deadline_done{
+    height: 20px !important;
+    @include transition(height 0.161s ease);
+    div{
+        opacity: 0;
+        @include transition(opacity 0.161s ease);
+    }
+
+    &:hover{
+        height: 70px !important;
+        div{
+            opacity: 1;
+        }
     }
 }
 
@@ -346,7 +355,7 @@
         }
         &:hover
         {
-            background-color: rgba(255,255,255,0.10);
+            // background-color: rgba(255,255,255,0.10);
             .title{
                 transform: translateY(-100%);
             }
