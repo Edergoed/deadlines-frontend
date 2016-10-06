@@ -24,7 +24,7 @@ angular
         if($stateParams.showID != null){
             for(i = 0; i < vm.deadlines.length; i++)
                 if(vm.deadlines[i].id == $stateParams.showID){
-                    $scope.deadlines[i].selected = true;
+                    vm.deadlines[i].selected = true;
                 } else {
                     vm.deadlines[i].selected = false;
                 }
@@ -44,11 +44,21 @@ angular
         .then(function(res){
             //success
             vm.deadlines = deadline.deadlines.deadlines;
+            // $scope.$watch('$state.current.name', function(){
+            console.log($state);
             $scope.$watch('$state.current.name', function(){
                 if($state.current.name == 'mainon.deadlines'){
                     $state.go('mainon.deadlines.show', { showID: vm.deadlines[0].id });
+                    console.log('test');
                 }
             });
+
+            // $scope.$watch('currState.current.name', function(){
+            //     //console.log($scope.deadlineList.deadlines);
+            //     if($state.current.name == 'mainon.deadlines' && $scope.deadlineList.deadlines[0] != null){
+            //         $state.go('mainon.deadlines.show', { showID: $scope.deadlineList.deadlines[0].id });
+            //     }
+            // });
 
             if(vm.deadlines[0] != null && vm.selectedDeadlineId == null ){
                 vm.arrow(vm.deadlines[0].id);
