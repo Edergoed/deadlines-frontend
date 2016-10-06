@@ -27,7 +27,7 @@
                     deadlineEdit.availableKlasses[$index]" data-ng-model="choice.value" placeholder="Class">
                         <option value="" disabled selected>Select your class</option>
                     </select>
-                    <button class="remove" ng-show="!$first && (choice.value != null)" ng-click="deadlineEdit.removeChoice($index)">X</button>
+                    <a class="remove" ng-show="!$first && (choice.value != null)" ng-click="deadlineEdit.removeChoice($index)">X</a>
                 </div>
                 <!-- <a id="addNewChoice" ng&#45;click="deadlineEdit.addNewChoice()">More</a> -->
         </div>
