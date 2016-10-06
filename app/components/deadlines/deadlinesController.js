@@ -45,11 +45,12 @@ angular
             //success
             vm.deadlines = deadline.deadlines.deadlines;
             // $scope.$watch('$state.current.name', function(){
-            console.log($state);
+            console.log('set watch');
             $scope.$watch('$state.current.name', function(){
+            console.log('stat change');
                 if($state.current.name == 'mainon.deadlines'){
                     $state.go('mainon.deadlines.show', { showID: vm.deadlines[0].id });
-                    console.log('test');
+                    console.log('state is deadlines');
                 }
             });
 
