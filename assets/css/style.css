@@ -1295,12 +1295,14 @@ footer {
     font-family: Roboto-Regular;
     top: 50%;
     transform: translateY(-50%);
-    position: absolute;
     -webkit-transition: transform 0.161s ease;
     -moz-transition: transform 0.161s ease;
     -ms-transition: transform 0.161s ease;
     -o-transition: transform 0.161s ease;
-    transition: transform 0.161s ease; }
+    transition: transform 0.161s ease;
+    float: right;
+    text-align: right;
+    position: relative; }
     .deadline .count_down::first-letter, .archivedDeadline .count_down::first-letter {
       text-transform: capitalize; }
   .deadline .remaining, .archivedDeadline .remaining {

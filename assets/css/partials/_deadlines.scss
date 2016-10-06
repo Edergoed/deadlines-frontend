@@ -406,11 +406,15 @@
         // width: 50%;
         // display: inline-block;
         transform: translateY(-50%);
-        position: absolute;
+        // position: absolute;
         @include transition(transform 0.161s ease);
         &::first-letter{
             text-transform: capitalize;
         }
+
+        float: right; 
+        text-align: right;  
+        position: relative;
     }
     .remaining
     {
