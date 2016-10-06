@@ -11,6 +11,7 @@ angular
     vm.removeChoice = removeChoice;
     vm.addNewChoice = addNewChoice;
     vm.getDate = getDate;
+    vm.onChange = onChange;
 
     function init(){
         vm.choices = [];
@@ -32,6 +33,7 @@ angular
             vm.deadline.deadline.klass_ids = [];
             for(i = 0;i < vm.choices.length; i++){
                 console.log(vm.choices[i].value);
+                if(vm.choices[i].value != null)
                 vm.deadline.deadline.klass_ids.push(vm.choices[i].value);
             }
             deadline.updateDeadline($scope.userCurrent.id, vm.deadline.deadline)
@@ -43,6 +45,12 @@ angular
                 //error
             })
         }
+    }
+
+    function onChange() {
+        checkAvailableKlasses();
+        if(vm.choices[vm.choices.length-1].value != null)
+            addNewChoice();
     }
 
     function checkAvailableKlasses() {
@@ -63,7 +71,7 @@ angular
 
     function addNewChoice() {
         var newItemNo = vm.choices.length+1;
-        vm.choices.push({'id' : 'klass'+newItemNo});
+        vm.choices.push({'id' : 'klass'+newItemNo, 'value' : null});
         vm.checkAvailableKlasses();
     };
 
@@ -91,6 +99,7 @@ angular
                 var newItemNo = vm.choices.length+1;
                 vm.choices.push({'id' : 'klass'+newItemNo, 'value' : vm.deadline.deadline.klass_ids[i]});
             }
+            vm.choices.push({'id' : 'klass'+newItemNo, 'value' : null});
 
             vm.checkAvailableKlasses();
             vm.loading = false;

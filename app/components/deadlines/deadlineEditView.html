@@ -23,22 +23,18 @@
         <div class="dynamic-content">
             <div text-angular ng-model="deadlineEdit.deadline.deadline.content"></div>
                 <div data-ng-repeat="choice in deadlineEdit.choices">
-                    <select id="" name="klass" data-ng-change="deadlineEdit.checkAvailableKlasses($index)"  data-ng-options="klass.id as klass.name for klass in
-                    deadlineEdit.availableKlasses[$index]" data-ng-model="choice.value" placeholder="Class" required>
+                    <select id="" name="klass" data-ng-change="deadlineEdit.onChange($index)"  data-ng-options="klass.id as klass.name for klass in
+                    deadlineEdit.availableKlasses[$index]" data-ng-model="choice.value" placeholder="Class">
                         <option value="" disabled selected>Select your class</option>
                     </select>
-                    <button class="remove" ng-show="!$first" ng-click="deadlineEdit.removeChoice($index)">X</button>
+                    <button class="remove" ng-show="!$first && (choice.value != null)" ng-click="deadlineEdit.removeChoice($index)">X</button>
                 </div>
-                <a id="addNewChoice" ng-click="deadlineEdit.addNewChoice()">More</a>
+                <!-- <a id="addNewChoice" ng&#45;click="deadlineEdit.addNewChoice()">More</a> -->
         </div>
 
-
-
         <div class="dynamic-classes">
-
             <div data-ng-repeat="assignedKlass in
                 selectedDeadline.deadline.klass_ids track by $index" style="display: inline-block;">
-
                 <div >
                     <select id="" name="klass" data-ng-change="updateKlass()" data-ng-options="klass.id as klass.name for klass in klassList.klasses" data-ng-model="selectedDeadline.deadline.klass_ids[$index]" placeholder="Class" style="display: inline-block;">
                         <option value="" disabled selected>Select class</option>
