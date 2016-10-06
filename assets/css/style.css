@@ -1277,7 +1277,7 @@ footer {
       text-transform: capitalize; }
   .deadline .subject, .archivedDeadline .subject {
     font-size: 12px;
-    font-family: Roboto-Light;
+    font-family: Roboto-Regular;
     position: absolute;
     opacity: 0;
     top: 50%;
@@ -1291,9 +1291,20 @@ footer {
     .deadline .subject::first-letter, .archivedDeadline .subject::first-letter {
       text-transform: capitalize; }
   .deadline .count_down, .archivedDeadline .count_down {
-    font-size: 20px;
+    font-size: 16px;
+    font-family: Roboto-Regular;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transition: transform 0.161s ease;
+    -moz-transition: transform 0.161s ease;
+    -ms-transition: transform 0.161s ease;
+    -o-transition: transform 0.161s ease;
+    transition: transform 0.161s ease;
     float: right;
-    text-align: right; }
+    text-align: right;
+    position: relative; }
+    .deadline .count_down::first-letter, .archivedDeadline .count_down::first-letter {
+      text-transform: capitalize; }
   .deadline .remaining, .archivedDeadline .remaining {
     font-size: 14px;
     font-family: Roboto-Light; }
