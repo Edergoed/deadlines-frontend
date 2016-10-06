@@ -33,7 +33,7 @@ angular.module('Deadlines')
                 remaining = weeks_remaining;
                 unit = 'Week';
             }
-        } else if (days_remaining >= 1){
+        } else if (alldays_remaining >= 1){
             remaining = alldays_remaining;
             unit = 'Days';
             if(days_remaining == 1){
