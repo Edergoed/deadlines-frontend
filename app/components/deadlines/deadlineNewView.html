@@ -1,48 +1,57 @@
 <div class="dynamic-post">
     <div>
         <p style="text-align: center; font-size: 14px; margin: 6px 0px;">New Deadline</p>
-        <form name="deadlineForm" ng-submit="createDeadline()" novalidate>
+        <form name="deadlineForm" ng-submit="deadlineNew.createDeadline()" novalidate>
             <div class="edit-meta">
-                <input type="text" name="title" placeholder="Title" data-ng-model="deadline.deadline.title" required>
+                <input type="text" name="title" placeholder="Title" data-ng-model="deadlineNew.deadline.deadline.title" required>
                 <div style="float: right;">
-                    <select id="" name="day" data-ng-options="day for day in days" data-ng-model="deadline.deadline.day" required>
+                    <select id="" name="day" data-ng-options="day
+                        for day in deadlineNew.days"
+                        data-ng-model="deadlineNew.deadline.deadline.day" required>
                     </select>
-                    <select id="" name="month" data-ng-options="month.id as month.name for month in months" data-ng-model="deadline.deadline.month" required>
+                    <select id="" name="month"
+                        data-ng-options="month.id as month.name
+                        for month in deadlineNew.months"
+                        data-ng-model="deadlineNew.deadline.deadline.month" required>
                     </select>
-                    <select id="" name="year" data-ng-options="year for year in years" data-ng-model="deadline.deadline.year" required>
+                    <select id="" name="year"
+                        data-ng-options="year for year in
+                        deadlineNew.years"
+                        data-ng-model="deadlineNew.deadline.deadline.year" required>
                     </select>
                 </div>
             </div>
             <div class="edit-sub-meta">
-                <input type="text" name="subject" placeholder="Subject" data-ng-model="deadline.deadline.subject" required>
-                <input type="text" name="time" placeholder="12:00" data-ng-model="deadline.deadline.time" style="float: right; text-align: right;" required>
+                <input type="text" name="subject" placeholder="Subject" data-ng-model="deadlineNew.deadline.deadline.subject" required>
+                <input type="text" name="time" placeholder="12:00" data-ng-model="deadlineNew.deadline.deadline.time" style="float: right; text-align: right;" required>
                 <!-- <select id="" name=""></select> -->
             </div>
             <div class="dynamic-content">
-                <div text-angular ng-model="deadline.deadline.content"  ta-toolbar-button-class="btn-editor"></div>
-                <div data-ng-repeat="choice in choices">
-                    <select id="" name="klass" data-ng-change="checkAvailableKlasses($index)"  data-ng-options="klass.id as klass.name for klass in
-                    availableKlasses[$index]" data-ng-model="choice.value" placeholder="Class" required>
+                <div text-angular ng-model="deadlineNew.deadline.deadline.content"  ta-toolbar-button-class="btn-editor"></div>
+                <div data-ng-repeat="choice in deadlineNew.choices">
+                    <select id="" name="klass" data-ng-change="deadlineNew.onChange()"  data-ng-options="klass.id as klass.name for klass in
+                    deadlineNew.availableKlasses[$index]" data-ng-model="choice.value" placeholder="Class" required>
                         <option value="" disabled selected>Select your class</option>
                     </select>
-                    <button class="remove" ng-show="!$first" ng-click="removeChoice($index)">X</button>
+                    <a class="remove" ng-show="!$first && (choice.value == null)" ng-click="deadlineNew.removeChoice($index)">X</a>
                 </div>
-                <a id="addNewChoice" ng-click="addNewChoice()">More</a>
+                <a id="addNewChoice" ng-click="deadlineNew.addNewChoice()">More</a>
                 <button class="btn_save" type="submit" style="margin: 0 auto;">Post deadline</button>
             </div>
-            <div class="error_block" ng-messages="deadlineForm.title.$error" ng-if="deadlineForm.title.$touched || submitted">
+            <div class="error_block" ng-messages="deadlineForm.title.$error" ng-if="deadlineForm.title.$touched || deadlineNew.submitted">
                 <p ng-message="required">Title is required</p>
             </div>
-            <div class="error_block" ng-messages="deadlineForm.subject.$error" ng-if="deadlineForm.subject.$touched || submitted">
+            <div class="error_block" ng-messages="deadlineForm.subject.$error" ng-if="deadlineForm.subject.$touched || deadlineNew.submitted">
                 <p ng-message="required">Subject is required</p>
             </div>
-            <div class="error_block" ng-messages="deadlineForm.time.$error" ng-if="deadlineForm.time.$touched || submitted">
+            <div class="error_block" ng-messages="deadlineForm.time.$error" ng-if="deadlineForm.time.$touched || deadlineNew.submitted">
                 <p ng-message="required">Time is required</p>
             </div>
-            <div class="error_block"  ng-if="(deadline.deadline.content == null && submitted) || (deadline.deadline.content == '' && submitted)">
+            <div class="error_block"  ng-if="(deadline.deadline.content == null && submitted) || (deadline.deadline.content == '' &&
+                deadlineNew.submitted)">
                 <p>Content is required</p>
             </div>
-            <div class="error_block" ng-messages="deadlineForm.klass.$error" ng-if="deadlineForm.klass.$touched || submitted">
+            <div class="error_block" ng-messages="deadlineForm.klass.$error" ng-if="deadlineForm.klass.$touched || deadlineNew.submitted">
                 <p ng-message="required">Class is required</p>
             </div>
         </form>

@@ -45,7 +45,13 @@ angular
         }).state('mainon.deadlines.new', {
             url: '/new',
             templateUrl: 'app/components/deadlines/deadlineNewView.html',
-            controller: 'DeadlineNewCtrl'
+            controller: 'DeadlineNewCtrl',
+            controllerAs: 'deadlineNew',
+            resolve: {
+                klasses: function(klass) {
+                    return klass.getAllKlasses();
+                }
+            }
 
         }).state('mainon.deadlines.edit', {
             url: '/edit/:editID',
