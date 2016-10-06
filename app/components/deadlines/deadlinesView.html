@@ -11,7 +11,7 @@
                     data-ng-click="deadlines.arrow(deadlineListItem.id)" ui-sref="mainon.deadlines.show({showID: deadlineListItem.id})" data-distance="{{deadlineListItem.data_distance}}" data-deadline="{{deadlineListItem.deadlineDateTime}}">
                         <div class="arrow" data-ng-show="deadlineListItem.selected"></div>
                         <div class="deadline_head">
-                            <div class="head_left" style="display: inline-block; position: relative; width: 50%; height: 100%;">
+                            <div class="head_left">
                                 <div class="title">
                                     {{ deadlineListItem.title }}
                                     
@@ -22,7 +22,7 @@
                                 </div>
 
                             </div>
-                            <div class="count_down" >{{ deadlineListItem.countdown }} {{ deadlineListItem.unit }}</div>
+                            <div class="count_down">{{ deadlineListItem.countdown }} {{ deadlineListItem.unit }}</div>
                         </div>
                     </div>
                 </div>
