@@ -185,7 +185,7 @@
         border-style: none;
         background-color: #FFF;
         &:focus{
-            background-color: #EEE;
+            // background-color: #EEE;
             outline: none;
         }
     }
@@ -210,30 +210,48 @@
 }
 
 .btn_save{
-        padding: 10px 20px;
-        margin: 0px 5px;
-        display: block;
-        background-color: #FE2746;
+        // padding: 10px 20px;
+        // margin: 0px 5px;
+        // display: block;
+        // background-color: #FE2746;
 
-        border: 0px;
+        // border: 0px;
+        // border-color: #FE2746;
+        // border-style: solid;
+        // color: #FFF;
+
+        // &:hover{
+        //     background-color: #FE3D59;
+        // }
+
+        // &:focus{
+        //     border: 0px;
+        //     border-color: #FE2746;
+        //     border-style: solid;
+        // }
+
+        outline: none;
+        font-size: 14px;
+        padding: 10px 35px 12px;
+        display: block;
+        line-height: 10px;
+        margin: 20px auto 0px;
+        background-color: #FE2746;
+        border: 2px;
         border-color: #FE2746;
         border-style: solid;
+        border-radius: 100px;
         color: #FFF;
-
+        @include transition(all 0.161s ease);
         &:hover{
-            background-color: #FE3D59;
-        }
-
-        &:focus{
-            border: 0px;
-            border-color: #FE2746;
-            border-style: solid;
+            border-color: #FFC300;
+            background-color: #FFC300;
         }
 }
 
 .dynamic-meta{
     input, select{
-       font-size: 20px;
+       font-size: 14px;
        padding: 0px;
        margin: 0px;
     }
@@ -246,6 +264,58 @@
         font-size: 14px;
     }
     margin-bottom: 14px;
+}
+
+.edit-meta{
+    input, select{
+       font-size: 14px;
+       padding: 0px;
+       margin: 0px;
+    }
+    overflow: hidden;
+    padding: 6px 0px;
+    border-bottom: solid 1px #000;
+}
+
+.edit-sub-meta{
+    input{
+        font-size: 14px;
+    }
+    margin-bottom: 14px;
+    padding: 6px 0px;
+    border-bottom: solid 1px #000;
+}
+
+.dynamic-classes{
+    width: 100%;
+    height: 50px;
+    position: relative;
+    select{
+        padding: 20px 10px;
+        font-size: 14px;
+        font-family: 'Roboto-Light';
+    }
+}
+
+.dynamic-addclass{
+    outline: none;
+    font-size: 14px;
+    // padding: 10px 10px 10px;
+    display: inline-block;
+    // line-height: 10px;
+    margin: 20px auto 0px;
+    // background-color: #FE2746;
+    // border: 2px;
+    // border-color: #FE2746;
+    // border-style: solid;
+    border-radius: 100px;
+    // color: #FFF;
+    font-family: 'Roboto-Light';
+    @include transition(all 0.161s ease);
+    &:hover{
+        border-color: #FFC300;
+        background-color: #FFC300;
+    }
 }
 
 .deadline, .archivedDeadline {
@@ -276,6 +346,10 @@
         &:hover
         {
             background-color: rgba(255,255,255,0.10);
+        }
+        &:active
+        {
+            background-color: rgba(0,0,0,0.10);
         }
     }
     .title

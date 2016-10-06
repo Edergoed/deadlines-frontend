@@ -94,7 +94,7 @@ app.config([
         })
 
         // Home
-        .state('welcome', {
+        .state('mainoff.welcome', {
             url: '/welcome',
             templateUrl: 'app/components/welcome/welcomeView.html',
             controller: 'WelcomeCtrl'

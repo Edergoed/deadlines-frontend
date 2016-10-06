@@ -1,7 +1,8 @@
 <div class="dynamic-post">
     <div>
+        <p style="text-align: center; font-size: 14px; margin: 6px 0px;">New Deadline</p>
         <form name="deadlineForm" ng-submit="createDeadline()" novalidate>
-            <div class="dynamic-meta">
+            <div class="edit-meta">
                 <input type="text" name="title" placeholder="Title" data-ng-model="deadline.deadline.title" required>
                 <div style="float: right;">
                     <select id="" name="day" data-ng-options="day for day in days" data-ng-model="deadline.deadline.day" required>
@@ -12,7 +13,7 @@
                     </select>
                 </div>
             </div>
-            <div class="dynamic-sub-meta">
+            <div class="edit-sub-meta">
                 <input type="text" name="subject" placeholder="Subject" data-ng-model="deadline.deadline.subject" required>
                 <input type="text" name="time" placeholder="12:00" data-ng-model="deadline.deadline.time" style="float: right; text-align: right;" required>
                 <!-- <select id="" name=""></select> -->
