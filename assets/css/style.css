@@ -1277,7 +1277,7 @@ footer {
       text-transform: capitalize; }
   .deadline .subject, .archivedDeadline .subject {
     font-size: 12px;
-    font-family: Roboto-Light;
+    font-family: Roboto-Regular;
     position: absolute;
     opacity: 0;
     top: 50%;
