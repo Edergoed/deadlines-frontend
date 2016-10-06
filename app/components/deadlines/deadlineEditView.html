@@ -54,20 +54,10 @@
         </div>
 
         <div class="dynamic-options">
-<<<<<<< HEAD
             <!-- <div class="dynamic-username" style="display: inline-block;" data-ng-hide="selectedDeadline.deadline.creator.id == null">
                 <img class="gravatar" src="{{gravatar(selectedDeadline.deadline.creator.gravatarHash, 30)}}">
                 <p>{{selectedDeadline.deadline.creator.firstname}} {{selectedDeadline.deadline.creator.prefix}} {{selectedDeadline.deadline.creator.lastname}}</p>
             </div> -->
-            <div class="dynamic-username" style="display: inline-block;" data-ng-hide=" selectedDeadline.deadline.creator.id == selectedDeadline.deadline.editor.id ||
-            selectedDeadline.deadline.editor.id == null">
-                <img class="gravatar" src="{{gravatar(selectedDeadline.deadline.editor.gravatarHash, 30)}}">
-                <p>{{selectedDeadline.deadline.editor.firstname}} {{selectedDeadline.deadline.editor.prefix}} {{selectedDeadline.deadline.editor.lastname}}</p>
-            </div>
-            <button class="btn_save" style="margin: 0 auto; font-size: 12px;" type="submit">Save</button>
-            <!-- <a class="btn_save" style="color: #fff !important;  display: inline-block; float: right;" ui-sref="mainon.deadlines.show({showID:
-            selectedDeadline.deadline.id})"type="">Cancel</a> -->
-=======
         <div class="dynamic-username" style="display: inline-block;" data-ng-hide="deadlineEdit.deadline.deadline.creator.id == null">
             <img class="gravatar" src="{{gravatar(deadlineEdit.deadline.deadline.creator.gravatarHash, 30)}}">
             <p>{{deadlineEdit.deadline.deadline.creator.firstname}} {{deadlineEdit.deadline.creator.prefix}} {{deadlineEdit.deadline.creator.lastname}}</p>
@@ -77,10 +67,9 @@
             <img class="gravatar" src="{{gravatar(deadlineEdit.deadline.deadline.editor.gravatarHash, 30)}}">
             <p>{{deadlineEdit.deadline.deadline.editor.firstname}} {{deadlineEdit.deadline.editor.prefix}} {{deadlineEdit.deadline.editor.lastname}}</p>
         </div>
-            <button class="btn_save" style="display: inline-block; float: right; font-size: 12px;" type="submit">Save</button>
-            <a class="btn_save" style="color: #fff !important;  display: inline-block; float: right;" ui-sref="mainon.deadlines.show({showID:
-                deadlineEdit.deadline.deadline.id})"type="">Cancel</a>
->>>>>>> 881e0133e2997cfe4daeaa7253997e6d159a652a
+            <button class="btn_save" style="margin: 0 auto; font-size: 12px;" type="submit">Save</button>
+            <!-- <a class="btn_save" style="color: #fff !important;  display: inline-block; float: right;" ui-sref="mainon.deadlines.show({showID:
+            selectedDeadline.deadline.id})"type="">Cancel</a> -->
         </div>
     </form>
 </div>
