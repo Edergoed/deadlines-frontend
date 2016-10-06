@@ -300,21 +300,30 @@
 .dynamic-addclass{
     outline: none;
     font-size: 14px;
-    // padding: 10px 10px 10px;
     display: inline-block;
-    // line-height: 10px;
     margin: 20px auto 0px;
-    // background-color: #FE2746;
-    // border: 2px;
-    // border-color: #FE2746;
-    // border-style: solid;
     border-radius: 100px;
-    // color: #FFF;
     font-family: 'Roboto-Light';
     @include transition(all 0.161s ease);
     &:hover{
         border-color: #FFC300;
         background-color: #FFC300;
+    }
+}
+
+.deadline_done{
+    height: 20px !important;
+    @include transition(height 0.161s ease);
+    div{
+        opacity: 0;
+        @include transition(opacity 0.161s ease);
+    }
+
+    &:hover{
+        height: 70px !important;
+        div{
+            opacity: 1;
+        }
     }
 }
 
@@ -336,6 +345,7 @@
         box-sizing: border-box;
         color: #fff;
         padding: 15px 20px 15px 20px;
+
         display: block;
         cursor: pointer;
         a
@@ -345,7 +355,15 @@
         }
         &:hover
         {
-            background-color: rgba(255,255,255,0.10);
+            // background-color: rgba(255,255,255,0.10);
+            .title{
+                transform: translateY(-100%);
+            }
+            .subject{
+                opacity: 1 !important;
+                transform: translateY(0%);
+                margin-top: 4px;
+            }
         }
         &:active
         {
@@ -354,13 +372,31 @@
     }
     .title
     {
-        font-size: 20px;
+        font-size: 16px;
         font-family: Roboto-Regular;
+        top: 50%;
+        // width: 50%;
+        // display: inline-block;
+        transform: translateY(-50%);
+        position: absolute;
+        @include transition(transform 0.161s ease);
+        &::first-letter{
+            text-transform: capitalize;
+        }
     }
     .subject
     {
-        font-size: 14px;
+        font-size: 12px;
         font-family: Roboto-Light;
+        position: absolute;
+        opacity: 0;
+        top: 50%;
+        margin-top: 0px;
+        transform: translateY(-50%); 
+        @include transition(all 0.161s ease);
+        &::first-letter{
+            text-transform: capitalize;
+        }
     }
     .count_down
     {

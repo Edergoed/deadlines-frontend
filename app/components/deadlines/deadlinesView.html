@@ -11,18 +11,23 @@
                     data-ng-click="deadlines.arrow(deadlineListItem.id)" ui-sref="mainon.deadlines.show({showID: deadlineListItem.id})" data-distance="{{deadlineListItem.data_distance}}" data-deadline="{{deadlineListItem.deadlineDateTime}}">
                         <div class="arrow" data-ng-show="deadlineListItem.selected"></div>
                         <div class="deadline_head">
-                            <div class="title">
-                                {{ deadlineListItem.title }}
-                                <span class="count_down" style="float: right; text-align: right">{{ deadlineListItem.countdown }}</span>
+                            <div class="head_left" style="display: inline-block; position: relative; width: 50%; height: 100%;">
+                                <div class="title">
+                                    {{ deadlineListItem.title }}
+                                    
+                                </div>
+                                
+                                <div class="subject">
+                                    {{ deadlineListItem.subject }}
+                                    <span style="text-transform: uppercase;">
+                                    </span>
+                                    <span class="count_down_unit" style="float: right; text-align: right">
+                                        <!-- {{ deadlineListItem.unit }} -->
+                                    </span>
+                                </div>
+
                             </div>
-                            <div class="subject">
-                                {{ deadlineListItem.subject }}
-                                <span style="text-transform: uppercase;">
-                                </span>
-                                <span class="count_down_unit" style="float: right; text-align: right">
-                                    {{ deadlineListItem.unit }}
-                                </span>
-                            </div>
+                            <div class="title" style="float: right; text-align: right; transform: translateY(-50%) !important; position: relative !important;">{{ deadlineListItem.countdown }} {{ deadlineListItem.unit }}</div>
                         </div>
                     </div>
                 </div>

@@ -50,10 +50,6 @@
         </div>
 
         <div class="dynamic-options">
-            <!-- <div class="dynamic-username" style="display: inline-block;" data-ng-hide="selectedDeadline.deadline.creator.id == null">
-                <img class="gravatar" src="{{gravatar(selectedDeadline.deadline.creator.gravatarHash, 30)}}">
-                <p>{{selectedDeadline.deadline.creator.firstname}} {{selectedDeadline.deadline.creator.prefix}} {{selectedDeadline.deadline.creator.lastname}}</p>
-            </div> -->
         <div class="dynamic-username" style="display: inline-block;" data-ng-hide="deadlineEdit.deadline.deadline.creator.id == null">
             <img class="gravatar" src="{{gravatar(deadlineEdit.deadline.deadline.creator.gravatarHash, 30)}}">
             <p>{{deadlineEdit.deadline.deadline.creator.firstname}} {{deadlineEdit.deadline.creator.prefix}} {{deadlineEdit.deadline.creator.lastname}}</p>
@@ -64,8 +60,6 @@
             <p>{{deadlineEdit.deadline.deadline.editor.firstname}} {{deadlineEdit.deadline.editor.prefix}} {{deadlineEdit.deadline.editor.lastname}}</p>
         </div>
             <button class="btn_save" style="margin: 0 auto; font-size: 12px;" type="submit">Save</button>
-            <!-- <a class="btn_save" style="color: #fff !important;  display: inline-block; float: right;" ui-sref="mainon.deadlines.show({showID:
-            selectedDeadline.deadline.id})"type="">Cancel</a> -->
         </div>
     </form>
 </div>
