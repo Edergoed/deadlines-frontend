@@ -18,6 +18,7 @@ angular.module('Deadlines')
     deadlineTime.remainingCalc = function(difference)
     {
         var weeks_remaining = Math.floor(difference / 604800);
+        var alldays_remaining = Math.floor(difference / 86400);
         var days_remaining = Math.floor((difference % 604800)/ 86400);
         var hours_remaining = Math.floor((difference % 86400) / 3600);
         var minutes_remaining = Math.floor((difference % 3600) / 60);
@@ -25,15 +26,15 @@ angular.module('Deadlines')
         var remaining;
         var unit = '';
 
-        if(weeks_remaining >= 1){
+        if(weeks_remaining >= 2){
             remaining = weeks_remaining;
             unit = 'Weeks';
-            if(weeks_remaining == 1){
+            if(weeks_remaining == 2){
                 remaining = weeks_remaining;
                 unit = 'Week';
             }
         } else if (days_remaining >= 1){
-            remaining = days_remaining;
+            remaining = alldays_remaining;
             unit = 'Days';
             if(days_remaining == 1){
                 remaining = days_remaining;
@@ -88,7 +89,7 @@ angular.module('Deadlines')
             unit = '';
         }
 
-        remaining = ("0" + remaining).slice(-2);
+        // remaining = ("0" + remaining).slice(-2);
 
         return [remaining, unit];
     }
