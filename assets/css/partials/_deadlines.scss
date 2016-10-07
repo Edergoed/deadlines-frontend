@@ -351,6 +351,7 @@
 
 .deadline_done{
     height: 20px !important;
+    // background-color: rgba(256,256,256,0.1) !important;
     @include transition(height 0.161s ease);
     div{
         opacity: 0;
@@ -358,7 +359,7 @@
     }
 
     &:hover{
-        height: 70px !important;
+        height: 60px !important;
         div{
             opacity: 1;
         }
@@ -370,6 +371,40 @@
     position: relative; 
     width: 70%; 
     height: 100%;
+}
+.head_right{
+    display: inline-block; 
+    position: relative; 
+    width: 30%; 
+    height: 100%;
+    float: right;
+}
+
+.deadline_tick{
+    width: 15px;
+    height: 15px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.2);
+    -webkit-outline-radius: 100px;
+    border-radius: 100px;
+    display: inline-block;
+    float: right;
+    margin-left: 12px; 
+}
+
+.deadline_ticked{
+    // width: 20px;
+    // height: 20px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(256,256,256,0.4);
+    border-radius: 100px;
+    display: inline-block;
+    float: right;
+    margin-left: 12px; 
 }
 
 .deadline, .archivedDeadline {
@@ -412,7 +447,7 @@
         }
         &:active
         {
-            background-color: rgba(0,0,0,0.10);
+            background-color: rgba(0,0,0,0.05);
         }
     }
     .title

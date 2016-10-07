@@ -5,6 +5,7 @@ angular
     var vm = this;
     vm.loading = false;
     vm.arrow = arrow;
+    vm.tick = tick;
     vm.getAll = getAll;
     vm.init = init;
 
@@ -35,6 +36,14 @@ angular
                 } else {
                     vm.deadlines[i].selected = false;
                 }
+        }
+    }
+
+    function tick(id){
+        for(i = 0; i < vm.deadlines.length; i++){
+            if(vm.deadlines[i].id == id){
+                vm.deadlines[i].done = vm.deadlines[i].done == null ? true : !vm.deadlines[i].done;
+            }
         }
     }
 
