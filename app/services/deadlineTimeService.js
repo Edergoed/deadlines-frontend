@@ -37,7 +37,7 @@ angular.module('Deadlines')
         } else if (alldays_remaining >= 2){
             remaining = alldays_remaining;
             unit = 'Days';
-            if(days_remaining == 1){
+            if(days_remaining == 2){
                 remaining = days_remaining;
                 unit = 'Day';
             }
