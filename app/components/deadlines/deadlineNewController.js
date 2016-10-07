@@ -13,8 +13,19 @@ angular
     // vm.getDate = getDate;
     vm.onChange = onChange;
     vm.choices = [{'id' : 'klass1', 'value' : null}];
+    vm.calendarNext = calendarNext;
+    vm.calendarPrevious = calendarPrevious;
+    vm.calendarToday = calendarToday;
 
     function init(){
+        // calendar stuff
+        vm.calendar = {};
+        vm.calendar.year = new Date().getFullYear();
+        vm.calendar.month = new Date().getMonth();
+        vm.calendar.day = new Date().getDate();
+        vm.calendar.months = deadlineTime.getMonthsArray();
+        // end calendar stuff
+
         vm.dayCurrent = new Date().getDate();
         // vm.deadline = {};
         // vm.deadline.deadline = {};
@@ -131,22 +142,113 @@ angular
     }
 
     var month = 0;
+    var year = 0;
     var base = $('.weekdays').html();
 
-    $('.calendar-previous').click(function () {
-        month--;
-        GetDays();
-    });
-
-    $('.calendar-next').click(function () {
+    function calendarNext() {
         month++;
-        GetDays();
-    });
+        calendarUpdate();
+    }
 
-    $('.calendar-today').click(function () {
+    function calendarPrevious() {
+        month--;
+        calendarUpdate();
+    }
+
+    function calendarToday() {
         month = 0;
-        GetDays();
-    });
+    }
+
+    function lastSundayOfMonths(year, month) {
+        var lastDay = [31,28,31,30,31,30,31,31,30,31,30,31]
+        if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) lastDay[2] = 29
+        // for (, month=0; month<12; month+=1) {
+        var date = new Date();
+        date.setFullYear(year, month, lastDay[month])
+        date.setDate(date.getDate()-date.getDay())
+        return date;
+        // }
+    }
+
+    function calendarUpdate() {
+        var days = deadlineTime.getWeekdays();
+        var date = new Date();
+        vm.calendar.month = ((date.getMonth() + month) + 12*Math.abs(month)) % 12;
+        vm.calendar.monthP = ((date.getMonth() + month - 1) + 12*Math.abs(month)) % 12;
+        vm.calendar.year = date.getFullYear() + Math.floor((date.getMonth() + month)/12);
+
+        console.log(lastSundayOfMonths(vm.calendar.year, vm.calendar.monthP));
+        var lastSundayOfPreviousMonth = lastSundayOfMonths(vm.calendar.year, vm.calendar.monthP);
+        var numberOfDayesPreviousMonth = daysInMonth(vm.calendar.monthP + 1, vm.calendar.year);
+        var numberOfDayesCurrentMonth = daysInMonth(vm.calendar.month + 1, vm.calendar.year);
+        console.log(vm.calendar.monthP + ' ' +  vm.calendar.year + ' ' +  daysInMonth(vm.calendar.monthP +1, vm.calendar.year));
+        console.log('number of days previous month ' + numberOfDayesPreviousMonth + ' ' + vm.calendar.months[vm.calendar.monthP]);
+
+        vm.calendar.colums = {};
+        for(let i = 0; i < 7; i++) {
+            // vm.calendar.calendarBox[days[i].slice(0,3)] = {};
+            vm.calendar.colums[i] = {};
+            vm.calendar.colums[i].name = days[i].slice(0,3);
+            for(let j = 0; j < 6; j++) {
+                // vm.calendar.calendarBox[days[i].slice(0,3)][j] = {};
+                vm.calendar.colums[i].boxs = {};
+            }
+        }
+
+        var l = lastSundayOfPreviousMonth.getDate()-1;
+        var bool = true;
+        for(let i = 0; i < 7; i++) {
+            for(let j = 0; j < 6; j++) {
+                var k = (i + 7*i) % 7;
+                // console.log(k);
+                // if(i % 1 == 0)
+                // vm.calendar.colums.rows.boxs = {};
+                // vm.calendar.calendarBox[days[k].slice(0,3)][j] = {};
+                // console.log(lastSundayOfPreviousMonth.getDate());
+                // console.log(numberOfDayesPreviousMonth);
+                if(l > numberOfDayesPreviousMonth && bool) {
+                    l = 0;
+                    bool = false;
+                }
+                // l + 7*j ;
+                vm.calendar.colums[k].boxs[j] = {};
+                // console.log(vm.calendar.colums[k].boxs[j].date = (l + 7*j ));
+                console.log(vm.calendar.colums[k].boxs[j].date = (l + 7*j ));
+                vm.calendar.colums[k].boxs[j].date = (l + 7*j ) % (numberOfDayesPreviousMonth) +1;
+                vm.calendar.colums[k].boxs[j].month = 'Month';
+                vm.calendar.colums[k].boxs[j].year = 'year';
+                // if(i % 2 == 0)
+                //     vm.calendar.days[1][i];
+                // if(i % 3 == 0)
+                //     vm.calendar.days[2][i];
+                // if(i % 4 == 0)
+                //     vm.calendar.days[3][i];
+                // if(i % 5 == 0)
+                //     vm.calendar.days[4][i];
+                // if(i % 6 == 0)
+                //     vm.calendar.days[5][i];
+                // if(i % 7 == 0)
+                //     vm.calendar.days[6][i];
+            }
+            l++
+        }
+        // console.log(vm.calendar.colums);
+    }
+
+    // $('.calendar-previous').click(function () {
+    //     month--;
+    //     GetDays();
+    // });
+    //
+    // $('.calendar-next').click(function () {
+    //     month++;
+    //     GetDays();
+    // });
+    //
+    // $('.calendar-today').click(function () {
+    //     month = 0;
+    //     GetDays();
+    // });
 
     function daysInMonth(month,year) {
         return new Date(year, month, 0).getDate();
@@ -167,13 +269,13 @@ angular
             var smartMonth = (date.getMonth() + month) % 12;
             var smartYear = Math.floor((date.getMonth() + month)/12);
 
-            $('#current_month').html(monthNames[smartMonth]);
-            $('#current_year').html(date.getFullYear() + smartYear);
+            // $('#current_month').html(monthNames[smartMonth]);
+            // $('#current_year').html(date.getFullYear() + smartYear);
 
         }else{
-            $('#current_month').html(monthNames[date.getMonth() + month]);
+            // $('#current_month').html(monthNames[date.getMonth() + month]);
         }
-        
+
 
 
         var firstWeekday = firstDay.getDay();

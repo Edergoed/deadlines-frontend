@@ -2,19 +2,19 @@
     <div class="calendar-selection">
         <div class="calendar-top-bar">
             <a href="#" style="float: left; ">Cancel</a>
-            <a href="#" class="calendar-previous" style="float: left;
+            <a href="#" class="calendar-previous" ng-click="deadlineNew.calendarPrevious()" style="float: left;
             padding: 20px 20px;
             background-image: url('assets/img/arrow_left.svg');
             transform: translateY(-6px);
             background-size: cover;
             background-color: white;"></a>
             <div>
-                <div id="current_year" style="font-size: 10px;">2015</div>
-                <div id="current_month">September</div>
+                <div id="current_year" style="font-size: 10px;">{{ deadlineNew.calendar.year }}</div>
+                <div id="current_month">{{ deadlineNew.calendar.months[deadlineNew.calendar.month] }}</div>
             </div>
 
-            <a href="#" style="float: right;"" class="calendar-today">Today</a>
-            <a href="#" class="calendar-next" style="    float: right;
+            <a href="#" class="calendar-today" ng-click="deadlineNew.calendarToday()" style="float: right;">Today</a>
+            <a href="#" class="calendar-next" ng-click="deadlineNew.calendarNext()" style="float: right;
             padding: 20px 20px;
             background-image: url('assets/img/arrow_right.svg');
             transform: translateY(-6px);
@@ -24,27 +24,69 @@
         </div>
 
         <div class="weekdays">
-            <div>
-                <div class="day">Sun</div>
+            <div ng-repeat="colum in deadlineNew.calendar.colums">
+                <div class="day">{{ colum.name }}</div>
+                <div class="calendar-number" data-ng-repeat="box in colum.boxs">
+                    <div class='option' onclick='ChooseDate()'>9:15</div>
+                    <div class='option' onclick='ChooseDate()'>13:00</div>
+                    <div class='option' onclick='ChooseDate()'>23:59</div>
+                    <div class='calendar-number-graphic'><p>{{ box.date }}</p></div>
+                </div>
             </div>
-            <div>
-                <div class="day">Mon</div>
-            </div>
-            <div>
-                <div class="day">Tue</div>
-            </div>
-            <div>
-                <div class="day">Wed</div>
-            </div>
-            <div>
-                <div class="day">Thu</div>
-            </div>
-            <div>
-                <div class="day">Fri</div>
-            </div>
-            <div>
-                <div class="day">Sat</div>
-            </div>
+            <!-- <div> -->
+            <!--     <div class="day">Mon</div> -->
+            <!--     <div class="calendar&#45;number" data&#45;ng&#45;repeat="day in [1,2,3,4,5,6]"> -->
+            <!--         <div class='option' onclick='ChooseDate()'>9:15</div> -->
+            <!--         <div class='option' onclick='ChooseDate()'>13:00</div> -->
+            <!--         <div class='option' onclick='ChooseDate()'>23:59</div> -->
+            <!--         <div class='calendar&#45;number&#45;graphic'><p>{{ day }}</p></div> -->
+            <!--     </div> -->
+            <!-- </div> -->
+            <!-- <div> -->
+            <!--     <div class="day">Tue</div> -->
+            <!--     <div class="calendar&#45;number" data&#45;ng&#45;repeat="day in [1,2,3,4,5,6]"> -->
+            <!--         <div class='option' onclick='ChooseDate()'>9:15</div> -->
+            <!--         <div class='option' onclick='ChooseDate()'>13:00</div> -->
+            <!--         <div class='option' onclick='ChooseDate()'>23:59</div> -->
+            <!--         <div class='calendar&#45;number&#45;graphic'><p>{{ day }}</p></div> -->
+            <!--     </div> -->
+            <!-- </div> -->
+            <!-- <div> -->
+            <!--     <div class="day">Wed</div> -->
+            <!--     <div class="calendar&#45;number" data&#45;ng&#45;repeat="day in [1,2,3,4,5,6]"> -->
+            <!--         <div class='option' onclick='ChooseDate()'>9:15</div> -->
+            <!--         <div class='option' onclick='ChooseDate()'>13:00</div> -->
+            <!--         <div class='option' onclick='ChooseDate()'>23:59</div> -->
+            <!--         <div class='calendar&#45;number&#45;graphic'><p>{{ day }}</p></div> -->
+            <!--     </div> -->
+            <!-- </div> -->
+            <!-- <div> -->
+            <!--     <div class="day">Thu</div> -->
+            <!--     <div class="calendar&#45;number" data&#45;ng&#45;repeat="day in [1,2,3,4,5,6]"> -->
+            <!--         <div class='option' onclick='ChooseDate()'>9:15</div> -->
+            <!--         <div class='option' onclick='ChooseDate()'>13:00</div> -->
+            <!--         <div class='option' onclick='ChooseDate()'>23:59</div> -->
+            <!--         <div class='calendar&#45;number&#45;graphic'><p>{{ day }}</p></div> -->
+            <!--     </div> -->
+            <!-- </div> -->
+            <!-- <div> -->
+            <!--     <div class="day">Fri</div> -->
+            <!--     <div class="calendar&#45;number" data&#45;ng&#45;repeat="day in [1,2,3,4,5,6]"> -->
+            <!--         <div class='option' onclick='ChooseDate()'>9:15</div> -->
+            <!--         <div class='option' onclick='ChooseDate()'>13:00</div> -->
+            <!--         <div class='option' onclick='ChooseDate()'>23:59</div> -->
+            <!--         <div class='calendar&#45;number&#45;graphic'><p>{{ day }}</p></div> -->
+            <!--     </div> -->
+            <!-- </div> -->
+            <!-- <div> -->
+            <!--     <div class="day">Sat</div> -->
+            <!--     <div class="calendar&#45;number" data&#45;ng&#45;repeat="day in [1,2,3,4,5,6]"> -->
+            <!--         <div class='option' onclick='ChooseDate()'>9:15</div> -->
+            <!--         <div class='option' onclick='ChooseDate()'>13:00</div> -->
+            <!--         <div class='option' onclick='ChooseDate()'>23:59</div> -->
+            <!--         <div class='calendar&#45;number&#45;graphic'><p>{{ day }}</p></div> -->
+            <!--     </div> -->
+            <!-- </div> -->
         </div>
     </div>
 
@@ -109,3 +151,4 @@
         </form>
     </div>
 </div>
+
