@@ -21,6 +21,7 @@ angular.module('Deadlines')
         var alldays_remaining = Math.floor(difference / 86400);
         var days_remaining = Math.floor((difference % 604800)/ 86400);
         var hours_remaining = Math.floor((difference % 86400) / 3600);
+        var allhours_remaining = Math.floor(difference / 3600);
         var minutes_remaining = Math.floor((difference % 3600) / 60);
 
         var remaining;
@@ -29,19 +30,19 @@ angular.module('Deadlines')
         if(weeks_remaining >= 2){
             remaining = weeks_remaining;
             unit = 'Weeks';
-            if(weeks_remaining == 2){
+            if(weeks_remaining == 1){
                 remaining = weeks_remaining;
                 unit = 'Week';
             }
-        } else if (alldays_remaining >= 1){
+        } else if (alldays_remaining >= 2){
             remaining = alldays_remaining;
             unit = 'Days';
             if(days_remaining == 1){
                 remaining = days_remaining;
                 unit = 'Day';
             }
-        } else if (hours_remaining >= 1){
-            remaining = hours_remaining;
+        } else if (allhours_remaining >= 1){
+            remaining = allhours_remaining;
             unit = 'Hours';
             if(hours_remaining == 1){
                 remaining = hours_remaining ;
