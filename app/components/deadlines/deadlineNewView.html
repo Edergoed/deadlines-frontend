@@ -28,9 +28,9 @@
                 <div class="day">{{ colum.name }}</div>
                 <div class="calendar-number" data-ng-repeat="box in colum.boxs" ng-class="{'calendar-faded': box.fade}">
 
-                    <div class='option' onclick='ChooseDate()'>9:15</div>
-                    <div class='option' onclick='ChooseDate()'>13:00</div>
-                    <div class='option' onclick='ChooseDate()'>23:59</div>
+                    <div class='option' ng-click='deadlineNew.selectDate(15, 09, box.date, box.month -1, box.year)'>9:15</div>
+                    <div class='option' ng-click='deadlineNew.selectDate(00, 13, box.date, box.month -1, box.year)'>13:00</div>
+                    <div class='option' ng-click='deadlineNew.selectDate(59, 23, box.date, box.month -1, box.year)'>23:59</div>
                     <div class='calendar-number-graphic'><p>{{ box.date + ' '}}
                         <span style="font-size:10px;" ng-class="{'calendar-faded': box.fade}">{{ box.month + ' ' + box.year}}</span></p></div>
                 </div>

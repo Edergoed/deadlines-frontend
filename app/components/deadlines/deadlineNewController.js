@@ -16,6 +16,7 @@ angular
     vm.calendarNext = calendarNext;
     vm.calendarPrevious = calendarPrevious;
     vm.calendarToday = calendarToday;
+    vm.selectDate = selectDate;
 
     function init(){
         // calendar stuff
@@ -235,6 +236,11 @@ angular
 
     function daysInMonth(month,year) {
         return new Date(year, month, 0).getDate();
+    }
+
+    function selectDate(minutes, hours, day, month, year) {
+        var date = new Date(year, month, day, hours, minutes, 00, 00);
+        console.log(date);
     }
 
     init();
