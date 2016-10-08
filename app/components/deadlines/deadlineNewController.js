@@ -187,6 +187,7 @@ angular
         var date = new Date();
         vm.calendar.month = ((date.getMonth() + month) + 12*Math.abs(month)) % 12;
         var monthP = ((date.getMonth() + month - 1) + 12*Math.abs(month)) % 12;
+        var monthN = ((date.getMonth() + month + 1) + 12*Math.abs(month)) % 12;
         vm.calendar.year = date.getFullYear() + Math.floor((date.getMonth() + month)/12);
         var dateSundayPreviousMonth = lastSundayOfMonths(vm.calendar.year, monthP);
         var lenghtPreviousMonth = daysInMonth(monthP + 1, vm.calendar.year);
@@ -199,20 +200,34 @@ angular
         for(var x = 0; x < 7; x++) {
             for(var y = 0; y < q; y++) {
                 vm.calendar.colums[x].boxs[y] = {};
-
                 vm.calendar.colums[x].boxs[y].date = l + (y * 7);
+                vm.calendar.colums[x].boxs[y].month = monthP + 1;
+
+                if(vm.calendar.month > 0)
+                    vm.calendar.colums[x].boxs[y].year = vm.calendar.year;
+                else
+                    vm.calendar.colums[x].boxs[y].year = vm.calendar.year - 1;
+
                 vm.calendar.colums[x].boxs[y].fade = true;
+
                 if(vm.calendar.colums[x].boxs[y].date > lenghtPreviousMonth ){
                     vm.calendar.colums[x].boxs[y].date -= lenghtPreviousMonth;
+                    vm.calendar.colums[x].boxs[y].month = vm.calendar.month + 1;
+                    vm.calendar.colums[x].boxs[y].year = vm.calendar.year;
                     vm.calendar.colums[x].boxs[y].fade = false;
 
                     if(vm.calendar.colums[x].boxs[y].date > lenghtCurrentMonth) {
                         vm.calendar.colums[x].boxs[y].date -= lenghtCurrentMonth;
+                        vm.calendar.colums[x].boxs[y].month = monthN + 1;
+
+                        if(vm.calendar.month < 11)
+                            vm.calendar.colums[x].boxs[y].year = vm.calendar.year;
+                        else
+                            vm.calendar.colums[x].boxs[y].year = vm.calendar.year + 1;
+
                         vm.calendar.colums[x].boxs[y].fade = true;
                     }
                 }
-                vm.calendar.colums[x].boxs[y].month = 'Month';
-                vm.calendar.colums[x].boxs[y].year = 'Year';
             }
             l++
         }
