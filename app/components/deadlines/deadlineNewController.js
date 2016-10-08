@@ -17,6 +17,8 @@ angular
     vm.calendarPrevious = calendarPrevious;
     vm.calendarToday = calendarToday;
     vm.selectDate = selectDate;
+    vm.calendarSelection = true;
+    vm.openCalendar = openCalendar;
 
     function init(){
         // calendar stuff
@@ -251,6 +253,11 @@ angular
         } else {
             vm.calendar.time = date.getHours() + ':' + date.getMinutes();
         }
+        vm.calendarSelection = false;
+    }
+
+    function openCalendar() {
+        vm.calendarSelection = true;
     }
 
     init();

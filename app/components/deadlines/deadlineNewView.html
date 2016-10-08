@@ -1,6 +1,6 @@
 <div class="dynamic-post">
                     deadlineNew.calendar.day
-    <div class="calendar-selection">
+    <div class="calendar-selection" data-ng-hide="!deadlineNew.calendarSelection">
         <div class="calendar-top-bar">
             <a href="#" style="float: left; ">Cancel</a>
             <a href="#" class="calendar-previous" ng-click="deadlineNew.calendarPrevious()" style="float: left;
@@ -46,7 +46,7 @@
         <form name="deadlineForm" ng-submit="deadlineNew.createDeadline()" novalidate>
             <div class="edit-meta">
                 <input type="text" name="title" placeholder="Title" data-ng-model="deadlineNew.deadline.deadline.title" required>
-                <div style="float: right;">
+                <div style="float: right;" ng-click="deadlineNew.openCalendar()">
                     {{ deadlineNew.calendar.day; }}
                     {{ deadlineNew.months[deadlineNew.calendar.month].name; }}
                     {{ deadlineNew.calendar.year; }}
@@ -69,7 +69,7 @@
             <div class="edit-sub-meta">
                 <input type="text" name="subject" placeholder="Subject" data-ng-model="deadlineNew.deadline.deadline.subject" required>
                 <!-- <input type="text" name="time" placeholder="12:00" data&#45;ng&#45;model="deadlineNew.deadline.deadline.time" style="float: right; text&#45;align: right;" required> -->
-                <span style="float: right; text&#45;align: right;">{{ deadlineNew.calendar.time }}</span>
+                <span style="float: right; text&#45;align: right;" ng-click="deadlineNew.openCalendar()">{{ deadlineNew.calendar.time }}</span>
                 <!-- <select id="" name=""></select> -->
             </div>
             <div class="dynamic-content">
