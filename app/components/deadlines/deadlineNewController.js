@@ -46,6 +46,7 @@ angular
     vm.error = false;
     vm.submitted = false;
         // getKlasses();
+        calendarUpdate();
     }
 
     function onChange() {
@@ -169,164 +170,57 @@ angular
         return date;
         // }
     }
-
-    function calendarUpdate() {
+    function createCalendarColums() {
+        var colums = {};
         var days = deadlineTime.getWeekdays();
-        var date = new Date();
-        vm.calendar.month = ((date.getMonth() + month) + 12*Math.abs(month)) % 12;
-        vm.calendar.monthP = ((date.getMonth() + month - 1) + 12*Math.abs(month)) % 12;
-        vm.calendar.year = date.getFullYear() + Math.floor((date.getMonth() + month)/12);
-
-        console.log(lastSundayOfMonths(vm.calendar.year, vm.calendar.monthP));
-        var lastSundayOfPreviousMonth = lastSundayOfMonths(vm.calendar.year, vm.calendar.monthP);
-        var numberOfDayesPreviousMonth = daysInMonth(vm.calendar.monthP + 1, vm.calendar.year);
-        var numberOfDayesCurrentMonth = daysInMonth(vm.calendar.month + 1, vm.calendar.year);
-        console.log(vm.calendar.monthP + ' ' +  vm.calendar.year + ' ' +  daysInMonth(vm.calendar.monthP +1, vm.calendar.year));
-        console.log('number of days previous month ' + numberOfDayesPreviousMonth + ' ' + vm.calendar.months[vm.calendar.monthP]);
-
-        vm.calendar.colums = {};
         for(let i = 0; i < 7; i++) {
-            // vm.calendar.calendarBox[days[i].slice(0,3)] = {};
-            vm.calendar.colums[i] = {};
-            vm.calendar.colums[i].name = days[i].slice(0,3);
+            colums[i] = {};
+            colums[i].name = days[i].slice(0,3);
             for(let j = 0; j < 6; j++) {
-                // vm.calendar.calendarBox[days[i].slice(0,3)][j] = {};
-                vm.calendar.colums[i].boxs = {};
+                colums[i].boxs = {};
             }
         }
+        return colums;
+    }
 
-        var l = lastSundayOfPreviousMonth.getDate()-1;
-        var bool = true;
-        for(let i = 0; i < 7; i++) {
-            for(let j = 0; j < 6; j++) {
-                var k = (i + 7*i) % 7;
-                // console.log(k);
-                // if(i % 1 == 0)
-                // vm.calendar.colums.rows.boxs = {};
-                // vm.calendar.calendarBox[days[k].slice(0,3)][j] = {};
-                // console.log(lastSundayOfPreviousMonth.getDate());
-                // console.log(numberOfDayesPreviousMonth);
-                if(l > numberOfDayesPreviousMonth && bool) {
-                    l = 0;
-                    bool = false;
+    function calendarUpdate() {
+        var date = new Date();
+        vm.calendar.month = ((date.getMonth() + month) + 12*Math.abs(month)) % 12;
+        var monthP = ((date.getMonth() + month - 1) + 12*Math.abs(month)) % 12;
+        vm.calendar.year = date.getFullYear() + Math.floor((date.getMonth() + month)/12);
+        var dateSundayPreviousMonth = lastSundayOfMonths(vm.calendar.year, monthP);
+        var lenghtPreviousMonth = daysInMonth(monthP + 1, vm.calendar.year);
+        var lenghtCurrentMonth = daysInMonth(vm.calendar.month + 1, vm.calendar.year);
+
+        var q = (lenghtPreviousMonth - dateSundayPreviousMonth.getDate() >= 6) || (lenghtPreviousMonth - dateSundayPreviousMonth.getDate() + lenghtCurrentMonth) < 35 ? 5 : 6;
+        var l = lenghtPreviousMonth - dateSundayPreviousMonth.getDate() >= 6 ? lenghtCurrentMonth : dateSundayPreviousMonth.getDate();
+
+        vm.calendar.colums = createCalendarColums();
+        for(var x = 0; x < 7; x++) {
+            for(var y = 0; y < q; y++) {
+                vm.calendar.colums[x].boxs[y] = {};
+
+                vm.calendar.colums[x].boxs[y].date = l + (y * 7);
+                vm.calendar.colums[x].boxs[y].fade = true;
+                if(vm.calendar.colums[x].boxs[y].date > lenghtPreviousMonth ){
+                    vm.calendar.colums[x].boxs[y].date -= lenghtPreviousMonth;
+                    vm.calendar.colums[x].boxs[y].fade = false;
+
+                    if(vm.calendar.colums[x].boxs[y].date > lenghtCurrentMonth) {
+                        vm.calendar.colums[x].boxs[y].date -= lenghtCurrentMonth;
+                        vm.calendar.colums[x].boxs[y].fade = true;
+                    }
                 }
-                // l + 7*j ;
-                vm.calendar.colums[k].boxs[j] = {};
-                // console.log(vm.calendar.colums[k].boxs[j].date = (l + 7*j ));
-                console.log(vm.calendar.colums[k].boxs[j].date = (l + 7*j ));
-                vm.calendar.colums[k].boxs[j].date = (l + 7*j ) % (numberOfDayesPreviousMonth) +1;
-                vm.calendar.colums[k].boxs[j].month = 'Month';
-                vm.calendar.colums[k].boxs[j].year = 'year';
-                // if(i % 2 == 0)
-                //     vm.calendar.days[1][i];
-                // if(i % 3 == 0)
-                //     vm.calendar.days[2][i];
-                // if(i % 4 == 0)
-                //     vm.calendar.days[3][i];
-                // if(i % 5 == 0)
-                //     vm.calendar.days[4][i];
-                // if(i % 6 == 0)
-                //     vm.calendar.days[5][i];
-                // if(i % 7 == 0)
-                //     vm.calendar.days[6][i];
+                vm.calendar.colums[x].boxs[y].month = 'Month';
+                vm.calendar.colums[x].boxs[y].year = 'Year';
             }
             l++
         }
-        // console.log(vm.calendar.colums);
     }
-
-    // $('.calendar-previous').click(function () {
-    //     month--;
-    //     GetDays();
-    // });
-    //
-    // $('.calendar-next').click(function () {
-    //     month++;
-    //     GetDays();
-    // });
-    //
-    // $('.calendar-today').click(function () {
-    //     month = 0;
-    //     GetDays();
-    // });
 
     function daysInMonth(month,year) {
         return new Date(year, month, 0).getDate();
     }
-
-    function GetDays() {
-        $('.weekdays').html(base);
-
-        var date = new Date();
-        var firstDay = new Date(date.getFullYear(), date.getMonth() + month, 1);
-        var lastDay = new Date(date.getFullYear(), date.getMonth() + (month + 1), 0);
-        var monthLength = daysInMonth(date.getMonth(),date.getFullYear());
-        var weekdays = ["sun","mon","tue","wed","thu","fri","sat"];
-        var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
-        $('#current_year').html(date.getFullYear());
-        if((date.getMonth() + month) >= 12){
-            var smartMonth = (date.getMonth() + month) % 12;
-            var smartYear = Math.floor((date.getMonth() + month)/12);
-
-            // $('#current_month').html(monthNames[smartMonth]);
-            // $('#current_year').html(date.getFullYear() + smartYear);
-
-        }else{
-            // $('#current_month').html(monthNames[date.getMonth() + month]);
-        }
-
-
-
-        var firstWeekday = firstDay.getDay();
-        var children = $('.weekdays').children('.weekdays > div');
-        var startDay = firstWeekday;
-
-        for (var i = 0; i < firstWeekday; i++) {
-            var curHtml = children.eq(i).html();
-            children.eq(i).html(curHtml + "<div class='calendar-number'></div>");
-        }
-
-        for (var i = 1; i <= monthLength; i++) {
-            var curHtml = children.eq(firstWeekday).html();
-
-    //         if(month == 0 && date.getDay() == i){
-                // children.eq(firstWeekday).html(curHtml + "<div class='calendar-number'><div class='option' onclick='ChooseDate()'>9:15</div><div class='option' onclick='ChooseDate()'>13:00</div><div class='option' onclick='ChooseDate()'>23:59</div><div class='calendar-number-graphic calendar-currentday'><p>"+ i +"</p></div></div>");
-    //         }else{
-                children.eq(firstWeekday).html(curHtml + "<div class='calendar-number'><div class='option' onclick='ChooseDate()'>9:15</div><div class='option' onclick='ChooseDate()'>13:00</div><div class='option' onclick='ChooseDate()'>23:59</div><div class='calendar-number-graphic'><p>"+ i +"</p></div></div>");
-            // }
-            if(firstWeekday < 6){
-                firstWeekday++;
-            }else{
-                firstWeekday = 0;
-            }
-        }
-        var maxChildren = 0;
-        var bigDay = 0;
-        for (var i = 0; i <= 6; i++) {
-            if(children.eq(i).children().length >= maxChildren){
-                maxChildren = children.eq(i).children().length;
-                bigDay = i;
-            }
-        }
-
-        for (var i = bigDay+1; i <= 6; i++) {
-            var curHtml = children.eq(i).html();
-            children.eq(i).html(curHtml + "<div class='calendar-number'><div class='option'>9:15</div><div class='option'>13:00</div><div class='option'>23:59</div><div class='calendar-number-graphic calendar-faded'><p>"+ (i - bigDay) +"</p></div></div>");
-        }
-    }
-
-    function ChooseDate(){
-        var chosenTime = $(this).html();
-        console.log(chosenTime);
-    }
-
-    $( document ).ready(function() {
-        GetDays();
-    });
-
-
-
 
     init();
 });

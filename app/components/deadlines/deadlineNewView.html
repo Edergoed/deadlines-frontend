@@ -26,11 +26,13 @@
         <div class="weekdays">
             <div ng-repeat="colum in deadlineNew.calendar.colums">
                 <div class="day">{{ colum.name }}</div>
-                <div class="calendar-number" data-ng-repeat="box in colum.boxs">
+                <div class="calendar-number" data-ng-repeat="box in colum.boxs" ng-class="{'calendar-faded': box.fade}">
+
                     <div class='option' onclick='ChooseDate()'>9:15</div>
                     <div class='option' onclick='ChooseDate()'>13:00</div>
                     <div class='option' onclick='ChooseDate()'>23:59</div>
-                    <div class='calendar-number-graphic'><p>{{ box.date }}</p></div>
+                    <div class='calendar-number-graphic'><p>{{ box.date + ' '}}
+                        <span style="font-size:10px;" ng-class="{'calendar-faded': box.fade}">{{ box.number }}</span></p></div>
                 </div>
             </div>
             <!-- <div> -->
