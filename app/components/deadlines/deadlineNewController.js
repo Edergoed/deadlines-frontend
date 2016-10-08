@@ -21,6 +21,7 @@ angular
     function init(){
         // calendar stuff
         vm.calendar = {};
+        vm.calendar.time = "23:59";
         vm.calendar.year = new Date().getFullYear();
         vm.calendar.month = new Date().getMonth();
         vm.calendar.day = new Date().getDate();
@@ -44,8 +45,8 @@ angular
         vm.years = deadlineTime.getYears(new Date().getFullYear());
         vm.weekday = deadlineTime.getWeekdays();
         getUserCurrent();
-    vm.error = false;
-    vm.submitted = false;
+        vm.error = false;
+        vm.submitted = false;
         // getKlasses();
         calendarUpdate();
     }
@@ -159,6 +160,7 @@ angular
 
     function calendarToday() {
         month = 0;
+        calendarUpdate();
     }
 
     function lastSundayOfMonths(year, month) {
@@ -241,6 +243,14 @@ angular
     function selectDate(minutes, hours, day, month, year) {
         var date = new Date(year, month, day, hours, minutes, 00, 00);
         console.log(date);
+        vm.calendar.day = date.getDate();
+        vm.calendar.month = date.getMonth();
+        vm.calendar.year = date.getFullYear();
+        if(date.getUTCMinutes().toString().length < 2){
+            vm.calendar.time = date.getHours() + ':' + date.getMinutes() + 0 ;
+        } else {
+            vm.calendar.time = date.getHours() + ':' + date.getMinutes();
+        }
     }
 
     init();
