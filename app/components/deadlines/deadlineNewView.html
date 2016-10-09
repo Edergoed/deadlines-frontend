@@ -1,7 +1,7 @@
 <div class="dynamic-post">
     <div class="calendar-selection" data-ng-hide="!deadlineNew.calendarSelection">
         <div class="calendar-top-bar">
-            <a href="#" style="float: left; ">Cancel</a>
+            <a href="#" style="float: left;" ng-click="deadlineNew.closeCalendar()">Cancel</a>
             <a href="#" class="calendar-previous" ng-click="deadlineNew.calendarPrevious()" style="float: left;
             padding: 20px 20px;
             background-image: url('assets/img/arrow_left.svg');
@@ -40,7 +40,7 @@
 
 
 
-    <div>
+    <div data-ng-hide="deadlineNew.calendarSelection">
         <p style="text-align: center; font-size: 14px; margin: 6px 0px;">New Deadline</p>
         <form name="deadlineForm" ng-submit="deadlineNew.createDeadline()" novalidate>
             <div class="edit-meta">

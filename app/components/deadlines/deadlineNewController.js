@@ -19,6 +19,7 @@ angular
     vm.selectDate = selectDate;
     vm.calendarSelection = true;
     vm.openCalendar = openCalendar;
+    vm.closeCalendar = closeCalendar;
 
     function init(){
         // calendar stuff
@@ -258,6 +259,9 @@ angular
 
     function openCalendar() {
         vm.calendarSelection = true;
+    }
+    function closeCalendar() {
+        vm.calendarSelection = false;
     }
 
     init();
