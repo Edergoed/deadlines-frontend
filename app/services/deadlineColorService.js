@@ -25,6 +25,7 @@ angular.module('Deadlines')
                     }
                     if(data < 0){
                         var deadline_class = deadline[i].className;
+                        deadlineColor.backgroundColor.bottomBackgroundColor = '#FE2746';
                     }
                 }else{
                     deadline[i].parendNode = '#FFC300';
@@ -50,6 +51,10 @@ angular.module('Deadlines')
             if(difference < day*7){
                 percentage = (difference / (day*7));
                 color = "rgba(255, 195, 0, "+ percentage +");"; //yellow to red
+                if(difference < 0){
+                    percentage = (difference / (day*365));
+                    color = "rgba(0, 187, 211, "+ (percentage * -1) +");"; //blue to yellow
+                }
             }
         }else{
             color = "rgba(0, 187, 211, 1);"; //blue static

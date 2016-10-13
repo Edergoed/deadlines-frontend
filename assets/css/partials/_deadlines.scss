@@ -360,7 +360,10 @@
 
 .deadline_done{
     height: 20px !important;
-    // background-color: rgba(256,256,256,0.1) !important;
+    .deadline_head{
+        background-color: rgba(256,256,256,.10) !important;
+        opacity: 1;
+    }
     @include transition(height 0.161s ease);
     div{
         opacity: 0;

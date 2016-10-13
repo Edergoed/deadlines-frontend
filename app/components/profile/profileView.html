@@ -3,33 +3,71 @@
 </div>
 <div class="profile" data-ng-show="!Loading" class="dynamic-post" style="display: block;">
     <div class="profile_wrapper">
-        <img class="gravatar profile_picture" src="{{gravatar(userCurrent.gravatar, 120)}}">
-        <span class="profile_username">{{ userCurrent.firstname + ' ' + userCurrent.lastname }}</span>
-        <div class="profile_stats">
-            <div class="profile_stats_upper">
-                <div>{{ selectedUser.created_deadline_ids.length }}</div><div>{{ selectedUser.edited_deadline_ids.length }}</div>
+        <div class="profile_top">
+            <img class="gravatar profile_picture" src="{{gravatar(userCurrent.gravatar, 120)}}">
+            <div class="profile_top_meta">
+                <div class="top_meta_division">
+                    <span class="profile_username">{{ userCurrent.firstname + ' ' + userCurrent.lastname }}</span>
+                    <span class="profile_email">bobbie.goede@student.hku.nl</span>
+                </div>
+                <div class="top_meta_division">
+                    <span class="profile_stat">Creations</span>
+                    <span class="profile_substat">{{ selectedUser.created_deadline_ids.length }}</span>
+                </div>
+                <div class="top_meta_division">
+                    <span class="profile_stat">Edits</span>
+                    <span class="profile_substat">{{ selectedUser.edited_deadline_ids.length }} 12</span>
+                </div>
             </div>
-            <div class="profile_stats_lower">
-                <div>Deadlines created</div><div> Deadlines edited</div>
-            </div>
+            
         </div>
-        <div class="profile_menu">
-            <div class="profile_items">
-                <p>Class:</p>
-                <p>Password:</p>
-                <p>User since:</p>
+        <div class="profile_form">
+            <div class="profile_field" style="width: 30%;">
+                <label>Firstname</label>
+                <input type="text" placeholder="Firstname" value="{{ userCurrent.firstname }}">
             </div>
-            <div class="profile_values">
-                <select id="" name="klass" data-ng-change="updateKlass()" data-ng-options="klass.id as klass.name for klass in klassList.klasses" data-ng-model="selectedUser.klass" placeholder="Class">
+
+            <div class="profile_field" style="width: 30%; margin: 0 4%;">
+                <label>Prefix</label>
+                <input type="text" placeholder="Prefix" value="{{ userCurrent.prefix }}">
+            </div>
+
+            <div class="profile_field" style="width: 30%; float: right;">
+                <label>Lastname</label>
+                <input type="text" placeholder="Lastname" value="{{ userCurrent.lastname }}">
+            </div>
+            
+            <div class="profile_field" style="width: 100%;">
+                <label>Emailadress</label>
+                <input type="text" placeholder="Emailadress" style="width: 100%;" disabled="true" value="{{ userCurrent.email }}">
+            </div>
+            <div class="profile_field" style="width: 100%;">
+                <label>Class</label>
+                <!-- <input type="text" placeholder="Class" style="width: 100%;" value="{{ userCurrent.class }}"> -->
+                <select id="" name="klass" data-ng-change="updateKlass()" data-ng-options="klass.id as klass.name for klass in klassList.klasses" data-ng-model="selectedUser.klass" placeholder="Class" style="display: block;">
                     <option value="" disabled selected>Select your class</option>
                 </select>
-                <p><a href="#">Click here to change</a></p>
-                <p>{{ selectedUser.created_at | date:'fullDate' }}</p>
             </div>
-            <div class="profile_footer">
-                <p>Change your avatar using <a href="https://en.gravatar.com/">Gravatar</a> with your e-mail address.</p>
-                <a data-ng-click="signout()" href="#">Sign out</a>
-
+            <div class="profile_field" style="width: 45%;">
+                <label>Add an avatar</label>
+                <button href="https://en.gravatar.com/">Open Gravatar</button>
+            </div>
+            <div class="profile_field" style="float: right; width: 45%;">
+                <label>Password</label>
+                <button>Change password</button>
+            </div>
+            <div class="profile_field" style="width: 100%;">
+                <button style="background-color: rgba(0,0,0,0.1); border-color: rgba(0,0,0,0); color: #000; width: 40%; margin: 0 auto;">Sign out</button>
+            </div>
+        </div>
+        <div class="profile_achievements">
+            Achievements (2 / 30)
+            <div class="profile_achievement">
+                <div class="profile_achievement_img" style="display: inline-block;"></div>
+                <div class="profile_achievement_meta">
+                    <label>Lone Nut</label>
+                    <span>Post your first deadline</span>
+                </div>
             </div>
         </div>
     </div>

@@ -59,31 +59,31 @@ angular.module('Deadlines')
             //jaja
         } else if(weeks_remaining <= -1){
             remaining = Math.abs(weeks_remaining);
-            unit = 'Weeks ago';
+            unit = 'Weeks';
             if(weeks_remaining == -1){
                 remaining = Math.abs(weeks_remaining);
-                unit = 'Week ago';
+                unit = 'Week';
             }
         } else if (days_remaining <= -1){
             remaining = Math.abs(days_remaining);
-            unit = 'Days ago';
+            unit = 'Days';
             if(days_remaining == -1){
                 remaining = Math.abs(days_remaining);
-                unit = 'Day ago';
+                unit = 'Day';
             }
         } else if (hours_remaining <= -1){
             remaining = Math.abs(hours_remaining);
-            unit = 'Hours ago';
+            unit = 'Hours';
             if(hours_remaining == -1){
                 remaining = Math.abs(hours_remaining );
-                unit = 'Hour ago';
+                unit = 'Hour';
             }
         } else if (minutes_remaining <= -1){
             remaining = Math.abs(minutes_remaining);
-            unit = 'Minutes ago';
+            unit = 'Minutes';
             if(minutes_remaining == -1){
                 remaining = Math.abs(minutes_remaining);
-                unit = 'Minutes ago';
+                unit = 'Minutes';
             }
         } else {
             remaining = 0;
