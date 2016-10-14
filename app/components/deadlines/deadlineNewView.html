@@ -30,15 +30,15 @@
                     <div class='option' ng-click='deadlineNew.selectDate(15, 09, box.date, box.month -1, box.year)'>9:15</div>
                     <div class='option' ng-click='deadlineNew.selectDate(00, 13, box.date, box.month -1, box.year)'>13:00</div>
                     <div class='option' ng-click='deadlineNew.selectDate(59, 23, box.date, box.month -1, box.year)'>23:59</div>
-                    <div class='calendar-number-graphic'><p>{{ box.date + ' '}}
-                        <span style="font-size:10px;" ng-class="{'calendar-faded': box.fade}">{{ box.month + ' ' + box.year}}</span></p></div>
+                    <div class='calendar-number-graphic'>
+                        <p>{{ box.date + ' '}}
+                        <!-- <span style="font&#45;size:10px;" ng&#45;class="{'calendar&#45;faded': box.fade}">{{ box.month + ' ' + box.year}}</span> -->
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-
 
     <div data-ng-hide="deadlineNew.calendarSelection">
         <p style="text-align: center; font-size: 14px; margin: 6px 0px;">New Deadline</p>
@@ -49,20 +49,6 @@
                     {{ deadlineNew.calendar.day; }}
                     {{ deadlineNew.months[deadlineNew.calendar.month].name; }}
                     {{ deadlineNew.calendar.year; }}
-                    <!-- <select id="" name="day" data&#45;ng&#45;options="day -->
-                    <!--     for day in deadlineNew.days" -->
-                    <!--     data&#45;ng&#45;model="deadlineNew.deadline.deadline.day" required> -->
-                    <!-- </select> -->
-                    <!-- <select id="" name="month" -->
-                    <!--     data&#45;ng&#45;options="month.id as month.name -->
-                    <!--     for month in deadlineNew.months" -->
-                    <!--     data&#45;ng&#45;model="deadlineNew.deadline.deadline.month" required> -->
-                    <!-- </select> -->
-                    <!-- <select id="" name="year" -->
-                    <!--     data&#45;ng&#45;options="year for year in -->
-                    <!--     deadlineNew.years" -->
-                    <!--     data&#45;ng&#45;model="deadlineNew.deadline.deadline.year" required> -->
-                    <!-- </select> -->
                 </div>
             </div>
             <div class="edit-sub-meta">

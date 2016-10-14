@@ -13,21 +13,34 @@ angular
     vm.getDate = getDate;
     vm.onChange = onChange;
 
+    vm.calendarNext = calendarNext;
+    vm.calendarPrevious = calendarPrevious;
+    vm.calendarToday = calendarToday;
+    vm.selectDate = selectDate;
+    vm.calendarSelection = false;
+    vm.openCalendar = openCalendar;
+    vm.closeCalendar = closeCalendar;
+
     function init(){
         vm.choices = [];
         if($stateParams.editID != null){
             getDeadline($stateParams.editID);
         }
+        // calendar stuff
+        vm.calendar = {};
+        vm.calendar.months = deadlineTime.getMonthsArray();
+        calendarUpdate();
+        // end calendar stuff
     }
 
     function updateDeadline(){
         //console.log('kanekr dope');
         if($scope.deadlineForm.$valid){
-            day = vm.deadline.deadline.day
-            month = vm.deadline.deadline.month
-            year = vm.deadline.deadline.year
-            hour = vm.deadline.deadline.time.split(':')[0];
-            minut = vm.deadline.deadline.time.split(':')[1];
+            day = vm.calendar.day
+            month = vm.calendar.month
+            year = vm.calendar.year
+            hour = vm.calendar.time.split(':')[0];
+            minut = vm.calendar.time.split(':')[1];
 
             vm.deadline.deadline.deadlineDateTime = new Date(year, month, day, hour, minut);
             vm.deadline.deadline.klass_ids = [];
@@ -89,9 +102,15 @@ angular
             //succes
             vm.deadline = deadline.deadline;
             vm.getDate(vm.deadline.deadline.deadlineDateTime);
-            vm.weekday = deadlineTime.getWeekdays();
-            vm.years = deadlineTime.getYears(vm.deadline.deadline.year);
+            // vm.calendar.weekday = deadlineTime.getWeekdays();
+            // vm.calendar.years = deadlineTime.getYears(vm.deadline.deadline.year);
             vm.months = deadlineTime.getMonths();
+
+            // vm.calendar.year = new Date().getFullYear();
+            // vm.calendar.month = new Date().getMonth();
+            // vm.calendar.day = new Date().getDate();
+            // vm.calendar.time = "23:59";
+
             $scope.$watch("deadlineEdit.deadline.deadline.month", function(newValue, oldValur){
                 vm.days = deadlineTime.getDays(vm.deadline.deadline.year, vm.deadline.deadline.month);
             });
@@ -111,14 +130,117 @@ angular
 
     function getDate(date){
         date = new Date( Date.parse(date));
-        vm.deadline.deadline.day = date.getDate();
-        vm.deadline.deadline.month = date.getMonth();
-        vm.deadline.deadline.year = date.getFullYear();
+        vm.calendar.day = date.getDate();
+        vm.calendar.month = date.getMonth();
+        vm.calendar.year = date.getFullYear();
         if(date.getUTCMinutes().toString().length < 2){
-            vm.deadline.deadline.time = date.getHours() + ':' + date.getMinutes() + 0 ;
+            vm.calendar.time = date.getHours() + ':' + date.getMinutes() + 0 ;
         } else {
-            vm.deadline.deadline.time = date.getHours() + ':' + date.getMinutes();
+            vm.calendar.time = date.getHours() + ':' + date.getMinutes();
         }
+    }
+
+    var month = 0;
+    var year = 0;
+    var base = $('.weekdays').html();
+
+    function calendarNext() {
+        month++;
+        calendarUpdate();
+    }
+
+    function calendarPrevious() {
+        month--;
+        calendarUpdate();
+    }
+
+    function calendarToday() {
+        month = 0;
+        calendarUpdate();
+    }
+
+    function createCalendarColums() {
+        var colums = {};
+        var days = deadlineTime.getWeekdays();
+        for(let i = 0; i < 7; i++) {
+            colums[i] = {};
+            colums[i].name = days[i].slice(0,3);
+            for(let j = 0; j < 6; j++) {
+                colums[i].boxs = {};
+            }
+        }
+        return colums;
+    }
+
+    function calendarUpdate() {
+        var date = new Date();
+        vm.calendar.month = ((date.getMonth() + month) + 12*Math.abs(month)) % 12;
+        var monthP = ((date.getMonth() + month - 1) + 12*Math.abs(month)) % 12;
+        var monthN = ((date.getMonth() + month + 1) + 12*Math.abs(month)) % 12;
+        vm.calendar.year = date.getFullYear() + Math.floor((date.getMonth() + month)/12);
+        var dateSundayPreviousMonth = deadlineTime.lastSundayOfMonths(vm.calendar.year, monthP);
+        var lenghtPreviousMonth = deadlineTime.daysInMonth(monthP + 1, vm.calendar.year);
+        var lenghtCurrentMonth = deadlineTime.daysInMonth(vm.calendar.month + 1, vm.calendar.year);
+
+        var q = (lenghtPreviousMonth - dateSundayPreviousMonth.getDate() >= 6) || (lenghtPreviousMonth - dateSundayPreviousMonth.getDate() + lenghtCurrentMonth) < 35 ? 5 : 6;
+        var l = lenghtPreviousMonth - dateSundayPreviousMonth.getDate() >= 6 ? lenghtCurrentMonth : dateSundayPreviousMonth.getDate();
+
+        vm.calendar.colums = createCalendarColums();
+        for(var x = 0; x < 7; x++) {
+            for(var y = 0; y < q; y++) {
+                vm.calendar.colums[x].boxs[y] = {};
+                vm.calendar.colums[x].boxs[y].date = l + (y * 7);
+                vm.calendar.colums[x].boxs[y].month = monthP + 1;
+
+                if(vm.calendar.month > 0)
+                    vm.calendar.colums[x].boxs[y].year = vm.calendar.year;
+                else
+                    vm.calendar.colums[x].boxs[y].year = vm.calendar.year - 1;
+
+                vm.calendar.colums[x].boxs[y].fade = true;
+
+                if(vm.calendar.colums[x].boxs[y].date > lenghtPreviousMonth ){
+                    vm.calendar.colums[x].boxs[y].date -= lenghtPreviousMonth;
+                    vm.calendar.colums[x].boxs[y].month = vm.calendar.month + 1;
+                    vm.calendar.colums[x].boxs[y].year = vm.calendar.year;
+                    vm.calendar.colums[x].boxs[y].fade = false;
+
+                    if(vm.calendar.colums[x].boxs[y].date > lenghtCurrentMonth) {
+                        vm.calendar.colums[x].boxs[y].date -= lenghtCurrentMonth;
+                        vm.calendar.colums[x].boxs[y].month = monthN + 1;
+
+                        if(vm.calendar.month < 11)
+                            vm.calendar.colums[x].boxs[y].year = vm.calendar.year;
+                        else
+                            vm.calendar.colums[x].boxs[y].year = vm.calendar.year + 1;
+
+                        vm.calendar.colums[x].boxs[y].fade = true;
+                    }
+                }
+            }
+            l++
+        }
+    }
+
+    function selectDate(minutes, hours, day, month, year) {
+        var date = new Date(year, month, day, hours, minutes, 00, 00);
+        console.log(date);
+        vm.calendar.day = date.getDate();
+        vm.calendar.month = date.getMonth();
+        vm.calendar.year = date.getFullYear();
+        if(date.getUTCMinutes().toString().length < 2){
+            vm.calendar.time = date.getHours() + ':' + date.getMinutes() + 0 ;
+        } else {
+            vm.calendar.time = date.getHours() + ':' + date.getMinutes();
+        }
+        vm.calendarSelection = false;
+    }
+
+    function openCalendar() {
+        vm.calendarSelection = true;
+    }
+    function closeCalendar() {
+        vm.calendarSelection = false;
     }
 
     init();

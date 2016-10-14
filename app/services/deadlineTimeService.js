@@ -167,5 +167,20 @@ angular.module('Deadlines')
         return weekdays;
     }
 
+    deadlineTime.lastSundayOfMonths = function(year, month) {
+        var lastDay = [31,28,31,30,31,30,31,31,30,31,30,31]
+        if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) lastDay[2] = 29
+        // for (, month=0; month<12; month+=1) {
+        var date = new Date();
+        date.setFullYear(year, month, lastDay[month])
+        date.setDate(date.getDate()-date.getDay())
+        return date;
+        // }
+    }
+
+    deadlineTime.daysInMonth = function(month,year) {
+        return new Date(year, month, 0).getDate();
+    }
+
     return deadlineTime;
 });

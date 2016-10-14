@@ -166,16 +166,6 @@ angular
         calendarUpdate();
     }
 
-    function lastSundayOfMonths(year, month) {
-        var lastDay = [31,28,31,30,31,30,31,31,30,31,30,31]
-        if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) lastDay[2] = 29
-        // for (, month=0; month<12; month+=1) {
-        var date = new Date();
-        date.setFullYear(year, month, lastDay[month])
-        date.setDate(date.getDate()-date.getDay())
-        return date;
-        // }
-    }
     function createCalendarColums() {
         var colums = {};
         var days = deadlineTime.getWeekdays();
@@ -195,9 +185,9 @@ angular
         var monthP = ((date.getMonth() + month - 1) + 12*Math.abs(month)) % 12;
         var monthN = ((date.getMonth() + month + 1) + 12*Math.abs(month)) % 12;
         vm.calendar.year = date.getFullYear() + Math.floor((date.getMonth() + month)/12);
-        var dateSundayPreviousMonth = lastSundayOfMonths(vm.calendar.year, monthP);
-        var lenghtPreviousMonth = daysInMonth(monthP + 1, vm.calendar.year);
-        var lenghtCurrentMonth = daysInMonth(vm.calendar.month + 1, vm.calendar.year);
+        var dateSundayPreviousMonth = deadlineTime.lastSundayOfMonths(vm.calendar.year, monthP);
+        var lenghtPreviousMonth = deadlineTime.daysInMonth(monthP + 1, vm.calendar.year);
+        var lenghtCurrentMonth = deadlineTime.daysInMonth(vm.calendar.month + 1, vm.calendar.year);
 
         var q = (lenghtPreviousMonth - dateSundayPreviousMonth.getDate() >= 6) || (lenghtPreviousMonth - dateSundayPreviousMonth.getDate() + lenghtCurrentMonth) < 35 ? 5 : 6;
         var l = lenghtPreviousMonth - dateSundayPreviousMonth.getDate() >= 6 ? lenghtCurrentMonth : dateSundayPreviousMonth.getDate();
@@ -237,10 +227,6 @@ angular
             }
             l++
         }
-    }
-
-    function daysInMonth(month,year) {
-        return new Date(year, month, 0).getDate();
     }
 
     function selectDate(minutes, hours, day, month, year) {

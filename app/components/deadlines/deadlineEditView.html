@@ -1,30 +1,71 @@
 <div data-ng-show="deadlineEdit.loading" class="loading_wrapper" style="width: 100%; height: 100%;">
-    <div class="loading"></div>
+<div class="loading"></div>
 </div>
 <div data-ng-show="!deadlineEdit.loading" class="dynamic-post" style="display: block;">
-    <p style="text-align: center; font-size: 14px; margin: 6px 0px;">Edit Deadline</p>
-    <form name="deadlineForm" ng-submit="deadlineEdit.updateDeadline()" novalidate>
-        <div class="edit-meta">
-            <input type="title" placeholder="Title" data-ng-model="deadlineEdit.deadline.deadline.title" requird>
-            <div style="float: right;">
-                <select id="" name="day" data-ng-options="day for day in deadlineEdit.days" data-ng-model="deadlineEdit.deadline.deadline.day">
-                </select>
-                <select id="" name="month" data-ng-options="month.id as month.name for month in deadlineEdit.months" data-ng-model="deadlineEdit.deadline.deadline.month">
-                </select>
-                <select id="" name="year" data-ng-options="year for year in deadlineEdit.years" data-ng-model="deadlineEdit.deadline.deadline.year">
-                </select>
+    <div class="calendar-selection" data-ng-hide="!deadlineEdit.calendarSelection">
+        <div class="calendar-top-bar">
+            <a href="#" style="float: left;" ng-click="deadlineEdit.closeCalendar()">Cancel</a>
+            <a href="#" class="calendar-previous" ng-click="deadlineEdit.calendarPrevious()" style="float: left;
+            padding: 20px 20px;
+            background-image: url('assets/img/arrow_left.svg');
+            transform: translateY(-6px);
+            background-size: cover;
+            background-color: white;"></a>
+            <div>
+                <div id="current_year" style="font-size: 10px;">{{ deadlineEdit.calendar.year }}</div>
+                <div id="current_month">{{ deadlineEdit.calendar.months[deadlineEdit.calendar.month] }}</div>
             </div>
-        </div>
-        <div class="edit-sub-meta">
-            <input type="subject" placeholder="Subject" data-ng-model="deadlineEdit.deadline.deadline.subject">
-            <input type="text" style="float: right; text-align: right;"  placeholder="12:00" data-ng-model="deadlineEdit.deadline.deadline.time">
-            <!-- <select id="" name=""></select> -->
-        </div>
-        <div class="dynamic-content">
-            <div text-angular ng-model="deadlineEdit.deadline.deadline.content"></div>
+
+            <a href="#" class="calendar-today" ng-click="deadlineEdit.calendarToday()" style="float: right;">Today</a>
+            <a href="#" class="calendar-next" ng-click="deadlineEdit.calendarNext()" style="float: right;
+            padding: 20px 20px;
+            background-image: url('assets/img/arrow_right.svg');
+            transform: translateY(-6px);
+            background-size: cover;
+            background-color: white;"></a>
         </div>
 
-        <!-- <div class="dynamic-classesedit"> -->
+        <div class="weekdays">
+            <div ng-repeat="colum in deadlineEdit.calendar.colums">
+                <div class="day">{{ colum.name }}</div>
+                <div class="calendar-number" data-ng-repeat="box in colum.boxs" ng-class="{'calendar-faded': box.fade}">
+
+                    <div class='option' ng-click='deadlineEdit.selectDate(15, 09, box.date, box.month -1, box.year)'>9:15</div>
+                    <div class='option' ng-click='deadlineEdit.selectDate(00, 13, box.date, box.month -1, box.year)'>13:00</div>
+                    <div class='option' ng-click='deadlineEdit.selectDate(59, 23, box.date, box.month -1, box.year)'>23:59</div>
+                    <div class='calendar-number-graphic'><p>{{ box.date + ' '}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div >
+<!-- data&#45;ng&#45;hide="deadlineEdit.calendarSelection" -->
+        <p style="text-align: center; font-size: 14px; margin: 6px 0px;">Edit Deadline</p>
+        <form name="deadlineForm" ng-submit="deadlineEdit.updateDeadline()" novalidate>
+            <div class="edit-meta">
+                <input type="title" placeholder="Title" data-ng-model="deadlineEdit.deadline.deadline.title" requird>
+                <div style="float: right;" ng-click="deadlineEdit.openCalendar()">
+                    {{ deadlineEdit.calendar.day; }}
+                    {{ deadlineEdit.months[deadlineEdit.calendar.month].name; }}
+                    {{ deadlineEdit.calendar.year; }}
+                </div>
+            </div>
+            <div class="edit-sub-meta">
+                <input type="subject" placeholder="Subject" data-ng-model="deadlineEdit.deadline.deadline.subject">
+                <!-- <input type="text" style="float: right; text&#45;align: right;"  placeholder="12:00" data&#45;ng&#45;model="deadlineEdit.deadline.deadline.time"> -->
+                {{ deadlineEdit.calendar.time; }}
+
+                <!-- <select id="" name=""></select> -->
+            </div>
+            <div class="dynamic-content">
+                <div text-angular ng-model="deadlineEdit.deadline.deadline.content"></div>
+            </div>
+
+            <!-- <div class="dynamic-classesedit"> -->
             <div data-ng-repeat="choice in deadlineEdit.choices" class="dynamic-classesedit">
                 <select id="" name="klass" data-ng-change="deadlineEdit.onChange($index)"  data-ng-options="klass.id as klass.name for klass in
                 deadlineEdit.availableKlasses[$index]" data-ng-model="choice.value" placeholder="Class">
@@ -32,31 +73,32 @@
                 </select>
                 <a class="remove" ng-show="!$first && (choice.value != null)" ng-click="deadlineEdit.removeChoice($index)">X</a>
             </div>
-                <!-- <a id="addNewChoice" ng&#45;click="deadlineEdit.addNewChoice()">More</a> -->
+            <!-- <a id="addNewChoice" ng&#45;click="deadlineEdit.addNewChoice()">More</a> -->
             <!-- <div data-ng-repeat="assignedKlass in
                 selectedDeadline.deadline.klass_ids track by $index" style="display: inline-block;">
                 <div >
-                    <select id="" name="klass" data-ng-change="updateKlass()" data-ng-options="klass.id as klass.name for klass in klassList.klasses" data-ng-model="selectedDeadline.deadline.klass_ids[$index]" placeholder="Class" style="display: inline-block;">
-                        <option value="" disabled selected>Select class</option>
-                    </select>
-                    <div data-ng-hide="$index == 0" data-ng-click="removeAssignment($event,selectedDeadline.deadline.klass_ids[$index])" style="display: inline-block;">
-                        x
-                    </div>
+                <select id="" name="klass" data-ng-change="updateKlass()" data-ng-options="klass.id as klass.name for klass in klassList.klasses" data-ng-model="selectedDeadline.deadline.klass_ids[$index]" placeholder="Class" style="display: inline-block;">
+                <option value="" disabled selected>Select class</option>
+                </select>
+                <div data-ng-hide="$index == 0" data-ng-click="removeAssignment($event,selectedDeadline.deadline.klass_ids[$index])" style="display: inline-block;">
+                x
                 </div>
-            </div> -->
-        <!-- </div> -->
+                </div>
+                </div> -->
+                <!-- </div> -->
 
-        <div class="dynamic-options">
-        <div class="dynamic-username" style="display: inline-block;" data-ng-hide="deadlineEdit.deadline.deadline.creator.id == null">
-            <img class="gravatar" src="{{gravatar(deadlineEdit.deadline.deadline.creator.gravatarHash, 30)}}">
-            <p>{{deadlineEdit.deadline.deadline.creator.firstname}} {{deadlineEdit.deadline.creator.prefix}} {{deadlineEdit.deadline.creator.lastname}}</p>
-        </div>
-        <div class="dynamic-username" style="display: inline-block;" data-ng-hide=" deadlineEdit.deadline.deadline.creator.id == deadlineEdit.deadline.editor.id ||
-            deadlineEdit.deadline.deadline.editor.id == null">
-            <img class="gravatar" src="{{gravatar(deadlineEdit.deadline.deadline.editor.gravatarHash, 30)}}">
-            <p>{{deadlineEdit.deadline.deadline.editor.firstname}} {{deadlineEdit.deadline.editor.prefix}} {{deadlineEdit.deadline.editor.lastname}}</p>
-        </div>
-            <button class="btn_save" style="margin: 0 auto; font-size: 12px;" type="submit">Save</button>
-        </div>
-    </form>
+                <div class="dynamic-options">
+                    <div class="dynamic-username" style="display: inline-block;" data-ng-hide="deadlineEdit.deadline.deadline.creator.id == null">
+                        <img class="gravatar" src="{{gravatar(deadlineEdit.deadline.deadline.creator.gravatarHash, 30)}}">
+                        <p>{{deadlineEdit.deadline.deadline.creator.firstname}} {{deadlineEdit.deadline.creator.prefix}} {{deadlineEdit.deadline.creator.lastname}}</p>
+                    </div>
+                    <div class="dynamic-username" style="display: inline-block;" data-ng-hide=" deadlineEdit.deadline.deadline.creator.id ==
+                    deadlineEdit.deadline.editor.id || deadlineEdit.deadline.deadline.editor.id == null">
+                        <img class="gravatar" src="{{gravatar(deadlineEdit.deadline.deadline.editor.gravatarHash, 30)}}">
+                        <p>{{deadlineEdit.deadline.deadline.editor.firstname}} {{deadlineEdit.deadline.editor.prefix}} {{deadlineEdit.deadline.editor.lastname}}</p>
+                    </div>
+                    <button class="btn_save" style="margin: 0 auto; font-size: 12px;" type="submit">Save</button>
+                </div>
+        </form>
+    </div>
 </div>
