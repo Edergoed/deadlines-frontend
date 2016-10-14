@@ -23,11 +23,11 @@
 
 
     <div class="dynamic-options">
-        <div class="dynamic-username" style="display: inline-block;" data-ng-hide=" deadlineShow.deadline.deadline.creator.id == null" >
+        <div class="dynamic-username" data-ng-hide=" deadlineShow.deadline.deadline.creator.id == null" >
             <img class="gravatar" src="{{gravatar(deadlineShow.deadline.deadline.creator.gravatarHash, 30)}}">
             <p>{{deadlineShow.deadline.deadline.creator.firstname}}</p>
         </div>
-        <div class="dynamic-username" style="display: inline-block;" data-ng-hide=" deadlineShow.deadline.deadline.creator.id == deadlineShow.deadline.deadline.editor.id ||
+        <div class="dynamic-username" data-ng-hide=" deadlineShow.deadline.deadline.creator.id == deadlineShow.deadline.deadline.editor.id ||
             deadlineShow.deadline.deadline.editor.id == null" >
             <img class="gravatar" src="{{gravatar(deadlineShow.deadline.deadline.editor.gravatarHash, 30)}}">
             <p>{{deadlineShow.deadline.deadline.editor.firstname}}</p>
@@ -35,7 +35,7 @@
         <div class="dynamic-classes"data-ng-repeat="choice in deadlineShow.choices">
                 {{ deadlineShow.klasses[choice.value-1].name }}
         </div>
-        <div ui-sref="mainon.deadlines.edit({editID: deadlineShow.deadline.deadline.id})" style="display: inline-block; height: 30px; float: right; cursor: pointer;">
+        <div class="dynamic-edit" ui-sref="mainon.deadlines.edit({editID: deadlineShow.deadline.deadline.id})">
             <img class="dynamic_button" src="assets/img/options.svg" width="20px" height="30px">
         </div>
     </div>
