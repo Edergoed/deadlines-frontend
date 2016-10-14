@@ -829,7 +829,7 @@ input:-webkit-autofill {
     font-size: 14px;
     margin-bottom: 6px;
     color: rgba(0, 0, 0, 0.5); }
-  .profile_field input, .profile_field select {
+  .profile_field input {
     font-size: 14px;
     border: solid 0px;
     border-bottom: solid 1px #000;
@@ -840,10 +840,14 @@ input:-webkit-autofill {
     display: block;
     font-family: Roboto-Regular;
     background-color: #FFF; }
-    .profile_field input:focus, .profile_field select:focus {
+    .profile_field input:focus {
       background-color: rgba(255, 255, 255, 0.05); }
-    .profile_field input:focus, .profile_field select:focus {
+    .profile_field input:focus {
       outline: none; }
+    .profile_field input:disabled {
+      border-bottom: solid 0px #000; }
+  .profile_field select {
+    margin: 10px 0px 10px 10px; }
   .profile_field button {
     width: 100%; }
 
@@ -856,24 +860,35 @@ input:-webkit-autofill {
 
 .profile_achievement {
   width: 100%;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.1);
-  height: 80px;
+  height: 65px;
   margin-top: 10px; }
   .profile_achievement img, .profile_achievement span {
     display: inline-block; }
   .profile_achievement label {
-    display: block; }
+    display: block;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.6); }
   .profile_achievement .profile_achievement_img {
-    height: 50px;
-    width: 50px;
-    background-color: #888;
-    border-radius: 100px;
+    height: 40px;
+    min-width: 40px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 100%;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-    margin-left: 10px;
-    outline: none; }
+    margin: 0px 15px;
+    outline: none;
+    float: left; }
+
+.achieved {
+  background-color: rgba(254, 39, 70, 0.6);
+  color: #FFF; }
+  .achieved .profile_achievement_img {
+    background-color: rgba(255, 255, 255, 0.3); }
+  .achieved label {
+    color: rgba(255, 255, 255, 0.6); }
 
 .profile_achievement_meta {
   display: inline-block;
@@ -930,6 +945,29 @@ input:-webkit-autofill {
   width: 100%;
   float: right; }
 
+@media (max-width: 1000px) {
+  .profile {
+    overflow-y: scroll; }
+
+  .profile_form {
+    display: block;
+    width: 100%;
+    float: none;
+    height: 100%; }
+    .profile_form > div button {
+      width: 100% !important; }
+
+  .profile_achievements {
+    display: block;
+    width: 100%; }
+
+  .profile_top img {
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%); }
+
+  .top_meta_division {
+    width: 0%;
+    display: none; } }
 ::-webkit-scrollbar {
   width: 6px; }
 
@@ -1107,7 +1145,9 @@ footer {
   position: relative;
   width: 30px;
   height: 30px;
-  float: left; }
+  float: left;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 100%; }
   .dynamic-username img {
     position: absolute; }
   .dynamic-username p {
@@ -1652,7 +1692,10 @@ footer {
 .nav_gravatar {
   float: right;
   display: inline-block;
-  margin: 15px 0px 15px 0px; }
+  margin: 15px 0px 15px 0px;
+  height: 30px;
+  width: 30px;
+  background-color: rgba(0, 0, 0, 0.3); }
 
 .btn-group {
   margin: 0px 15px; }

@@ -101,7 +101,7 @@
 		color: rgba(0,0,0,0.5);
 	}
 	display: inline-block;
-	input,select{
+	input{
         font-size: 14px;
         border: solid 0px;
         border-bottom: solid 1px #000;
@@ -123,6 +123,14 @@
             // background-color: #EEE;
             outline: none;
         }
+
+        &:disabled{
+        	border-bottom: solid 0px #000;	
+        }
+	}
+
+	select{
+		margin: 10px 0px 10px 10px;
 	}
 
 	button{
@@ -140,9 +148,9 @@
 
 .profile_achievement{
 	width: 100%;
-	border-radius: 20px;
+	border-radius: 10px;
 	background-color: rgba(0,0,0,0.1);
-	height: 80px;
+	height: 65px;
 	margin-top: 10px;
 
 	img,span{
@@ -151,19 +159,35 @@
 
 	label{
 		display: block;
+		font-size: 13px;
+		color: rgba(0,0,0,0.6);
 	}
 
 	.profile_achievement_img{
-		height: 50px;
-		width: 50px;
-		background-color: #888;
-		border-radius: 100px;
+		height: 40px;
+		min-width: 40px;
+		background-color: rgba(0,0,0,0.1);
+		border-radius: 100%;
 		position: relative;
 		top: 50%;
 		transform: translateY(-50%);
-		margin-left: 10px;
+		margin: 0px 15px;
 		outline: none;
+		float: left;
 	}
+}
+
+.achieved{
+	background-color: rgba(254, 39, 70, 0.6);
+	.profile_achievement_img{
+		background-color: rgba(256,256,256,0.3);
+	}
+
+	label{
+		color: rgba(256,256,256,0.6);
+	}
+
+	color: #FFF;
 }
 
 .profile_achievement_meta{
@@ -227,4 +251,44 @@
 	text-align: center;
 	width: 100%;
 	float: right;
+}
+
+@media (max-width: 1000px){
+
+	.profile{
+		overflow-y: scroll;
+
+	}
+
+	.profile_form{
+		display: block;
+		width: 100%;
+		float: none;
+		height: 100%;
+		& > div{
+			button{
+				width: 100% !important;
+			}
+		}
+	}
+
+	.profile_achievements{
+		display: block;
+		width: 100%;
+	}
+
+	.profile_top{
+		img{
+			// display: block;
+			// margin: 0 auto;
+			left: 50%;
+			transform: translateY(-50%) translateX(-50%);
+		}
+	}
+
+	.top_meta_division{
+		width: 0%;
+		display: none;
+	}
+
 }
