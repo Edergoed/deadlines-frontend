@@ -28,8 +28,11 @@
     width: 30px;
     height: 30px;
     float: left;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 100%;
     img{
         position: absolute;
+
     }
     p{
         display: none;
