@@ -49,15 +49,17 @@
             <div class="edit-meta">
                 <input type="title" placeholder="Title" data-ng-model="deadlineEdit.deadline.deadline.title" requird>
                 <div style="float: right;" ng-click="deadlineEdit.openCalendar()">
-                    {{ deadlineEdit.calendar.day; }}
-                    {{ deadlineEdit.months[deadlineEdit.calendar.month].name; }}
-                    {{ deadlineEdit.calendar.year; }}
+                    {{ deadlineEdit.calendar.day }}
+                    {{ deadlineEdit.months[deadlineEdit.calendar.month].name }}
+                    {{ deadlineEdit.calendar.year }}
                 </div>
             </div>
             <div class="edit-sub-meta">
                 <input type="subject" placeholder="Subject" data-ng-model="deadlineEdit.deadline.deadline.subject">
                 <!-- <input type="text" style="float: right; text&#45;align: right;"  placeholder="12:00" data&#45;ng&#45;model="deadlineEdit.deadline.deadline.time"> -->
-                {{ deadlineEdit.calendar.time; }}
+                <div style="float: right;" ng-click="deadlineEdit.openCalendar()">
+                    {{ deadlineEdit.calendar.time }}
+                </div>
 
                 <!-- <select id="" name=""></select> -->
             </div>
