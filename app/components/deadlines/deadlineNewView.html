@@ -54,7 +54,10 @@
             <div class="edit-sub-meta">
                 <input type="text" name="subject" placeholder="Subject" data-ng-model="deadlineNew.deadline.deadline.subject" required>
                 <!-- <input type="text" name="time" placeholder="12:00" data&#45;ng&#45;model="deadlineNew.deadline.deadline.time" style="float: right; text&#45;align: right;" required> -->
-                <span style="float: right; text&#45;align: right;" ng-click="deadlineNew.openCalendar()">{{ deadlineNew.calendar.time }}</span>
+                <!-- <span style="float: right; text&#38;#45;align: right;" ng&#45;click="deadlineNew.openCalendar()">{{ deadlineNew.calendar.time }}</span> -->
+                <div style="float: right;" ng-click="deadlineEdit.openCalendar()">
+                    {{ deadlineNew.calendar.time }}
+                </div>
                 <!-- <select id="" name=""></select> -->
             </div>
             <div class="dynamic-content">
