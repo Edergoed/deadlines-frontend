@@ -62,14 +62,29 @@
             </div>
             <div class="dynamic-content">
                 <div text-angular ng-model="deadlineNew.deadline.deadline.content"  ta-toolbar-button-class="btn-editor"></div>
-                <div data-ng-repeat="choice in deadlineNew.choices">
-                    <select id="" name="klass" data-ng-change="deadlineNew.onChange()"  data-ng-options="klass.id as klass.name for klass in
-                    deadlineNew.availableKlasses[$index]" data-ng-model="choice.value" placeholder="Class" required>
-                        <option value="" disabled selected>Select your class</option>
-                    </select>
-                    <a class="remove" ng-show="!$first && (choice.value == null)" ng-click="deadlineNew.removeChoice($index)">X</a>
+                <!-- <div data&#45;ng&#45;repeat="choice in deadlineNew.choices"> -->
+                <!--     <select id="" name="klass" data&#45;ng&#45;change="deadlineNew.onChange()"  data&#45;ng&#45;options="klass.id as klass.name for klass in -->
+                <!--     deadlineNew.availableKlasses[$index]" data&#45;ng&#45;model="choice.value" placeholder="Class" required> -->
+                <!--         <option value="" disabled selected>Select your class</option> -->
+                <!--     </select> -->
+                <!--     <a class="remove" ng&#45;show="!$first &#38;&#38; (choice.value == null)" ng&#45;click="deadlineNew.removeChoice($index)">X</a> -->
+                <!-- </div> -->
+                <!-- <a id="addNewChoice" ng&#45;click="deadlineNew.addNewChoice()">More</a> -->
+
+
+            <div data-ng-repeat="choice in deadlineNew.choices" class="dynamic-classesedit">
+                <div id="" ng-show="!$last" class="dynamic-classes">
+                    {{ deadlineNew.klasses[choice.value-1].name }}
+                    <a class="remove" ng-show="!$first && (choice.value != null)" ng-click="deadlineNew.removeChoice($index)">X</a>
                 </div>
-                <a id="addNewChoice" ng-click="deadlineNew.addNewChoice()">More</a>
+                <select id="" ng-show="$last" name="klass" data-ng-change="deadlineNew.onChange($index)"  data-ng-options="klass.id as klass.name for klass in
+                deadlineNew.availableKlasses[$index]" data-ng-model="choice.value" placeholder="Class">
+                    <option value="" disabled selected>Select your class</option>
+                </select>
+                <!-- <a class="remove" ng&#45;show="!$first &#38;&#38; (choice.value != null)" ng&#45;click="deadlineEdit.removeChoice($index)">X</a> -->
+            </div>
+
+
                 <button class="btn_save" type="submit" style="margin: 0 auto;">Post deadline</button>
             </div>
             <div class="error_block" ng-messages="deadlineForm.title.$error" ng-if="deadlineForm.title.$touched || deadlineNew.submitted">

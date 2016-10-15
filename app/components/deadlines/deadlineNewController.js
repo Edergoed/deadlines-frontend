@@ -12,7 +12,6 @@ angular
     vm.createDeadline = createDeadline;
     // vm.getDate = getDate;
     vm.onChange = onChange;
-    vm.choices = [{'id' : 'klass1', 'value' : null}];
     vm.calendarNext = calendarNext;
     vm.calendarPrevious = calendarPrevious;
     vm.calendarToday = calendarToday;
@@ -23,6 +22,8 @@ angular
 
     function init(){
         // calendar stuff
+        vm.choices = [{'id' : 'klass1', 'value' : $scope.userCurrent.klass}, {'id' : 'klass2', 'value' : null}];
+        checkAvailableKlasses();
         vm.calendar = {};
         vm.calendar.time = "23:59";
         vm.calendar.year = new Date().getFullYear();
@@ -127,8 +128,10 @@ angular
             hour = vm.deadline.deadline.time.split(':')[0];
             minut = vm.deadline.deadline.time.split(':')[1];
 
-            vm.deadline.deadline.deadlineDateTime = new Date(year, month, day, hour, minut);
+            // vm.deadline.deadline.deadlineDateTime = new Date(year, month, day, hour, minut);
             for(i = 0;i < vm.choices.length; i++){
+                console.log(vm.choices[i].value);
+                if(vm.choices[i].value != null)
                 vm.deadline.deadline.klass_ids.push(vm.choices[i].value);
             }
             //console.log($scope.deadline.deadline.deadlineDateTime);
@@ -240,6 +243,7 @@ angular
         } else {
             vm.calendar.time = date.getHours() + ':' + date.getMinutes();
         }
+        vm.deadline.deadline.deadlineDateTime = date;
         vm.calendarSelection = false;
     }
 

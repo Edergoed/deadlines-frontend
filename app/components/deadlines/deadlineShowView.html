@@ -32,7 +32,7 @@
             <img class="gravatar" src="{{gravatar(deadlineShow.deadline.deadline.editor.gravatarHash, 30)}}">
             <p>{{deadlineShow.deadline.deadline.editor.firstname}}</p>
         </div>
-        <div class="dynamic-classes"data-ng-repeat="choice in deadlineShow.choices">
+        <div class="dynamic-classes" data-ng-repeat="choice in deadlineShow.choices">
                 {{ deadlineShow.klasses[choice.value-1].name }}
         </div>
         <div class="dynamic-edit" ui-sref="mainon.deadlines.edit({editID: deadlineShow.deadline.deadline.id})">
