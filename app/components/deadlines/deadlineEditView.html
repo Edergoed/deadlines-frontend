@@ -71,7 +71,7 @@
             <div data-ng-repeat="choice in deadlineEdit.choices" class="dynamic-classesedit">
                 <div id="" ng-show="!$last" class="dynamic-classes">
                     {{ deadlineEdit.klasses[choice.value-1].name }}
-                    <a class="remove" ng-show="!$first && (choice.value != null)" ng-click="deadlineEdit.removeChoice($index)">X</a>
+                    <a class="remove" ng-show="deadlineEdit.choices.length > 2" ng-click="deadlineEdit.removeChoice($index)">X</a>
                 </div>
                 <select id="" ng-show="$last" name="klass" data-ng-change="deadlineEdit.onChange($index)"  data-ng-options="klass.id as klass.name for klass in
                 deadlineEdit.availableKlasses[$index]" data-ng-model="choice.value" placeholder="Class">
