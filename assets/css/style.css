@@ -1393,10 +1393,20 @@ footer {
   .dynamic-classesedit select {
     padding: 4px 12px;
     margin: 0px 6px 0px 0px;
-    font-size: 14px; }
+    font-size: 14px;
+    position: relative;
+    transform: translateY(-50%);
+    top: 50%;
+    height: 22px;
+    margin-left: 6px; }
   .dynamic-classesedit select option {
     -webkit-appearance: none;
     background-color: #EEE; }
+  .dynamic-classesedit img {
+    height: 8px;
+    width: 8px;
+    opacity: 0.8;
+    cursor: pointer; }
 
 .dynamic-addclass {
   outline: none;
