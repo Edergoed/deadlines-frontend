@@ -71,22 +71,22 @@
                 <!-- </div> -->
                 <!-- <a id="addNewChoice" ng&#45;click="deadlineNew.addNewChoice()">More</a> -->
 
+            <div class="dynamic-options">
+                <div data-ng-repeat="choice in deadlineNew.choices" class="dynamic-classesedit" style="height: 30px;">
+                    <div id="" ng-show="!$last" class="dynamic-classes">
+                        {{ deadlineNew.klasses[choice.value-1].name }}
+                        <a class="remove" ng-show="!$first && (choice.value != null)" ng-click="deadlineNew.removeChoice($index)"><img src="/assets/img/remove.svg"></a>
 
-            <div data-ng-repeat="choice in deadlineNew.choices" class="dynamic-classesedit">
-                <div id="" ng-show="!$last" class="dynamic-classes">
-                    {{ deadlineNew.klasses[choice.value-1].name }}
-                    <a class="remove" ng-show="!$first && (choice.value != null)" ng-click="deadlineNew.removeChoice($index)"><img src="/assets/img/remove.svg"></a>
-
+                    </div>
+                    <select id="" ng-show="$last" name="klass" data-ng-change="deadlineNew.onChange($index)"  data-ng-options="klass.id as klass.name for klass in
+                    deadlineNew.availableKlasses[$index]" data-ng-model="choice.value" placeholder="Class">
+                        <option value="" disabled selected>Select a class</option>
+                    </select>
                 </div>
-                <select id="" ng-show="$last" name="klass" data-ng-change="deadlineNew.onChange($index)"  data-ng-options="klass.id as klass.name for klass in
-                deadlineNew.availableKlasses[$index]" data-ng-model="choice.value" placeholder="Class">
-                    <option value="" disabled selected>Select a class</option>
-                </select>
-                <!-- <a class="remove" ng&#45;show="!$first &#38;&#38; (choice.value != null)" ng&#45;click="deadlineEdit.removeChoice($index)">X</a> -->
             </div>
 
-
-                <button class="btn_save" type="submit" style="margin: 0 auto;">Post deadline</button>
+            </div>
+                <button class="btn_save" type="submit" style="margin: 15px auto 0px;">Post deadline</button>
             </div>
             <div class="error_block" ng-messages="deadlineForm.title.$error" ng-if="deadlineForm.title.$touched || deadlineNew.submitted">
                 <p ng-message="required">Title is required</p>

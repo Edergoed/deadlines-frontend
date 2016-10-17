@@ -42,8 +42,7 @@
 
 
 
-    <div >
-<!-- data&#45;ng&#45;hide="deadlineEdit.calendarSelection" -->
+    <div data-ng-hide="deadlineEdit.calendarSelection">
         <p style="text-align: center; font-size: 14px; margin: 6px 0px;">Edit Deadline</p>
         <form name="deadlineForm" ng-submit="deadlineEdit.updateDeadline()" novalidate>
             <div class="edit-meta">
@@ -56,64 +55,44 @@
             </div>
             <div class="edit-sub-meta">
                 <input type="subject" placeholder="Subject" data-ng-model="deadlineEdit.deadline.deadline.subject">
-                <!-- <input type="text" style="float: right; text&#45;align: right;"  placeholder="12:00" data&#45;ng&#45;model="deadlineEdit.deadline.deadline.time"> -->
                 <div style="float: right;" ng-click="deadlineEdit.openCalendar()">
                     {{ deadlineEdit.calendar.time }}
                 </div>
 
-                <!-- <select id="" name=""></select> -->
             </div>
             <div class="dynamic-content">
                 <div text-angular ng-model="deadlineEdit.deadline.deadline.content"></div>
             </div>
 
-            <!-- <div class="dynamic-classesedit"> -->
-            <div data-ng-repeat="choice in deadlineEdit.choices" class="dynamic-classesedit">
-                <div id="" ng-show="!$last" class="dynamic-classes">
-                    {{ deadlineEdit.klasses[choice.value-1].name }}
-                    <a class="remove" ng-show="deadlineEdit.choices.length > 2" ng-click="deadlineEdit.removeChoice($index)"><img src="/assets/img/remove.svg"></a>
+
+            <div class="dynamic-options">
+                <div class="dynamic-username" style="display: inline-block;" data-ng-hide="deadlineEdit.deadline.deadline.creator.id == null">
+                    <img class="gravatar" src="{{gravatar(deadlineEdit.deadline.deadline.creator.gravatarHash, 30)}}">
+                    <p>{{deadlineEdit.deadline.deadline.creator.firstname}} {{deadlineEdit.deadline.creator.prefix}} {{deadlineEdit.deadline.creator.lastname}}</p>
                 </div>
-                <select id="" ng-show="$last" name="klass" data-ng-change="deadlineEdit.onChange($index)"  data-ng-options="klass.id as klass.name for klass in
-                deadlineEdit.availableKlasses[$index]" data-ng-model="choice.value" placeholder="Class">
-                    <option value="" disabled selected>Select your class</option>
-                </select>
-                <!-- <a class="remove" ng&#45;show="!$first &#38;&#38; (choice.value != null)" ng&#45;click="deadlineEdit.removeChoice($index)">X</a> -->
-            </div>
-
-
-
-            <div class="dynamic-classes" data-ng-repeat="choice in deadlineShow.choices">
-                {{ deadlineShow.klasses[choice.value-1].name }}
-            </div>
-
-
-
-            <!-- <a id="addNewChoice" ng&#45;click="deadlineEdit.addNewChoice()">More</a> -->
-            <!-- <div data-ng-repeat="assignedKlass in
-                selectedDeadline.deadline.klass_ids track by $index" style="display: inline-block;">
-                <div >
-                <select id="" name="klass" data-ng-change="updateKlass()" data-ng-options="klass.id as klass.name for klass in klassList.klasses" data-ng-model="selectedDeadline.deadline.klass_ids[$index]" placeholder="Class" style="display: inline-block;">
-                <option value="" disabled selected>Select class</option>
-                </select>
-                <div data-ng-hide="$index == 0" data-ng-click="removeAssignment($event,selectedDeadline.deadline.klass_ids[$index])" style="display: inline-block;">
-                x
+                <div class="dynamic-username" style="display: inline-block;" data-ng-hide=" deadlineEdit.deadline.deadline.creator.id ==
+                deadlineEdit.deadline.editor.id || deadlineEdit.deadline.deadline.editor.id == null">
+                    <img class="gravatar" src="{{gravatar(deadlineEdit.deadline.deadline.editor.gravatarHash, 30)}}">
+                    <p>{{deadlineEdit.deadline.deadline.editor.firstname}} {{deadlineEdit.deadline.editor.prefix}} {{deadlineEdit.deadline.editor.lastname}}</p>
                 </div>
-                </div>
-                </div> -->
-                <!-- </div> -->
 
-                <div class="dynamic-options">
-                    <div class="dynamic-username" style="display: inline-block;" data-ng-hide="deadlineEdit.deadline.deadline.creator.id == null">
-                        <img class="gravatar" src="{{gravatar(deadlineEdit.deadline.deadline.creator.gravatarHash, 30)}}">
-                        <p>{{deadlineEdit.deadline.deadline.creator.firstname}} {{deadlineEdit.deadline.creator.prefix}} {{deadlineEdit.deadline.creator.lastname}}</p>
+                <div data-ng-repeat="choice in deadlineEdit.choices" class="dynamic-classesedit" style="height: 30px;">
+                    <div id="" ng-show="!$last" class="dynamic-classes">
+                        {{ deadlineEdit.klasses[choice.value-1].name }}
+                        <a class="remove" ng-show="deadlineEdit.choices.length > 2" ng-click="deadlineEdit.removeChoice($index)"><img src="/assets/img/remove.svg"></a>
                     </div>
-                    <div class="dynamic-username" style="display: inline-block;" data-ng-hide=" deadlineEdit.deadline.deadline.creator.id ==
-                    deadlineEdit.deadline.editor.id || deadlineEdit.deadline.deadline.editor.id == null">
-                        <img class="gravatar" src="{{gravatar(deadlineEdit.deadline.deadline.editor.gravatarHash, 30)}}">
-                        <p>{{deadlineEdit.deadline.deadline.editor.firstname}} {{deadlineEdit.deadline.editor.prefix}} {{deadlineEdit.deadline.editor.lastname}}</p>
-                    </div>
-                    <button class="btn_save" style="margin: 0 auto; font-size: 12px;" type="submit">Save</button>
+                    <select id="" ng-show="$last" name="klass" data-ng-change="deadlineEdit.onChange($index)"  data-ng-options="klass.id as klass.name for klass in
+                    deadlineEdit.availableKlasses[$index]" data-ng-model="choice.value" placeholder="Class">
+                        <option value="" disabled selected>Select your class</option>
+                    </select>
                 </div>
+
+                <div class="dynamic-classes" data-ng-repeat="choice in deadlineShow.choices" style="height: 30px;">
+                    {{ deadlineShow.klasses[choice.value-1].name }}
+                </div>
+                    
+            </div>
+                <button class="btn_save" style="margin: 15px auto 0px; font-size: 12px;" type="submit">Save</button>
         </form>
     </div>
 </div>
