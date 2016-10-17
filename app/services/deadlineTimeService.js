@@ -102,7 +102,6 @@ angular.module('Deadlines')
             days[i] = i+1;
         }
         return days;
-        console.log("returend");
     }
 
     deadlineTime.getMonths = function(){

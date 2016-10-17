@@ -31,9 +31,7 @@
                     <div class='option' ng-click='deadlineNew.selectDate(00, 13, box.date, box.month -1, box.year)'>13:00</div>
                     <div class='option' ng-click='deadlineNew.selectDate(59, 23, box.date, box.month -1, box.year)'>23:59</div>
                     <div class='calendar-number-graphic'>
-                        <p>{{ box.date + ' '}}
-                        <!-- <span style="font&#45;size:10px;" ng&#45;class="{'calendar&#45;faded': box.fade}">{{ box.month + ' ' + box.year}}</span> -->
-                        </p>
+                        <p>{{ box.date + ' '}}</p>
                     </div>
                 </div>
             </div>
@@ -53,24 +51,10 @@
             </div>
             <div class="edit-sub-meta">
                 <input type="text" name="subject" placeholder="Subject" data-ng-model="deadlineNew.deadline.deadline.subject" required>
-                <!-- <input type="text" name="time" placeholder="12:00" data&#45;ng&#45;model="deadlineNew.deadline.deadline.time" style="float: right; text&#45;align: right;" required> -->
-                <!-- <span style="float: right; text&#38;#45;align: right;" ng&#45;click="deadlineNew.openCalendar()">{{ deadlineNew.calendar.time }}</span> -->
-                <div style="float: right;" ng-click="deadlineEdit.openCalendar()">
-                    {{ deadlineNew.calendar.time }}
-                </div>
-                <!-- <select id="" name=""></select> -->
+                <input type="text" style="float: right; text-align: right;" placeholder="12:00" data-ng-model="deadlineNew.calendar.time">
             </div>
             <div class="dynamic-content">
                 <div text-angular ng-model="deadlineNew.deadline.deadline.content"  ta-toolbar-button-class="btn-editor"></div>
-                <!-- <div data&#45;ng&#45;repeat="choice in deadlineNew.choices"> -->
-                <!--     <select id="" name="klass" data&#45;ng&#45;change="deadlineNew.onChange()"  data&#45;ng&#45;options="klass.id as klass.name for klass in -->
-                <!--     deadlineNew.availableKlasses[$index]" data&#45;ng&#45;model="choice.value" placeholder="Class" required> -->
-                <!--         <option value="" disabled selected>Select your class</option> -->
-                <!--     </select> -->
-                <!--     <a class="remove" ng&#45;show="!$first &#38;&#38; (choice.value == null)" ng&#45;click="deadlineNew.removeChoice($index)">X</a> -->
-                <!-- </div> -->
-                <!-- <a id="addNewChoice" ng&#45;click="deadlineNew.addNewChoice()">More</a> -->
-
             <div class="dynamic-options">
                 <div data-ng-repeat="choice in deadlineNew.choices" class="dynamic-classesedit" style="height: 30px;">
                     <div id="" ng-show="!$last" class="dynamic-classes">

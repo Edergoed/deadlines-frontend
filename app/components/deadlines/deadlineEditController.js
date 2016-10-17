@@ -44,7 +44,7 @@ angular
 
             vm.deadline.deadline.deadlineDateTime = new Date(year, month, day, hour, minut);
             vm.deadline.deadline.klass_ids = [];
-            for(i = 0;i < vm.choices.length; i++){
+            for(i = 0; i < vm.choices.length; i++){
                 console.log(vm.choices[i].value);
                 if(vm.choices[i].value != null)
                 vm.deadline.deadline.klass_ids.push(vm.choices[i].value);
@@ -162,10 +162,10 @@ angular
     function createCalendarColums() {
         var colums = {};
         var days = deadlineTime.getWeekdays();
-        for(let i = 0; i < 7; i++) {
+        for(i = 0; i < 7; i++) {
             colums[i] = {};
             colums[i].name = days[i].slice(0,3);
-            for(let j = 0; j < 6; j++) {
+            for(j = 0; j < 6; j++) {
                 colums[i].boxs = {};
             }
         }

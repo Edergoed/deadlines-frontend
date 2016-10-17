@@ -55,10 +55,7 @@
             </div>
             <div class="edit-sub-meta">
                 <input type="subject" placeholder="Subject" data-ng-model="deadlineEdit.deadline.deadline.subject">
-                <div style="float: right;" ng-click="deadlineEdit.openCalendar()">
-                    {{ deadlineEdit.calendar.time }}
-                </div>
-
+                <input type="text" style="float: right; text-align: right;" placeholder="12:00" data-ng-model="deadlineEdit.calendar.time">
             </div>
             <div class="dynamic-content">
                 <div text-angular ng-model="deadlineEdit.deadline.deadline.content"></div>
