@@ -10,7 +10,6 @@ angular
     vm.init = init;
 
     function init(){
-        console.log('test');
         if($stateParams.mode === "archive"){
             vm.archive = true;
         } else {
@@ -53,13 +52,9 @@ angular
         .then(function(res){
             //success
             vm.deadlines = deadline.deadlines.deadlines;
-            // $scope.$watch('$state.current.name', function(){
-            console.log('set watch');
             $scope.$watch('$state.current.name', function(){
-            console.log('stat change');
                 if($state.current.name == 'mainon.deadlines'){
                     $state.go('mainon.deadlines.show', { showID: vm.deadlines[0].id });
-                    console.log('state is deadlines');
                 }
             });
 
