@@ -10,7 +10,6 @@ angular
     vm.removeChoice = removeChoice;
     vm.addNewChoice = addNewChoice;
     vm.createDeadline = createDeadline;
-    // vm.getDate = getDate;
     vm.onChange = onChange;
     vm.calendarNext = calendarNext;
     vm.calendarPrevious = calendarPrevious;
@@ -33,8 +32,6 @@ angular
         // end calendar stuff
 
         vm.dayCurrent = new Date().getDate();
-        // vm.deadline = {};
-        // vm.deadline.deadline = {};
         vm.deadline = {deadline : {}}
         vm.deadline.deadline.year = new Date().getFullYear();
         vm.deadline.deadline.month = new Date().getMonth();
@@ -46,12 +43,11 @@ angular
         });
 
         vm.months = deadlineTime.getMonths();
-        vm.years = deadlineTime.getYears(new Date().getFullYear());
+        // vm.years = deadlineTime.getYears(new Date().getFullYear());
         vm.weekday = deadlineTime.getWeekdays();
         getUserCurrent();
         vm.error = false;
         vm.submitted = false;
-        // getKlasses();
         calendarUpdate();
     }
 
@@ -105,7 +101,6 @@ angular
         vm.Loading = true;
         klass.getAllKlasses()
         .then(function(res){
-            //$scope.deadlineChangeState('view');
             vm.Loading = false;
             vm.klasses = res.klasses;
             vm.availableKlasses[0]= res.klasses;

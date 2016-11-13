@@ -8,9 +8,9 @@ angular
     vm.tick = tick;
     vm.getAll = getAll;
     vm.init = init;
+    vm.tickList = [];
 
     function init(){
-        console.log('test');
         if($stateParams.mode === "archive"){
             vm.archive = true;
         } else {
@@ -40,11 +40,42 @@ angular
     }
 
     function tick(id){
+        var theId;
         for(i = 0; i < vm.deadlines.length; i++){
             if(vm.deadlines[i].id == id){
                 vm.deadlines[i].done = vm.deadlines[i].done == null ? true : !vm.deadlines[i].done;
+                theId = i;
             }
         }
+        if(vm.deadlines[theId].done){
+            vm.tickList.push({id: id});
+            deadline.saveTickList(vm.tickList);
+        }
+        else {
+            for(i = 0; i < vm.tickList.length; i++)
+                if(id == vm.tickList[i].id) {
+                    vm.tickList.splice(i, 1);
+                    deadline.saveTickList(vm.tickList);
+                }
+        }
+
+    }
+
+    function setTicks(){
+         var tickList = deadline.getTickList();
+        if(!tickList)
+            return
+        console.log(tickList);
+        vm.tickList = tickList;
+
+        for(i = 0; i < vm.deadlines.length; i++)
+            for(j = 0; j < vm.tickList.length; j++){
+                console.log(vm.tickList[j]);
+                if(vm.deadlines[i].id == vm.tickList[j].id){
+                    vm.deadlines[i].done =  true;
+                    // vm.deadlines[i].done = tickList[i].value == null ? false : true;
+                }
+            }
     }
 
     function getAll(){
@@ -53,13 +84,9 @@ angular
         .then(function(res){
             //success
             vm.deadlines = deadline.deadlines.deadlines;
-            // $scope.$watch('$state.current.name', function(){
-            console.log('set watch');
             $scope.$watch('$state.current.name', function(){
-            console.log('stat change');
                 if($state.current.name == 'mainon.deadlines'){
                     $state.go('mainon.deadlines.show', { showID: vm.deadlines[0].id });
-                    console.log('state is deadlines');
                 }
             });
 
@@ -69,6 +96,7 @@ angular
             //         $state.go('mainon.deadlines.show', { showID: $scope.deadlineList.deadlines[0].id });
             //     }
             // });
+            setTicks();
 
             if(vm.deadlines[0] != null && vm.selectedDeadlineId == null ){
                 vm.arrow(vm.deadlines[0].id);

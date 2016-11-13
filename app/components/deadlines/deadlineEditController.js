@@ -4,6 +4,9 @@ angular
 
     var vm = this;
 
+    var month = 0;
+    var year = 0;
+
     vm.klasses = klasses.klasses;
     vm.availableKlasses = [];
     vm.checkAvailableKlasses = checkAvailableKlasses;
@@ -13,6 +16,7 @@ angular
     vm.getDate = getDate;
     vm.onChange = onChange;
 
+    vm.calendar = {};
     vm.calendarNext = calendarNext;
     vm.calendarPrevious = calendarPrevious;
     vm.calendarToday = calendarToday;
@@ -26,8 +30,8 @@ angular
         if($stateParams.editID != null){
             getDeadline($stateParams.editID);
         }
+
         // calendar stuff
-        vm.calendar = {};
         vm.calendar.months = deadlineTime.getMonthsArray();
         calendarUpdate();
         // end calendar stuff
@@ -66,6 +70,7 @@ angular
             addNewChoice();
     }
 
+    //needs revector
     function checkAvailableKlasses() {
         for(k = 0;k < vm.choices.length; k++){
             array = [];
@@ -140,9 +145,7 @@ angular
         }
     }
 
-    var month = 0;
-    var year = 0;
-    var base = $('.weekdays').html();
+    // var base = $('.weekdays').html();
 
     function calendarNext() {
         month++;
