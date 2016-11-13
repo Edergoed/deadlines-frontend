@@ -52,7 +52,7 @@ angular.module('Deadlines')
                 percentage = (difference / (day*7));
                 color = "rgba(255, 195, 0, "+ percentage +");"; //yellow to red
                 if(difference < 0){
-                    percentage = (difference / (day*365));
+                    percentage = (difference / (day*(365/2)));
                     color = "rgba(0, 187, 211, "+ (percentage * -1) +");"; //blue to yellow
                 }
             }
