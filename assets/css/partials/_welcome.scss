@@ -13,7 +13,6 @@
 
 .welcome_info{
   color: #FFF;
-  // text-align: center;
   display: inline-block;
   width: 50%;
   position: relative;
@@ -24,9 +23,6 @@
     font-weight: normal;
     font-family: 'Roboto-Regular';
     margin: 0;
-    // @include animation('fadeInDown 0.644s');
-    // @include animation-fill-mode(forwards);
-    // opacity: 0;
   }
   h3{
     font-size: 30px;
@@ -41,7 +37,6 @@
   margin-top: 30px;
   display: inline-block;
   text-align: center;
-  // padding: 0px 20px ;
   img{
     border-radius: 100px !important;
     color: #fff !important;
@@ -69,7 +64,6 @@
   user-select: none;
   position: relative;
   width: 100%;
-  // text-align: center;
   button{
     font-size: 14px;
     padding: 10px 35px 12px;

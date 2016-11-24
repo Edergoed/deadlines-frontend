@@ -21,20 +21,20 @@
             </div>
             
         </div>
-        <div class="profile_form">
+        <div class="profile_form" style="display: block; float: none; margin: 0 auto;">
             <div class="profile_field" style="width: 30%;">
                 <label>Firstname</label>
-                <input type="text" placeholder="Firstname" value="{{ userCurrent.firstname }}">
+                <input type="text" placeholder="Firstname" disabled="true" value="{{ userCurrent.firstname }}">
             </div>
 
             <div class="profile_field" style="width: 30%; margin: 0 4%;">
                 <label>Prefix</label>
-                <input type="text" placeholder="Prefix" value="{{ userCurrent.prefix }}">
+                <input type="text" placeholder="Prefix" disabled="true" value="{{ userCurrent.prefix }}">
             </div>
 
             <div class="profile_field" style="width: 30%; float: right;">
                 <label>Lastname</label>
-                <input type="text" placeholder="Lastname" value="{{ userCurrent.lastname }}">
+                <input type="text" placeholder="Lastname" disabled="true" value="{{ userCurrent.lastname }}">
             </div>
             
             <div class="profile_field" style="width: 100%;">
@@ -50,17 +50,17 @@
             </div>
             <div class="profile_field" style="width: 45%;">
                 <label>Add an avatar</label>
-                <button href="https://en.gravatar.com/">Open Gravatar</button>
+                <a href="https://en.gravatar.com/"><button style="cursor: pointer;">Open Gravatar</button></a>
             </div>
             <div class="profile_field" style="float: right; width: 45%;">
                 <label>Password</label>
-                <button>Change password</button>
+                <button style="background-color: #CCC; border-color: #CCC;">Change password</button>
             </div>
             <div class="profile_field" style="width: 100%; float: left;">
-                <button style="background-color: rgba(0,0,0,0.1); border-color: rgba(0,0,0,0); color: #000; width: 40%; margin: 0 auto;">Sign out</button>
+                <button data-ng-click="signout()" style="background-color: rgba(0,0,0,0.1); border-color: rgba(0,0,0,0); color: #000; width: 40%; margin: 0 auto;">Sign out</button>
             </div>
         </div>
-        <div class="profile_achievements">
+        <!-- <div class="profile_achievements">
             Achievements (2 / 30)
             <div class="profile_achievement achieved">
                 <div class="profile_achievement_img" style="display: inline-block;"></div>
@@ -97,6 +97,6 @@
                     <span>Post your first deadline</span>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>

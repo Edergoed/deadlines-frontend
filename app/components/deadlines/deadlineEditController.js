@@ -33,8 +33,8 @@ angular
         // end calendar stuff
     }
 
+
     function updateDeadline(){
-        //console.log('kanekr dope');
         if($scope.deadlineForm.$valid){
             day = vm.calendar.day
             month = vm.calendar.month
@@ -92,24 +92,16 @@ angular
         var lastItem = vm.choices.length-1;
         vm.choices.splice(index,1);
         vm.checkAvailableKlasses();
-        console.log("remove deadline");
     };
 
     function getDeadline(id){
         vm.loading = true;
         deadline.getDeadline(id)
         .then(function(res){
-            //succes
             vm.deadline = deadline.deadline;
             vm.getDate(vm.deadline.deadline.deadlineDateTime);
-            // vm.calendar.weekday = deadlineTime.getWeekdays();
-            // vm.calendar.years = deadlineTime.getYears(vm.deadline.deadline.year);
-            vm.months = deadlineTime.getMonths();
 
-            // vm.calendar.year = new Date().getFullYear();
-            // vm.calendar.month = new Date().getMonth();
-            // vm.calendar.day = new Date().getDate();
-            // vm.calendar.time = "23:59";
+            vm.months = deadlineTime.getMonths();
 
             $scope.$watch("deadlineEdit.deadline.deadline.month", function(newValue, oldValur){
                 vm.days = deadlineTime.getDays(vm.deadline.deadline.year, vm.deadline.deadline.month);
@@ -123,7 +115,6 @@ angular
             vm.checkAvailableKlasses();
             vm.loading = false;
         }, function(res){
-            //error
             vm.loading = false;
         })
     }

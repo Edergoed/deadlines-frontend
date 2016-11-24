@@ -21,7 +21,6 @@ angular
     vm.closeCalendar = closeCalendar;
 
     function init(){
-        // calendar stuff
         vm.choices = [{'id' : 'klass1', 'value' : $scope.userCurrent.klass}, {'id' : 'klass2', 'value' : null}];
         checkAvailableKlasses();
         vm.calendar = {};
@@ -30,11 +29,9 @@ angular
         vm.calendar.month = new Date().getMonth();
         vm.calendar.day = new Date().getDate();
         vm.calendar.months = deadlineTime.getMonthsArray();
-        // end calendar stuff
 
         vm.dayCurrent = new Date().getDate();
-        // vm.deadline = {};
-        // vm.deadline.deadline = {};
+
         vm.deadline = {deadline : {}}
         vm.deadline.deadline.year = new Date().getFullYear();
         vm.deadline.deadline.month = new Date().getMonth();
@@ -51,7 +48,6 @@ angular
         getUserCurrent();
         vm.error = false;
         vm.submitted = false;
-        // getKlasses();
         calendarUpdate();
     }
 
@@ -105,7 +101,6 @@ angular
         vm.Loading = true;
         klass.getAllKlasses()
         .then(function(res){
-            //$scope.deadlineChangeState('view');
             vm.Loading = false;
             vm.klasses = res.klasses;
             vm.availableKlasses[0]= res.klasses;
@@ -118,7 +113,6 @@ angular
     }
 
     function createDeadline(){
-        console.log('test2');
         vm.error = false;
         vm.submitted = true;
         if($scope.deadlineForm.$valid && (vm.deadline.deadline.content != 'undefined' && vm.deadline.deadline.content != '' && vm.deadline.deadline.content != null)){
@@ -128,13 +122,11 @@ angular
             hour = vm.deadline.deadline.time.split(':')[0];
             minut = vm.deadline.deadline.time.split(':')[1];
 
-            // vm.deadline.deadline.deadlineDateTime = new Date(year, month, day, hour, minut);
             for(i = 0;i < vm.choices.length; i++){
                 console.log(vm.choices[i].value);
                 if(vm.choices[i].value != null)
                 vm.deadline.deadline.klass_ids.push(vm.choices[i].value);
             }
-            //console.log($scope.deadline.deadline.deadlineDateTime);
             deadline.createDeadline($scope.userCurrent.id, vm.deadline)
             .then(function(res){
                 //succes
