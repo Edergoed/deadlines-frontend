@@ -58,7 +58,6 @@ angular
                     deadline.saveTickList(vm.tickList);
                 }
         }
-
     }
 
     function setTicks(){
@@ -84,6 +83,27 @@ angular
         .then(function(res){
             //success
             vm.deadlines = deadline.deadlines.deadlines;
+            if(vm.deadlines[0] == null) {
+                vm.deadlines[0] = {
+                    DeadlineDistance: 1970534.7860000134,
+                    color: "rgba(0, 187, 211, 0);",
+                    content: "<p>Hier kan je een omschrijving voor de deadline plaatsen.</p>",
+                    countdown: 3,
+                    creator: null,
+                    deadlineDateTime: "2017-01-10T04:00:00.000Z",
+                    editors: null,
+                    group_id: null,
+                    id: 187,
+                    klass_ids: null,
+                    parendNode: "rgb(0, 187, 211)",
+                    published: false,
+                    selected: true,
+                    subject: "Naam van het vak",
+                    title: "Voorbeeld Deadline",
+                    unit: "Weeks"
+                }
+                deadlineColor.backgroundColor.lastBackgroundColor = 'rgb(0, 187, 211)';
+            }
             $scope.$watch('$state.current.name', function(){
                 if($state.current.name == 'mainon.deadlines'){
                     $state.go('mainon.deadlines.show', { showID: vm.deadlines[0].id });
@@ -98,11 +118,12 @@ angular
             // });
             setTicks();
 
-            if(vm.deadlines[0] != null && vm.selectedDeadlineId == null ){
-                vm.arrow(vm.deadlines[0].id);
-            } else {
-                vm.arrow(vm.selectedDeadlineId);
-            }
+            if(vm.deadlines[0] != null)
+                if(vm.selectedDeadlineId == null ){
+                    vm.arrow(vm.deadlines[0].id);
+                } else {
+                    vm.arrow(vm.selectedDeadlineId);
+                }
 
             vm.lastBackgroundColor = deadline.backgroundColor.lastBackgroundColor;
             vm.bottomBackgroundColor = deadline.backgroundColor.bottomBackgroundColor;
