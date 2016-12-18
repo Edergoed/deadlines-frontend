@@ -72,8 +72,6 @@ body {
     @include animation('splash 0.3s forwards 0.611s ease-in-out');
     position:fixed;
     z-index:1;
-    // background-color:#1c1d1e;
-
     h1{
         font-weight: normal;
         font-family: "Roboto-Light";
@@ -86,33 +84,8 @@ body {
     height: 100%;
     display: block;
     @include animation('reveal 0.3s forwards 0.611s ease-in-out');
-    // -webkit-transform: translateY(100%);
-    // -moz-transform: translateY(100%);
-    // -ms-transform: translateY(100%);
-    // -o-transform: translateY(100%);
-    // transform: translateY(100%);
     filter: blur(10px);
 }
-
-// button{
-//     outline: none;
-//     font-size: 14px;
-//     padding: 10px 35px 12px;
-//     display: block;
-//     line-height: 10px;
-//     margin: 20px auto 0px;
-//     background-color: #FE2746;
-//     border: 2px;
-//     border-color: #FE2746;
-//     border-style: solid;
-//     border-radius: 100px;
-//     color: #FFF;
-//     @include transition(all 0.161s ease);
-//     &:hover{
-//         border-color: #FFC300;
-//         background-color: #FFC300;
-//     }
-// }
 
 .container
 {

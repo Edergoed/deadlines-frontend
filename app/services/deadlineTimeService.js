@@ -142,22 +142,14 @@ angular.module('Deadlines')
         return months;
     }
 
-    // deadlineTime.getYears = function(date){
-    //     //if(date == null){
-    //     //    var years =[
-    //     //        new Date().getFullYear(),
-    //     //        new Date().getFullYear()+1,
-    //     //        new Date().getFullYear()+2
-    //     //    ]
-    //     //} else {
-    //         var years =[
-    //             new Date(date, 1, 0, 0,0,0,0).getFullYear(),
-    //             new Date(date, 1, 0, 0,0,0,0).getFullYear()+1,
-    //             new Date(date, 1, 0, 0,0,0,0).getFullYear()+2
-    //         ]
-    //     //}
-    //     return years;
-    // }
+    deadlineTime.getYears = function(date){
+        var years =[
+            new Date(date, 1, 0, 0,0,0,0).getFullYear(),
+            new Date(date, 1, 0, 0,0,0,0).getFullYear()+1,
+            new Date(date, 1, 0, 0,0,0,0).getFullYear()+2
+        ]
+        return years;
+    }
 
     deadlineTime.getWeekdays = function(){
         var weekdays = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
