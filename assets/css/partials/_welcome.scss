@@ -1,3 +1,4 @@
+// main: ../style.scss
 .welcome{
   height: 200%;
 }
@@ -8,7 +9,7 @@
   margin: 0 auto;
   text-align: left;
   z-index: 100;
-  position: relative; 
+  position: relative;
 }
 
 .welcome_info{
@@ -40,7 +41,7 @@
   img{
     border-radius: 100px !important;
     color: #fff !important;
-  } 
+  }
 }
 
 .welcome_mockup{
@@ -53,7 +54,7 @@
 }
 
 .welcome_mockup_img{
-  margin: 0 auto; 
+  margin: 0 auto;
   @include animation('fadeInDown2 1.68s');
   @include animation-fill-mode(forwards);
   opacity: 0;
