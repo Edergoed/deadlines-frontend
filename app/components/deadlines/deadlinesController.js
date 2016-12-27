@@ -85,7 +85,7 @@ angular
             vm.deadlines = deadline.deadlines.deadlines;
             if(vm.deadlines[0] == null) {
                 vm.deadlines[0] = {
-                    DeadlineDistance: 1970534.7860000134,
+                    DeadlineDistance: 8731287389,
                     color: "rgba(0, 187, 211, 0);",
                     content: "<p>Hier kan je een omschrijving voor de deadline plaatsen.</p>",
                     countdown: 3,
@@ -93,7 +93,7 @@ angular
                     deadlineDateTime: "2017-01-10T04:00:00.000Z",
                     editors: null,
                     group_id: null,
-                    id: 187,
+                    id: 0,
                     klass_ids: null,
                     parendNode: "rgb(0, 187, 211)",
                     published: false,

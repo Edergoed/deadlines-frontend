@@ -35,7 +35,7 @@
         <div class="dynamic-classes" data-ng-repeat="choice in deadlineShow.choices">
                 {{ deadlineShow.klasses[choice.value-1].name }}
         </div>
-        <div class="dynamic-edit" ui-sref="mainon.deadlines.edit({editID: deadlineShow.deadline.deadline.id})">
+        <div data-ng-show="deadlineShow.deadline.deadline.id != 0" class="dynamic-edit" ui-sref="mainon.deadlines.edit({editID: deadlineShow.deadline.deadline.id})">
             <img class="dynamic_button" src="assets/img/options.svg" width="20px" height="30px">
         </div>
     </div>
