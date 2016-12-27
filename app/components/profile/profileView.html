@@ -8,7 +8,7 @@
             <div class="profile_top_meta">
                 <div class="top_meta_division">
                     <span class="profile_username">{{ userCurrent.firstname + ' ' + userCurrent.lastname }}</span>
-                    <span class="profile_email">bobbie.goede@student.hku.nl</span>
+                    <span class="profile_email">{{ userCurrent.email }}</span>
                 </div>
                 <div class="top_meta_division">
                     <span class="profile_stat">Creations</span>
@@ -19,7 +19,7 @@
                     <span class="profile_substat">{{ selectedUser.edited_deadline_ids.length }} 12</span>
                 </div>
             </div>
-            
+
         </div>
         <div class="profile_form" style="display: block; float: none; margin: 0 auto;">
             <div class="profile_field" style="width: 30%;">
@@ -36,7 +36,7 @@
                 <label>Lastname</label>
                 <input type="text" placeholder="Lastname" disabled="true" value="{{ userCurrent.lastname }}">
             </div>
-            
+
             <div class="profile_field" style="width: 100%;">
                 <label>Emailadress</label>
                 <input type="text" placeholder="Emailadress" style="width: 100%;" disabled="true" value="{{ userCurrent.email }}">
